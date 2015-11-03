@@ -1,70 +1,69 @@
 import express from 'express';
 import axios from 'axios';
-import parser from 'jsonapi-parserinator';
+// import parser from 'jsonapi-parserinator';
 
-import Model from '../../app/utils/HeaderItemModel.js';
+// import Model from '../../app/utils/HeaderItemModel.js';
 import {refineryApi} from '../../../appConfig.js';
 
 let router = express.Router(),
   appEnvironment = process.env.APP_ENV || 'production',
-  apiRoot = refineryApi.root[appEnvironment],
-  options = {
-    endpoint: `${apiRoot}${refineryApi.endpoint}`,
-    includes: refineryApi.includes,
-    filters: refineryApi.filters
-  };
+  apiRoot = refineryApi.root[appEnvironment];
+  // options = {
+  //   endpoint: `${apiRoot}${refineryApi.endpoint}`,
+  //   includes: refineryApi.includes,
+  //   filters: refineryApi.filters
+  // };
 
-const completeApiUrl = parser.getCompleteApi(options);
+// const completeApiUrl = parser.getCompleteApi(options);
 
 router
   .route('/')
   .get((req, res, next) => {
-    axios
-      .get(completeApiUrl)
-      .then(data => {
-        let parsed = parser.parse(data.data, options),
-          modelData = Model.build(parsed);
+    res.locals.data = {
+      Store: {
+        _angularApps: ['Locations', 'Divisions', 'Profiles'],
+        _reactApps: ['Staff Picks', 'Header', 'Book Lists']
+      },
+      completeApiUrl: ''
+    };
 
-        res.locals.data = {
-          Store: {
-            headerData: modelData,
-            subscribeFormVisible: false
-          },
-          // Set the API URL here so we can access it when we
-          // render in the EJS file.
-          completeApiUrl
-        };
-        next();
-      })
-      .catch(error => {
-        console.log('error calling API : ' + error);
-        console.log('Attempted to call : ' + completeApiUrl);
+    // The next is needed so that Express knows to go to the
+    // next middleware in the line.
+    // This would be the app.get('/', ...) call in server.js.
+    next();
 
-        res.locals.data = {
-          completeApiUrl
-        };
-        next();
-      }); /* end Axios call */
-  });
+    /* This is commented out but we need to make an HTTP call to the
+     * Refinery, parse and model the returned data, and add it
+     * to the Alt store in the proper variables.
+     */
+    // axios
+    //   .get(completeApiUrl)
+    //   .then(data => {
+    //     // let parsed = parser.parse(data.data, options),
+    //     //   modelData = Model.build(parsed);
 
-router
-  .route('/header-data')
-  .get((req, res) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    //     res.locals.data = {
+    //       Store: {
+    //         _storeVar: []
+    //       },
+    //       // Set the API URL here so we can access it when we
+    //       // render in the EJS file.
+    //       // completeApiUrl
+    //     };
+    //     next();
+    //   })
+    //   .catch(error => {
+    //     console.log('error calling API : ' + error);
+    //     console.log('Attempted to call : ' + completeApiUrl);
 
-    axios
-      .get(completeApiUrl)
-      .then(data => {
-        let parsed = parser.parse(data.data, options),
-          modelData = Model.build(parsed);
-
-        res.json(modelData);
-      })
-      .catch(error => {
-        console.log('error calling API');
-        res.json({'error': 'error calling API'});
-      }); /* end Axios call */
+    //     res.locals.data = {
+    //       Store: {
+    //         _storeVar: []
+    //       },
+    //       // completeApiUrl
+    //     };
+    //     next();
+    //   }); /* end Axios call */
   });
 
 export default router;

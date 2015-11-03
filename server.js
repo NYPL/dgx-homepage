@@ -1,44 +1,35 @@
 import path from 'path';
-import compression from 'compression';
 import express from 'express';
+import favicon from 'express-favicon';
+import compress from 'compression';
 import colors from 'colors';
-import parser from 'jsonapi-parserinator';
 
-// React
 import React from 'react';
+import DocMeta from 'react-doc-meta';
+
 import Iso from 'iso';
 import alt from './src/app/alt.js';
 
-// Server Configurations
 import appConfig from './appConfig.js';
+import analytics from './analytics.js';
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
 import webpackConfig from './webpack.config.js';
 
-// Header Component
-import Header from './src/app/components/Header/Header.jsx';
+import Application from './src/app/components/Application/Application.jsx';
 
-// Global Config Variables
 const ROOT_PATH = __dirname;
-const DIST_PATH = path.resolve(ROOT_PATH, 'dist');
 const INDEX_PATH = path.resolve(ROOT_PATH, 'src/client');
-const API_URL = process.env.API_URL || appConfig.apiUrl;
+const DIST_PATH = path.resolve(ROOT_PATH, 'dist');
+const VIEWS_PATH = path.resolve(ROOT_PATH, 'src/views');
 const WEBPACK_DEV_PORT = appConfig.webpackDevServerPort || 3000;
 
-// Boolean flag that determines if we are running
-// our application in Production Mode.
-// Assigning as let variables, since they are mutable
 let isProduction = process.env.NODE_ENV === 'production',
-  serverPort = process.env.PORT || (isProduction ? 3001 : appConfig.port),
   // Assign API Routes
   apiRoutes = require('./src/server/ApiRoutes/ApiRoutes.js'),
-  /* Express Server Configuration
-   * ----------------------------
-   * - Using .EJS as the view engine
-  */
   app = express();
 
-app.use(compression());
+app.use(compress());
 
 // Disables the Server response from
 // displaying Express as the server engine
@@ -46,61 +37,53 @@ app.disable('x-powered-by');
 
 // Set the view engine to EJS
 app.set('view engine', 'ejs');
+app.set('views', VIEWS_PATH);
 
-// Set the path where to find EJS files
-app.set('views', INDEX_PATH);
+app.set('port', process.env.PORT || 3001);
 
-// Assign the proper path where the
-// application's dist files are located.
-app.use(express.static(DIST_PATH));
+// * is used for Reverse Proxy at the moment but can be cleaned up:
+// For webpack
+app.use('*/dist', express.static(DIST_PATH));
+// For images
+app.use('*/src/client', express.static(INDEX_PATH));
 
 
-/* Isomporphic Rendering of React App
- * ----------------------------------
- * 1. Bootstrap the FLUX Store with API Data
- * 2. Use ISO to add the <Header> component with
- *    proper data
- * 3. Render the <Header> as a string in the EJS template
-*/
 app.use('/', apiRoutes);
 
-// Match all routes to render the index page.
 app.get('/', (req, res) => {
-  let headerApp, iso;
+  let app, iso;
 
   alt.bootstrap(JSON.stringify(res.locals.data || {}));
+
   iso = new Iso();
 
-  headerApp = React.renderToString(React.createElement(Header));
-  iso.add(headerApp, alt.flush());
+  app = React.renderToString(React.createElement(Application));
+  iso.add(app, alt.flush());
 
   // First parameter references the ejs filename
   res.render('index', {
-    // Assign the Header String to the
-    // proper EJS variable
-    headerApp: iso.render(),
+    app: iso.render(),
     appTitle: appConfig.appTitle,
     favicon: appConfig.favIconPath,
     isProduction: isProduction,
+    gaCode: analytics.google.code(isProduction),
     webpackPort: WEBPACK_DEV_PORT,
-    filename: webpackConfig.output.filename,
-    nodeEnv: process.env.NODE_ENV,
     appEnv: process.env.APP_ENV,
     apiUrl: res.locals.data.completeApiUrl
   });
 
 });
 
-// Start the server.
-let server = app.listen(serverPort, (err, result) => {
-  if (err) {
-    console.log(colors.red(err));
+let server = app.listen(app.get('port'), (error, result) => {
+  if (error) {
+    console.log(colors.red(error));
   }
+
   console.log(colors.yellow.underline(appConfig.appName));
-  console.log(colors.green('Express server is listening at'), colors.cyan('localhost:' + serverPort));
+  console.log(colors.green('Express server is listening at'), colors.cyan('localhost:' + app.get('port')));
 });
 
-// this function is called when you want the server to die gracefully
+// This function is called when you want the server to die gracefully
 // i.e. wait for existing connections
 let gracefulShutdown = function() {
   console.log("Received kill signal, shutting down gracefully.");
@@ -119,6 +102,7 @@ process.on('SIGTERM', gracefulShutdown);
 // listen for INT signal e.g. Ctrl-C
 process.on('SIGINT', gracefulShutdown);
 
+
 /* Development Environment Configuration
  * -------------------------------------
  * - Using Webpack Dev Server
@@ -128,11 +112,15 @@ if (!isProduction) {
     publicPath: webpackConfig.output.publicPath,
     hot: true,
     stats: false,
-    historyApiFallback: true
-  }).listen(WEBPACK_DEV_PORT, 'localhost', (err, result) => {
-    if (err) {
-      console.log(colors.red(err));
+    historyApiFallback: true,
+    headers: {
+      'Access-Control-Allow-Origin': 'http://localhost:3001',
+      'Access-Control-Allow-Headers': 'X-Requested-With'
     }
-    console.log(colors.magenta('Webpack Dev Server listening at'), colors.cyan('localhost' + WEBPACK_DEV_PORT));
+  }).listen(3000, 'localhost', (error, result) => {
+    if (error) {
+      console.log(colors.red(error));
+    }
+    console.log(colors.magenta('Webpack Dev Server listening at'), colors.cyan('localhost3000'));
   });
 }
