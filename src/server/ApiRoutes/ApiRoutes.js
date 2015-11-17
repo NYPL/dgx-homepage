@@ -20,7 +20,7 @@ router
   .route('/')
   .get((req, res, next) => {
     res.locals.data = {
-      Store: {
+      HomepageStore: {
         _angularApps: ['Locations', 'Divisions', 'Profiles'],
         _reactApps: ['Staff Picks', 'Header', 'Book Lists']
       },

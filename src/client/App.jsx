@@ -1,6 +1,6 @@
 import React from 'react';
 
-import alt from '../app/alt.js';
+import alt from 'dgx-alt-center';
 import Iso from 'iso';
 
 import './styles/main.scss';
