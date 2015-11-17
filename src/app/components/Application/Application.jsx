@@ -2,6 +2,8 @@ import React from 'react';
 
 import Store from '../../stores/Store.js';
 
+import Header from 'dgx-header-component-test';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -16,6 +18,7 @@ class App extends React.Component {
 
     return (
       <div className='app-wrapper'>
+        <Header />
         <h2>NYPL Rocks!</h2>
         <p>Our Angular Apps</p>
         <ul>
