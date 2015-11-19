@@ -3,6 +3,29 @@ import React from 'react';
 import Store from '../../stores/Store.js';
 
 import Header from 'dgx-header-component-test';
+import FeatureRow from 'dgx-feature-row-component';
+
+
+let dummyContent = [
+    {
+      title: 'title01',
+      descrption: 'descrption01',
+      image: 'http://cdn-prod.www.aws.nypl.org/sites/default/files/FW.jpg',
+      link: 'nypl.org'
+    },
+    {
+      title: 'title02',
+      descrption: 'descrption02',
+      image: 'http://cdn-prod.www.aws.nypl.org/sites/default/files/FW.jpg',
+      link: 'nypl.org'
+    },
+    {
+      title: 'title03',
+      descrption: 'descrption03',
+      image: 'http://cdn-prod.www.aws.nypl.org/sites/default/files/FW.jpg',
+      link: 'nypl.org'
+    }
+  ];
 
 class App extends React.Component {
   constructor(props) {
@@ -20,6 +43,9 @@ class App extends React.Component {
       <div className='app-wrapper'>
         <Header />
         <h2>NYPL Rocks!</h2>
+
+        <FeatureRow name={'HP-OfNote'} id={'HP-OfNote'} className={'RightColumn'} items={dummyContent} />
+        
         <p>Our Angular Apps</p>
         <ul>
           {angularApps}
