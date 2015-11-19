@@ -48,7 +48,6 @@
     "clean-webpack-plugin": "^0.1.3",
     "colors": "^1.1.2",
     "compression": "^1.5.2",
-    "dgx-feature-row-component": "git+https://bitbucket.org/NYPL/dgx-blog-features-component.git#master",
     "ejs": "^2.3.3",
     "express": "^4.13.1",
     "express-favicon": "^1.0.1",
@@ -65,6 +64,7 @@
     "underscore": "^1.8.3",
     "webpack": "^1.10.5",
     "webpack-merge": "^0.1.2",
-    "dgx-feature-row-component": "git+https://bitbucket.org/NYPL/dgx-feature-row-component.git#master"
+    "dgx-feature-row-component": "git+https://bitbucket.org/NYPL/dgx-feature-row-component.git#master",
+    "dgx-blog-features-component": "git+https://bitbucket.org/NYPL/dgx-blog-features-component.git#master"
   }
 }
