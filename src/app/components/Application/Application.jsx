@@ -2,7 +2,7 @@ import React from 'react';
 
 import Store from '../../stores/Store.js';
 
-import Header from 'dgx-header-component-test';
+import Header from 'dgx-header-component';
 import FeatureRow from 'dgx-feature-row-component';
 
 
