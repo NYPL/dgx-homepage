@@ -2,6 +2,7 @@ import React from 'react';
 
 import Store from '../../stores/Store.js';
 import BlogFeatures from 'dgx-blog-features-component'
+import HomepageStaffPicks from 'dgx-homepage-staff-picks-component'
 
 class App extends React.Component {
   constructor(props) {
@@ -18,6 +19,9 @@ class App extends React.Component {
     return (
       <div className='app-wrapper'>
         <h2>NYPL Rocks!</h2>
+
+	<h2>Staff Picks</h2>
+	<HomepageStaffPicks name={'HP-StaffPicks'} id={'HP-StaffPicks'} className={'RightColumn'} items={[]} />
 
 	<h2>From Our Blog</h2>
 	<BlogFeatures name={'HP-Blogs'} id={'HP-Blogs'} className={'RightColumn'} items={[]} />
