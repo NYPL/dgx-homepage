@@ -64,6 +64,7 @@
     "underscore": "^1.8.3",
     "webpack": "^1.10.5",
     "webpack-merge": "^0.1.2",
-    "dgx-feature-row-component": "git+https://bitbucket.org/NYPL/dgx-feature-row-component.git#master"
+    "dgx-feature-row-component": "git+https://bitbucket.org/NYPL/dgx-feature-row-component.git#master",
+    "dgx-blog-features-component": "git+https://bitbucket.org/NYPL/dgx-blog-features-component.git#master"
   }
 }
