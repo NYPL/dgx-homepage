@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Store from '../../stores/Store.js';
+import BlogFeatures from 'dgx-blog-features-component'
 
 import Header from 'dgx-header-component';
 import FeatureRow from 'dgx-feature-row-component';
@@ -45,7 +46,9 @@ class App extends React.Component {
         <h2>NYPL Rocks!</h2>
 
         <FeatureRow name={'HP-OfNote'} id={'HP-OfNote'} className={'RightColumn'} items={dummyContent} />
-        
+      	<h2>From Our Blog</h2>
+      	<BlogFeatures name={'HP-Blogs'} id={'HP-Blogs'} className={'RightColumn'} items={[]} />
+      	
         <p>Our Angular Apps</p>
         <ul>
           {angularApps}
