@@ -50,6 +50,7 @@
     "dgx-alt-center": "git+https://bitbucket.org/NYPL/dgx-alt-center.git#master",
     "dgx-feature-row-component": "git+https://bitbucket.org/NYPL/dgx-feature-row-component.git#master",
     "dgx-header-component": "git+https://bitbucket.org/NYPL/dgx-header-component.git#master",
+    "dgx-react-ga": "git+https://bitbucket.org/NYPL/dgx-react-ga.git#master",
     "ejs": "^2.3.3",
     "express": "^4.13.1",
     "express-favicon": "^1.0.1",

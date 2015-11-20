@@ -7,12 +7,16 @@ import './styles/main.scss';
 
 import App from '../app/components/Application/Application.jsx';
 
+import ga from 'react-ga';
+import {config} from 'dgx-react-ga';
 
 window.onload = () => {
+
   if (!window.ga) {
     console.log('Analytics not available - loading through React.');
-    var gaOpts = { debug: false };
-    // ga.initialize('UA-1420324-3', gaOpts);
+    var gaOpts = { debug: true };
+    // Passing in false for the dev GA code
+    ga.initialize(config.google.code(false), gaOpts);
   }
 
   // Render Isomorphically
