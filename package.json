@@ -66,6 +66,7 @@
     "webpack-merge": "^0.1.2",
     "dgx-feature-row-component": "git+https://bitbucket.org/NYPL/dgx-feature-row-component.git#master",
     "dgx-blog-features-component": "git+https://bitbucket.org/NYPL/dgx-blog-features-component.git#master",
-    "dgx-homepage-staff-picks-component": "git+https://bitbucket.org/NYPL/dgx-homepage-staff-picks-component.git#master"
+    "dgx-homepage-staff-picks-component": "git+https://bitbucket.org/NYPL/dgx-homepage-staff-picks-component.git#master",
+    "dgx-booklist-component": "git+https://bitbucket.org/NYPL/dgx-booklist-component.git#master"
   }
 }
