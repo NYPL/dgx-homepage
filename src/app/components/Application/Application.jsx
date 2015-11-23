@@ -22,13 +22,12 @@ class App extends React.Component {
       <div className='app-wrapper'>
         <h2>NYPL Rocks!</h2>
 
-<<<<<<< HEAD
-	<h2>Books We Love</h2>
-	<BooklistWidget name={'HP-Booklist'} id={'HP-Booklist'} className={'RightColumn'} items={[]} />
-=======
 	<h2>Staff Picks</h2>
 	<HomepageStaffPicks name={'HP-StaffPicks'} id={'HP-StaffPicks'} className={'RightColumn'} items={[]} />
->>>>>>> master
+
+        <h2>Books We Love</h2>
+	<BooklistWidget name={'HP-Booklist'} id={'HP-Booklist'} className={'RightColumn'} items={[]} />
+
 
 	<h2>From Our Blog</h2>
 	<BlogFeatures name={'HP-Blogs'} id={'HP-Blogs'} className={'RightColumn'} items={[]} />
