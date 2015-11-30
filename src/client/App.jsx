@@ -12,7 +12,7 @@ import {config} from 'dgx-react-ga';
 
 window.onload = () => {
   if (!window.ga) {
-    var gaOpts = { debug: true };
+    const gaOpts = { debug: true };
     // Passing in false for the dev GA code
     ga.initialize(config.google.code(false), gaOpts);
   }
@@ -24,4 +24,3 @@ window.onload = () => {
     React.render(<App />, container);
   });
 };
-
