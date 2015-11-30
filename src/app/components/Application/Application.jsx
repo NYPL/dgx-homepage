@@ -52,8 +52,21 @@ class App extends React.Component {
         <h2>Of Note</h2>
         <FeatureRow name={'HP-OfNote'} id={'HP-OfNote'} className={'RightColumn'} items={dummyContent} />
 
-      	<h2>Staff Picks</h2>
-      	<HomepageStaffPicks name={'HP-StaffPicks'} id={'HP-StaffPicks'} className={'RightColumn'} items={[]} />
+	<HomepageRow
+	title={'Staff Picks'}
+	sideBar={
+	    <div>
+            <h2>Staff Picks</h2>
+            <SeeMoreButton label='See More...'
+            target={"/staff-picks"} />
+            </div>
+	} content={
+      	    <HomepageStaffPicks
+	    name={'HP-StaffPicks'}
+	    id={'HP-StaffPicks'}
+	    className={'RightColumn'}
+	    items={[]} />
+	} />
 
 	<HomepageRow
 	title={'Books We Love'}
