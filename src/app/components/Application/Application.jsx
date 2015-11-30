@@ -2,34 +2,13 @@ import React from 'react';
 
 import Store from '../../stores/Store.js';
 import HomepageRow from 'dgx-homepage-row-component';
-import BlogFeatures from 'dgx-blog-features-component'
-import HomepageStaffPicks from 'dgx-homepage-staff-picks-component'
-import BooklistWidget from 'dgx-booklist-component'
+import BlogFeatures from 'dgx-blog-features-component';
+import HomepageStaffPicks from 'dgx-homepage-staff-picks-component';
+import BooklistWidget from 'dgx-booklist-component';
 
 import Header from 'dgx-header-component';
 import FeatureRow from 'dgx-feature-row-component';
 import { SeeMoreButton } from 'dgx-react-buttons';
-
-let dummyContent = [
-    {
-      title: 'title01',
-      descrption: 'descrption01',
-      image: 'http://cdn-prod.www.aws.nypl.org/sites/default/files/FW.jpg',
-      link: 'nypl.org'
-    },
-    {
-      title: 'title02',
-      descrption: 'descrption02',
-      image: 'http://cdn-prod.www.aws.nypl.org/sites/default/files/FW.jpg',
-      link: 'nypl.org'
-    },
-    {
-      title: 'title03',
-      descrption: 'descrption03',
-      image: 'http://cdn-prod.www.aws.nypl.org/sites/default/files/FW.jpg',
-      link: 'nypl.org'
-    }
-  ];
 
 class App extends React.Component {
   constructor(props) {
