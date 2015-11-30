@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Store from '../../stores/Store.js';
+import HomepageRow from 'dgx-homepage-row-component';
 import BlogFeatures from 'dgx-blog-features-component'
 import HomepageStaffPicks from 'dgx-homepage-staff-picks-component'
 import BooklistWidget from 'dgx-booklist-component'
@@ -8,7 +9,7 @@ import BooklistWidget from 'dgx-booklist-component'
 
 import Header from 'dgx-header-component';
 import FeatureRow from 'dgx-feature-row-component';
-
+import { SeeMoreButton } from 'dgx-react-buttons';
 
 let dummyContent = [
     {
@@ -59,6 +60,21 @@ class App extends React.Component {
 
       	<h2>From Our Blog</h2>
       	<BlogFeatures name={'HP-Blogs'} id={'HP-Blogs'} className={'RightColumn'} items={[]} />
+
+	<HomepageRow
+	title={'Of Note'}
+	sideBar={
+	    <div>
+            <h2>Of Note</h2>
+            <SeeMoreButton label='See More...'
+            target={"https://encrypted.google.com/search?q=good+data"} />
+            </div>
+	} content={<FeatureRow
+	    name={'HP-OfNote'}
+	    id={'HP-OfNote'}
+	    className={'RightColumn'}
+	    items={[]} />
+	} />
 	
         <p>Our Angular Apps</p>
         <ul>
