@@ -6,7 +6,6 @@ import BlogFeatures from 'dgx-blog-features-component'
 import HomepageStaffPicks from 'dgx-homepage-staff-picks-component'
 import BooklistWidget from 'dgx-booklist-component'
 
-
 import Header from 'dgx-header-component';
 import FeatureRow from 'dgx-feature-row-component';
 import { SeeMoreButton } from 'dgx-react-buttons';
@@ -37,17 +36,12 @@ class App extends React.Component {
     super(props);
 
     this.state = Store.getState();
-    this._getList = this._getList.bind(this);
   }
   
   render() {
-    let angularApps = this._getList(this.state._angularApps),
-      reactApps = this._getList(this.state._reactApps);
-
     return (
       <div className='app-wrapper'>
         <Header />
-        <h2>NYPL Rocks!</h2>
 
 	<HomepageRow
 	title={'Learn Something New'}
@@ -127,23 +121,8 @@ class App extends React.Component {
 	    items={[]} />
 	} />
 	
-        <p>Our Angular Apps</p>
-        <ul>
-          {angularApps}
-        </ul>
-        <p>Our React Apps</p>
-        <ul>
-          {reactApps}
-        </ul>
       </div>
     );
-  }
-
-  // Helper functions below the render() function:
-  _getList(appsArray) {
-    return appsArray.map((appName, index) => {
-      return (<li key={index}>{appName}</li>);
-    });
   }
 }
 
