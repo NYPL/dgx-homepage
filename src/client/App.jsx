@@ -19,7 +19,6 @@ window.onload = () => {
 
   // Render Isomorphically
   Iso.bootstrap((state, meta, container) => {
-    let node = document.getElementById('app');
     alt.bootstrap(state);
     React.render(<App />, container);
   });
