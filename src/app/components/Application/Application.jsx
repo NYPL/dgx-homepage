@@ -58,8 +58,21 @@ class App extends React.Component {
         <h2>Books We Love</h2>
         <BooklistWidget name={'HP-Booklist'} id={'HP-Booklist'} className={'RightColumn'} items={[]} />
 
-      	<h2>From Our Blog</h2>
-      	<BlogFeatures name={'HP-Blogs'} id={'HP-Blogs'} className={'RightColumn'} items={[]} />
+	<HomepageRow
+	title={'From Our Blog'}
+	sideBar={
+	    <div>
+            <h2>From Our Blog</h2>
+            <SeeMoreButton label='See More...'
+            target={"//nypl.org/blog"} />
+            </div>
+	} content={
+	    <BlogFeatures
+	    name={'HP-Blogs'}
+	    id={'HP-Blogs'}
+	    className={'RightColumn'}
+	    items={[]} />
+	} />
 
 	<HomepageRow
 	title={'Of Note'}
