@@ -71,6 +71,7 @@
     "dgx-blog-features-component": "git+https://bitbucket.org/NYPL/dgx-blog-features-component.git#master",
     "dgx-homepage-staff-picks-component": "git+https://bitbucket.org/NYPL/dgx-homepage-staff-picks-component.git#master",
     "dgx-booklist-component": "git+https://bitbucket.org/NYPL/dgx-booklist-component.git#master",
-    "dgx-react-buttons": "git+https://bitbucket.org/NYPL/dgx-react-buttons.git#master"
+    "dgx-react-buttons": "git+https://bitbucket.org/NYPL/dgx-react-buttons.git#master",
+    "dgx-tabbed-features-component": "git+https://bitbucket.org/NYPL/dgx-tabbed-features-component#v0.0.1"
   }
 }

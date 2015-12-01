@@ -6,6 +6,7 @@ import HomepageStaffPicks from 'dgx-homepage-staff-picks-component';
 import BooklistWidget from 'dgx-booklist-component';
 import Header from 'dgx-header-component';
 import FeatureRow from 'dgx-feature-row-component';
+import TabbedComponent from 'dgx-tabbed-features-component';
 import { SeeMoreButton } from 'dgx-react-buttons';
 
 class App extends React.Component {
@@ -19,6 +20,21 @@ class App extends React.Component {
     return (
       <div className="app-wrapper">
         <Header />
+
+        <HomepageRow
+        title={'What’s Happening'}
+        sideBar={
+            <div>
+            <h2>What’s Happening</h2>
+            <SeeMoreButton label="See More..."
+            target={"/events/"} />
+            </div>
+        } content={<TabbedComponent
+            name={'HP-Events'}
+            id={'HP-Events'}
+            className={'RightColumn'}
+            items={[]} />
+        } />
 
         <HomepageRow
         title={'Learn Something New'}
