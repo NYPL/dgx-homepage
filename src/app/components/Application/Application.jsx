@@ -7,6 +7,7 @@ import BooklistWidget from 'dgx-booklist-component';
 import Header from 'dgx-header-component';
 import FeatureRow from 'dgx-feature-row-component';
 import TabbedComponent from 'dgx-tabbed-features-component';
+import CarouselComponent from 'dgx-homepage-carousel-component';
 import { SeeMoreButton } from 'dgx-react-buttons';
 
 class App extends React.Component {
@@ -20,6 +21,8 @@ class App extends React.Component {
     return (
       <div className="app-wrapper">
         <Header />
+
+	<CarouselComponent id="HP-Carousel" name="HP-Carousel" items={[]} />
 
         <HomepageRow
         title={'What’s Happening'}
