@@ -45,8 +45,8 @@ class App extends React.Component {
             target={"/events/classes/calendar"} />
             </div>
         } content={<FeatureRow
-            name={'HP-Lear'}
-            id={'HP-Lears'}
+            name={'HP-Learn'}
+            id={'HP-Learn'}
             className={'RightColumn'}
             items={[]} />
         } />
