@@ -34,5 +34,12 @@ $FOURTH_FONT_KIEVIT: 'sans-serif';
     &__Content {
 	@include Kievit-Book;
 	color: #a3a19e;
-    }	
+    }
+
+    .see-more-button {
+	span:nth-of-type(2) {
+	    // NOT THE ACCESSIBLE WAY TO HIDE THIS HERE!!
+	    display: none !important;
+	}
+    }
 }
