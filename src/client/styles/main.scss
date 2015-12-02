@@ -2,6 +2,51 @@
 @import '~dgx-react-footer/dist/styles/styles';
 @import '~dgx-react-buttons/dist/styles/styles.scss';
 
+$FONT_PATH: '//ux-static.nypl.org';
+$SECONDARY_FONT_KIEVIT: 'Helvetica';
+$THIRD_FONT_KIEVIT: 'arial';
+$FOURTH_FONT_KIEVIT: 'sans-serif';
+
+@include font-face(Kievit-Book, '#{$FONT_PATH}/ff_kievit_web/KievitWeb-Book');
+@include font-face(Kievit-Medium, '#{$FONT_PATH}/ff_kievit_web/KievitWeb-Medi');
+
+@mixin Kievit-Book {
+  font-family: 'Kievit-Book', $SECONDARY_FONT_KIEVIT, $THIRD_FONT_KIEVIT;
+}
+
+@mixin Kievit-Medium {
+  font-family: 'Kievit-Medium', $SECONDARY_FONT_KIEVIT, $THIRD_FONT_KIEVIT;
+}
+
+
 #app {
   margin: 0;
+}
+
+.homepageRow {
+    margin: 0 32px;
+    border-top: 4px solid #ed1c24;
+    position: relative;
+    min-height: 133px;
+
+    h2 {
+	@include Kievit-Medium;
+	color: #ed1c24;
+    }
+
+    &__Content {
+	@include Kievit-Book;
+	color: #a3a19e;
+    }
+
+    .see-more-button {
+	position: absolute;
+	right: 0;
+	top: 20px;
+	
+	span:nth-of-type(2) {
+	    // NOT THE ACCESSIBLE WAY TO HIDE THIS HERE!!
+	    display: none !important;
+	}
+    }
 }
