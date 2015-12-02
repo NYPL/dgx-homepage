@@ -9,6 +9,7 @@ import FeatureRow from 'dgx-feature-row-component';
 import TabbedComponent from 'dgx-tabbed-features-component';
 import CarouselComponent from 'dgx-homepage-carousel-component';
 import { SeeMoreButton } from 'dgx-react-buttons';
+import Footer from 'dgx-react-footer';
 
 class App extends React.Component {
   constructor(props) {
@@ -22,7 +23,7 @@ class App extends React.Component {
       <div className="app-wrapper">
         <Header />
 
-	<CarouselComponent id="HP-Carousel" name="HP-Carousel" items={[]} />
+        <CarouselComponent id="HP-Carousel" name="HP-Carousel" items={[]} />
 
         <HomepageRow
         title={'What’s Happening'}
@@ -116,6 +117,7 @@ class App extends React.Component {
             className={'RightColumn'}
             items={[]} />
         } />
+        <Footer />
       </div>
     );
   }
