@@ -50,7 +50,7 @@
     "dgx-alt-center": "git+https://bitbucket.org/NYPL/dgx-alt-center.git#master",
     "dgx-feature-row-component": "git+https://bitbucket.org/NYPL/dgx-feature-row-component.git#master",
     "dgx-header-component": "git+https://bitbucket.org/NYPL/dgx-header-component.git#master",
-    "dgx-react-footer": "git+https://bitbucket.org/NYPL/dgx-react-footer.git#updated-footer",
+    "dgx-react-footer": "git+https://bitbucket.org/NYPL/dgx-react-footer.git#master",
     "dgx-react-ga": "git+https://bitbucket.org/NYPL/dgx-react-ga.git#master",
     "ejs": "^2.3.3",
     "express": "^4.13.1",
@@ -74,6 +74,6 @@
     "dgx-booklist-component": "git+https://bitbucket.org/NYPL/dgx-booklist-component.git#master",
     "dgx-react-buttons": "git+https://bitbucket.org/NYPL/dgx-react-buttons.git#master",
     "dgx-tabbed-features-component": "git+https://bitbucket.org/NYPL/dgx-tabbed-features-component#v0.0.1",
-    "dgx-homepage-carousel-component": "git+https://bitbucket.org/NYPL/dgx-homepage-carousel-component#build-skeleton"
+    "dgx-homepage-carousel-component": "git+https://bitbucket.org/NYPL/dgx-homepage-carousel-component#master"
   }
 }
