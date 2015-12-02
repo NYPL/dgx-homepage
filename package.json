@@ -68,10 +68,12 @@
     "underscore": "^1.8.3",
     "webpack": "^1.10.5",
     "webpack-merge": "^0.1.2",
-    "dgx-homepage-row-component": "git+https://bitbucket.org/NYPL/dgx-homepage-row-component.git#0.0.1",
+    "dgx-homepage-row-component": "git+https://bitbucket.org/NYPL/dgx-homepage-row-component.git#development",
     "dgx-blog-features-component": "git+https://bitbucket.org/NYPL/dgx-blog-features-component.git#master",
     "dgx-homepage-staff-picks-component": "git+https://bitbucket.org/NYPL/dgx-homepage-staff-picks-component.git#master",
     "dgx-booklist-component": "git+https://bitbucket.org/NYPL/dgx-booklist-component.git#master",
-    "dgx-react-buttons": "git+https://bitbucket.org/NYPL/dgx-react-buttons.git#master"
+    "dgx-react-buttons": "git+https://bitbucket.org/NYPL/dgx-react-buttons.git#master",
+    "dgx-tabbed-features-component": "git+https://bitbucket.org/NYPL/dgx-tabbed-features-component#v0.0.1",
+    "dgx-homepage-carousel-component": "git+https://bitbucket.org/NYPL/dgx-homepage-carousel-component#build-skeleton"
   }
 }
