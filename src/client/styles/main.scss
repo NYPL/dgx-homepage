@@ -32,6 +32,7 @@ $FOURTH_FONT_KIEVIT: 'sans-serif';
     h2 {
 	@include Kievit-Medium;
 	color: #ed1c24;
+	font-weight: normal;
     }
 
     &__Content {
