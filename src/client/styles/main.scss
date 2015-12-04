@@ -62,6 +62,7 @@ $FOURTH_FONT_KIEVIT: 'sans-serif';
 }
 
 .homepageRow {
+
   @include background-grid($color: rgba(0, 240, 20, 0.6));
   @include isolation-span(3, 1, 'both');
 
@@ -75,6 +76,7 @@ $FOURTH_FONT_KIEVIT: 'sans-serif';
     @include Kievit-Medium;
 
     color: $PRIMARY_COLOR;
+    font-weight: normal;
   }
 
   &__Content {
