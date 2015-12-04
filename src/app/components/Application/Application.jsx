@@ -20,7 +20,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="app-wrapper">
+      <div className="app-wrapper row center-xs end-sm start-lg">
         <Header />
 
         <CarouselComponent id="HP-Carousel" name="HP-Carousel" items={[]} />
@@ -117,6 +117,7 @@ class App extends React.Component {
             className={'RightColumn'}
             items={[]} />
         } />
+
         <Footer />
       </div>
     );
