@@ -1,18 +1,29 @@
+/*
+Import style rules from node module components
+*/
+
 @import '~dgx-header-component/dist/styles/main';
 @import '~dgx-react-footer/dist/styles/styles';
 @import '~dgx-react-buttons/dist/styles/styles.scss';
 
 /*
-import singularity
+Import singularity and breakpoints
 */
 @import '../../../bower_components/singularity/stylesheets/singularitygs';
 @import '../../../bower_components/breakpoint-sass/stylesheets/breakpoint';
 
 /*
-include singularity
+Set up grid
 */
-@include add-grid(12);
+@include add-grid(3);
+@include add-gutter(1/2.5);
+@include add-gutter-style('split');
+@include sgs-change('debug', true);
 
+
+/*
+Import fonts
+*/
 $FONT_PATH: '//ux-static.nypl.org';
 $SECONDARY_FONT_KIEVIT: 'Helvetica';
 $THIRD_FONT_KIEVIT: 'arial';
@@ -20,7 +31,6 @@ $FOURTH_FONT_KIEVIT: 'sans-serif';
 
 @include font-face(Kievit-Book, '#{$FONT_PATH}/ff_kievit_web/KievitWeb-Book');
 @include font-face(Kievit-Medium, '#{$FONT_PATH}/ff_kievit_web/KievitWeb-Medi');
-
 
 @mixin Kievit-Book {
   font-family: 'Kievit-Book', $SECONDARY_FONT_KIEVIT, $THIRD_FONT_KIEVIT;
@@ -35,13 +45,24 @@ $FOURTH_FONT_KIEVIT: 'sans-serif';
   margin: 0;
 }
 
+.CarouselComponent {
+  /*
+  This is for visualize the grid we are using, color can be changed
+  */
+  @include background-grid($color: rgba(0, 240, 20, 0.6));
+  /*
+  Span the elements to 3 columns wide and start with column #1
+  */
+  @include isolation-span(3, 1, 'both');
+}
+
 .homepageRow {
-  margin: 0 32px;
+  @include background-grid($color: rgba(0, 240, 20, 0.6));
+  @include isolation-span(3, 1, 'both');
+
   border-top: 4px solid #ed1c24;
   position: relative;
   min-height: 133px;
-
-  @include isolation-span(10, 2, 'both');
 
   h2 {
     @include Kievit-Medium;
