@@ -1,4 +1,9 @@
 /*
+Import utils
+*/
+@import 'utils/colors';
+
+/*
 Import style rules from node module components
 */
 
@@ -60,20 +65,20 @@ $FOURTH_FONT_KIEVIT: 'sans-serif';
   @include background-grid($color: rgba(0, 240, 20, 0.6));
   @include isolation-span(3, 1, 'both');
 
-  border-top: 4px solid #ed1c24;
-  position: relative;
+  border-top: 4px solid $PRIMARY_COLOR;
   min-height: 133px;
+  position: relative;
 
   h2 {
     @include Kievit-Medium;
 
-    color: #ed1c24;
+    color: $PRIMARY_COLOR;
   }
 
   &__Content {
     @include Kievit-Book;
 
-    color: #a3a19e;
+    color: $COOLGRAY_COLOR;
   }
 
   .see-more-button {
