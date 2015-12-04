@@ -66,6 +66,8 @@ $FOURTH_FONT_KIEVIT: 'sans-serif';
   @include isolation-span(3, 1, 'both');
 
   border-top: 4px solid $PRIMARY_COLOR;
+  display: flex;
+  flex-flow: row wrap;
   min-height: 133px;
   position: relative;
 
