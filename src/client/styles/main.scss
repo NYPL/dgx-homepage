@@ -14,8 +14,8 @@ Import style rules from node module components
 /*
 Import singularity and breakpoints
 */
-@import '../../../bower_components/singularity/stylesheets/singularitygs';
-@import '../../../bower_components/breakpoint-sass/stylesheets/breakpoint';
+@import '../../../node_modules/singularitygs/stylesheets/singularitygs';
+@import '../../../node_modules/breakpoint-sass/stylesheets/breakpoint';
 
 /*
 Set up grid
