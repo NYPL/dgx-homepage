@@ -20,7 +20,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="app-wrapper row center-xs end-sm start-lg">
+      <div className="app-wrapper">
         <Header />
 
         <CarouselComponent id="HP-Carousel" name="HP-Carousel" items={[]} />
