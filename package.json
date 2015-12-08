@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index",
     "build": "NODE_ENV=production webpack --config webpack.config.js",
-    "postinstall": "npm run build && bower install singularity --save",
+    "postinstall": "npm run build && bower install",
     "build-start": "npm run build && npm run start"
   },
   "repository": {
