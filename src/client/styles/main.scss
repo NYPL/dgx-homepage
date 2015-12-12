@@ -22,7 +22,6 @@ Set up grid
 */
 @include add-grid(3);
 @include add-gutter(1/2.5);
-@include add-gutter-style('split');
 @include sgs-change('debug', true);
 
 
@@ -51,6 +50,11 @@ $FOURTH_FONT_KIEVIT: 'sans-serif';
   // This is for visualize the grid we are using, color can be changed
   @include background-grid($color: rgba(0, 240, 20, 0.6));
 
+  margin: 0 14px;
+
+  @media (min-width: 769px) {
+      margin: 0 20px;
+  }
 
 }
 
