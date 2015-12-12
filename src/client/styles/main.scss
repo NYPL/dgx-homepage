@@ -48,9 +48,7 @@ $FOURTH_FONT_KIEVIT: 'sans-serif';
 
 .app-wrapper {
 
-   /*
-  This is for visualize the grid we are using, color can be changed
-  */
+  // This is for visualize the grid we are using, color can be changed
   @include background-grid($color: rgba(0, 240, 20, 0.6));
 
 
@@ -64,10 +62,9 @@ $FOURTH_FONT_KIEVIT: 'sans-serif';
 }
 
 .homepageRow {
-  /*
-  Span the elements to 3 columns wide and start with column #1
-  */
+  // Span the elements to 3 columns wide and start with column #1
   @include grid-span(3, 1);
+
   border-top: 4px solid $PRIMARY_COLOR;
   display: flex;
   flex-flow: row wrap;
