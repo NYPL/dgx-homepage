@@ -1,7 +1,33 @@
+/*
+Import utils
+*/
+@import 'utils/colors';
+
+/*
+Import style rules from node module components
+*/
+
 @import '~dgx-header-component/dist/styles/main';
 @import '~dgx-react-footer/dist/styles/styles';
 @import '~dgx-react-buttons/dist/styles/styles.scss';
 
+/*
+Import singularity and breakpoints
+*/
+@import '~singularitygs/stylesheets/singularitygs';
+@import '~breakpoint-sass/stylesheets/breakpoint';
+
+/*
+Set up grid
+*/
+@include add-grid(3);
+@include add-gutter(1/2.5);
+@include sgs-change('debug', true);
+
+
+/*
+Import fonts
+*/
 $FONT_PATH: '//ux-static.nypl.org';
 $SECONDARY_FONT_KIEVIT: 'Helvetica';
 $THIRD_FONT_KIEVIT: 'arial';
@@ -19,35 +45,57 @@ $FOURTH_FONT_KIEVIT: 'sans-serif';
 }
 
 
+.app-wrapper {
+
+  // This is for visualize the grid we are using, color can be changed
+  @include background-grid($color: rgba(0, 240, 20, 0.6));
+
+  margin: 0 14px;
+
+  @media (min-width: 769px) {
+      margin: 0 20px;
+  }
+
+}
+
 #app {
   margin: 0;
 }
 
+.CarouselComponent {
+}
+
 .homepageRow {
-    margin: 0 32px;
-    border-top: 4px solid #ed1c24;
-    position: relative;
-    min-height: 133px;
+  // Span the elements to 3 columns wide and start with column #1
+  @include grid-span(3, 1);
 
-    h2 {
-	@include Kievit-Medium;
-	color: #ed1c24;
-	font-weight: normal;
-    }
+  border-top: 4px solid $PRIMARY_COLOR;
+  display: flex;
+  flex-flow: row wrap;
+  min-height: 133px;
+  position: relative;
 
-    &__Content {
-	@include Kievit-Book;
-	color: #a3a19e;
-    }
+  h2 {
+    @include Kievit-Medium;
 
-    .see-more-button {
-	position: absolute;
-	right: 0;
-	top: 20px;
-	
-	span:nth-of-type(2) {
-	    // NOT THE ACCESSIBLE WAY TO HIDE THIS HERE!!
-	    display: none !important;
-	}
+    color: $PRIMARY_COLOR;
+    font-weight: normal;
+  }
+
+  &__Content {
+    @include Kievit-Book;
+
+    color: $COOLGRAY_COLOR;
+  }
+
+  .see-more-button {
+    position: absolute;
+    right: 0;
+    top: 20px;
+
+    span:nth-of-type(2) {
+      // NOT THE ACCESSIBLE WAY TO HIDE THIS HERE!!
+      display: none !important;
     }
+  }
 }
