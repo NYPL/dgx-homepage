@@ -120,8 +120,8 @@ class App extends React.Component {
             items={[]} />
           } />
 
-          <Footer />
         </div>
+        <Footer />
       </div>
     );
   }
