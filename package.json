@@ -27,7 +27,7 @@
   "author": "Edwin Guzman",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com//issues"
+    "url": "https://github.com/issues"
   },
   "devDependencies": {
     "babel": "^5.8.19",
@@ -52,7 +52,7 @@
     "dgx-alt-center": "git+ssh://bitbucket.org/NYPL/dgx-alt-center.git#master",
     "dgx-blog-features-component": "git+ssh://bitbucket.org/NYPL/dgx-blog-features-component.git#master",
     "dgx-booklist-component": "git+ssh://bitbucket.org/NYPL/dgx-booklist-component.git#master",
-    "dgx-feature-row-component": "git+ssh://bitbucket.org/NYPL/dgx-feature-row-component.git#master",
+    "dgx-feature-row-component": "git+ssh://bitbucket.org/NYPL/dgx-feature-row-component.git#WEB-1703-abstract-error-output",
     "dgx-header-component": "git+ssh://bitbucket.org/NYPL/dgx-header-component.git#master",
     "dgx-homepage-carousel-component": "git+ssh://bitbucket.org/NYPL/dgx-homepage-carousel-component#master",
     "dgx-homepage-row-component": "git+ssh://bitbucket.org/NYPL/dgx-homepage-row-component.git#development",

@@ -41,36 +41,60 @@ $FOURTH_FONT_KIEVIT: 'sans-serif';
   font-family: 'Kievit-Medium', $SECONDARY_FONT_KIEVIT, $THIRD_FONT_KIEVIT;
 }
 
-
-.app-wrapper {
-  margin: 0 14px;
-  @media (min-width: 769px) {
-      margin: 0 20px;
-  }
-}
-
 #app {
   margin: 0;
   min-width: 320px;
 }
 
-.CarouselComponent {
+.app-wrapper {
+  margin: 0 14px;
+  @media (min-width: 769px) {
+    margin: 0 20px;
+  }
 }
 
 .homepageRow {
+
+  @include grid-span(3,1);
+
   border-top: 4px solid $PRIMARY_COLOR;
   min-height: 133px;
+  padding: 32px 0;
+  position: relative;
+
+  .leftColumn {
+    margin: 0;
+
+    h2 {
+      margin: 0;
+      padding: 0;
+    }
+
+    .see-more-button {
+      position: absolute;
+      right: 0;
+      top: 28px;
+    }
+  }
 
   h2 {
     @include Kievit-Medium;
+
     color: $PRIMARY_COLOR;
-    font-weight: normal;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+    text-transform: capitalize;
   }
   
   &__Content {
     @include Kievit-Book;
-    font-size: 24px;
+
     color: $COOLGRAY_COLOR;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+    margin: 44px 0 0 0;
   }
 
   .see-more-button {
@@ -79,8 +103,6 @@ $FOURTH_FONT_KIEVIT: 'sans-serif';
       display: none !important;
     }
   }
-
-  @include grid-span(3,1);
 
   @include layout-at(6, 768px) {
     @include grid-span(6,1);
@@ -91,13 +113,14 @@ $FOURTH_FONT_KIEVIT: 'sans-serif';
     }
     
     .leftColumn {
-      border-top: 2px solid $PRIMARY_COLOR;
       @include grid-span(1,1);
+
+      border-top: 2px solid $PRIMARY_COLOR;
       text-align: right;
     }
 
     .rightColumn {
-	@include grid-span(6,2);
+      @include grid-span(6,2);
     }
   }
 
@@ -113,27 +136,9 @@ $FOURTH_FONT_KIEVIT: 'sans-serif';
     }
 
     .rightColumn {
-	@include grid-span(8,2);
+      @include grid-span(8,2);
     }
   }
-  
-  @media (max-width: 767px) {
-    position: relative;
-      
-    .leftColumn {
-	margin: 32px 0;
 
-	h2 {
-          padding: 0;
-	  margin: 0;
-	}
-    }
-
-    .see-more-button {
-      position: absolute;
-      right: 0;
-      top: 28px;
-    }
-  }
 }
 
