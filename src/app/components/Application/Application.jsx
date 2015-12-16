@@ -22,10 +22,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Header />
+        <Header skipNav={{target: 'maincontent'}}/>
 
-        <div className="app-wrapper">
-          <CarouselComponent id="HP-Carousel" name="HP-Carousel" items={[]} />
+        <div className="app-wrapper" id="maincontent" tabIndex="-1">
+          <CarouselComponent id="HP-Carousel" name="HP-Carousel" items={[]}/>
 
           <HomepageRow
           title={'What’s Happening'}
