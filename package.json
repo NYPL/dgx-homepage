@@ -57,7 +57,7 @@
     "dgx-homepage-carousel-component": "git+ssh://bitbucket.org/NYPL/dgx-homepage-carousel-component#master",
     "dgx-homepage-row-component": "git+ssh://bitbucket.org/NYPL/dgx-homepage-row-component.git#development",
     "dgx-homepage-staff-picks-component": "git+ssh://bitbucket.org/NYPL/dgx-homepage-staff-picks-component.git#master",
-    "dgx-react-buttons": "git+ssh://bitbucket.org/NYPL/dgx-react-buttons.git#modify-see-more-btn-css",
+    "dgx-react-buttons": "git+ssh://bitbucket.org/NYPL/dgx-react-buttons.git#master",
     "dgx-react-footer": "git+ssh://bitbucket.org/NYPL/dgx-react-footer.git#master",
     "dgx-react-ga": "git+ssh://bitbucket.org/NYPL/dgx-react-ga.git#master",
     "dgx-tabbed-features-component": "git+ssh://bitbucket.org/NYPL/dgx-tabbed-features-component#v0.0.1",
