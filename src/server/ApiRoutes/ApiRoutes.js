@@ -6,7 +6,8 @@ import parser from 'jsonapi-parserinator';
 import {refineryApi} from '../../../appConfig.js';
 
 let router = express.Router(),
-  appEnvironment = process.env.APP_ENV || 'production',
+  appEnvironment = process.env.APP_ENV || 'development',
+  // appEnvironment = process.env.APP_ENV || 'production',
   apiRoot = refineryApi.root[appEnvironment],
   options = {
     endpoint: `${apiRoot}${refineryApi.endpoint}`,
@@ -14,9 +15,10 @@ let router = express.Router(),
     filters: refineryApi.filters
   };
 
-console.log(refineryApi.endpoint);
+// const completeApiUrl = parser.getCompleteApi(options);
+const completeApiUrl = options.endpoint + '&include=' + options.includes + options.filters;
 
-const completeApiUrl = parser.getCompleteApi(options);
+console.log(completeApiUrl);
 
 router
   .route('/')
