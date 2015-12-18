@@ -33,12 +33,19 @@ $FOURTH_FONT_KIEVIT: 'sans-serif';
 @include font-face(Kievit-Book, '#{$FONT_PATH}/ff_kievit_web/KievitWeb-Book');
 @include font-face(Kievit-Medium, '#{$FONT_PATH}/ff_kievit_web/KievitWeb-Medi');
 
+@include font-face(Milo-Regular, '#{$FONT_PATH}/milo-web/milo-slab-pro-regular/MiloSlabWebPro');
+
 @mixin Kievit-Book {
   font-family: 'Kievit-Book', $SECONDARY_FONT_KIEVIT, $THIRD_FONT_KIEVIT;
 }
 
 @mixin Kievit-Medium {
   font-family: 'Kievit-Medium', $SECONDARY_FONT_KIEVIT, $THIRD_FONT_KIEVIT;
+}
+
+/* MILO INCLUDES */
+@mixin Milo-Regular {
+	font-family: 'Milo-Regular', $SECONDARY_FONT_MILO, $THIRD_FONT_MILO;
 }
 
 
@@ -55,6 +62,27 @@ $FOURTH_FONT_KIEVIT: 'sans-serif';
 }
 
 .CarouselComponent {
+    &.error {
+	color: #070707;
+	
+	h2 {
+	    font-family: "Kievit-Book";
+	    text-transform: uppercase;
+	}
+
+	.errMsg {
+	    font-family: "Milo-Regular";
+	    font-size: 50px;
+	    margin-bottom: 30px;
+	}
+
+	.errDesc {
+	    font-family: "Kievit-Book";
+	    font-size: 28px;
+	    line-height: 38px;
+	    margin-bottom: 30px;
+	}
+    }
 }
 
 .homepageRow {
