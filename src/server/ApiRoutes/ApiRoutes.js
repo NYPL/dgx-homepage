@@ -7,12 +7,14 @@ import {refineryApi} from '../../../appConfig.js';
 
 let router = express.Router(),
   appEnvironment = process.env.APP_ENV || 'production',
-  apiRoot = refineryApi.root[appEnvironment];
+  apiRoot = refineryApi.root[appEnvironment],
   options = {
     endpoint: `${apiRoot}${refineryApi.endpoint}`,
     includes: refineryApi.includes,
     filters: refineryApi.filters
   };
+
+console.log(refineryApi.endpoint);
 
 const completeApiUrl = parser.getCompleteApi(options);
 
