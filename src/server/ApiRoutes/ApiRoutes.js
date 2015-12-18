@@ -1,6 +1,6 @@
 import express from 'express';
 import axios from 'axios';
-// import parser from 'jsonapi-parserinator';
+import parser from 'jsonapi-parserinator';
 
 // import Model from '../../app/utils/HeaderItemModel.js';
 import {refineryApi} from '../../../appConfig.js';
@@ -8,13 +8,13 @@ import {refineryApi} from '../../../appConfig.js';
 let router = express.Router(),
   appEnvironment = process.env.APP_ENV || 'production',
   apiRoot = refineryApi.root[appEnvironment];
-  // options = {
-  //   endpoint: `${apiRoot}${refineryApi.endpoint}`,
-  //   includes: refineryApi.includes,
-  //   filters: refineryApi.filters
-  // };
+  options = {
+    endpoint: `${apiRoot}${refineryApi.endpoint}`,
+    includes: refineryApi.includes,
+    filters: refineryApi.filters
+  };
 
-// const completeApiUrl = parser.getCompleteApi(options);
+const completeApiUrl = parser.getCompleteApi(options);
 
 router
   .route('/')
