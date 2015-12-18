@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Store from '../../stores/Store.js';
 import HomepageRow from 'dgx-homepage-row-component';
@@ -22,20 +21,15 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Header skipNav={{target: 'maincontent'}}/>
+        <Header />
 
-        <div className="app-wrapper" id="maincontent" tabIndex="-1">
-          <CarouselComponent id="HP-Carousel" name="HP-Carousel" items={[]}/>
+        <div className="app-wrapper">
+          <CarouselComponent id="HP-Carousel" name="HP-Carousel" items={[]} />
 
           <HomepageRow
-          title={'What’s Happening'}
-          sideBar={
-            <div>
-            <h2>What’s Happening</h2>
-            <SeeMoreButton label="See More..."
-            target={"/events/"} />
-            </div>
-          } content={<TabbedComponent
+            title={'What’s Happening'}
+            link={"/events/"}
+            content={<TabbedComponent
             name={'HP-Events'}
             id={'HP-Events'}
             className={'RightColumn'}
@@ -43,14 +37,9 @@ class App extends React.Component {
           } />
 
           <HomepageRow
-          title={'Learn Something New'}
-          sideBar={
-            <div>
-            <h2>Learn Something New</h2>
-            <SeeMoreButton label="See More..."
-            target={"/events/classes/calendar"} />
-            </div>
-          } content={<FeatureRow
+            title={'Learn Something New'}
+            link={"/events/classes/calendar"}
+            content={<FeatureRow
             name={'HP-Learn'}
             id={'HP-Learn'}
             className={'RightColumn'}
@@ -58,14 +47,9 @@ class App extends React.Component {
           } />
 
           <HomepageRow
-          title={'Staff Picks'}
-          sideBar={
-            <div>
-            <h2>Staff Picks</h2>
-            <SeeMoreButton label="See More..."
-            target={"/staff-picks"} />
-            </div>
-          } content={
+            title={'Staff Picks'}
+            link={"/staff-picks"}
+            content={
             <HomepageStaffPicks
             name={'HP-StaffPicks'}
             id={'HP-StaffPicks'}
@@ -74,14 +58,8 @@ class App extends React.Component {
           } />
 
           <HomepageRow
-          title={'Books We Love'}
-          sideBar={
-            <div>
-            <h2>Books We Love</h2>
-            <SeeMoreButton label="See More..."
-            target={"//nypl.org/blog"} />
-            </div>
-          } content={
+            title={'Books We Love'}
+            content={
             <BooklistWidget
             name={'HP-Booklist'}
             id={'HP-Booklist'}
@@ -90,14 +68,9 @@ class App extends React.Component {
           } />
 
           <HomepageRow
-          title={'From Our Blog'}
-          sideBar={
-            <div>
-            <h2>From Our Blog</h2>
-            <SeeMoreButton label="See More..."
-            target={"//nypl.org/blog"} />
-            </div>
-          } content={
+            title={'From Our Blog'}
+            link={"//nypl.org/blog"}
+            content={
             <BlogFeatures
             name={'HP-Blogs'}
             id={'HP-Blogs'}
@@ -106,14 +79,8 @@ class App extends React.Component {
           } />
 
           <HomepageRow
-          title={'Of Note'}
-          sideBar={
-            <div>
-            <h2>Of Note</h2>
-            <SeeMoreButton label="See More..."
-            target={"https://encrypted.google.com/search?q=good+data"} />
-            </div>
-          } content={<FeatureRow
+            title={'Of Note'}
+            content={<FeatureRow
             name={'HP-OfNote'}
             id={'HP-OfNote'}
             className={'RightColumn'}
