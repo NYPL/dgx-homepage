@@ -1,26 +1,20 @@
-import BookActions from '../actions/Actions.js';
+import Actions from '../actions/Actions.js';
 import alt from 'dgx-alt-center';
 
-class HomepageStore {
+class Store {
   constructor() {
     this.bindListeners({
-      updateAngularApps: BookActions.UPDATE_ANGULAR_APPS,
-      updateReactApps: BookActions.UPDATE_REACT_APPS
+      handleOfNote: Actions.UPDATE_OF_NOTE
     });
 
     this.on('init', () => {
-      this._angularApps = [];
-      this._reactApps = [];
+      this.ofNote = [];
     });
   }
 
-  updateAngularApps(data) {
-    this._angularApps = data;
-  }
-
-  updateReactApps(data) {
-    this._reactApps = data;
+  handleOfNote(data) {
+    this.ofNote = data;
   }
 }
 
-export default alt.createStore(HomepageStore, 'HomepageStore');
+export default alt.createStore(Store, 'Store');

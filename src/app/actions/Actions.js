@@ -9,6 +9,10 @@ class Actions {
   updateReactApps(data) {
     this.dispatch(data);
   }
+
+  updateOfNote(data) {
+    this.dispatch(data);
+  }
 };
 
 export default alt.createActions(Actions);
