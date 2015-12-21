@@ -20,7 +20,6 @@ class App extends React.Component {
 
   render() {
     let ofNoteData = this.state.ofNote;
-    console.log('I got data ', this.state);
 
     return (
       <div>
@@ -87,7 +86,7 @@ class App extends React.Component {
             name={'HP-OfNote'}
             id={'HP-OfNote'}
             className={'RightColumn'}
-            items={[]} />
+            items={ofNoteData} />
           } />
 
         </div>

@@ -2,7 +2,7 @@ import express from 'express';
 import axios from 'axios';
 import parser from 'jsonapi-parserinator';
 
-// import Model from '../../app/utils/HeaderItemModel.js';
+import OfNoteModel from '../../app/utils/OfNoteModel.js';
 import {refineryApi} from '../../../appConfig.js';
 
 let router = express.Router(),
@@ -18,8 +18,6 @@ let router = express.Router(),
 // const completeApiUrl = parser.getCompleteApi(options);
 const completeApiUrl = options.endpoint + '&include=' + options.includes + options.filters;
 
-console.log(completeApiUrl);
-
 router
   .route('/')
   .get((req, res, next) => {
@@ -31,17 +29,12 @@ router
     axios
       .get(completeApiUrl)
       .then(data => {
-        let parsed = parser.parse(data.data, options);
-          // modelData = Model.build(parsed);
-        // console.log(parsed[0].slots[0]['current-item'].attributes.title.en.text);
-        // console.log(parsed[0].slots[0]['current-item'].attributes.description.en.text);
+        let parsed = parser.parse(data.data, options),
+          modelData = OfNoteModel.build(parsed[0].slots);
 
-        // console.log(parsed[0].slots[1]['current-item'].attributes.title.en.text);
-        // console.log(parsed[0].slots[1]['current-item'].attributes.description.en.text);
-        console.log(parsed);
         res.locals.data = {
           HomepageStore: {
-            ofNote: parsed
+            ofNote: modelData
           },
           // Set the API URL here so we can access it when we
           // render in the EJS file.
