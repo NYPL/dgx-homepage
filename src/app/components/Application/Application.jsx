@@ -21,8 +21,6 @@ class App extends React.Component {
   render() {
     let ofNoteData = this.state.ofNote;
 
-    console.log(ofNoteData);
-
     return (
       <div>
         <Header />
