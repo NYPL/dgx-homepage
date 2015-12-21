@@ -6,8 +6,8 @@ import parser from 'jsonapi-parserinator';
 import {refineryApi} from '../../../appConfig.js';
 
 let router = express.Router(),
-  appEnvironment = process.env.APP_ENV || 'development',
-  // appEnvironment = process.env.APP_ENV || 'production',
+  // appEnvironment = process.env.APP_ENV || 'development',
+  appEnvironment = process.env.APP_ENV || 'production',
   apiRoot = refineryApi.root[appEnvironment],
   options = {
     endpoint: `${apiRoot}${refineryApi.endpoint}`,
@@ -18,23 +18,11 @@ let router = express.Router(),
 // const completeApiUrl = parser.getCompleteApi(options);
 const completeApiUrl = options.endpoint + '&include=' + options.includes + options.filters;
 
-// console.log(completeApiUrl);
+console.log(completeApiUrl);
 
 router
   .route('/')
   .get((req, res, next) => {
-    res.locals.data = {
-      HomepageStore: {
-        _angularApps: ['Locations', 'Divisions', 'Profiles'],
-        _reactApps: ['Staff Picks', 'Header', 'Book Lists']
-      },
-      completeApiUrl: ''
-    };
-
-    // The next is needed so that Express knows to go to the
-    // next middleware in the line.
-    // This would be the app.get('/', ...) call in server.js.
-    next();
 
     /* This is commented out but we need to make an HTTP call to the
      * Refinery, parse and model the returned data, and add it
@@ -50,10 +38,9 @@ router
 
         // console.log(parsed[0].slots[1]['current-item'].attributes.title.en.text);
         // console.log(parsed[0].slots[1]['current-item'].attributes.description.en.text);
-
+        console.log(parsed);
         res.locals.data = {
-          Store: {
-            // _storeVar: [],
+          HomepageStore: {
             ofNote: parsed
           },
           // Set the API URL here so we can access it when we

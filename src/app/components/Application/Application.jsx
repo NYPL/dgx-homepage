@@ -1,5 +1,4 @@
 import React from 'react';
-import Store from '../../stores/Store.js';
 import HomepageStore from '../../stores/HomepageStore.js';
 import HomepageRow from 'dgx-homepage-row-component';
 import BlogFeatures from 'dgx-blog-features-component';
@@ -16,12 +15,12 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = Store.getState();
+    this.state = HomepageStore.getState();
   }
 
   render() {
     let ofNoteData = this.state.ofNote;
-    console.log('I got data ' + this.state);
+    console.log('I got data ', this.state);
 
     return (
       <div>
