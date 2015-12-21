@@ -62,7 +62,7 @@ $FOURTH_FONT_KIEVIT: 'sans-serif';
 
 .CarouselComponent {
   @include grid-span(3,1);
-  
+
   &.error {
     color: #070707;
   
@@ -100,6 +100,10 @@ $FOURTH_FONT_KIEVIT: 'sans-serif';
     h2 {
       @include Kievit-Medium;
 
+      color: $PRIMARY_COLOR;
+      font-size: 16px;
+      font-weight: normal;
+      line-height: 16px;
       margin: 0;
       padding: 0;
     }
@@ -177,16 +181,22 @@ $FOURTH_FONT_KIEVIT: 'sans-serif';
 }
 
 .bookList {
-  background-color: $PRIMARY_COLOR;
-  color: #FFFFFF;
-
-  h2 {
+  &.homepageRow {
+    background-color: $PRIMARY_COLOR;
     color: #FFFFFF;
-  }
 
-  & .see-more-button {
-    border: 2px solid #FFFFFF;
-    color: #FFFFFF;
+    h2 {
+      color: #FFFFFF;
+    }
+
+    &__Content {
+      color: #FFFFFF;
+    }
+
+    & .see-more-button {
+      border: 2px solid #FFFFFF;
+      color: #FFFFFF;
+    }
   }
 
 }
