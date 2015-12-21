@@ -1,8 +1,8 @@
 import _ from 'underscore';
 
-function Model() {
+class Model {
 
-  this.build = (data) => {
+  build(data) {
     //Make sure there's data
     if (!data) {
       return;
@@ -18,9 +18,10 @@ function Model() {
     }
   };
 
-  this.ofNoteModel = data => {
+  ofNoteModel(data) {
     let ofNoteItem = {};
 
+    // Populated proper data into ofNoteItem
     ofNoteItem.item = data['current-item'];
     ofNoteItem.title = data['current-item'].attributes.title.en.text;
     ofNoteItem.description = data['current-item'].attributes.description.en.text;
@@ -30,7 +31,6 @@ function Model() {
     return ofNoteItem;
   }
 
-
 }
 
-export default new Model();
+export default new Model;
