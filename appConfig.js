@@ -12,7 +12,8 @@ let config = {
     },
     endpoint: '/api/nypl/ndo/v0.1/site-data/containers?filter%5Bname%5D=Of%20Note',
     includes: [
-      'slots.current-item'
+      'slots.current-item',
+      'slots.current-item.rectangular-image.full-uri'
     ],
     filters:''
   }

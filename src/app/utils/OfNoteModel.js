@@ -24,6 +24,8 @@ function Model() {
     ofNoteItem.item = data['current-item'];
     ofNoteItem.title = data['current-item'].attributes.title.en.text;
     ofNoteItem.description = data['current-item'].attributes.description.en.text;
+    ofNoteItem.image = data['current-item']['rectangular-image'].attributes.uri['full-uri'];
+    ofNoteItem.link = data['current-item'].attributes.url;
 
     return ofNoteItem;
   }
