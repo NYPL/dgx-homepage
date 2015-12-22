@@ -21,7 +21,15 @@ class App extends React.Component {
   }
 
   render() {
-    let ofNoteData = this.state.ofNote.map((element) => {
+    let ofNoteDataList = this.state.modelData.map((element) => {
+      if(element.order === 7) {
+        return {
+          itemList: element.componentData
+        };
+      }
+    }).filter((obj) => {return obj !== undefined})[0];
+
+    let ofNoteData = ofNoteDataList.itemList.map((element) => {
       return {
         title: element.title.en.text,
         description: element.description.en.text,
@@ -29,6 +37,24 @@ class App extends React.Component {
         link: element.link
       };
     });
+
+    let learnDataList = this.state.modelData.map((element) => {
+      if(element.order === 2) {
+        return {
+          itemList: element.componentData
+        };
+      }
+    }).filter((obj) => {return obj !== undefined})[0];
+
+    let learnData = learnDataList.itemList.map((element) => {
+      return {
+        title: element.title.en.text,
+        image: element.image,
+        link: element.link
+      };
+    })
+
+    console.log(learnData);
 
     return (
       <div>
@@ -54,7 +80,8 @@ class App extends React.Component {
             name={'HP-Learn'}
             id={'HP-Learn'}
             className={'RightColumn'}
-            items={[]} />
+            // itemsToDisplay = {4}
+            items={learnData} />
           } />
 
           <HomepageRow

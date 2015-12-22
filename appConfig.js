@@ -14,7 +14,7 @@ let config = {
     includes: [
       'slots.current-item.rectangular-image.full-uri'
     ],
-    filters: {name: 'Of%20Note'}
+    filters: {name: 'Of%20Note|Learn%20Something%20New'}
   }
 };
 
