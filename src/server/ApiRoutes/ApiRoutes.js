@@ -15,8 +15,7 @@ let router = express.Router(),
     filters: refineryApi.filters
   };
 
-// const completeApiUrl = parser.getCompleteApi(options);
-const completeApiUrl = options.endpoint + '&include=' + options.includes + options.filters;
+const completeApiUrl = parser.getCompleteApi(options);
 
 router
   .route('/')

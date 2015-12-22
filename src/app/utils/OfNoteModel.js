@@ -23,8 +23,8 @@ class Model {
 
     // Populated proper data into ofNoteItem
     ofNoteItem.item = data['current-item'];
-    ofNoteItem.title = data['current-item'].attributes.title.en.text;
-    ofNoteItem.description = data['current-item'].attributes.description.en.text;
+    ofNoteItem.title = data['current-item'].attributes.title;
+    ofNoteItem.description = data['current-item'].attributes.description;
     ofNoteItem.image = data['current-item']['rectangular-image'].attributes.uri['full-uri'];
     ofNoteItem.link = data['current-item'].attributes.url;
 

@@ -10,12 +10,11 @@ let config = {
       qa: 'https://qa-refinery.nypl.org',
       production: 'https://refinery.nypl.org'
     },
-    endpoint: '/api/nypl/ndo/v0.1/site-data/containers?filter%5Bname%5D=Of%20Note',
+    endpoint: '/api/nypl/ndo/v0.1/site-data/containers',
     includes: [
-      'slots.current-item',
       'slots.current-item.rectangular-image.full-uri'
     ],
-    filters:''
+    filters: {name: 'Of%20Note'}
   }
 };
 
