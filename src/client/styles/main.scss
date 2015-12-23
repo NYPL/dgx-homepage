@@ -61,6 +61,8 @@ $FOURTH_FONT_KIEVIT: 'sans-serif';
   min-width: 320px;
 }
 
+@import 'components/_StaffPicks';
+
 .CarouselComponent {
     &.error {
 	color: #070707;
