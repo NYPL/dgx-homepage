@@ -2,7 +2,7 @@
 import alt from 'dgx-alt-center';
 
 class Actions {
-  updateOfNote(data) {
+  updateHomepageData(data) {
     this.dispatch(data);
   }
 };

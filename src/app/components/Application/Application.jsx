@@ -20,7 +20,8 @@ class App extends React.Component {
   }
 
   render() {
-    let ofNoteDataList = this.state.modelData.map((element) => {
+
+    let ofNoteDataList = this.state.homepageData.map((element) => {
       if(element.order === 7) {
         return {
           itemList: element.componentData
@@ -37,7 +38,7 @@ class App extends React.Component {
       };
     });
 
-    let learnDataList = this.state.modelData.map((element) => {
+    let learnDataList = this.state.homepageData.map((element) => {
       if(element.order === 2) {
         return {
           itemList: element.componentData
@@ -51,9 +52,7 @@ class App extends React.Component {
         image: element.image,
         link: element.link
       };
-    })
-
-    console.log(learnData);
+    });
 
     return (
       <div>

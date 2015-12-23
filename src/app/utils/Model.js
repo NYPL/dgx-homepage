@@ -10,10 +10,8 @@ class Model {
 
     // Decide the type of data
     if(_.isArray(data) && data.length > 0) {
-      // return _.map(data, this.ofNoteModel);
       return _.map(data, this.modelItems);
     } else if (_.isObject(data) && !_.isEmpty(data)) {
-      // return this.ofNoteModel(data);
       return this.modelItems(data);
     } else {
       return;
