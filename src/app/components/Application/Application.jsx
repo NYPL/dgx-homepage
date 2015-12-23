@@ -11,7 +11,6 @@ import CarouselComponent from 'dgx-homepage-carousel-component';
 import { SeeMoreButton } from 'dgx-react-buttons';
 import Footer from 'dgx-react-footer';
 
-// import _ from 'underscore';
 
 class App extends React.Component {
   constructor(props) {
