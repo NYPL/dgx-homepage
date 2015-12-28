@@ -53,12 +53,13 @@ app.use('/', apiRoutes);
 app.get('/', (req, res) => {
   let app, iso;
 
-  alt.bootstrap(JSON.stringify(res.locals.data || {}));
-
   iso = new Iso();
 
-  app = React.renderToString(React.createElement(Application));
+  alt.bootstrap(JSON.stringify(res.locals.data || {}));
+
   iso.add(app, alt.flush());
+
+  app = React.renderToString(React.createElement(Application));
 
   // First parameter references the ejs filename
   res.render('index', {

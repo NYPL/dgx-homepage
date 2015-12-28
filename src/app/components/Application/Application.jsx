@@ -1,5 +1,5 @@
 import React from 'react';
-import Store from '../../stores/Store.js';
+import HomepageStore from '../../stores/HomepageStore.js';
 import HomepageRow from 'dgx-homepage-row-component';
 import BlogFeatures from 'dgx-blog-features-component';
 import HomepageStaffPicks from 'dgx-homepage-staff-picks-component';
@@ -11,14 +11,25 @@ import CarouselComponent from 'dgx-homepage-carousel-component';
 import { SeeMoreButton } from 'dgx-react-buttons';
 import Footer from 'dgx-react-footer';
 
+// import _ from 'underscore';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = Store.getState();
+    this.state = HomepageStore.getState();
   }
 
   render() {
+    let ofNoteData = this.state.ofNote.map((element) => {
+      return {
+        title: element.title.en.text,
+        description: element.description.en.text,
+        image: element.image,
+        link: element.link
+      };
+    });
+
     return (
       <div>
         <Header />
@@ -82,13 +93,12 @@ class App extends React.Component {
 
           <HomepageRow
             title={'Of Note'}
-            content={
-              <FeatureRow
-                name={'HP-OfNote'}
-                id={'HP-OfNote'}
-                className={'RightColumn'}
-                items={[]} />
-              } />
+            content={<FeatureRow
+              name={'HP-OfNote'}
+              id={'HP-OfNote'}
+              className={'RightColumn'}
+              items={ofNoteData} />
+          } />
 
         </div>
         <Footer />
