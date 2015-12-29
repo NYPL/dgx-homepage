@@ -23,12 +23,15 @@ class App extends React.Component {
   render() {
     let ofNoteData = this.state.ofNote.map((element) => {
       return {
-        title: element.title.en.text,
-        description: element.description.en.text,
+        title: element.title,
+        description: element.description,
         image: element.image,
-        link: element.link
+        link: element.link,
+        language: 'en'
       };
     });
+
+    console.log(ofNoteData);
 
     return (
       <div>
