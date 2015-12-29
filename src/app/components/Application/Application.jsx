@@ -62,7 +62,7 @@ class App extends React.Component {
           <HomepageRow
             title={'Staff Picks'}
             link={"/staff-picks"}
-            className='StaffPicks homepageRow'
+            className='StaffPicks homepageRow visuallyHidden'
             content={
               <HomepageStaffPicks
                 name={'HP-StaffPicks'}

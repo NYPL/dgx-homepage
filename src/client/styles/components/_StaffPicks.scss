@@ -1,15 +1,10 @@
 .StaffPicks {
-	position:absolute;
-	left:-10000px;
-	top:auto;
-	width:1px;
-	height:1px;
-	overflow:hidden;
+	position: absolute;
 
-	@media (min-width: 769px) {
-		position: relative;
-		left: 0;
-		width: 100%;
-		height: auto;
-	}
+    @media (min-width: 769px) {
+			position: relative;
+			left: 0;
+			width: 100%;
+			height: auto;
+		}
 }
