@@ -62,13 +62,14 @@ class App extends React.Component {
           <HomepageRow
             title={'Staff Picks'}
             link={"/staff-picks"}
+            className='StaffPicks homepageRow visuallyHidden'
             content={
               <HomepageStaffPicks
                 name={'HP-StaffPicks'}
                 id={'HP-StaffPicks'}
                 className={'RightColumn'}
                 items={[]} />
-              } />
+            } />
 
           <HomepageRow className={`bookList homepageRow`}
             title={'Books We Love'}

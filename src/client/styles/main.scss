@@ -2,6 +2,7 @@
 Import utils
 */
 @import 'utils/colors';
+@import 'utils/utils';
 
 /*
 Import style rules from node module components
@@ -60,6 +61,8 @@ $FOURTH_FONT_KIEVIT: 'sans-serif';
   margin: 0;
   min-width: 320px;
 }
+
+@import 'components/_StaffPicks';
 
 .app-wrapper {
   margin: 0 14px;
