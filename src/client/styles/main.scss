@@ -21,7 +21,7 @@ Import singularity and breakpoints
 Set up grid
 */
 @include add-grid(3);
-
+//@include sgs-change('debug', true);
 /*
 Import fonts
 */
@@ -109,9 +109,11 @@ $FOURTH_FONT_KIEVIT: 'sans-serif';
   }
 
   @include grid-span(3,1);
+  @include background-grid;
 
   @include layout-at(6, 768px) {
     @include grid-span(6,1);
+    @include background-grid($color: green);
     border-top: none;
 
     h2, &__Content {
@@ -163,4 +165,27 @@ $FOURTH_FONT_KIEVIT: 'sans-serif';
       top: 28px;
     }
   }
+}
+
+#HP-OfNote {
+
+    .HP-OfNote-Wrapper {
+	@include grid-span(3,1);
+	margin-bottom: 32px;
+    }
+    
+    img {
+	@include grid-span(1,1);
+    }
+
+    h2 {
+	@include grid-span(2,2);
+	font-size: 24px;
+	color: black;
+    }
+
+    p {
+	// TODO: HIDE SO IT'S ACCESSIBLE TO SCREEN READERS
+	display: none;
+    }
 }
