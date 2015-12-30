@@ -57,9 +57,9 @@ app.get('/', (req, res) => {
 
   alt.bootstrap(JSON.stringify(res.locals.data || {}));
 
-  iso.add(app, alt.flush());
-
   app = React.renderToString(React.createElement(Application));
+
+  iso.add(app, alt.flush());
 
   // First parameter references the ejs filename
   res.render('index', {
