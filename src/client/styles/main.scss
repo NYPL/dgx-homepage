@@ -17,9 +17,12 @@ Import style rules from node module components
 Import style rules from ./components
 */
 
-@import 'components/CarouselComponent';
-@import 'components/HomepageRow';
-@import 'components/BookList';
+@import 'components/_HomepageRow';
+@import 'components/_CarouselComponent';
+@import 'components/_LearnSomethingNew';
+@import 'components/_BookList';
+@import 'components/_StaffPicks';
+@import 'components/_OfNote';
 
 /*
 Import singularity and breakpoints
@@ -63,8 +66,6 @@ $FOURTH_FONT_KIEVIT: 'sans-serif';
   min-width: 320px;
 }
 
-@import 'components/_StaffPicks';
-@import 'components/_OfNote';
 
 .app-wrapper {
   margin: 0 14px;
