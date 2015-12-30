@@ -31,7 +31,7 @@ Import singularity and breakpoints
 Set up grid
 */
 @include add-grid(3);
-
+//@include sgs-change('debug', true);
 /*
 Import fonts
 */
@@ -64,6 +64,7 @@ $FOURTH_FONT_KIEVIT: 'sans-serif';
 }
 
 @import 'components/_StaffPicks';
+@import 'components/_OfNote';
 
 .app-wrapper {
   margin: 0 14px;
@@ -71,3 +72,4 @@ $FOURTH_FONT_KIEVIT: 'sans-serif';
     margin: 0 20px;
   }
 }
+
