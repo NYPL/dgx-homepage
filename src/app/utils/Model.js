@@ -9,7 +9,7 @@ class Model {
     }
 
     // Decide the type of data
-    if(_.isArray(data) && data.length > 0) {
+    if (_.isArray(data) && data.length > 0) {
       return this.modelHomepageData(_.map(data, this.modelContainers));
     } else if (_.isObject(data) && !_.isEmpty(data)) {
       return this.modelHomepageData(this.modelContainers(data));
@@ -51,7 +51,7 @@ class Model {
   modelHomepageData(data) {
     let homepageDataObj = {};
 
-    for (let i = 0; i < data.length; i ++) {
+    for (let i = 0; i < data.length; i++) {
       switch (data[i].id) {
         case '0b83d3c9-3df5-40b5-bdeb-3bdf9e1947b4':
           homepageDataObj.learnSomethingNew = data[i].slots;

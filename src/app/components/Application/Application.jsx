@@ -27,12 +27,12 @@ class App extends React.Component {
       <div>
         <Header />
 
-        <div className="app-wrapper">
-          <CarouselComponent id="HP-Carousel" name="HP-Carousel" items={[]} />
+        <div className='app-wrapper'>
+          <CarouselComponent id='HP-Carousel' name='HP-Carousel' items={[]} />
 
           <HomepageRow
             title={'What’s Happening'}
-            link={"/events/"}
+            link={'/events/'}
             content={
               <TabbedComponent
                 name={'HP-Events'}
@@ -43,13 +43,14 @@ class App extends React.Component {
 
           <HomepageRow
             title={'Learn Something New'}
-            link={"/events/classes/calendar"}
-            content={<FeatureRow
-            name={'HP-Learn'}
-            id={'HP-Learn'}
-            className={'RightColumn'}
-            // itemsToDisplay = {4}
-            items={learnSomethingNewData} />
+            link={'/events/classes/calendar'}
+            content={
+              <FeatureRow
+                name={'HP-Learn'}
+                id={'HP-Learn'}
+                className={'RightColumn'}
+                // itemsToDisplay = {4}
+                items={learnSomethingNewData} />
           } />
 
           <HomepageRow
@@ -87,11 +88,12 @@ class App extends React.Component {
 
           <HomepageRow
             title={'Of Note'}
-            content={<FeatureRow
-              name={'HP-OfNote'}
-              id={'HP-OfNote'}
-              className={'RightColumn'}
-              items={ofNoteData} />
+            content={
+              <FeatureRow
+                name={'HP-OfNote'}
+                id={'HP-OfNote'}
+                className={'RightColumn'}
+                items={ofNoteData} />
           } />
 
         </div>
