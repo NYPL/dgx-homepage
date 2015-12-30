@@ -30,10 +30,16 @@ class Model {
     container.id = data.id;
     container.slots = data.slots.map((element) => {
       return {
-        title: element['current-item'].attributes.title,
-        description: element['current-item'].attributes.description,
-        image: element['current-item']['rectangular-image'].attributes.uri['full-uri'],
-        link: element['current-item'].attributes.url
+        title: (element['current-item'].attributes.title) ? 
+          element['current-item'].attributes.title : '',
+        description: (element['current-item'].attributes.description) ?
+          element['current-item'].attributes.description : '',
+        image: (element['current-item']['rectangular-image']
+          .attributes.uri['full-uri'].length) ?
+          element['current-item']['rectangular-image'].attributes
+          .uri['full-uri'] : '',
+        link: (element['current-item'].attributes.url.length) ?
+          element['current-item'].attributes.url : ''
       };
     });
 
