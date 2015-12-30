@@ -33,12 +33,17 @@ router
 
         res.locals.data = {
           HomepageStore: {
-            homepageData: modelData
+            // modelData is an object with keys as the name of the catagories of
+            // the Homepage, and the values as the arrays consist of the items
+            //in these catagories
+            learnSomethingNewData: modelData.learnSomethingNew,
+            ofNoteData: modelData.ofNote
           },
           // Set the API URL here so we can access it when we
           // render in the EJS file.
           completeApiUrl: ''
         };
+
         next();
       })
       .catch(error => {
