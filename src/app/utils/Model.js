@@ -10,9 +10,9 @@ class Model {
 
     // Decide the type of data
     if (_.isArray(data) && data.length > 0) {
-      return this.modelHomepageData(_.map(data, this.modelContainers));
+      return this.modelAppData(_.map(data, this.modelContainers));
     } else if (_.isObject(data) && !_.isEmpty(data)) {
-      return this.modelHomepageData(this.modelContainers(data));
+      return this.modelAppData(this.modelContainers(data));
     } else {
       return;
     }
@@ -48,17 +48,17 @@ class Model {
   *
   * @param (Array) data
   */
-  modelHomepageData(data) {
-    let homepageDataObj = {};
+  modelAppData(data) {
+    let AppDataObj = {};
 
     for (let i = 0; i < data.length; i++) {
       switch (data[i].id) {
         case '0b83d3c9-3df5-40b5-bdeb-3bdf9e1947b4':
-          homepageDataObj.learnSomethingNew = data[i].slots;
+          AppDataObj.learnSomethingNew = data[i].slots;
           break;
 
         case 'e515e31d-4b2d-495c-a57c-9f894e13d950':
-          homepageDataObj.ofNote = data[i].slots;
+          AppDataObj.ofNote = data[i].slots;
           break;
 
         default:
@@ -67,7 +67,7 @@ class Model {
       }
     };
 
-    return homepageDataObj;
+    return AppDataObj;
   }
 
 }
