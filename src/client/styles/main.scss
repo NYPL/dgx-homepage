@@ -2,6 +2,7 @@
 Import utils
 */
 @import 'utils/colors';
+@import 'utils/utils';
 
 /*
 Import style rules from node module components
@@ -10,6 +11,14 @@ Import style rules from node module components
 @import '~dgx-header-component/dist/styles/main';
 @import '~dgx-react-buttons/dist/styles/styles.scss';
 @import '~dgx-react-footer/dist/styles/styles.scss';
+
+/*
+Import style rules from ./components
+*/
+
+@import 'components/CarouselComponent';
+@import 'components/HomepageRow';
+@import 'components/BookList';
 
 /*
 Import singularity and breakpoints
@@ -45,15 +54,7 @@ $FOURTH_FONT_KIEVIT: 'sans-serif';
 
 /* MILO INCLUDES */
 @mixin Milo-Regular {
-	font-family: 'Milo-Regular', $SECONDARY_FONT_MILO, $THIRD_FONT_MILO;
-}
-
-
-.app-wrapper {
-  margin: 0 14px;
-  @media (min-width: 769px) {
-      margin: 0 20px;
-  }
+  font-family: 'Milo-Regular', $SECONDARY_FONT_MILO, $THIRD_FONT_MILO;
 }
 
 #app {
@@ -61,109 +62,12 @@ $FOURTH_FONT_KIEVIT: 'sans-serif';
   min-width: 320px;
 }
 
-.CarouselComponent {
-    &.error {
-	color: #070707;
-	
-	h2 {
-	    font-family: "Kievit-Book";
-	    text-transform: uppercase;
-	}
+@import 'components/_StaffPicks';
 
-	.errMsg {
-	    font-family: "Milo-Regular";
-	    font-size: 50px;
-	    margin-bottom: 30px;
-	}
-
-	.errDesc {
-	    font-family: "Kievit-Book";
-	    font-size: 28px;
-	    line-height: 38px;
-	    margin-bottom: 30px;
-	}
-    }
-}
-
-.homepageRow {
-  border-top: 4px solid $PRIMARY_COLOR;
-  min-height: 133px;
-
-  h2 {
-    @include Kievit-Medium;
-    color: $PRIMARY_COLOR;
-    font-weight: normal;
-  }
-  
-  &__Content {
-    @include Kievit-Book;
-    font-size: 24px;
-    color: $COOLGRAY_COLOR;
-  }
-
-  .see-more-button {
-    span:nth-of-type(2) {
-      // NOT THE ACCESSIBLE WAY TO HIDE THIS HERE!!
-      display: none !important;
-    }
-  }
-
-  @include grid-span(3,1);
-  @include background-grid;
-
-  @include layout-at(6, 768px) {
-    @include grid-span(6,1);
-    @include background-grid($color: green);
-    border-top: none;
-
-    h2, &__Content {
-      font-size: 18px;
-    }
-    
-    .leftColumn {
-      border-top: 2px solid $PRIMARY_COLOR;
-      @include grid-span(1,1);
-      text-align: right;
-    }
-
-    .rightColumn {
-	@include grid-span(6,2);
-    }
-  }
-
-  @include layout-at(9, 1024px) {
-    @include grid-span(9,1);
-
-    h2, &__Content {
-      font-size: 20px;
-    }
-    
-    .leftColumn {
-      @include grid-span(1,1);
-    }
-
-    .rightColumn {
-	@include grid-span(8,2);
-    }
-  }
-  
-  @media (max-width: 767px) {
-    position: relative;
-      
-    .leftColumn {
-	margin: 32px 0;
-
-	h2 {
-          padding: 0;
-	  margin: 0;
-	}
-    }
-
-    .see-more-button {
-      position: absolute;
-      right: 0;
-      top: 28px;
-    }
+.app-wrapper {
+  margin: 0 14px;
+  @media (min-width: 769px) {
+    margin: 0 20px;
   }
 }
 
