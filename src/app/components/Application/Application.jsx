@@ -33,12 +33,13 @@ class App extends React.Component {
           <HomepageRow
             title={'What’s Happening'}
             link={"/events/"}
-            content={<TabbedComponent
-            name={'HP-Events'}
-            id={'HP-Events'}
-            className={'RightColumn'}
-            items={[]} />
-          } />
+            content={
+              <TabbedComponent
+                name={'HP-Events'}
+                id={'HP-Events'}
+                className={'RightColumn'}
+                items={[]} />
+              } />
 
           <HomepageRow
             title={'Learn Something New'}
@@ -54,42 +55,43 @@ class App extends React.Component {
           <HomepageRow
             title={'Staff Picks'}
             link={"/staff-picks"}
+            className='StaffPicks homepageRow visuallyHidden'
             content={
-            <HomepageStaffPicks
-            name={'HP-StaffPicks'}
-            id={'HP-StaffPicks'}
-            className={'RightColumn'}
-            items={[]} />
-          } />
+              <HomepageStaffPicks
+                name={'HP-StaffPicks'}
+                id={'HP-StaffPicks'}
+                className={'RightColumn'}
+                items={[]} />
+            } />
 
-          <HomepageRow
+          <HomepageRow className={`bookList homepageRow`}
             title={'Books We Love'}
             content={
-            <BooklistWidget
-            name={'HP-Booklist'}
-            id={'HP-Booklist'}
-            className={'RightColumn'}
-            items={[]} />
-          } />
+              <BooklistWidget
+                name={'HP-Booklist'}
+                id={'HP-Booklist'}
+                className={'bookListWidget'}
+                items={[]} />
+                } />
 
           <HomepageRow
             title={'From Our Blog'}
             link={"//nypl.org/blog"}
             content={
-            <BlogFeatures
-            name={'HP-Blogs'}
-            id={'HP-Blogs'}
-            className={'RightColumn'}
-            items={[]} />
-          } />
+              <BlogFeatures
+                name={'HP-Blogs'}
+                id={'HP-Blogs'}
+                className={'RightColumn'}
+                items={[]} />
+              } />
 
           <HomepageRow
             title={'Of Note'}
             content={<FeatureRow
-            name={'HP-OfNote'}
-            id={'HP-OfNote'}
-            className={'RightColumn'}
-            items={ofNoteData} />
+              name={'HP-OfNote'}
+              id={'HP-OfNote'}
+              className={'RightColumn'}
+              items={ofNoteData} />
           } />
 
         </div>
