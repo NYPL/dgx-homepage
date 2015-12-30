@@ -66,6 +66,7 @@ class App extends React.Component {
 
           <HomepageRow className={`bookList homepageRow`}
             title={'Books We Love'}
+            seeMoreStyle={styles.whiteSeeMoreBtn}
             content={
               <BooklistWidget
                 name={'HP-Booklist'}
@@ -100,5 +101,12 @@ class App extends React.Component {
     );
   }
 }
+
+const styles = {
+  whiteSeeMoreBtn: {
+    color: '#fff',
+    border: '2px solid #fff'
+  }
+};
 
 export default App;
