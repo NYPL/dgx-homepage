@@ -30,7 +30,7 @@ class Model {
     container.id = data.id;
     container.slots = data.slots.map((element) => {
       return {
-        title: (element['current-item'].attributes.title) ? 
+        title: (element['current-item'].attributes.title) ?
           element['current-item'].attributes.title : '',
         description: (element['current-item'].attributes.description) ?
           element['current-item'].attributes.description : '',
@@ -47,7 +47,7 @@ class Model {
   }
 
   /**
-  * modelHomepageData(data)
+  * modelAppData(data)
   * Collect each modeled container data, and assigne them to different catagory,
   * based on its id. Finally, return an object with keys as the catagories,
   * and values as the arrays of the conatainer slots.
