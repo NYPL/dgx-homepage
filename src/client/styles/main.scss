@@ -63,6 +63,7 @@ $FOURTH_FONT_KIEVIT: 'sans-serif';
 }
 
 @import 'components/_StaffPicks';
+@import 'components/_OfNote';
 
 .app-wrapper {
   margin: 0 14px;
@@ -71,25 +72,3 @@ $FOURTH_FONT_KIEVIT: 'sans-serif';
   }
 }
 
-#HP-OfNote {
-
-    .HP-OfNote-Wrapper {
-	@include grid-span(3,1);
-	margin-bottom: 32px;
-    }
-    
-    img {
-	@include grid-span(1,1);
-    }
-
-    h2 {
-	@include grid-span(2,2);
-	font-size: 24px;
-	color: black;
-    }
-
-    p {
-	// TODO: HIDE SO IT'S ACCESSIBLE TO SCREEN READERS
-	display: none;
-    }
-}
