@@ -33,6 +33,7 @@ class App extends React.Component {
           <HomepageRow
             title={'What’s Happening'}
             link={"/events/"}
+            seeMoreId='whatsHappening-SeeMore'
             content={
               <TabbedComponent
                 name={'HP-Events'}
@@ -44,6 +45,7 @@ class App extends React.Component {
           <HomepageRow
             title={'Learn Something New'}
             link={"/events/classes/calendar"}
+            seeMoreId='learn-SeeMore'
             content={
               <FeatureRow
                 name={'HP-Learn'}
@@ -56,6 +58,7 @@ class App extends React.Component {
             title={'Staff Picks'}
             link={"/staff-picks"}
             className='StaffPicks homepageRow visuallyHidden'
+            seeMoreId='StaffPicks-SeeMore'
             content={
               <HomepageStaffPicks
                 name={'HP-StaffPicks'}
@@ -67,6 +70,7 @@ class App extends React.Component {
           <HomepageRow className={`bookList homepageRow`}
             title={'Books We Love'}
             seeMoreStyle={styles.whiteSeeMoreBtn}
+            seeMoreId='BookList-SeeMore'
             content={
               <BooklistWidget
                 name={'HP-Booklist'}
@@ -78,6 +82,7 @@ class App extends React.Component {
           <HomepageRow
             title={'From Our Blog'}
             link={"//nypl.org/blog"}
+            seeMoreId='blog-SeeMore'
             content={
               <BlogFeatures
                 name={'HP-Blogs'}
@@ -88,6 +93,7 @@ class App extends React.Component {
 
           <HomepageRow
             title={'Of Note'}
+            seeMoreId='ofNote-SeeMore'
             content={<FeatureRow
               name={'HP-OfNote'}
               id={'HP-OfNote'}
