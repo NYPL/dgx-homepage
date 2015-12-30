@@ -27,7 +27,9 @@ class Model {
   modelContainers(data) {
     let container = {};
 
+    container.type = data.type;
     container.id = data.id;
+    container.name = data.attributes.name;
     container.slots = data.slots.map((element) => {
       return {
         title: (element['current-item'].attributes.title) ?
