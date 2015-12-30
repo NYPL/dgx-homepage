@@ -77,7 +77,7 @@ class App extends React.Component {
               <BooklistWidget
                 name={'HP-Booklist'}
                 id={'HP-Booklist'}
-                className={'RightColumn'}
+                className={'bookListWidget'}
                 items={[]} />
                 } />
 
