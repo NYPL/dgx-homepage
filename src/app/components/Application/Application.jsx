@@ -49,7 +49,7 @@ class App extends React.Component {
                 name={'HP-Learn'}
                 id={'HP-Learn'}
                 className={'RightColumn'}
-                items={[]} />
+                items={ofNoteData} />
             } />
 
           <HomepageRow
