@@ -60,7 +60,7 @@ class Model {
     let AppDataObj = {};
 
     _.map(data, function(d) {
-      AppDataObj[d.name.en.text] = d;
+      AppDataObj[d.name.en.text.replace(/ /g, '')] = d;
     });
 
     return AppDataObj;
