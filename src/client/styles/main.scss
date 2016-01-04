@@ -5,6 +5,12 @@ Import utils
 @import 'utils/utils';
 
 /*
+Import singularity and breakpoints
+*/
+@import '~singularitygs/stylesheets/singularitygs';
+@import '~breakpoint-sass/stylesheets/breakpoint';
+
+/*
 Import style rules from node module components
 */
 
@@ -23,12 +29,6 @@ Import style rules from ./components
 @import 'components/_BookList';
 @import 'components/_StaffPicks';
 @import 'components/_OfNote';
-
-/*
-Import singularity and breakpoints
-*/
-@import '~singularitygs/stylesheets/singularitygs';
-@import '~breakpoint-sass/stylesheets/breakpoint';
 
 /*
 Set up grid

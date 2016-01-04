@@ -1,10 +1,4 @@
 /*
-Import singularity and breakpoints
-*/
-@import '~singularitygs/stylesheets/singularitygs';
-@import '~breakpoint-sass/stylesheets/breakpoint';
-
-/*
 Set up grid
 */
 @include add-grid(3);
