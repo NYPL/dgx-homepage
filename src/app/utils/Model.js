@@ -31,15 +31,15 @@ class Model {
     container.id = data.id;
     container.name = data.attributes.name;
     container.slots = data.slots.map((element) => {
+
       return {
         title: (element['current-item'].attributes.title) ?
           element['current-item'].attributes.title : '',
         description: (element['current-item'].attributes.description) ?
           element['current-item'].attributes.description : '',
-        image: (element['current-item']['rectangular-image']
-          .attributes.uri['full-uri'].length) ?
+        image: (element['current-item']['rectangular-image']) ?
           element['current-item']['rectangular-image'].attributes
-          .uri['full-uri'] : '',
+          .uri['full-uri'] : null,
         link: (element['current-item'].attributes.url.length) ?
           element['current-item'].attributes.url : ''
       };
