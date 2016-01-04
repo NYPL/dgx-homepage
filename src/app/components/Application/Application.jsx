@@ -11,7 +11,6 @@ import CarouselComponent from 'dgx-homepage-carousel-component';
 import { SeeMoreButton } from 'dgx-react-buttons';
 import Footer from 'dgx-react-footer';
 
-// import _ from 'underscore';
 
 class App extends React.Component {
   constructor(props) {
@@ -21,66 +20,75 @@ class App extends React.Component {
   }
 
   render() {
-    let ofNoteData = this.state.ofNote;
+    let learnSomethingNewData = this.state.learnSomethingNewData.slots,
+      ofNoteData = this.state.ofNoteData.slots;
 
     return (
       <div>
         <Header />
 
-        <div className="app-wrapper">
-          <CarouselComponent id="HP-Carousel" name="HP-Carousel" items={[]} />
+        <div className='app-wrapper'>
+          <CarouselComponent id='HP-Carousel' name='HP-Carousel' items={[]} />
 
           <HomepageRow
             title={'What’s Happening'}
-            link={"/events/"}
+            link={'/events/'}
+            seeMoreId='whatsHappening-SeeMore'
             content={
               <TabbedComponent
                 name={'HP-Events'}
                 id={'HP-Events'}
                 className={'RightColumn'}
                 items={[]} />
-              } />
+            } />
 
           <HomepageRow
             title={'Learn Something New'}
-            link={"/events/classes/calendar"}
+            link={'/events/classes/calendar'}
+            seeMoreId='learn-SeeMore'
             content={
               <FeatureRow
                 name={'HP-Learn'}
                 id={'HP-Learn'}
                 className={'RightColumn'}
-                items={ofNoteData} />
+                // itemsToDisplay = {4}
+                items={learnSomethingNewData} />
             } />
 
           <HomepageRow className={`bookList homepageRow`}
             title={'Books We Love'}
+            seeMoreStyle={styles.whiteSeeMoreBtn}
+            seeMoreId='BookList-SeeMore'
             content={
               <BooklistWidget
                 name={'HP-Booklist'}
                 id={'HP-Booklist'}
                 className={'bookListWidget'}
                 items={[]} />
-                } />
+            } />
 
           <HomepageRow
             title={'From Our Blog'}
             link={"//nypl.org/blog"}
+            seeMoreId='blog-SeeMore'
             content={
               <BlogFeatures
                 name={'HP-Blogs'}
                 id={'HP-Blogs'}
                 className={'RightColumn'}
                 items={[]} />
-              } />
+            } />
 
           <HomepageRow
             title={'Of Note'}
-            content={<FeatureRow
-              name={'HP-OfNote'}
-              id={'HP-OfNote'}
-              className={'RightColumn'}
-              items={ofNoteData} />
-          } />
+            seeMoreId='ofNote-SeeMore'
+            content={
+              <FeatureRow
+                name={'HP-OfNote'}
+                id={'HP-OfNote'}
+                className={'RightColumn'}
+                items={ofNoteData} />
+            } />
 
         </div>
         <Footer />
@@ -88,5 +96,12 @@ class App extends React.Component {
     );
   }
 }
+
+const styles = {
+  whiteSeeMoreBtn: {
+    color: '#fff',
+    border: '2px solid #fff'
+  }
+};
 
 export default App;

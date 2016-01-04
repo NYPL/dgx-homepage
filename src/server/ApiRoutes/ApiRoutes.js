@@ -2,7 +2,7 @@ import express from 'express';
 import axios from 'axios';
 import parser from 'jsonapi-parserinator';
 
-import OfNoteModel from '../../app/utils/OfNoteModel.js';
+import Model from '../../app/utils/Model.js';
 import {refineryApi} from '../../../appConfig.js';
 
 let router = express.Router(),
@@ -29,16 +29,21 @@ router
       .get(completeApiUrl)
       .then(data => {
         let parsed = parser.parse(data.data, options),
-          modelData = OfNoteModel.build(parsed[0].slots);
+          modelData = Model.build(parsed);
 
         res.locals.data = {
           HomepageStore: {
-            ofNote: modelData
+            // modelData is an object with keys as the name of the catagories of
+            // the Homepage, and the values as the arrays consist of the items
+            //in these catagories
+            learnSomethingNewData: modelData.LearnSomethingNew,
+            ofNoteData: modelData.OfNote
           },
           // Set the API URL here so we can access it when we
           // render in the EJS file.
           completeApiUrl: ''
         };
+
         next();
       })
       .catch(error => {

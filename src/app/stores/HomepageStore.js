@@ -4,16 +4,22 @@ import alt from 'dgx-alt-center';
 class HomepageStore {
   constructor() {
     this.bindListeners({
-      handleOfNote: Actions.UPDATE_OF_NOTE
+      handleLearnSomethingNewData: Actions.UPDATE_LEARN_SOMETHING_NEW_DATA,
+      handleOfNoteData: Actions.UPDATE_OF_NOTE_DATA
     });
 
     this.on('init', () => {
-      this.ofNote = [];
+       this.learnSomethingNewData = [],
+       this.ofNoteData = []
     });
   }
 
-  handleOfNote(data) {
-    this.ofNote = data;
+  handleLearnSomethingNewData(data) {
+    this.learnSomethingNewData = data;
+  }
+
+  handleOfNoteData(data) {
+    this.ofNoteData = data;
   }
 }
 
