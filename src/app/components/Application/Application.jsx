@@ -55,19 +55,6 @@ class App extends React.Component {
                 items={learnSomethingNewData} />
             } />
 
-          <HomepageRow
-            title={'Staff Picks'}
-            link={"/staff-picks"}
-            className='StaffPicks homepageRow visuallyHidden'
-            seeMoreId='StaffPicks-SeeMore'
-            content={
-              <HomepageStaffPicks
-                name={'HP-StaffPicks'}
-                id={'HP-StaffPicks'}
-                className={'RightColumn'}
-                items={[]} />
-            } />
-
           <HomepageRow className={`bookList homepageRow`}
             title={'Books We Love'}
             seeMoreStyle={styles.whiteSeeMoreBtn}
