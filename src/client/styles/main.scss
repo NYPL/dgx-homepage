@@ -35,6 +35,7 @@ Set up grid
 */
 @include add-grid(3);
 //@include sgs-change('debug', true);
+
 /*
 Import fonts
 */
@@ -65,7 +66,6 @@ $FOURTH_FONT_KIEVIT: 'sans-serif';
   margin: 0;
   min-width: 320px;
 }
-
 
 .app-wrapper {
   margin: 0 14px;
