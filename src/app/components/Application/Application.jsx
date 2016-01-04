@@ -39,7 +39,7 @@ class App extends React.Component {
                 id={'HP-Events'}
                 className={'RightColumn'}
                 items={[]} />
-              } />
+            } />
 
           <HomepageRow
             title={'Learn Something New'}
@@ -51,7 +51,7 @@ class App extends React.Component {
                 className={'RightColumn'}
                 // itemsToDisplay = {4}
                 items={learnSomethingNewData} />
-          } />
+            } />
 
           <HomepageRow
             title={'Staff Picks'}
@@ -73,7 +73,7 @@ class App extends React.Component {
                 id={'HP-Booklist'}
                 className={'bookListWidget'}
                 items={[]} />
-                } />
+            } />
 
           <HomepageRow
             title={'From Our Blog'}
@@ -84,7 +84,7 @@ class App extends React.Component {
                 id={'HP-Blogs'}
                 className={'RightColumn'}
                 items={[]} />
-              } />
+            } />
 
           <HomepageRow
             title={'Of Note'}
@@ -94,7 +94,7 @@ class App extends React.Component {
                 id={'HP-OfNote'}
                 className={'RightColumn'}
                 items={ofNoteData} />
-          } />
+            } />
 
         </div>
         <Footer />
