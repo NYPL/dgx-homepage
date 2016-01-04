@@ -20,8 +20,8 @@ class App extends React.Component {
   }
 
   render() {
-    let learnSomethingNewData = this.state.learnSomethingNewData,
-      ofNoteData = this.state.ofNoteData;
+    let learnSomethingNewData = this.state.learnSomethingNewData.slots,
+      ofNoteData = this.state.ofNoteData.slots;
 
     return (
       <div>

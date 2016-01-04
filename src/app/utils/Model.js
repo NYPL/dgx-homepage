@@ -62,11 +62,11 @@ class Model {
     for (let i = 0; i < data.length; i++) {
       switch (data[i].id) {
         case '0b83d3c9-3df5-40b5-bdeb-3bdf9e1947b4':
-          AppDataObj.learnSomethingNew = data[i].slots;
+          AppDataObj.learnSomethingNew = data[i];
           break;
 
         case 'e515e31d-4b2d-495c-a57c-9f894e13d950':
-          AppDataObj.ofNote = data[i].slots;
+          AppDataObj.ofNote = data[i];
           break;
 
         default:
