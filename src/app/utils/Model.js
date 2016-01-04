@@ -31,15 +31,15 @@ class Model {
     container.id = data.id;
     container.name = data.attributes.name;
     container.slots = data.slots.map((element) => {
+
       return {
         title: (element['current-item'].attributes.title) ?
           element['current-item'].attributes.title : '',
         description: (element['current-item'].attributes.description) ?
           element['current-item'].attributes.description : '',
-        image: (element['current-item']['rectangular-image']
-          .attributes.uri['full-uri'].length) ?
+        image: (element['current-item']['rectangular-image']) ?
           element['current-item']['rectangular-image'].attributes
-          .uri['full-uri'] : '',
+          .uri['full-uri'] : null,
         link: (element['current-item'].attributes.url.length) ?
           element['current-item'].attributes.url : ''
       };
@@ -59,21 +59,9 @@ class Model {
   modelAppData(data) {
     let AppDataObj = {};
 
-    for (let i = 0; i < data.length; i++) {
-      switch (data[i].id) {
-        case '0b83d3c9-3df5-40b5-bdeb-3bdf9e1947b4':
-          AppDataObj.learnSomethingNew = data[i].slots;
-          break;
-
-        case 'e515e31d-4b2d-495c-a57c-9f894e13d950':
-          AppDataObj.ofNote = data[i].slots;
-          break;
-
-        default:
-          return;
-          break;
-      }
-    };
+    _.map(data, function(d) {
+      AppDataObj[d.name.en.text.replace(/ /g, '')] = d;
+    });
 
     return AppDataObj;
   }
