@@ -2,7 +2,11 @@
 import alt from 'dgx-alt-center';
 
 class Actions {
-  updateOfNote(data) {
+  updateLearnSomethingNewData(data) {
+    this.dispatch(data);
+  }
+
+   updateOfNoteData(data) {
     this.dispatch(data);
   }
 };

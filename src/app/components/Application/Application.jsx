@@ -11,7 +11,6 @@ import CarouselComponent from 'dgx-homepage-carousel-component';
 import { SeeMoreButton } from 'dgx-react-buttons';
 import Footer from 'dgx-react-footer';
 
-// import _ from 'underscore';
 
 class App extends React.Component {
   constructor(props) {
@@ -21,18 +20,19 @@ class App extends React.Component {
   }
 
   render() {
-    let ofNoteData = this.state.ofNote;
+    let learnSomethingNewData = this.state.learnSomethingNewData.slots,
+      ofNoteData = this.state.ofNoteData.slots;
 
     return (
       <div>
         <Header />
 
-        <div className="app-wrapper">
-          <CarouselComponent id="HP-Carousel" name="HP-Carousel" items={[]} />
+        <div className='app-wrapper'>
+          <CarouselComponent id='HP-Carousel' name='HP-Carousel' items={[]} />
 
           <HomepageRow
             title={'What’s Happening'}
-            link={"/events/"}
+            link={'/events/'}
             seeMoreId='whatsHappening-SeeMore'
             content={
               <TabbedComponent
@@ -40,18 +40,19 @@ class App extends React.Component {
                 id={'HP-Events'}
                 className={'RightColumn'}
                 items={[]} />
-              } />
+            } />
 
           <HomepageRow
             title={'Learn Something New'}
-            link={"/events/classes/calendar"}
+            link={'/events/classes/calendar'}
             seeMoreId='learn-SeeMore'
             content={
               <FeatureRow
                 name={'HP-Learn'}
                 id={'HP-Learn'}
                 className={'RightColumn'}
-                items={[]} />
+                // itemsToDisplay = {4}
+                items={learnSomethingNewData} />
             } />
 
           <HomepageRow
@@ -77,7 +78,7 @@ class App extends React.Component {
                 id={'HP-Booklist'}
                 className={'bookListWidget'}
                 items={[]} />
-                } />
+            } />
 
           <HomepageRow
             title={'From Our Blog'}
@@ -89,17 +90,18 @@ class App extends React.Component {
                 id={'HP-Blogs'}
                 className={'RightColumn'}
                 items={[]} />
-              } />
+            } />
 
           <HomepageRow
             title={'Of Note'}
             seeMoreId='ofNote-SeeMore'
-            content={<FeatureRow
-              name={'HP-OfNote'}
-              id={'HP-OfNote'}
-              className={'RightColumn'}
-              items={ofNoteData} />
-          } />
+            content={
+              <FeatureRow
+                name={'HP-OfNote'}
+                id={'HP-OfNote'}
+                className={'RightColumn'}
+                items={ofNoteData} />
+            } />
 
         </div>
         <Footer />

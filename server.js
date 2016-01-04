@@ -57,9 +57,9 @@ app.get('/', (req, res) => {
 
   alt.bootstrap(JSON.stringify(res.locals.data || {}));
 
-  iso.add(app, alt.flush());
-
   app = React.renderToString(React.createElement(Application));
+
+  iso.add(app, alt.flush());
 
   // First parameter references the ejs filename
   res.render('index', {
@@ -81,20 +81,22 @@ let server = app.listen(app.get('port'), (error, result) => {
   }
 
   console.log(colors.yellow.underline(appConfig.appName));
-  console.log(colors.green('Express server is listening at'), colors.cyan('localhost:' + app.get('port')));
+  console.log(colors.green('Express server is listening at'),
+    colors.cyan('localhost:' + app.get('port')));
 });
 
 // This function is called when you want the server to die gracefully
 // i.e. wait for existing connections
 let gracefulShutdown = function() {
-  console.log("Received kill signal, shutting down gracefully.");
+  console.log('Received kill signal, shutting down gracefully.');
   server.close(function() {
-    console.log("Closed out remaining connections.");
+    console.log('Closed out remaining connections.');
     process.exit(0);
   }); 
   // if after 
   setTimeout(function() {
-    console.error("Could not close connections in time, forcefully shutting down");
+    console.error('Could not close connections in time, forcefully shutting' +
+      'down');
     process.exit()
   }, 1000);
 }
@@ -122,6 +124,7 @@ if (!isProduction) {
     if (error) {
       console.log(colors.red(error));
     }
-    console.log(colors.magenta('Webpack Dev Server listening at'), colors.cyan('localhost3000'));
+    console.log(colors.magenta('Webpack Dev Server listening at'),
+      colors.cyan('localhost3000'));
   });
 }
