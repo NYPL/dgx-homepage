@@ -33,4 +33,44 @@ Set up grid
         margin-bottom: 30px;
     }
   }
+
+  &-Image-Wrapper {
+
+    &-Image {
+
+      &.error {
+        background-color: #89806F;
+        color: #89806F;
+        height: 220px;
+        margin: 0;
+        padding: 0;,
+        display: flex;
+        width: 100%;
+      }
+
+    }
+  }
+
+  &-Text-Wrapper {
+    color: #070707;
+
+    &-Tag {
+      font-family: "Kievit-Book";
+      text-transform: uppercase;
+    }
+
+    &-Title {
+      font-family: "Milo-Regular";
+      font-size: 50px;
+      margin-bottom: 30px;
+    }
+
+    &-Description {
+      font-family: "Kievit-Book";
+      font-size: 28px;
+      line-height: 38px;
+      margin-bottom: 30px;
+    }
+
+  }
 }
