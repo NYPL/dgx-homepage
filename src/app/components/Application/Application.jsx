@@ -20,15 +20,19 @@ class App extends React.Component {
   }
 
   render() {
-    let learnSomethingNewData = this.state.learnSomethingNewData.slots,
+    let carouselData = this.state.carouselData.slots, 
+      learnSomethingNewData = this.state.learnSomethingNewData.slots,
       ofNoteData = this.state.ofNoteData.slots;
+
+      console.log(carouselData);
 
     return (
       <div>
         <Header />
 
         <div className='app-wrapper'>
-          <CarouselComponent id='HP-Carousel' name='HP-Carousel' items={[]} />
+          <CarouselComponent id='HP-Carousel' name='HP-Carousel'
+            items={carouselData} />
 
           <HomepageRow
             title={'What’s Happening'}

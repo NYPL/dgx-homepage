@@ -32,14 +32,24 @@ class Model {
     container.name = data.attributes.name;
     container.slots = data.slots.map((element) => {
 
+      let imageSource;
+
+      // Check the images are from retangular-image(for Feature-Row) or
+      // banner-image(for Carousel-Component)
+      if (element['current-item']['rectangular-image']) {
+        imageSource = element['current-item']['rectangular-image'];
+      } else if (element['current-item']['banner-image']) {
+        imageSource = element['current-item']['banner-image'];
+      } else {
+        imageSource = null;
+      }
+
       return {
         title: (element['current-item'].attributes.title) ?
           element['current-item'].attributes.title : '',
         description: (element['current-item'].attributes.description) ?
           element['current-item'].attributes.description : '',
-        image: (element['current-item']['rectangular-image']) ?
-          element['current-item']['rectangular-image'].attributes
-          .uri['full-uri'] : null,
+        image: imageSource ? imageSource.attributes.uri['full-uri'] : null,
         link: (element['current-item'].attributes.url.length) ?
           element['current-item'].attributes.url : ''
       };
