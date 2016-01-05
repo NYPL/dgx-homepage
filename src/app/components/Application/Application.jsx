@@ -20,11 +20,11 @@ class App extends React.Component {
   }
 
   render() {
-    let carouselData = this.state.carouselData.slots, 
+    let carouselData = this.state.carouselData.slots[0], 
       learnSomethingNewData = this.state.learnSomethingNewData.slots,
       ofNoteData = this.state.ofNoteData.slots;
 
-      console.log(carouselData);
+      // console.log(this.state.carouselData.slots[0]);
 
     return (
       <div>
@@ -32,7 +32,7 @@ class App extends React.Component {
 
         <div className='app-wrapper'>
           <CarouselComponent id='HP-Carousel' name='HP-Carousel'
-            items={carouselData} />
+            content={carouselData} />
 
           <HomepageRow
             title={'What’s Happening'}
