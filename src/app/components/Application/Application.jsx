@@ -24,6 +24,8 @@ class App extends React.Component {
       learnSomethingNewData = this.state.learnSomethingNewData.slots,
       ofNoteData = this.state.ofNoteData.slots;
 
+      console.log(carouselData);
+
     return (
       <div>
         <Header />
