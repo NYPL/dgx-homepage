@@ -52,8 +52,12 @@ class Model {
     if (!slots) {
       return [];
     }
-console.log(slots);
+
     return slots.map((element) => {
+      if (!element['current-item']) {
+        return {};
+      }
+
       return {
         title: (element['current-item'].attributes.title) ?
           element['current-item'].attributes.title : '',
@@ -78,9 +82,8 @@ console.log(slots);
   */
   modelAppData(data) {
     let AppDataObj = {};
-// console.log(data);
-    _.map(data, function(d) {
-      // console.log(d);
+
+    _.map(data, (d) => {
       AppDataObj[d.name.en.text.replace(/ /g, '')] = d;
     });
 

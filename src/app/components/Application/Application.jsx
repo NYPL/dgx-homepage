@@ -20,9 +20,12 @@ class App extends React.Component {
   }
 
   render() {
-    console.log()
     let learnSomethingNewData = this.state.learnSomethingNewData.slots,
-      ofNoteData = this.state.ofNoteData.slots;
+      ofNoteData = this.state.ofNoteData.slots,
+      // whatsHappening is a container with four containers.
+      // Each of the 'children' containers contains the slots but they are
+      // currently empty.
+      whatsHappening = this.state.whatsHappening;
 
     return (
       <div>

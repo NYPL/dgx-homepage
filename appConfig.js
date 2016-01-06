@@ -13,7 +13,7 @@ let config = {
     },
     endpoint: '/api/nypl/ndo/v0.1/site-data/containers',
     includes: [
-      'slots.current-item.rectangular-image.full-uri',
+      'slots.current-item.rectangular-image',
       // Should be children.slots but slots comes from above....
       'children.slots'
     ],
