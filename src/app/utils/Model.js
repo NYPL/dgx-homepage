@@ -10,7 +10,9 @@ class Model {
 
     // Decide the type of data
     if (_.isArray(data) && data.length > 0) {
-      return this.modelAppData(_.map(data, this.modelContainers));
+      return this.modelAppData(_.map(data, d => {
+        return this.modelContainers(d);
+      }));
     } else if (_.isObject(data) && !_.isEmpty(data)) {
       return this.modelAppData(this.modelContainers(data));
     } else {
@@ -30,8 +32,28 @@ class Model {
     container.type = data.type;
     container.id = data.id;
     container.name = data.attributes.name;
-    container.slots = data.slots.map((element) => {
+    container.slots = data.slots ? this.createSlots(data.slots) : null;
+    container.children = data.children ? this.createChildren(data.children) : null;
 
+    return container;
+  }
+
+  createChildren(children) {
+    if (!children) {
+      return [];
+    }
+
+    return _.map(children, c => {
+      return this.modelContainers(c);
+    });
+  }
+
+  createSlots(slots) {
+    if (!slots) {
+      return [];
+    }
+console.log(slots);
+    return slots.map((element) => {
       return {
         title: (element['current-item'].attributes.title) ?
           element['current-item'].attributes.title : '',
@@ -44,8 +66,6 @@ class Model {
           element['current-item'].attributes.url : ''
       };
     });
-
-    return container;
   }
 
   /**
@@ -58,8 +78,9 @@ class Model {
   */
   modelAppData(data) {
     let AppDataObj = {};
-
+// console.log(data);
     _.map(data, function(d) {
+      // console.log(d);
       AppDataObj[d.name.en.text.replace(/ /g, '')] = d;
     });
 

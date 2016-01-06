@@ -30,12 +30,13 @@ router
       .then(data => {
         let parsed = parser.parse(data.data, options),
           modelData = Model.build(parsed);
-
+console.log(modelData);
         res.locals.data = {
           HomepageStore: {
             // modelData is an object with keys as the name of the catagories of
             // the Homepage, and the values as the arrays consist of the items
             //in these catagories
+            whatsHapenning: modelData['What\'sHappening'],
             learnSomethingNewData: modelData.LearnSomethingNew,
             ofNoteData: modelData.OfNote
           },

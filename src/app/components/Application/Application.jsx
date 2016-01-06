@@ -20,6 +20,7 @@ class App extends React.Component {
   }
 
   render() {
+    console.log()
     let learnSomethingNewData = this.state.learnSomethingNewData.slots,
       ofNoteData = this.state.ofNoteData.slots;
 
