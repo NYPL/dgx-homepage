@@ -1,5 +1,6 @@
 import React from 'react';
 import HomepageStore from '../../stores/HomepageStore.js';
+import Actions from '../../actions/Actions.js';
 import HomepageRow from 'dgx-homepage-row-component';
 import BlogFeatures from 'dgx-blog-features-component';
 import HomepageStaffPicks from 'dgx-homepage-staff-picks-component';
@@ -20,11 +21,10 @@ class App extends React.Component {
   }
 
   render() {
-    let carouselData = this.state.carouselData.slots[0], 
+    let carouselData = this.state.carouselData.slots,
       learnSomethingNewData = this.state.learnSomethingNewData.slots,
-      ofNoteData = this.state.ofNoteData.slots;
-
-      // console.log(this.state.carouselData.slots[0]);
+      ofNoteData = this.state.ofNoteData.slots,
+      carouselIndex = this.state.carouselIndexValue;
 
     return (
       <div>
@@ -32,7 +32,11 @@ class App extends React.Component {
 
         <div className='app-wrapper'>
           <CarouselComponent id='HP-Carousel' name='HP-Carousel'
-            content={carouselData} />
+            items={carouselData}
+            index={carouselIndex}
+            methods={
+              {buttonMethod: Actions.setCarouselIndexValue}
+            } />
 
           <HomepageRow
             title={'What’s Happening'}

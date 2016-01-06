@@ -31,7 +31,7 @@ router
         let parsed = parser.parse(data.data, options),
           modelData = Model.build(parsed);
 
-          // console.log(modelData.Banner.slots[0]);
+          // console.log(modelData.Banner.slots);
 
         res.locals.data = {
           HomepageStore: {
