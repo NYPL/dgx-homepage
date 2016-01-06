@@ -37,6 +37,7 @@ router
             // the Homepage, and the values as the arrays consist of the items
             //in these catagories
             whatsHappening: modelData['What\'sHappening'],
+            carouselData: modelData.Banner,
             learnSomethingNewData: modelData.LearnSomethingNew,
             ofNoteData: modelData.OfNote
           },

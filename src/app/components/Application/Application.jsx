@@ -20,7 +20,8 @@ class App extends React.Component {
   }
 
   render() {
-    let learnSomethingNewData = this.state.learnSomethingNewData.slots,
+    const carouselData = this.state.carouselData.slots, 
+      learnSomethingNewData = this.state.learnSomethingNewData.slots,
       ofNoteData = this.state.ofNoteData.slots,
       // whatsHappening is a container with four containers.
       // Each of the 'children' containers contains the slots but they are
@@ -32,7 +33,8 @@ class App extends React.Component {
         <Header />
 
         <div className='app-wrapper'>
-          <CarouselComponent id='HP-Carousel' name='HP-Carousel' items={[]} />
+          <CarouselComponent id='HP-Carousel' name='HP-Carousel'
+            items={carouselData} />
 
           <HomepageRow
             title={'What’s Happening'}
