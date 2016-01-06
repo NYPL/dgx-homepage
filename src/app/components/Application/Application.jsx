@@ -20,6 +20,21 @@ class App extends React.Component {
     this.state = HomepageStore.getState();
   }
 
+  componentDidMount() {
+    HomepageStore.listen(this._onChange.bind(this));
+  }
+
+  componentWillUnmount() {
+    HomepageStore.unlisten(this._onChange.bind(this));
+  }
+
+  // Update the state of the class
+  _onChange() {
+    this.setState({
+      carouselIndex: HomepageStore.getState().carouselIndexValue,
+    });
+  }
+
   render() {
     let carouselData = this.state.carouselData.slots,
       learnSomethingNewData = this.state.learnSomethingNewData.slots,
@@ -35,6 +50,7 @@ class App extends React.Component {
             items={carouselData}
             index={carouselIndex}
             methods={
+              // {buttonMethod: function(i){Actions.setCarouselIndexValue(i)}}
               {buttonMethod: Actions.setCarouselIndexValue}
             } />
 
