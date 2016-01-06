@@ -16,7 +16,6 @@ class Actions {
 
   setCarouselIndexValue(value) {
     this.dispatch(value);
-    console.log('this is action', value);
   }
 };
 

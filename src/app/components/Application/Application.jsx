@@ -31,7 +31,7 @@ class App extends React.Component {
   // Update the state of the class
   _onChange() {
     this.setState({
-      carouselIndex: HomepageStore.getState().carouselIndexValue,
+      carouselIndexValue: HomepageStore.getState().carouselIndexValue
     });
   }
 
@@ -48,9 +48,8 @@ class App extends React.Component {
         <div className='app-wrapper'>
           <CarouselComponent id='HP-Carousel' name='HP-Carousel'
             items={carouselData}
-            index={carouselIndex}
+            itemIndex={carouselIndex}
             methods={
-              // {buttonMethod: function(i){Actions.setCarouselIndexValue(i)}}
               {buttonMethod: Actions.setCarouselIndexValue}
             } />
 
