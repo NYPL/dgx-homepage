@@ -32,14 +32,27 @@ class Model {
     container.name = data.attributes.name;
     container.slots = data.slots.map((element) => {
 
+      // Check if different sizes of the images exist
+      let imageSourceBanner = (element['current-item']['banner-image']) ?
+        element['current-item']['banner-image'].attributes.uri['full-uri'] :
+        null,
+        imageSourceRectangular =(element['current-item']['rectangular-image']) ?
+          element['current-item']['rectangular-image'].attributes
+          .uri['full-uri'] : null,
+        imageSourceSquare = (element['current-item']['square-image']) ?
+          element['current-item']['square-image'].attributes.uri['full-uri'] :
+          null;
+
       return {
         title: (element['current-item'].attributes.title) ?
           element['current-item'].attributes.title : '',
         description: (element['current-item'].attributes.description) ?
           element['current-item'].attributes.description : '',
-        image: (element['current-item']['rectangular-image']) ?
-          element['current-item']['rectangular-image'].attributes
-          .uri['full-uri'] : null,
+        image: {
+          bannerImage: imageSourceBanner,
+          rectangularImage: imageSourceRectangular,
+          squareImage: imageSourceSquare
+        },
         link: (element['current-item'].attributes.url.length) ?
           element['current-item'].attributes.url : ''
       };
