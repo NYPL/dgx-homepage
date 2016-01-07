@@ -36,9 +36,13 @@ class App extends React.Component {
   }
 
   render() {
-    let carouselData = this.state.carouselData.slots,
+    const carouselData = this.state.carouselData.slots, 
       learnSomethingNewData = this.state.learnSomethingNewData.slots,
       ofNoteData = this.state.ofNoteData.slots,
+      // whatsHappening is a container with four containers.
+      // Each of the 'children' containers contains the slots but they are
+      // currently empty.
+      whatsHappening = this.state.whatsHappening,
       carouselIndex = this.state.carouselIndexValue;
 
     return (
