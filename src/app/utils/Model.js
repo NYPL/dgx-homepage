@@ -54,7 +54,7 @@ class Model {
     }
 
     return slots.map((element) => {
-      if (!element['current-item']) {
+      if (_.isEmpty(element['current-item'])) {
         return {};
       }
 
