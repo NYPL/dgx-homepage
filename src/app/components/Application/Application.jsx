@@ -1,5 +1,6 @@
 import React from 'react';
 import HomepageStore from '../../stores/HomepageStore.js';
+import Actions from '../../actions/Actions.js';
 import HomepageRow from 'dgx-homepage-row-component';
 import BlogFeatures from 'dgx-blog-features-component';
 import HomepageStaffPicks from 'dgx-homepage-staff-picks-component';
@@ -19,10 +20,26 @@ class App extends React.Component {
     this.state = HomepageStore.getState();
   }
 
+  componentDidMount() {
+    HomepageStore.listen(this._onChange.bind(this));
+  }
+
+  componentWillUnmount() {
+    HomepageStore.unlisten(this._onChange.bind(this));
+  }
+
+  // Update the state of the class
+  _onChange() {
+    this.setState({
+      carouselIndexValue: HomepageStore.getState().carouselIndexValue
+    });
+  }
+
   render() {
-    let carouselData = this.state.carouselData.slots, 
+    let carouselData = this.state.carouselData.slots,
       learnSomethingNewData = this.state.learnSomethingNewData.slots,
-      ofNoteData = this.state.ofNoteData.slots;
+      ofNoteData = this.state.ofNoteData.slots,
+      carouselIndex = this.state.carouselIndexValue;
 
     return (
       <div>
@@ -30,7 +47,11 @@ class App extends React.Component {
 
         <div className='app-wrapper'>
           <CarouselComponent id='HP-Carousel' name='HP-Carousel'
-            items={carouselData} />
+            items={carouselData}
+            itemIndex={carouselIndex}
+            methods={
+              {buttonMethod: Actions.setCarouselIndexValue}
+            } />
 
           <HomepageRow
             title={'What’s Happening'}

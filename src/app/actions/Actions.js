@@ -2,7 +2,7 @@
 import alt from 'dgx-alt-center';
 
 class Actions {
-  updateCarouselData() {
+  updateCarouselData(data) {
     this.dispatch(data);
   }
 
@@ -12,6 +12,10 @@ class Actions {
 
    updateOfNoteData(data) {
     this.dispatch(data);
+  }
+
+  setCarouselIndexValue(value) {
+    this.dispatch(value);
   }
 };
 
