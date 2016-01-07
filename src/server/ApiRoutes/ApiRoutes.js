@@ -35,11 +35,12 @@ router
           HomepageStore: {
             // modelData is an object with keys as the name of the catagories of
             // the Homepage, and the values as the arrays consist of the items
-            //in these catagories
+            // in these categories
             whatsHappening: modelData['What\'sHappening'],
             carouselData: modelData.Banner,
             learnSomethingNewData: modelData.LearnSomethingNew,
-            ofNoteData: modelData.OfNote
+            ofNoteData: modelData.OfNote,
+            carouselIndexValue: 0
           },
           // Set the API URL here so we can access it when we
           // render in the EJS file.

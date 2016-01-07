@@ -72,6 +72,8 @@ class Model {
       return {
         title: (element['current-item'].attributes.title) ?
           element['current-item'].attributes.title : '',
+        category: (element['current-item'].attributes.category) ?
+          element['current-item'].attributes.category: '',
         description: (element['current-item'].attributes.description) ?
           element['current-item'].attributes.description : '',
         image: {
