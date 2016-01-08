@@ -63,8 +63,8 @@ class App extends React.Component {
             seeMoreId='whatsHappening-SeeMore'
             content={
               <TabbedComponent
-                name={'HP-Events'}
-                id={'HP-Events'}
+                name={'HP-WhatsHappening'}
+                id={'HP-WhatsHappening'}
                 className={'RightColumn'}
                 items={whatsHappening} />
             } />
