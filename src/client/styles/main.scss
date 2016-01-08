@@ -34,7 +34,7 @@ Import style rules from ./components
 Set up grid
 */
 @include add-grid(3);
-//@include sgs-change('debug', true);
+@include sgs-change('debug', true);
 
 /*
 Import fonts

@@ -16,7 +16,7 @@ let router = express.Router(),
   };
 
 const completeApiUrl = parser.getCompleteApi(options);
-
+console.log(completeApiUrl);
 router
   .route('/')
   .get((req, res, next) => {
