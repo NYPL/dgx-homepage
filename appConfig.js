@@ -1,8 +1,7 @@
 let config = {
   appTitle: 'NYPL | Welcome to The New York Public Library',
   appName: 'Homepage',
-  favIconPath: 'http://ux-static.nypl.org.s3-website-us-east-1.amazonaws.com' +
-    '/images/favicon.ico',
+  favIconPath: 'http://ux-static.nypl.org.s3-website-us-east-1.amazonaws.com/images/favicon.ico',
   port: 3001,
   webpackDevServerPort: 3000,
   refineryApi: {
@@ -16,7 +15,7 @@ let config = {
       'slots.current-item.rectangular-image.full-uri',
       'slots.current-item.banner-image.full-uri',
       // Should be children.slots but slots comes from above....
-      'children.slots'
+      'children.slots.current-item.rectangular-image'
     ],
     filters: {name: 'Of%20Note|Learn%20Something%20New|Banner|what%27s%20happening'}
   }

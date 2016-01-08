@@ -61,7 +61,7 @@
     "dgx-react-buttons": "git+ssh://bitbucket.org/NYPL/dgx-react-buttons.git#v0.0.2.1",
     "dgx-react-footer": "git+ssh://bitbucket.org/NYPL/dgx-react-footer.git#v0.0.3",
     "dgx-react-ga": "git+ssh://bitbucket.org/NYPL/dgx-react-ga.git#v0.0.1",
-    "dgx-tabbed-features-component": "git+ssh://bitbucket.org/NYPL/dgx-tabbed-features-component#v0.0.2",
+    "dgx-tabbed-features-component": "git+ssh://bitbucket.org/NYPL/dgx-tabbed-features-component#WEB-1801-whats-happening",
     "ejs": "^2.3.3",
     "express": "^4.13.1",
     "express-favicon": "^1.0.1",

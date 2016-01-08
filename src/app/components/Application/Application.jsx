@@ -66,7 +66,7 @@ class App extends React.Component {
                 name={'HP-Events'}
                 id={'HP-Events'}
                 className={'RightColumn'}
-                items={[]} />
+                items={whatsHappening} />
             } />
 
           <HomepageRow
