@@ -15,10 +15,13 @@ let config = {
     includes: [
       'slots.current-item.rectangular-image.full-uri',
       'slots.current-item.banner-image.full-uri',
+      'slots.current-item.book-cover-image',
       // Should be children.slots but slots comes from above....
       'children.slots'
     ],
-    filters: {name: 'Of%20Note|Learn%20Something%20New|Banner|what%27s%20happening'}
+    filters: {
+      name: 'Of%20Note|Learn%20Something%20New|Banner|what%27s%20happening|staff%20picks'
+    }
   }
 };
 

@@ -43,7 +43,8 @@ class App extends React.Component {
       // Each of the 'children' containers contains the slots but they are
       // currently empty.
       whatsHappening = this.state.whatsHappening,
-      carouselIndex = this.state.carouselIndexValue;
+      carouselIndex = this.state.carouselIndexValue,
+      staffPicks = this.state.staffPicks.slots;
 
     return (
       <div>
@@ -80,6 +81,18 @@ class App extends React.Component {
                 className={'RightColumn'}
                 // itemsToDisplay = {4}
                 items={learnSomethingNewData} />
+            } />
+
+          <HomepageRow
+            title={'Staff Picks'}
+            link={'/staffpicks'}
+            seeMoreId='staffPicks-SeeMore'
+            content={
+              <HomepageStaffPicks
+                name={'HP-StaffPicks'}
+                id={'HP-StaffPicks'}
+                className={'RightColumn'}
+                items={[]} />
             } />
 
           <HomepageRow className={`bookList homepageRow`}
