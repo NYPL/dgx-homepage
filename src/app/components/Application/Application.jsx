@@ -60,6 +60,7 @@ class App extends React.Component {
           <HomepageRow
             title={'What’s Happening'}
             link={'/events/'}
+            seeMoreStyle={styles.mobileBtn}
             seeMoreId='whatsHappening-SeeMore'
             content={
               <TabbedComponent
@@ -72,6 +73,7 @@ class App extends React.Component {
           <HomepageRow
             title={'Learn Something New'}
             link={'/events/classes/calendar'}
+            seeMoreStyle={styles.mobileBtn}
             seeMoreId='learn-SeeMore'
             content={
               <FeatureRow
@@ -97,6 +99,7 @@ class App extends React.Component {
           <HomepageRow
             title={'From Our Blog'}
             link={"//nypl.org/blog"}
+            seeMoreStyle={styles.mobileBtn}
             seeMoreId='blog-SeeMore'
             content={
               <BlogFeatures
@@ -108,6 +111,7 @@ class App extends React.Component {
 
           <HomepageRow
             title={'Of Note'}
+            seeMoreStyle={styles.mobileBtn}
             seeMoreId='ofNote-SeeMore'
             content={
               <FeatureRow
@@ -125,9 +129,13 @@ class App extends React.Component {
 }
 
 const styles = {
+  mobileBtn: {
+    fontSize: '25px',
+  },
   whiteSeeMoreBtn: {
     color: '#fff',
-    border: '2px solid #fff'
+    border: '2px solid #fff',
+    fontSize: '25px',
   }
 };
 

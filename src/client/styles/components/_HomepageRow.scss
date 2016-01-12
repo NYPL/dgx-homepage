@@ -8,11 +8,10 @@ Set up grid
 
   border-top: 4px solid $PRIMARY_COLOR;
   min-height: 133px;
-  padding: 32px 0;
   position: relative;
 
   .leftColumn {
-    margin: 0;
+    margin-top: 15px;
 
     h2 {
       @include Kievit-Medium;
@@ -28,8 +27,13 @@ Set up grid
     .see-more-button {
       position: absolute;
       right: 0;
-      top: 28px;
+      top: 8px;
+      font-size: 26px;
     }
+  }
+
+  .rightColumn {
+    margin-top: 30px;
   }
 
   h2 {
@@ -49,7 +53,7 @@ Set up grid
     font-size: 16px;
     font-weight: 400;
     line-height: 16px;
-    margin: 44px 0 0 0;
+    margin: 0;
   }
 
   .see-more-button {
