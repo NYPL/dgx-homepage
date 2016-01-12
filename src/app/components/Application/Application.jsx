@@ -111,6 +111,7 @@ class App extends React.Component {
 
           <HomepageRow
             title={'Of Note'}
+            className='ofNoteRow homepageRow'
             seeMoreStyle={styles.mobileBtn}
             seeMoreId='ofNote-SeeMore'
             content={

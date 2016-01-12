@@ -9,6 +9,7 @@ Set up grid
   border-top: 4px solid $PRIMARY_COLOR;
   min-height: 133px;
   position: relative;
+  margin-bottom: 30px;
 
   .leftColumn {
     margin-top: 15px;
@@ -54,6 +55,12 @@ Set up grid
     font-weight: 400;
     line-height: 16px;
     margin: 0;
+  }
+
+  &.ofNoteRow {
+    .rightColumn {
+      margin-top: 15px;
+    }
   }
 
   .see-more-button {
