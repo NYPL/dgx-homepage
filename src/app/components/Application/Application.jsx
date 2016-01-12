@@ -84,6 +84,7 @@ class App extends React.Component {
             } />
 
           <HomepageRow
+            className='StaffPicks homepageRow'
             title={'Staff Picks'}
             link={'/staffpicks'}
             seeMoreId='staffPicks-SeeMore'
@@ -92,10 +93,11 @@ class App extends React.Component {
                 name={'HP-StaffPicks'}
                 id={'HP-StaffPicks'}
                 className={'RightColumn'}
-                items={[]} />
+                items={staffPicks} />
             } />
 
-          <HomepageRow className={`bookList homepageRow`}
+          <HomepageRow
+            className='bookList homepageRow'
             title={'Books We Love'}
             seeMoreStyle={styles.whiteSeeMoreBtn}
             seeMoreId='BookList-SeeMore'
