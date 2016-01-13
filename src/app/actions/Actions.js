@@ -10,12 +10,16 @@ class Actions {
     this.dispatch(data);
   }
 
-   updateOfNoteData(data) {
+  updateOfNoteData(data) {
     this.dispatch(data);
   }
 
   setCarouselIndexValue(value) {
     this.dispatch(value);
+  }
+
+  updateStaffPicksData(data) {
+    this.dispatch(data);
   }
 };
 

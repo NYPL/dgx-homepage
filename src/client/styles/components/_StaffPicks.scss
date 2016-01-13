@@ -1,5 +1,10 @@
 .StaffPicks {
 	position: absolute;
+  left: -10000px;
+  top: auto;
+  width :1px;
+  height: 1px;
+  overflow: hidden;
 
     @media (min-width: 769px) {
 			position: relative;

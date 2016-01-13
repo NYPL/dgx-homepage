@@ -40,6 +40,7 @@ router
             carouselData: modelData.Banner,
             learnSomethingNewData: modelData.LearnSomethingNew,
             ofNoteData: modelData.OfNote,
+            staffPicks: modelData.StaffPicks,
             carouselIndexValue: 0
           },
           // Set the API URL here so we can access it when we
