@@ -10,6 +10,7 @@ Set up grid
   min-height: 133px;
   position: relative;
   margin-bottom: 30px;
+  padding: 15px 0;
 
   .leftColumn {
     margin-top: 15px;
@@ -28,7 +29,7 @@ Set up grid
     .see-more-button {
       position: absolute;
       right: 0;
-      top: 8px;
+      top: 8px; //10px;
       font-size: 26px;
     }
   }
@@ -54,7 +55,7 @@ Set up grid
     font-size: 16px;
     font-weight: 400;
     line-height: 16px;
-    margin: 0;
+    margin: 30px 0 0 0;
   }
 
   .see-more-button {
@@ -99,5 +100,4 @@ Set up grid
       @include grid-span(8,2);
     }
   }
-
 }

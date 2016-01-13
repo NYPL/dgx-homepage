@@ -16,7 +16,7 @@ let router = express.Router(),
   };
 
 const completeApiUrl = parser.getCompleteApi(options);
-
+console.log(completeApiUrl);
 router
   .route('/')
   .get((req, res, next) => {
@@ -40,6 +40,7 @@ router
             carouselData: modelData.Banner,
             learnSomethingNewData: modelData.LearnSomethingNew,
             ofNoteData: modelData.OfNote,
+            staffPicks: modelData.StaffPicks,
             carouselIndexValue: 0
           },
           // Set the API URL here so we can access it when we
