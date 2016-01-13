@@ -9,8 +9,8 @@ Set up grid
   border-top: 2px solid $PRIMARY_COLOR;
   min-height: 133px;
   position: relative;
-  margin-bottom: 30px;
-  padding: 15px 0;
+  margin-bottom: 10px;
+  padding: 15px 0 5px 0;
 
   .leftColumn {
 
@@ -18,7 +18,7 @@ Set up grid
       @include Kievit-Medium;
 
       color: $PRIMARY_COLOR;
-      font-size: 16px;
+      font-size: 18px;
       font-weight: normal;
       line-height: 16px;
       margin: 0;
