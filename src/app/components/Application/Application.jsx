@@ -43,7 +43,8 @@ class App extends React.Component {
       // Each of the 'children' containers contains the slots but they are
       // currently empty.
       whatsHappening = this.state.whatsHappening,
-      carouselIndex = this.state.carouselIndexValue;
+      carouselIndex = this.state.carouselIndexValue,
+      staffPicks = this.state.staffPicks.slots;
 
     return (
       <div>
@@ -60,6 +61,7 @@ class App extends React.Component {
           <HomepageRow
             title={'What’s Happening'}
             link={'/events/'}
+            seeMoreStyle={styles.mobileBtn}
             seeMoreId='whatsHappening-SeeMore'
             content={
               <TabbedComponent
@@ -72,6 +74,7 @@ class App extends React.Component {
           <HomepageRow
             title={'Learn Something New'}
             link={'/events/classes/calendar'}
+            seeMoreStyle={styles.mobileBtn}
             seeMoreId='learn-SeeMore'
             content={
               <FeatureRow
@@ -82,7 +85,21 @@ class App extends React.Component {
                 items={learnSomethingNewData} />
             } />
 
-          <HomepageRow className={`bookList homepageRow`}
+          <HomepageRow
+            className='StaffPicks homepageRow'
+            title={'Staff Picks'}
+            link={'/staffpicks'}
+            seeMoreId='staffPicks-SeeMore'
+            content={
+              <HomepageStaffPicks
+                name={'HP-StaffPicks'}
+                id={'HP-StaffPicks'}
+                className={'RightColumn'}
+                items={staffPicks} />
+            } />
+
+          <HomepageRow
+            className='bookList homepageRow'
             title={'Books We Love'}
             seeMoreStyle={styles.whiteSeeMoreBtn}
             seeMoreId='BookList-SeeMore'
@@ -97,6 +114,7 @@ class App extends React.Component {
           <HomepageRow
             title={'From Our Blog'}
             link={"//nypl.org/blog"}
+            seeMoreStyle={styles.mobileBtn}
             seeMoreId='blog-SeeMore'
             content={
               <BlogFeatures
@@ -108,6 +126,8 @@ class App extends React.Component {
 
           <HomepageRow
             title={'Of Note'}
+            className='ofNoteRow homepageRow'
+            seeMoreStyle={styles.mobileBtn}
             seeMoreId='ofNote-SeeMore'
             content={
               <FeatureRow
@@ -125,9 +145,13 @@ class App extends React.Component {
 }
 
 const styles = {
+  mobileBtn: {
+    fontSize: '25px',
+  },
   whiteSeeMoreBtn: {
     color: '#fff',
-    border: '2px solid #fff'
+    border: '2px solid #fff',
+    fontSize: '25px',
   }
 };
 

@@ -1,4 +1,12 @@
+/*
+Set up grid
+*/
+@include add-grid(3);
+// @include sgs-change('debug', true);
+
 .bookList {
+  // @include background-grid($color: blue);
+
   &.homepageRow {
     background-color: $PRIMARY_COLOR;
     color: #FFFFFF;
@@ -9,6 +17,7 @@
 
     &__Content {
       color: #FFFFFF;
+      margin-top: 20px;
     }
 
     & .see-more-button {
