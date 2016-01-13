@@ -41,9 +41,13 @@ Set up grid
       margin-right: 15px;
       padding-top: 12px;
       width: 29px;
+      opacity: 0.4;
+      font-size: 18px;
 
       &.eyebrow {
+        opacity: 1;
         border-top: 2px solid $PRIMARY_COLOR;
+        color: $PRIMARY_COLOR;
       }
     }
 
