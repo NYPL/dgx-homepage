@@ -53,7 +53,7 @@
     "dgx-blog-features-component": "git+ssh://bitbucket.org/NYPL/dgx-blog-features-component.git#v0.0.3",
     "dgx-header-component": "git+ssh://bitbucket.org/NYPL/dgx-header-component.git#v1.1.0",
     "dgx-alt-center": "git+ssh://bitbucket.org/NYPL/dgx-alt-center.git#v0.0.1",
-    "dgx-booklist-component": "git+ssh://bitbucket.org/NYPL/dgx-booklist-component.git#WEB-1799-booklist-styling",
+    "dgx-booklist-component": "git+ssh://bitbucket.org/NYPL/dgx-booklist-component.git#master",
     "dgx-feature-row-component": "git+ssh://bitbucket.org/NYPL/dgx-feature-row-component.git#v0.0.6",
     "dgx-homepage-carousel-component": "git+ssh://bitbucket.org/NYPL/dgx-homepage-carousel-component#master",
     "dgx-homepage-row-component": "git+ssh://bitbucket.org/NYPL/dgx-homepage-row-component.git#v0.0.4",
