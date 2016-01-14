@@ -44,7 +44,8 @@ class App extends React.Component {
       // currently empty.
       whatsHappening = this.state.whatsHappening,
       carouselIndex = this.state.carouselIndexValue,
-      staffPicks = this.state.staffPicks.slots;
+      staffPicks = this.state.staffPicks.slots,
+      booksWeLove = this.state.booksWeLove.slots;
 
     return (
       <div>
