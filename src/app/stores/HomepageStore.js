@@ -13,12 +13,12 @@ class HomepageStore {
     });
 
     this.on('init', () => {
-       this.carouselData = [],
-       this.learnSomethingNewData = [],
-       this.ofNoteData = [],
-       this.carouselIndexValue = 0,
-       this.staffPicks = [],
-       this.booksWeLove = [],
+      this.carouselData = [],
+      this.learnSomethingNewData = [],
+      this.ofNoteData = [],
+      this.carouselIndexValue = 0,
+      this.staffPicks = [],
+      this.booksWeLove = []
     });
   }
 
