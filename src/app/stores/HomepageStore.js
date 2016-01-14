@@ -9,6 +9,7 @@ class HomepageStore {
       handleOfNoteData: Actions.UPDATE_OF_NOTE_DATA,
       handleSetCarouselIndexValue: Actions.SET_CAROUSEL_INDEX_VALUE,
       handleStaffPicksData: Actions.UPDATE_STAFF_PICKS_DATA,
+      handleBooksWeLoveData: Actions.UPDATE_BOOKS_WE_LOVE_DATA,
     });
 
     this.on('init', () => {
@@ -16,7 +17,8 @@ class HomepageStore {
        this.learnSomethingNewData = [],
        this.ofNoteData = [],
        this.carouselIndexValue = 0,
-       this.staffPicks = []
+       this.staffPicks = [],
+       this.booksWeLove = [],
     });
   }
 
@@ -38,6 +40,10 @@ class HomepageStore {
 
   handleStaffPicksData(data) {
     this.staffPicks = data;
+  }
+
+  handleBooksWeLoveData(data) {
+    this.booksWeLove = data;
   }
 }
 
