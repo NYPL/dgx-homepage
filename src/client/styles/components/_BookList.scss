@@ -10,6 +10,7 @@ Set up grid
   &.homepageRow {
     background-color: $PRIMARY_COLOR;
     color: #FFFFFF;
+    margin-bottom: 25px;
 
     h2 {
       color: #FFFFFF;
@@ -17,6 +18,7 @@ Set up grid
 
     &__Content {
       color: #FFFFFF;
+      margin-top: 20px;
     }
 
     & .see-more-button {

@@ -1,8 +1,7 @@
 #HP-OfNote {
-
   .HP-OfNote-Wrapper {
     @include grid-span(3,1);
-    margin-bottom: 32px;
+    margin-bottom: 15px;
   }
   
   img {
@@ -12,8 +11,8 @@
   h2 {
     @include grid-span(2,2);
 
-    font-size: 24px;
-    color: black;
+    font-size: 18px;
+    color: #000;
   }
 
   p {
