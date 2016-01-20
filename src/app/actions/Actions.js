@@ -25,6 +25,10 @@ class Actions {
   updateBooksWeLoveData(data) {
     this.dispatch(data);
   }
+
+  updateWhatsHappeningData(data) {
+    this.dispatch(data);
+  }
 };
 
 export default alt.createActions(Actions);
