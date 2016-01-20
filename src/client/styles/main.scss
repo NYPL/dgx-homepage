@@ -75,3 +75,26 @@ $FOURTH_FONT_KIEVIT: 'sans-serif';
   }
 }
 
+#footer {
+  & > div {
+    @media (min-width: 768px) {
+      @include add-grid(7);
+      @include background-grid($color: blue);
+    }
+  }
+
+  .logoText {
+    @media (min-width: 768px) {
+      @include grid-span(1,2);
+      font-size: 80px;
+      top: 15px;
+      left: 15px;
+    }
+  }
+
+  .footerLinks {
+    @media (min-width: 768px) {
+      @include grid-span(1,2);
+    }
+  }
+}
