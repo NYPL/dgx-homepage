@@ -69,7 +69,9 @@ class Model {
           element['current-item']['square-image'].attributes.uri['full-uri'] :
           null,
         bookCoverImage = element['current-item']['book-cover-image'] ?
-          element['current-item']['book-cover-image'].attributes.uri['full-uri'] : null;
+          element['current-item']['book-cover-image'].attributes.uri['full-uri'] : null,
+        date = element['current-item'].attributes.date ?
+          element['current-item'].attributes.date : null;
 
       return {
         title: (element['current-item'].attributes.title) ?
@@ -85,7 +87,8 @@ class Model {
           bookCoverImage,
         },
         link: (element['current-item'].attributes.url.length) ?
-          element['current-item'].attributes.url : ''
+          element['current-item'].attributes.url : '',
+        date,
       };
     });
   }
