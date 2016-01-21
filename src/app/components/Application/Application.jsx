@@ -52,25 +52,6 @@ class App extends React.Component {
         <Header />
 
         <div className='app-wrapper'>
-          <CarouselComponent id='HP-Carousel' name='HP-Carousel'
-            items={carouselData}
-            itemIndex={carouselIndex}
-            methods={
-              {buttonMethod: Actions.setCarouselIndexValue}
-            } />
-
-          <HomepageRow
-            title={'What’s Happening'}
-            link={'/events/'}
-            seeMoreStyle={styles.mobileBtn}
-            seeMoreId='whatsHappening-SeeMore'
-            content={
-              <TabbedComponent
-                name={'HP-WhatsHappening'}
-                id={'HP-WhatsHappening'}
-                className={'RightColumn'}
-                items={whatsHappeningData} />
-            } />
 
           <HomepageRow
             title={'Learn Something New'}
@@ -82,61 +63,10 @@ class App extends React.Component {
                 name={'HP-Learn'}
                 id={'HP-Learn'}
                 className={'RightColumn'}
-                // itemsToDisplay = {4}
+                itemsToDisplay = {4}
                 items={learnSomethingNewData} />
             } />
 
-          <HomepageRow
-            className='StaffPicks homepageRow'
-            title={'Staff Picks'}
-            link={'/staffpicks'}
-            seeMoreId='staffPicks-SeeMore'
-            content={
-              <HomepageStaffPicks
-                name={'HP-StaffPicks'}
-                id={'HP-StaffPicks'}
-                className={'RightColumn'}
-                items={staffPicksData} />
-            } />
-
-          <HomepageRow
-            className='bookList homepageRow'
-            title={'Books We Love'}
-            seeMoreStyle={styles.whiteSeeMoreBtn}
-            seeMoreId='BookList-SeeMore'
-            content={
-              <BooklistWidget
-                name={'HP-Booklist'}
-                id={'HP-Booklist'}
-                className={'bookListWidget'}
-                items={[]} />
-            } />
-
-          <HomepageRow
-            title={'From Our Blog'}
-            link={"//nypl.org/blog"}
-            seeMoreStyle={styles.mobileBtn}
-            seeMoreId='blog-SeeMore'
-            content={
-              <BlogFeatures
-                name={'HP-Blogs'}
-                id={'HP-Blogs'}
-                className={'RightColumn'}
-                items={[]} />
-            } />
-
-          <HomepageRow
-            title={'Of Note'}
-            className='ofNoteRow homepageRow'
-            seeMoreStyle={styles.mobileBtn}
-            seeMoreId='ofNote-SeeMore'
-            content={
-              <FeatureRow
-                name={'HP-OfNote'}
-                id={'HP-OfNote'}
-                className={'RightColumn'}
-                items={ofNoteData} />
-            } />
 
         </div>
         <Footer />
