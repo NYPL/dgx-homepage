@@ -44,7 +44,8 @@ class App extends React.Component {
       // currently empty.
       whatsHappening = this.state.whatsHappening,
       carouselIndex = this.state.carouselIndexValue,
-      staffPicks = this.state.staffPicks.slots;
+      staffPicks = this.state.staffPicks.slots,
+      fromOurBlogsData = this.state.fromOurBlogsData.slots;
 
     return (
       <div>
@@ -120,8 +121,8 @@ class App extends React.Component {
               <BlogFeatures
                 name={'HP-Blogs'}
                 id={'HP-Blogs'}
-                className={'RightColumn'}
-                items={[]} />
+                className={''}
+                items={fromOurBlogsData} />
             } />
 
           <HomepageRow

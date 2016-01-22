@@ -1,77 +1,80 @@
 /*
 Import utils
 */
-@import 'utils/colors';
-@import 'utils/utils';
+@import "utils/colors";
+@import "utils/utils";
 
 /*
 Import singularity and breakpoints
 */
-@import '~singularitygs/stylesheets/singularitygs';
-@import '~breakpoint-sass/stylesheets/breakpoint';
+@import "~singularitygs/stylesheets/singularitygs";
+@import "~breakpoint-sass/stylesheets/breakpoint";
 
 /*
 Import style rules from node module components
 */
 
-@import '~dgx-header-component/dist/styles/main';
-@import '~dgx-react-buttons/dist/styles/styles.scss';
-@import '~dgx-react-footer/dist/styles/styles.scss';
-@import '~dgx-booklist-component/dist/styles/main';
+@import "~dgx-header-component/dist/styles/main";
+@import "~dgx-react-buttons/dist/styles/styles.scss";
+@import "~dgx-react-footer/dist/styles/styles.scss";
+@import "~dgx-booklist-component/dist/styles/main";
 
 /*
 Import style rules from ./components
 */
 
-@import 'components/_HomepageRow';
-@import 'components/_CarouselComponent';
-@import 'components/_WhatsHappening';
-@import 'components/_LearnSomethingNew';
-@import 'components/_BookList';
-@import 'components/_StaffPicks';
-@import 'components/_OfNote';
+@import "components/_HomepageRow";
+@import "components/_CarouselComponent";
+@import "components/_WhatsHappening";
+@import "components/_LearnSomethingNew";
+@import "components/_BookList";
+@import "components/_StaffPicks";
+@import "components/_OfNote";
+@import "components/_FromOurBlogs";
 
 /*
 Set up grid
 */
 @include add-grid(3);
+
 // @include sgs-change('debug', true);
 
 /*
 Import fonts
 */
-$FONT_PATH: '//ux-static.nypl.org';
-$SECONDARY_FONT_KIEVIT: 'Helvetica';
-$THIRD_FONT_KIEVIT: 'arial';
-$FOURTH_FONT_KIEVIT: 'sans-serif';
+$FONT_PATH: "//ux-static.nypl.org";
+$SECONDARY_FONT_KIEVIT: "Helvetica";
+$THIRD_FONT_KIEVIT: "arial";
+$FOURTH_FONT_KIEVIT: "sans-serif";
 
-@include font-face(Kievit-Book, '#{$FONT_PATH}/ff_kievit_web/KievitWeb-Book');
-@include font-face(Kievit-Medium, '#{$FONT_PATH}/ff_kievit_web/KievitWeb-Medi');
+@include font-face(Kievit-Book, "#{$FONT_PATH}/ff_kievit_web/KievitWeb-Book");
 
-@include font-face(Milo-Regular, '#{$FONT_PATH}/milo-web/milo-slab-pro-regular/MiloSlabWebPro');
+@include font-face(Kievit-Medium, "#{$FONT_PATH}/ff_kievit_web/KievitWeb-Medi");
+
+@include font-face(Milo-Regular, "#{$FONT_PATH}/milo-web/milo-slab-pro-regular/MiloSlabWebPro");
 
 @mixin Kievit-Book {
-  font-family: 'Kievit-Book', $SECONDARY_FONT_KIEVIT, $THIRD_FONT_KIEVIT;
+    font-family: "Kievit-Book", $SECONDARY_FONT_KIEVIT, $THIRD_FONT_KIEVIT;
 }
 
 @mixin Kievit-Medium {
-  font-family: 'Kievit-Medium', $SECONDARY_FONT_KIEVIT, $THIRD_FONT_KIEVIT;
+    font-family: "Kievit-Medium", $SECONDARY_FONT_KIEVIT, $THIRD_FONT_KIEVIT;
 }
 
 /* MILO INCLUDES */
 @mixin Milo-Regular {
-  font-family: 'Milo-Regular', $SECONDARY_FONT_MILO, $THIRD_FONT_MILO;
+    font-family: "Milo-Regular", $SECONDARY_FONT_MILO, $THIRD_FONT_MILO;
 }
 
 #app {
-  margin: 0;
-  min-width: 320px;
+    margin: 0;
+    min-width: 320px;
 }
 
 .app-wrapper {
-  margin: 0 14px;
-  @media (min-width: 769px) {
-    margin: 0 20px;
-  }
-}
+    margin: 0 14px;
 
+    @media (min-width: 769px) {
+        margin: 0 20px;
+    }
+}

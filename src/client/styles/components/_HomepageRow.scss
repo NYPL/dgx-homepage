@@ -14,7 +14,7 @@ Set up grid
 
   .leftColumn {
 
-    h2 {
+    & > h2 {
       @include Kievit-Medium;
 
       color: $PRIMARY_COLOR;
@@ -37,7 +37,7 @@ Set up grid
     margin-top: 25px;
   }
 
-  h2 {
+  & > h2 {
     @include Kievit-Medium;
 
     color: $PRIMARY_COLOR;

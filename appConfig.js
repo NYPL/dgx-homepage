@@ -19,7 +19,7 @@ let config = {
       'children.slots.current-item.rectangular-image'
     ],
     filters: {
-      name: 'Of%20Note|Learn%20Something%20New|Banner|what%27s%20happening|staff%20picks'
+      name: 'Of%20Note|Learn%20Something%20New|Banner|what%27s%20happening|staff%20picks|from%20our%20blog'
     }
   }
 };
