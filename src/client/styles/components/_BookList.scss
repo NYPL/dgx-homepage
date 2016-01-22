@@ -1,7 +1,11 @@
 
 .bookList {
+  .leftColumn {
+    border: none;
+  }
+
   &.homepageRow {
-    background-color: $PRIMARY_COLOR;
+    background-color: #ff4f43;
     color: #FFFFFF;
     margin-bottom: 25px;
 
