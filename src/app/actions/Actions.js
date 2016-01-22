@@ -22,6 +22,14 @@ class Actions {
     this.dispatch(data);
   }
 
+  updateBooksWeLoveData(data) {
+    this.dispatch(data);
+  }
+
+  updateWhatsHappeningData(data) {
+    this.dispatch(data);
+  }
+
   updateFromOurBlogsData(data) {
     this.dispatch(data);
   }

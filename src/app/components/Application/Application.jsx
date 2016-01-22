@@ -42,10 +42,11 @@ class App extends React.Component {
       // whatsHappening is a container with four containers.
       // Each of the 'children' containers contains the slots but they are
       // currently empty.
-      whatsHappening = this.state.whatsHappening,
+      whatsHappeningData = this.state.whatsHappeningData,
       carouselIndex = this.state.carouselIndexValue,
-      staffPicks = this.state.staffPicks.slots,
-      fromOurBlogsData = this.state.fromOurBlogsData.slots;
+      fromOurBlogsData = this.state.fromOurBlogsData.slots,
+      staffPicksData = this.state.staffPicksData.slots,
+      booksWeLoveData = this.state.booksWeLoveData;
 
     return (
       <div>
@@ -69,7 +70,7 @@ class App extends React.Component {
                 name={'HP-WhatsHappening'}
                 id={'HP-WhatsHappening'}
                 className={'RightColumn'}
-                items={whatsHappening} />
+                items={whatsHappeningData} />
             } />
 
           <HomepageRow
@@ -96,7 +97,7 @@ class App extends React.Component {
                 name={'HP-StaffPicks'}
                 id={'HP-StaffPicks'}
                 className={'RightColumn'}
-                items={staffPicks} />
+                items={staffPicksData} />
             } />
 
           <HomepageRow
