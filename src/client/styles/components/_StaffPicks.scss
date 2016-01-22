@@ -1,15 +1,118 @@
 .StaffPicks {
-	position: absolute;
-  left: -10000px;
-  top: auto;
-  width :1px;
-  height: 1px;
-  overflow: hidden;
+	@include visuallyHidden;
+  background-color: $PRIMARY_COLOR;
 
-    @media (min-width: 769px) {
-			position: relative;
-			left: 0;
-			width: 100%;
-			height: auto;
-		}
+  @media (min-width: 768px) {
+		@include displayVisuallyHidden;
+    min-height: 350px;
+	}
+
+  .leftColumn {
+    border-top: 2px solid #fff;
+    h2 {
+      color: #fff;
+    }
+  }
+
+  .HP-StaffPicks {
+    // Tablet Portrait
+    @include layout-at(('grid': 2, 'gutter': .07), 768px) {
+      @include float-span(2);
+
+      &-Wrapper {
+        &:first-child {
+          @include float-span(1, 'first');
+        }
+        &:last-child {
+          @include float-span(1, 'last');
+        }
+
+        img {
+          max-height: 171px;
+        }
+      }
+
+      &-Pick {
+        display: flex;
+        height: 200px;
+        padding-bottom: 15px;
+        margin-bottom: 5px;
+        color: #000;
+
+        .quote-background {
+          width: 235px;
+          height: 197px;
+          position: absolute;
+          background: #fff;
+          z-index: 0;
+
+          // For the down quote arrow
+          &:after {
+            content: "";
+            position: absolute;
+            bottom: -20px;
+            left: 30px;
+            border-width: 20px 20px 0 0;
+            border-style: solid;
+            border-color: #fff transparent;
+            display: block;
+            width: 0;
+          }
+        }
+
+        p {
+          flex: 1;
+          z-index: 100;
+          margin: 0;
+          padding: 30px 5px 0 10px;
+          color: #000;
+          font-family: MiloSlabPro;
+          font-size: 20px;
+          font-weight: 300;
+          font-style: italic;
+          line-height: 20px;
+        }
+
+        a {
+          z-index: 101;
+          align-self: flex-end;
+        }
+      }
+
+      &-staff {
+        color: #fff;
+
+        img {
+          height: 60px;
+          width: 60px;
+          float: left;
+        }
+
+        .nypl-icon-logo-mark {
+          color: #c51d12;
+          font-size: 80px;
+          width: 60px;
+          margin-right: 5px;
+          float: left;
+
+          &:before {
+            margin-left: -20px;
+          }
+        }
+
+        h3 {
+          margin: 0;
+          font-size: 18px;
+          padding-top: 25px;
+          font-weight: 300;
+        }
+
+        h5 {
+          font-size: 13px;
+          margin: 0;
+          font-weight: 300;
+        }
+      }
+    }
+  }
 }
