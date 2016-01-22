@@ -1,14 +1,11 @@
-/*
-Set up grid
-*/
-@include add-grid(3);
-// @include sgs-change('debug', true);
 
 .bookList {
-  // @include background-grid($color: blue);
+  .leftColumn {
+    border: none;
+  }
 
   &.homepageRow {
-    background-color: $PRIMARY_COLOR;
+    background-color: #ff4f43;
     color: #FFFFFF;
     margin-bottom: 25px;
 
@@ -19,6 +16,39 @@ Set up grid
     &__Content {
       color: #FFFFFF;
       margin-top: 20px;
+
+      // Tablet Portrait
+      @include layout-at(1, 768px) {
+        @include float-span(1);
+
+        margin-top: 0;
+
+        .slick-slider {
+          .slick-track {
+            height: 245px;
+          }
+
+          .slick-book-item {
+            margin-right: 20px;
+
+            img {
+              max-height: 216px;
+            }
+          }
+
+          .slick-prev, .slick-next {
+            top: 120px;
+          }
+
+          .slick-prev {
+            left: -17%;
+          }
+
+          .slick-next {
+            left: -9%;
+          }
+        }
+      }
     }
 
     & .see-more-button {
@@ -26,5 +56,4 @@ Set up grid
       color: #FFFFFF;
     }
   }
-
 }
