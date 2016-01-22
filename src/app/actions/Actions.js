@@ -22,7 +22,7 @@ class Actions {
     this.dispatch(data);
   }
 
-  updateBooksWeLoveData(data) {
+  updateStaffPicksCarouselData(data) {
     this.dispatch(data);
   }
 

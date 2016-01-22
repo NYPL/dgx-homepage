@@ -9,7 +9,7 @@ class HomepageStore {
       handleOfNoteData: Actions.UPDATE_OF_NOTE_DATA,
       handleSetCarouselIndexValue: Actions.SET_CAROUSEL_INDEX_VALUE,
       handleStaffPicksData: Actions.UPDATE_STAFF_PICKS_DATA,
-      handleBooksWeLoveData: Actions.UPDATE_BOOKS_WE_LOVE_DATA,
+      handleStaffPicksCarouselData: Actions.UPDATE_STAFF_PICKS_CAROUSEL_DATA,
       handleWhatsHappeningData: Actions.UPDATE_WHATS_HAPPENING_DATA,
     });
 
@@ -19,7 +19,7 @@ class HomepageStore {
       this.ofNoteData = [],
       this.carouselIndexValue = 0,
       this.staffPicksData = [],
-      this.booksWeLoveData = [],
+      this.staffPicksCarouselData = [],
       this.whatsHappeningData = []
     });
   }
@@ -44,8 +44,8 @@ class HomepageStore {
     this.staffPicksData = data;
   }
 
-  handleBooksWeLoveData(data) {
-    this.booksWeLoveData = data;
+  handleStaffPicksCarouselData(data) {
+    this.staffPicksCarouselData = data;
   }
 
   handleWhatsHappeningData(data) {
