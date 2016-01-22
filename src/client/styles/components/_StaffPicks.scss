@@ -1,12 +1,12 @@
 .StaffPicks {
-	@include visuallyHidden;
+  @include visuallyHidden;
   background-color: $PRIMARY_COLOR;
 
   @media (min-width: 768px) {
-		@include displayVisuallyHidden;
+    @include displayVisuallyHidden;
     min-height: 350px;
     margin-bottom: 0px;
-	}
+  }
 
   .leftColumn {
     border-top: 2px solid #fff;
