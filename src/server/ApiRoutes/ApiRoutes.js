@@ -41,7 +41,7 @@ router
             learnSomethingNewData: modelData.LearnSomethingNew,
             ofNoteData: modelData.OfNote,
             staffPicksData: modelData.StaffPicks,
-            booksWeLoveData: modelData.BooksWeLove,
+            staffPicksCarouselData: modelData.StaffPicksCarousel,
             carouselIndexValue: 0
           },
           // Set the API URL here so we can access it when we
