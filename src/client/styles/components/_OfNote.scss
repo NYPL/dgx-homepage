@@ -1,16 +1,17 @@
+
 #HP-OfNote {
+  // Mobile
   .HP-OfNote-Wrapper {
     @include grid-span(3,1);
     margin-bottom: 15px;
   }
-  
+
   img {
     @include grid-span(1,1);
   }
 
   h2 {
     @include grid-span(2,2);
-
     font-size: 18px;
     color: #000;
   }
@@ -19,4 +20,36 @@
     // TODO: HIDE SO IT'S ACCESSIBLE TO SCREEN READERS
     display: none;
   }
+
+  // Tablet Portrait
+  @include layout-at(2, 768px) {
+    @include add-gutter(.07);
+
+    @include float-span(2);
+
+    .HP-OfNote-Wrapper {
+      &:first-child {
+        @include float-span(1, 'first');
+      }
+      &:last-child {
+        @include float-span(1, 'last');
+      }
+
+      @include layout(3) {
+        @include add-gutter(.25);
+
+        img {
+          @include grid-span(2,1);
+        }
+
+        h2 {
+          @include grid-span(1,3);
+          line-height: 20px;
+          font-size: 18px;
+          margin-top: 5px;
+        }
+      }
+    }
+  }
 }
+

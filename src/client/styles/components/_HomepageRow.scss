@@ -1,10 +1,7 @@
-/*
-Set up grid
-*/
-@include add-grid(3);
 
 .homepageRow {
   @include grid-span(3,1);
+  // @include background-grid($color: blue);
 
   border-top: 2px solid $PRIMARY_COLOR;
   min-height: 133px;
@@ -13,7 +10,6 @@ Set up grid
   padding: 15px 0 5px 0;
 
   .leftColumn {
-
     h2 {
       @include Kievit-Medium;
 
@@ -30,6 +26,10 @@ Set up grid
       right: 0;
       top: 8px; //10px;
       font-size: 26px;
+
+      @media (min-width: 768px) {
+        position: relative;
+      }
     }
   }
 
@@ -64,22 +64,30 @@ Set up grid
     }
   }
 
-  @include layout-at(6, 768px) {
-    @include grid-span(6,1);
+  // Tablet Portrait
+  @include layout-at(('grid': 7, 'gutter': .2), 768px) {
+    // @include background-grid($color: blue);
     border-top: none;
 
     h2, &__Content {
       font-size: 18px;
+      margin-top: 0;
     }
     
     .leftColumn {
       @include grid-span(1,1);
-
+      right: 0;
       border-top: 2px solid $PRIMARY_COLOR;
       text-align: right;
+      padding-top: 10px;
+
+      .see-more-button {
+        font-size: 32px;
+      }
     }
 
     .rightColumn {
+      margin-top: 0;
       @include grid-span(6,2);
     }
   }
