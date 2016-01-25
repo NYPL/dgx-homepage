@@ -71,7 +71,13 @@ class Model {
         bookCoverImage = element['current-item']['book-cover-image'] ?
           element['current-item']['book-cover-image'].attributes.uri['full-uri'] : null,
         date = element['current-item'].attributes.date ?
-          element['current-item'].attributes.date : null;
+          element['current-item'].attributes.date : null,
+        firstName = element['current-item'].attributes['person-first-name'] ?
+          element['current-item'].attributes['person-first-name'] : null,
+        lastName = element['current-item'].attributes['person-last-name'] ?
+          element['current-item'].attributes['person-last-name'] : null,
+        authorTitle = element['current-item'].attributes['person-title'] ?
+          element['current-item'].attributes['person-title'] : null;
 
       return {
         title: (element['current-item'].attributes.title) ?
@@ -89,6 +95,11 @@ class Model {
         link: (element['current-item'].attributes.url.length) ?
           element['current-item'].attributes.url : '',
         date,
+        author: {
+          title: authorTitle,
+          firstName,
+          lastName,
+        },
       };
     });
   }
