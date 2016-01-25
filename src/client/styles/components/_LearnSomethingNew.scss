@@ -2,22 +2,64 @@
 
   .HP-Learn-Wrapper {
 
-    @include grid-span(3,1);
-      margin-bottom: 15px;
+    &:nth-child(n + 3) {
+      @include visuallyHidden;
     }
+
+    @include grid-span(3, 1);
+    margin-bottom: 15px;
+  }
     
-    img {
-      @include grid-span(1,1);
-    }
+  img {
+    @include grid-span(1, 1);
+  }
 
-    h2 {
-      @include grid-span(2,2);
-      font-size: 18px;
-      color: #000;
-    }
+  h2 {
+    @include grid-span(2, 2);
+    font-size: 18px;
+    color: #000;
+  }
 
-    p {
-      // TODO: HIDE SO IT'S ACCESSIBLE TO SCREEN READERS
-      display: none;
+  p {
+    // TODO: HIDE SO IT'S ACCESSIBLE TO SCREEN READERS
+    display: none;
+  }
+
+  // Tablet Portrait
+  @include layout-at(3, 768px) {
+    @include add-gutter(.1);
+
+    @include grid-span(3);
+
+    .HP-Learn-Wrapper {
+      &:nth-child(3) {
+        @include displayVisuallyHidden;
+      }
+
+      @include grid-span(1);
+
+      &:first-child {
+        @include float-span(1, 'first');
+      }
+      &:nth-child(3) {
+        @include float-span(1, 'last');
+      }
+
+      @include layout(1) {
+        @include add-gutter(.25);
+
+        img {
+          @include grid-span(1, 1);
+        }
+
+        h2 {
+          @include grid-span(1, 1);
+          line-height: 20px;
+          font-size: 20px;
+          margin-top: 12px;
+        }
+      }
     }
+  }
 }
+
