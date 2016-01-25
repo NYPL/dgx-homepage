@@ -20,7 +20,7 @@ const config = {
     ],
     filters: {
       name: 'Of%20Note|Learn%20Something%20New|Banner|' + 
-        'what%27s%20happening|staff%20picks|staff%20picks%20carousel',
+        'what%27s%20happening|staff%20picks|Recommended%20Recent%20Releases',
     },
   },
 };

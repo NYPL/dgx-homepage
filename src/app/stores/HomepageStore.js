@@ -9,7 +9,7 @@ class HomepageStore {
       handleOfNoteData: Actions.UPDATE_OF_NOTE_DATA,
       handleSetCarouselIndexValue: Actions.SET_CAROUSEL_INDEX_VALUE,
       handleStaffPicksData: Actions.UPDATE_STAFF_PICKS_DATA,
-      handleStaffPicksCarouselData: Actions.UPDATE_STAFF_PICKS_CAROUSEL_DATA,
+      handleRecommendedRecentReleasesData: Actions.UPDATE_RECOMMENDED_RECENT_RELEASES_DATA,
       handleWhatsHappeningData: Actions.UPDATE_WHATS_HAPPENING_DATA,
     });
 
@@ -19,7 +19,7 @@ class HomepageStore {
       this.ofNoteData = [],
       this.carouselIndexValue = 0,
       this.staffPicksData = [],
-      this.staffPicksCarouselData = [],
+      this.recommendedRecentReleasesData = [],
       this.whatsHappeningData = []
     });
   }
@@ -44,8 +44,8 @@ class HomepageStore {
     this.staffPicksData = data;
   }
 
-  handleStaffPicksCarouselData(data) {
-    this.staffPicksCarouselData = data;
+  handleRecommendedRecentReleasesData(data) {
+    this.recommendedRecentReleasesData = data;
   }
 
   handleWhatsHappeningData(data) {
