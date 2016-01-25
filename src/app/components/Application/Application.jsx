@@ -82,7 +82,7 @@ class App extends React.Component {
                 name={'HP-Learn'}
                 id={'HP-Learn'}
                 className={'RightColumn'}
-                // itemsToDisplay = {4}
+                itemsToDisplay = {4}
                 items={learnSomethingNewData} />
             } />
 
