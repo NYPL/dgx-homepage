@@ -46,7 +46,7 @@ class App extends React.Component {
       carouselIndex = this.state.carouselIndexValue,
       fromOurBlogsData = this.state.fromOurBlogsData.slots,
       staffPicksData = this.state.staffPicksData.slots,
-      booksWeLoveData = this.state.booksWeLoveData;
+      recommendedRecentReleasesData = this.state.recommendedRecentReleasesData;
 
     return (
       <div>
@@ -83,7 +83,7 @@ class App extends React.Component {
                 name={'HP-Learn'}
                 id={'HP-Learn'}
                 className={'RightColumn'}
-                // itemsToDisplay = {4}
+                itemsToDisplay = {4}
                 items={learnSomethingNewData} />
             } />
 
@@ -110,7 +110,7 @@ class App extends React.Component {
                 name={'HP-Booklist'}
                 id={'HP-Booklist'}
                 className={'bookListWidget'}
-                items={[]} />
+                bookList={recommendedRecentReleasesData} />
             } />
 
           <HomepageRow

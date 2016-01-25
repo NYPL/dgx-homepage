@@ -1,8 +1,10 @@
 /*
 Import utils
 */
-@import "utils/colors";
-@import "utils/utils";
+@import 'utils/mixins';
+@import 'utils/colors';
+@import 'utils/utils';
+
 
 /*
 Import singularity and breakpoints
@@ -20,9 +22,15 @@ Import style rules from node module components
 @import "~dgx-booklist-component/dist/styles/main";
 
 /*
+Set up grid
+*/
+@include add-grid(3);
+@include add-grid(7 at 768px);
+// @include sgs-change('debug', true);
+
+/*
 Import style rules from ./components
 */
-
 @import "components/_HomepageRow";
 @import "components/_CarouselComponent";
 @import "components/_WhatsHappening";
@@ -31,13 +39,6 @@ Import style rules from ./components
 @import "components/_StaffPicks";
 @import "components/_OfNote";
 @import "components/_FromOurBlogs";
-
-/*
-Set up grid
-*/
-@include add-grid(3);
-
-// @include sgs-change('debug', true);
 
 /*
 Import fonts
@@ -72,9 +73,10 @@ $FOURTH_FONT_KIEVIT: "sans-serif";
 }
 
 .app-wrapper {
-    margin: 0 14px;
-
-    @media (min-width: 769px) {
-        margin: 0 20px;
-    }
+  // @include background-grid($color: blue);
+  margin: 0 14px;
+  @media (min-width: 768px) {
+    // margin: 0 20px;
+    margin: 0 25px 0 35px;
+  }
 }

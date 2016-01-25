@@ -9,7 +9,7 @@ class HomepageStore {
       handleOfNoteData: Actions.UPDATE_OF_NOTE_DATA,
       handleSetCarouselIndexValue: Actions.SET_CAROUSEL_INDEX_VALUE,
       handleStaffPicksData: Actions.UPDATE_STAFF_PICKS_DATA,
-      handleBooksWeLoveData: Actions.UPDATE_BOOKS_WE_LOVE_DATA,
+      handleRecommendedRecentReleasesData: Actions.UPDATE_RECOMMENDED_RECENT_RELEASES_DATA,
       handleWhatsHappeningData: Actions.UPDATE_WHATS_HAPPENING_DATA,
       handleFromOurBlogsData: Actions.UPDATE_FROM_OUR_BLOGS_DATA,
     });
@@ -20,7 +20,7 @@ class HomepageStore {
       this.ofNoteData = [],
       this.carouselIndexValue = 0,
       this.staffPicksData = [],
-      this.booksWeLoveData = [],
+      this.recommendedRecentReleasesData = [],
       this.whatsHappeningData = [],
       this.fromOurBlogsData = []
     });
@@ -46,8 +46,8 @@ class HomepageStore {
     this.staffPicksData = data;
   }
 
-  handleBooksWeLoveData(data) {
-    this.booksWeLoveData = data;
+  handleRecommendedRecentReleasesData(data) {
+    this.recommendedRecentReleasesData = data;
   }
 
   handleWhatsHappeningData(data) {
@@ -60,4 +60,3 @@ class HomepageStore {
 }
 
 export default alt.createStore(HomepageStore, 'HomepageStore');
-

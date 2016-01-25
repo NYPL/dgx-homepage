@@ -22,7 +22,7 @@ class Actions {
     this.dispatch(data);
   }
 
-  updateBooksWeLoveData(data) {
+  updateRecommendedRecentReleasesData(data) {
     this.dispatch(data);
   }
 
