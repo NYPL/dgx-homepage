@@ -92,6 +92,7 @@ class App extends React.Component {
             title={'Staff Picks'}
             link={'/staffpicks'}
             seeMoreId='staffPicks-SeeMore'
+            seeMoreStyle={styles.whiteSeeMoreBtn}
             content={
               <HomepageStaffPicks
                 name={'HP-StaffPicks'}
