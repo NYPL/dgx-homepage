@@ -4,43 +4,65 @@
 #HP-WhatsHappening {
   // @include background-grid($color: blue);
 
-  .RightColumn__Section {
-    margin-bottom: 10px;
-    display: inline-block;
+  .RightColumn {
+    &__Section {
+      margin-bottom: 10px;
+      display: inline-block;
 
-    .RightColumn__Section__Event-Wrapper + .RightColumn__Section__Event-Wrapper {
-      display: none;
+      .RightColumn__Section-event-wrapper + .RightColumn__Section-event-wrapper {
+        display: none;
+      }
+
+      a {
+        text-decoration: none;
+        color: #000;
+      }
+
+      h3 {
+        color: $LIBRARY_RED;
+        text-transform: uppercase;
+        font-size: 12px;
+        margin: 0 0 10px 0;
+        letter-spacing: 0.05em;
+      }
+
+      img {
+        @include grid-span(1,1);
+      }
+
+      h2 {
+        @include grid-span(2,2);
+        color: #000;
+        line-height: 22px;
+        margin: 0;
+      }
+
+      p {
+        @include grid-span(2,2);
+        text-transform: uppercase;
+        font-size: 12px;
+        margin-top: 10px 0 0 0;
+      }
+
+      @media only screen and (min-width: 768px) {
+        span {
+          display: none;
+        }
+      }
     }
 
-    a {
-      text-decoration: none;
-      color: #000;
-    }
+    @include layout-at(('grid': 6), 768px) {
+      @include grid-span(6,1);
 
-    h3 {
-      color: $LIBRARY_RED;
-      text-transform: uppercase;
-      font-size: 12px;
-      margin: 0 0 10px 0;
-      letter-spacing: 0.05em;
-    }
+      &__Section {
 
-    img {
-      @include grid-span(1,1);
-    }
-
-    h2 {
-      @include grid-span(2,2);
-      color: #000;
-      line-height: 22px;
-      margin: 0;
-    }
-
-    p {
-      @include grid-span(2,2);
-      text-transform: uppercase;
-      font-size: 12px;
-      margin-top: 10px 0 0 0;
+        // &:nth-child(-n+2) {
+          @include float-span(3);
+        // }
+        // &:nth-child(n+3) {
+        //   @include float-span(3, 'last');
+        // }
+      }
     }
   }
 
