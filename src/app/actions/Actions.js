@@ -29,6 +29,10 @@ class Actions {
   updateWhatsHappeningData(data) {
     this.dispatch(data);
   }
+
+  updateFromOurBlogsData(data) {
+    this.dispatch(data);
+  }
 };
 
 export default alt.createActions(Actions);

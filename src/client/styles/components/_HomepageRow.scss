@@ -10,9 +10,9 @@
   padding: 15px 0 5px 0;
 
   .leftColumn {
-    h2 {
-      @include Kievit-Medium;
 
+    & > h2 {
+      @include Kievit-Medium;
       color: $PRIMARY_COLOR;
       font-size: 18px;
       font-weight: normal;
@@ -37,7 +37,7 @@
     margin-top: 25px;
   }
 
-  h2 {
+  & > h2 {
     @include Kievit-Medium;
 
     color: $PRIMARY_COLOR;
