@@ -19,8 +19,9 @@ const config = {
       'children.slots.current-item.rectangular-image',
     ],
     filters: {
-      name: 'Of%20Note|Learn%20Something%20New|Banner|' + 
-        'what%27s%20happening|staff%20picks|Recommended%20Recent%20Releases',
+      name: 'Of%20Note|Learn%20Something%20New|Banner|' +
+        'what%27s%20happening|staff%20picks|Recommended%20Recent%20Releases|' +
+        'from%20our%20blog',
     },
   },
 };

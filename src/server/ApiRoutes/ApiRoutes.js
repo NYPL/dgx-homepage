@@ -40,6 +40,7 @@ router
             carouselData: modelData.Banner,
             learnSomethingNewData: modelData.LearnSomethingNew,
             ofNoteData: modelData.OfNote,
+            fromOurBlogsData: modelData.FromOurBlog,
             staffPicksData: modelData.StaffPicks,
             recommendedRecentReleasesData: modelData.RecommendedRecentReleases,
             carouselIndexValue: 0

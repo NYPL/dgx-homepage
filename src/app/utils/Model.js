@@ -58,42 +58,43 @@ class Model {
         return {};
       }
 
+      const currentItem = element['current-item'];
+
       // Check if different sizes of the images exist
-      let bannerImage = element['current-item']['banner-image'] ?
-        element['current-item']['banner-image'].attributes.uri['full-uri'] :
-        null,
-        rectangularImage =element['current-item']['rectangular-image'] ?
-          element['current-item']['rectangular-image'].attributes
+      let bannerImage = currentItem['banner-image'] ?
+        currentItem['banner-image'].attributes.uri['full-uri'] : null,
+        rectangularImage = currentItem['rectangular-image'] ?
+          currentItem['rectangular-image'].attributes
           .uri['full-uri'] : null,
-        squareImage = element['current-item']['square-image'] ?
-          element['current-item']['square-image'].attributes.uri['full-uri'] :
+        squareImage = currentItem['square-image'] ?
+          currentItem['square-image'].attributes.uri['full-uri'] :
           null,
-        bookCoverImage = element['current-item']['book-cover-image'] ?
-          element['current-item']['book-cover-image'].attributes.uri['full-uri'] : null,
-        date = element['current-item'].attributes.date ?
-          element['current-item'].attributes.date : null,
-        firstName = element['current-item'].attributes['person-first-name'] ?
-          element['current-item'].attributes['person-first-name'] : null,
-        lastName = element['current-item'].attributes['person-last-name'] ?
-          element['current-item'].attributes['person-last-name'] : null,
-        authorTitle = element['current-item'].attributes['person-title'] ?
-          element['current-item'].attributes['person-title'] : null;
+        bookCoverImage = currentItem['book-cover-image'] ?
+          currentItem['book-cover-image'].attributes.uri['full-uri'] : null,
+        date = currentItem.attributes.date ?
+          currentItem.attributes.date : null,
+        firstName = currentItem.attributes['person-first-name'] ?
+          currentItem.attributes['person-first-name'] : null,
+        lastName = currentItem.attributes['person-last-name'] ?
+          currentItem.attributes['person-last-name'] : null,
+        authorTitle = currentItem.attributes['person-title'] ?
+          currentItem.attributes['person-title'] : null;
 
       return {
-        title: (element['current-item'].attributes.title) ?
-          element['current-item'].attributes.title : '',
-        category: (element['current-item'].attributes.category) ?
-          element['current-item'].attributes.category: '',
-        description: (element['current-item'].attributes.description) ?
-          element['current-item'].attributes.description : '',
+        title: (currentItem.attributes.title) ?
+          currentItem.attributes.title : '',
+        category: (currentItem.attributes.category) ?
+          currentItem.attributes.category: '',
+        description: (currentItem.attributes.description) ?
+          currentItem.attributes.description : '',
         image: {
           bannerImage,
           rectangularImage,
           squareImage,
           bookCoverImage,
         },
-        link: (element['current-item'].attributes.url.length) ?
-          element['current-item'].attributes.url : '',
+        link: (currentItem.attributes.url.length) ?
+          currentItem.attributes.url : '',
         date,
         author: {
           title: authorTitle,
