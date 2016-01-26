@@ -1,5 +1,3 @@
-@include sgs-change('debug', true);
-
 .HP-Blogs {
 
 	// Mobile View
@@ -28,12 +26,12 @@
 	}
 
 	&-Description {
-		display: none; // hidden on mobile
+		@include visuallyHidden; // hidden on mobile
 		color: #000;
 	}
 
 	&-AuthorBox {
-		display: none; // hidden on mobile
+		@include visuallyHidden; // hidden on mobile
 	}
 
 	// Tablet View
