@@ -2,7 +2,6 @@
 // @include sgs-change('debug', true);
 
 #HP-WhatsHappening {
-  // @include background-grid($color: blue);
 
   display: flex;
   flex-direction: column;
@@ -87,21 +86,28 @@
     padding: 0;
     margin: 0 0 20px 0;
     color: #000;
+    text-transform: uppercase;
 
     @include layout-at(('grid': 6), 768px) {
-      display: block;
+      display: table;
 
       @include grid-span(6, 1);
 
       li {
-        cursor: pointer;
-        display: inline-block;
-        padding: 15px 0;
-        font-size: 16px;
-        width: 145px;
+        display: table-cell;
+        vertical-align: middle;
         text-align: center;
+        cursor: pointer;
+        padding: 10px 30px;
+        font-size: 11px;
+        width: 75px;
+        font-weight: 700;
+        line-height: 14px;
+        border-bottom: 2px solid $PRIMARY_COLOR;
 
         &.active {
+          border: 2px solid $PRIMARY_COLOR;
+          border-bottom: none;
           color: $PRIMARY_COLOR;
         }
       }
