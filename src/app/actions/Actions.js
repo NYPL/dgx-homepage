@@ -30,6 +30,10 @@ class Actions {
     this.dispatch(data);
   }
 
+  setWhatsHappeningIndexValue(value) {
+    this.dispatch(value);
+  }
+
   updateFromOurBlogsData(data) {
     this.dispatch(data);
   }

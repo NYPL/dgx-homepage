@@ -31,7 +31,8 @@ class App extends React.Component {
   // Update the state of the class
   _onChange() {
     this.setState({
-      carouselIndexValue: HomepageStore.getState().carouselIndexValue
+      carouselIndexValue: HomepageStore.getState().carouselIndexValue,
+      whatsHappeningIndexValue: HomepageStore.getState().whatsHappeningIndexValue,
     });
   }
 
@@ -43,6 +44,7 @@ class App extends React.Component {
       // Each of the 'children' containers contains the slots but they are
       // currently empty.
       whatsHappeningData = this.state.whatsHappeningData,
+      whatsHappeningIndexValue = this.state.whatsHappeningIndexValue,
       carouselIndex = this.state.carouselIndexValue,
       fromOurBlogsData = this.state.fromOurBlogsData.slots,
       staffPicksData = this.state.staffPicksData.slots,
@@ -70,7 +72,9 @@ class App extends React.Component {
                 name={'HP-WhatsHappening'}
                 id={'HP-WhatsHappening'}
                 className={'RightColumn'}
-                items={whatsHappeningData} />
+                items={whatsHappeningData}
+                index={whatsHappeningIndexValue}
+                action={Actions.setWhatsHappeningIndexValue}/>
             } />
 
           <HomepageRow

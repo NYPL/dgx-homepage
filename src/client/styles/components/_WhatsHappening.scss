@@ -4,6 +4,9 @@
 #HP-WhatsHappening {
   // @include background-grid($color: blue);
 
+  display: flex;
+  flex-direction: column;
+
   .RightColumn {
     &__Section {
       margin-bottom: 10px;
@@ -55,13 +58,52 @@
       @include grid-span(6,1);
 
       &__Section {
+        display: none;
 
-        // &:nth-child(-n+2) {
-          @include float-span(3);
-        // }
-        // &:nth-child(n+3) {
-        //   @include float-span(3, 'last');
-        // }
+        > h3 {
+          display: none;
+        }
+
+        &.active {
+          display: block;
+
+          .RightColumn__Section-event-wrapper {
+            display: block;
+
+            &:nth-child(even) {
+              @include float-span(3, 'first');
+            }
+            &:nth-child(odd) {
+              @include float-span(3, 'last');
+            }
+          }
+        }
+      }
+    }
+  }
+
+  ul {
+    display: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    color: #000;
+
+    @include layout-at(('grid': 6), 768px) {
+      display: block;
+
+      @include grid-span(6, 1);
+
+      li {
+        cursor: pointer;
+        display: inline-block;
+        padding: 15px 0;
+        font-size: 16px;
+        width: 145px;
+        text-align: center;
+
+        &.active {
+          color: $PRIMARY_COLOR;
+        }
       }
     }
   }

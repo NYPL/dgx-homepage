@@ -43,7 +43,8 @@ router
             fromOurBlogsData: modelData.FromOurBlog,
             staffPicksData: modelData.StaffPicks,
             recommendedRecentReleasesData: modelData.RecommendedRecentReleases,
-            carouselIndexValue: 0
+            carouselIndexValue: 0,
+            whatsHappeningIndexValue: 0
           },
           // Set the API URL here so we can access it when we
           // render in the EJS file.
