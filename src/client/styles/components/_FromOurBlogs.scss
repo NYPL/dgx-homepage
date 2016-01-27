@@ -1,0 +1,39 @@
+.HP-Blogs {
+
+	// Mobile View
+	&-Wrapper {
+		@include grid-span(3,1);
+    margin-bottom: 15px;
+	}
+
+	&-Image {
+		max-width: 100%;
+	}
+
+	&-LeftSide {
+		@include grid-span(1,1);
+	}
+
+	&-RightSide {
+		@include grid-span(2,2);
+	}
+
+	&-Title {
+    font-size: 18px;
+    color: #000;
+    margin: 0;
+    line-height: 1.25em;
+	}
+
+	&-Description {
+		@include visuallyHidden; // hidden on mobile
+		color: #000;
+	}
+
+	&-AuthorBox {
+		@include visuallyHidden; // hidden on mobile
+	}
+
+	// Tablet View
+
+}

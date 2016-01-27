@@ -21,6 +21,18 @@ class Actions {
   updateStaffPicksData(data) {
     this.dispatch(data);
   }
+
+  updateRecommendedRecentReleasesData(data) {
+    this.dispatch(data);
+  }
+
+  updateWhatsHappeningData(data) {
+    this.dispatch(data);
+  }
+
+  updateFromOurBlogsData(data) {
+    this.dispatch(data);
+  }
 };
 
 export default alt.createActions(Actions);

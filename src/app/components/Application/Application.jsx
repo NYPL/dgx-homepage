@@ -42,9 +42,11 @@ class App extends React.Component {
       // whatsHappening is a container with four containers.
       // Each of the 'children' containers contains the slots but they are
       // currently empty.
-      whatsHappening = this.state.whatsHappening,
+      whatsHappeningData = this.state.whatsHappeningData,
       carouselIndex = this.state.carouselIndexValue,
-      staffPicks = this.state.staffPicks.slots;
+      fromOurBlogsData = this.state.fromOurBlogsData.slots,
+      staffPicksData = this.state.staffPicksData.slots,
+      recommendedRecentReleasesData = this.state.recommendedRecentReleasesData.slots;
 
     return (
       <div>
@@ -68,7 +70,7 @@ class App extends React.Component {
                 name={'HP-WhatsHappening'}
                 id={'HP-WhatsHappening'}
                 className={'RightColumn'}
-                items={whatsHappening} />
+                items={whatsHappeningData} />
             } />
 
           <HomepageRow
@@ -81,7 +83,7 @@ class App extends React.Component {
                 name={'HP-Learn'}
                 id={'HP-Learn'}
                 className={'RightColumn'}
-                // itemsToDisplay = {4}
+                itemsToDisplay = {4}
                 items={learnSomethingNewData} />
             } />
 
@@ -90,12 +92,13 @@ class App extends React.Component {
             title={'Staff Picks'}
             link={'/staffpicks'}
             seeMoreId='staffPicks-SeeMore'
+            seeMoreStyle={styles.whiteSeeMoreBtn}
             content={
               <HomepageStaffPicks
                 name={'HP-StaffPicks'}
                 id={'HP-StaffPicks'}
                 className={'RightColumn'}
-                items={staffPicks} />
+                items={staffPicksData} />
             } />
 
           <HomepageRow
@@ -108,7 +111,7 @@ class App extends React.Component {
                 name={'HP-Booklist'}
                 id={'HP-Booklist'}
                 className={'bookListWidget'}
-                items={[]} />
+                bookLists={recommendedRecentReleasesData} />
             } />
 
           <HomepageRow
@@ -120,8 +123,8 @@ class App extends React.Component {
               <BlogFeatures
                 name={'HP-Blogs'}
                 id={'HP-Blogs'}
-                className={'RightColumn'}
-                items={[]} />
+                className={''}
+                items={fromOurBlogsData} />
             } />
 
           <HomepageRow
