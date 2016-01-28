@@ -6,6 +6,10 @@
     margin-bottom: 15px;
   }
 
+  a {
+    text-decoration: none;
+  }
+
   img {
     @include grid-span(1,1);
   }
@@ -17,11 +21,13 @@
   }
 
   p {
-    // TODO: HIDE SO IT'S ACCESSIBLE TO SCREEN READERS
-    display: none;
+    /* TODO: HIDE SO IT'S ACCESSIBLE TO SCREEN READERS */
+    @include visuallyHidden;
+
+    color: #000;
   }
 
-  // Tablet Portrait
+  /* Tablet Portrait */
   @include layout-at(2, 768px) {
     @include add-gutter(.07);
 
@@ -50,6 +56,48 @@
         }
       }
     }
+  }
+
+  // Tablet Landscape
+  @include layout-at(2, 1024px) {
+    @include add-gutter(.07);
+
+    @include float-span(2);
+
+    .HP-OfNote-Wrapper {
+      &:first-child {
+        @include float-span(1, 'first');
+      }
+      &:last-child {
+        @include float-span(1, 'last');
+      }
+
+      @include layout(3) {
+        @include add-gutter(.25);
+
+        img {
+          @include grid-span(2,1);
+        }
+
+        h2 {
+          @include grid-span(2,3);
+          line-height: 20px;
+          font-size: 18px;
+          margin-top: 5px;
+        }
+
+        p {
+          @include displayVisuallyHidden;
+
+          @include grid-span(1,2);
+
+          font-size: 18px;
+          line-height: 20px;
+          margin-top: 40px;
+        }
+      }
+    }
+
   }
 }
 
