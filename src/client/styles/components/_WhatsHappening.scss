@@ -10,6 +10,7 @@
     &__Section {
       margin-bottom: 10px;
       display: inline-block;
+      color: #000;
 
       .RightColumn__Section-event-wrapper + .RightColumn__Section-event-wrapper {
         display: none;
@@ -17,7 +18,6 @@
 
       a {
         text-decoration: none;
-        color: #000;
       }
 
       h3 {
