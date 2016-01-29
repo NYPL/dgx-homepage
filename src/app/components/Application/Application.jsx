@@ -49,10 +49,10 @@ class App extends React.Component {
       recommendedRecentReleasesData = this.state.recommendedRecentReleasesData.slots;
 
     return (
-      <div>
+      <div className='hpApp'>
         <Header />
 
-        <div className='app-wrapper'>
+        <div className='nyplHomepage'>
           <CarouselComponent id='HP-Carousel' name='HP-Carousel'
             items={carouselData}
             itemIndex={carouselIndex}
