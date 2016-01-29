@@ -1,5 +1,6 @@
-
 #HP-OfNote {
+  @include sgs-change('debug', true);
+  @include background-grid($color: blue);
   // Mobile
   .HP-OfNote-Wrapper {
     @include grid-span(3,1);
