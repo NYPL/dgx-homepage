@@ -32,7 +32,6 @@ Set up grid
 @include add-grid(3);
 @include add-grid(7 at 768px);
 @include add-grid(8 at 1024px);
-// @include sgs-change('debug', true);
 
 /*
 Import style rules from ./components
