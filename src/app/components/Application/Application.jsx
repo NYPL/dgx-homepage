@@ -49,7 +49,7 @@ class App extends React.Component {
       recommendedRecentReleasesData = this.state.recommendedRecentReleasesData.slots;
 
     return (
-      <div className='hpApp'>
+      <div className='nyplHomepageApp'>
         <Header />
 
         <div className='nyplHomepage'>
