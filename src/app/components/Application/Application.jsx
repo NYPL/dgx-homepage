@@ -103,14 +103,14 @@ class App extends React.Component {
 
           <HomepageRow
             className='bookList homepageRow'
-            title={'Books We Love'}
+            title={'Recent Releases We Love'}
             seeMoreStyle={styles.whiteSeeMoreBtn}
             seeMoreId='BookList-SeeMore'
             content={
               <BooklistWidget
-                name={'HP-Booklist'}
-                id={'HP-Booklist'}
-                className={'bookListWidget'}
+                name={'hpBooklist'}
+                id={'hpBooklist'}
+                className={'hpBooklist'}
                 bookLists={recommendedRecentReleasesData} />
             } />
 
