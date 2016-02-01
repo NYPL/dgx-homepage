@@ -2,6 +2,7 @@
   // Mobile
   .HP-OfNote-Wrapper {
     @include grid-span(3,1);
+
     margin-bottom: 15px;
   }
 
@@ -15,15 +16,16 @@
 
   h2 {
     @include grid-span(2,2);
+    color: #333;
+    font-family:"Kievit-Book";
     font-size: 18px;
-    color: #000;
   }
 
   p {
     /* TODO: HIDE SO IT'S ACCESSIBLE TO SCREEN READERS */
     @include visuallyHidden;
-
-    color: #000;
+    color: #333;
+    font-family:"Kievit-Book";
   }
 
   /* Tablet Portrait */
@@ -64,6 +66,7 @@
     @include float-span(2);
 
     .HP-OfNote-Wrapper {
+
       &:first-child {
         @include float-span(1, 'first');
       }
@@ -80,8 +83,9 @@
 
         h2 {
           @include grid-span(2,3);
-          line-height: 20px;
           font-size: 18px;
+          font-weight: 400;
+          line-height: 19px;
           margin-top: 5px;
         }
 
@@ -90,13 +94,13 @@
 
           @include grid-span(2,3.01);
 
-          font-size: 18px;
-          line-height: 20px;
+          font-size: 15px;
+          font-weight: 400;
+          line-height: 19px;
           margin-top: 40px;
         }
       }
     }
-
   }
 }
 
