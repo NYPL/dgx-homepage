@@ -6,16 +6,16 @@ Import utils
 @import 'utils/utils';
 
 /*
-Set up grid
-*/
-@include add-grid(3);
-@include add-grid(7 at 768px);
-
-/*
 Import singularity and breakpoints
 */
 @import "~singularitygs/stylesheets/singularitygs";
 @import "~breakpoint-sass/stylesheets/breakpoint";
+
+/*
+Set up grid
+*/
+@include add-grid(3);
+@include add-grid(7 at 768px);
 
 /*
 Import style rules from node module components
