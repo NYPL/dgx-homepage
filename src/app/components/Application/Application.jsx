@@ -48,7 +48,7 @@ class App extends React.Component {
       carouselIndex = this.state.carouselIndexValue,
       fromOurBlogsData = this.state.fromOurBlogsData.slots,
       staffPicksData = this.state.staffPicksData.slots,
-      recommendedRecentReleasesData = this.state.recommendedRecentReleasesData;
+      recommendedRecentReleasesData = this.state.recommendedRecentReleasesData.slots;
 
     return (
       <div>
@@ -115,7 +115,7 @@ class App extends React.Component {
                 name={'HP-Booklist'}
                 id={'HP-Booklist'}
                 className={'bookListWidget'}
-                bookList={recommendedRecentReleasesData} />
+                bookLists={recommendedRecentReleasesData} />
             } />
 
           <HomepageRow
@@ -125,8 +125,8 @@ class App extends React.Component {
             seeMoreId='blog-SeeMore'
             content={
               <BlogFeatures
-                name={'HP-Blogs'}
-                id={'HP-Blogs'}
+                name={'hpBlogs'}
+                id={'hpBlogs'}
                 className={''}
                 items={fromOurBlogsData} />
             } />
