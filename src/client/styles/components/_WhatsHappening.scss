@@ -1,87 +1,82 @@
 @include add-grid(3);
 // @include sgs-change('debug', true);
 
-#HP-WhatsHappening {
-
+.hpWhatsHappening {
   display: flex;
   flex-direction: column;
 
-  .RightColumn {
-    &__Section {
-      margin-bottom: 10px;
-      display: inline-block;
-      color: #000;
+  &-section {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 10px;
+    display: inline-block;
+    list-style: none;
+    color: #000;
 
-      .RightColumn__Section-event-wrapper + .RightColumn__Section-event-wrapper {
-        display: none;
-      }
-
-      a {
-        text-decoration: none;
-      }
-
-      h3 {
-        color: $LIBRARY_RED;
-        text-transform: uppercase;
-        font-size: 12px;
-        margin: 0 0 10px 0;
-        letter-spacing: 0.05em;
-      }
-
-      img {
-        @include grid-span(1,1);
-      }
-
-      h2 {
-        @include grid-span(2,2);
-        color: #000;
-        line-height: 22px;
-        margin: 0;
-      }
-
-      p {
-        @include grid-span(2,2);
-        text-transform: uppercase;
-        font-size: 12px;
-        margin-top: 10px 0 0 0;
-      }
-
-      @media only screen and (min-width: 768px) {
-        span {
-          display: none;
-        }
-      }
+    // To hide 
+    .eventItem + .eventItem {
+      display: none;
     }
 
-    @include layout-at(('grid': 6), 768px) {
-      @include grid-span(6,1);
+    a {
+      text-decoration: none;
+    }
 
-      &__Section {
+    > h3 {
+      color: $LIBRARY_RED;
+      text-transform: uppercase;
+      font-size: 12px;
+      margin: 0 0 10px 0;
+      letter-spacing: 0.05em;
+    }
+
+    img {
+      @include grid-span(1,1);
+    }
+
+    h2 {
+      @include grid-span(2,2);
+      color: #000;
+      line-height: 22px;
+      margin: 0;
+    }
+
+    p {
+      @include grid-span(2,2);
+      text-transform: uppercase;
+      font-size: 12px;
+      margin-top: 10px 0 0 0;
+    }
+  }
+
+  @include layout-at(('grid': 6), 768px) {
+    @include grid-span(6,1);
+
+    &-section {
+      display: none;
+
+      > h3 {
         display: none;
+      }
 
-        > h3 {
-          display: none;
-        }
+      &.active {
+        display: block;
 
-        &.active {
+        .eventItem {
           display: block;
 
-          .RightColumn__Section-event-wrapper {
-            display: block;
-
-            &:nth-child(even) {
-              @include float-span(3, 'first');
-            }
-            &:nth-child(odd) {
-              @include float-span(3, 'last');
-            }
+          &:nth-child(even) {
+            @include float-span(3, 'first');
+          }
+          &:nth-child(odd) {
+            @include float-span(3, 'last');
           }
         }
       }
     }
   }
 
-  ul {
+  .titleTabs {
     display: none;
     padding: 0;
     margin: 0 0 20px 0;
@@ -112,10 +107,5 @@
         }
       }
     }
-  }
-
-  .HP-WhatsHappening-Wrapper {
-    @include grid-span(3,1);
-    margin-bottom: 32px;
   }
 }
