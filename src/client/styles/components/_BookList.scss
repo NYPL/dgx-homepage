@@ -2,16 +2,16 @@
 .bookList {
   .leftColumn {
     border: none;
+
+    h2 {
+      color: #FFFFFF;
+    }
   }
 
   &.homepageRow {
     background-color: #ff4f43;
     color: #FFFFFF;
     margin-bottom: 25px;
-
-    h2 {
-      color: #FFFFFF;
-    }
 
     &__Content {
       color: #FFFFFF;
@@ -51,7 +51,7 @@
       }
     }
 
-    & .see-more-button {
+    .see-more-button {
       border: 2px solid #FFFFFF;
       color: #FFFFFF;
     }
