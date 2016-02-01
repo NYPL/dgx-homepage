@@ -1,36 +1,36 @@
-.HP-Blogs {
+.hpBlogs {
 
 	// Mobile View
-	&-Wrapper {
+	&-item {
 		@include grid-span(3,1);
     margin-bottom: 15px;
 	}
 
-	&-Image {
-		max-width: 100%;
-	}
-
-	&-LeftSide {
+	&-imageBox {
 		@include grid-span(1,1);
+
+		.rectangularImage {
+			max-width: 100%;
+		}
 	}
 
-	&-RightSide {
+	&-contentBox {
 		@include grid-span(2,2);
 	}
 
-	&-Title {
+	&-title {
     font-size: 18px;
     color: #000;
     margin: 0;
     line-height: 1.25em;
 	}
 
-	&-Description {
+	&-description {
 		@include visuallyHidden; // hidden on mobile
 		color: #000;
 	}
 
-	&-AuthorBox {
+	&-authorBox {
 		@include visuallyHidden; // hidden on mobile
 	}
 

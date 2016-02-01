@@ -5,12 +5,17 @@ Import utils
 @import 'utils/colors';
 @import 'utils/utils';
 
-
 /*
 Import singularity and breakpoints
 */
 @import "~singularitygs/stylesheets/singularitygs";
 @import "~breakpoint-sass/stylesheets/breakpoint";
+
+/*
+Set up grid
+*/
+@include add-grid(3);
+@include add-grid(7 at 768px);
 
 /*
 Import style rules from node module components
@@ -56,28 +61,14 @@ $FOURTH_FONT_KIEVIT: "sans-serif";
 @include font-face(Milo-Regular, "#{$FONT_PATH}/milo-web/milo-slab-pro-regular/MiloSlabWebPro");
 
 @mixin Kievit-Book {
-    font-family: "Kievit-Book", $SECONDARY_FONT_KIEVIT, $THIRD_FONT_KIEVIT;
+  font-family: "Kievit-Book", $SECONDARY_FONT_KIEVIT, $THIRD_FONT_KIEVIT;
 }
 
 @mixin Kievit-Medium {
-    font-family: "Kievit-Medium", $SECONDARY_FONT_KIEVIT, $THIRD_FONT_KIEVIT;
+  font-family: "Kievit-Medium", $SECONDARY_FONT_KIEVIT, $THIRD_FONT_KIEVIT;
 }
 
 /* MILO INCLUDES */
 @mixin Milo-Regular {
-    font-family: "Milo-Regular", $SECONDARY_FONT_MILO, $THIRD_FONT_MILO;
-}
-
-#app {
-    margin: 0;
-    min-width: 320px;
-}
-
-.app-wrapper {
-  // @include background-grid($color: blue);
-  margin: 0 14px;
-  @media (min-width: 768px) {
-    // margin: 0 20px;
-    margin: 0 25px 0 35px;
-  }
+  font-family: "Milo-Regular", $SECONDARY_FONT_MILO, $THIRD_FONT_MILO;
 }
