@@ -30,7 +30,7 @@
     font-family:"Kievit-Book";
   }
 
-  /* Tablet Portrait */
+  // Tablet Portrait
   @include layout-at(2, 768px) {
     @include add-gutter(.07);
 
