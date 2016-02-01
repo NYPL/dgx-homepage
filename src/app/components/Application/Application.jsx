@@ -43,7 +43,7 @@ class App extends React.Component {
       // whatsHappening is a container with four containers.
       // Each of the 'children' containers contains the slots but they are
       // currently empty.
-      whatsHappeningData = this.state.whatsHappeningData,
+      whatsHappeningData = this.state.whatsHappeningData.children,
       whatsHappeningIndexValue = this.state.whatsHappeningIndexValue,
       carouselIndex = this.state.carouselIndexValue,
       fromOurBlogsData = this.state.fromOurBlogsData.slots,
@@ -69,7 +69,6 @@ class App extends React.Component {
             seeMoreId='whatsHappening-SeeMore'
             content={
               <TabbedComponent
-                name={'HP-WhatsHappening'}
                 id={'HP-WhatsHappening'}
                 className={'RightColumn'}
                 items={whatsHappeningData}
