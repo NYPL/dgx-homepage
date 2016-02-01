@@ -51,10 +51,10 @@ class App extends React.Component {
       recommendedRecentReleasesData = this.state.recommendedRecentReleasesData.slots;
 
     return (
-      <div>
+      <div className='nyplHomepageApp'>
         <Header />
 
-        <div className='app-wrapper'>
+        <div className='nyplHomepage'>
           <CarouselComponent id='HP-Carousel' name='HP-Carousel'
             items={carouselData}
             itemIndex={carouselIndex}
@@ -124,9 +124,8 @@ class App extends React.Component {
             seeMoreId='blog-SeeMore'
             content={
               <BlogFeatures
-                name={'hpBlogs'}
+                className={'hpBlogs'}
                 id={'hpBlogs'}
-                className={''}
                 items={fromOurBlogsData} />
             } />
 
