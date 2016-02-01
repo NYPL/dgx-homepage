@@ -18,6 +18,8 @@
       margin-top: 20px;
 
       // Tablet Portrait
+      // Made the whole right side one column and let the plugin/css
+      // create the width of the carousel.
       @include layout-at(1, 768px) {
         @include float-span(1);
 
