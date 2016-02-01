@@ -121,8 +121,8 @@ class App extends React.Component {
             seeMoreId='blog-SeeMore'
             content={
               <BlogFeatures
-                name={'HP-Blogs'}
-                id={'HP-Blogs'}
+                name={'hpBlogs'}
+                id={'hpBlogs'}
                 className={''}
                 items={fromOurBlogsData} />
             } />
