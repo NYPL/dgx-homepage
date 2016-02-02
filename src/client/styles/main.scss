@@ -16,7 +16,7 @@ Set up grid
 */
 @include add-grid(3);
 @include add-grid(7 at 768px);
-@include sgs-change('debug', true);
+// @include sgs-change('debug', true);
 
 /*
 Import style rules from node module components
@@ -38,7 +38,6 @@ Import style rules from ./components
 @import "components/_StaffPicks";
 @import "components/_OfNote";
 @import "components/_FromOurBlogs";
-@import "components/_Footer";
 
 /*
 Import fonts
