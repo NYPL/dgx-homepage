@@ -30,10 +30,8 @@
   }
 
   // Tablet Portrait
-  @include layout-at((
-    'grid': 2,
-    'gutter': .07
-    ), 768px) {
+  @include layout-at(2, 768px) {
+    @include add-gutter(.07);
 
     @include float-span(2);
 
@@ -64,9 +62,10 @@
   }
 
   // Tablet Landscape
-  @include layout-at(2, 1024px) {
-
-    @include add-gutter(.07);
+  @include layout-at((
+    'grid': 2,
+    'gutter': .07
+    ), 700px) {
 
     @include float-span(2);
 
