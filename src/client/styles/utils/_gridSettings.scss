@@ -1,0 +1,5 @@
+/*
+Set up grid
+*/
+@include add-grid(3);
+@include add-grid(7 at 768px);
