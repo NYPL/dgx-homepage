@@ -105,7 +105,7 @@ class App extends React.Component {
             className='bookList homepageRow'
             title={'Recent Releases We Love'}
             seeMoreStyle={styles.whiteSeeMoreBtn}
-            seeMoreId='BookList-SeeMore'
+            seeMoreId='bookList-seeMore'
             content={
               <BooklistWidget
                 name={'hpBooklist'}
