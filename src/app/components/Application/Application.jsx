@@ -31,7 +31,8 @@ class App extends React.Component {
   // Update the state of the class
   _onChange() {
     this.setState({
-      carouselIndexValue: HomepageStore.getState().carouselIndexValue
+      carouselIndexValue: HomepageStore.getState().carouselIndexValue,
+      whatsHappeningIndexValue: HomepageStore.getState().whatsHappeningIndexValue,
     });
   }
 
@@ -39,10 +40,8 @@ class App extends React.Component {
     const carouselData = this.state.carouselData.slots, 
       learnSomethingNewData = this.state.learnSomethingNewData.slots,
       ofNoteData = this.state.ofNoteData.slots,
-      // whatsHappening is a container with four containers.
-      // Each of the 'children' containers contains the slots but they are
-      // currently empty.
-      whatsHappeningData = this.state.whatsHappeningData,
+      whatsHappeningData = this.state.whatsHappeningData.children,
+      whatsHappeningIndexValue = this.state.whatsHappeningIndexValue,
       carouselIndex = this.state.carouselIndexValue,
       fromOurBlogsData = this.state.fromOurBlogsData.slots,
       staffPicksData = this.state.staffPicksData.slots,
@@ -67,10 +66,11 @@ class App extends React.Component {
             seeMoreId='whatsHappening-SeeMore'
             content={
               <TabbedComponent
-                name={'HP-WhatsHappening'}
-                id={'HP-WhatsHappening'}
-                className={'RightColumn'}
-                items={whatsHappeningData} />
+                id="hpWhatsHappening"
+                className="hpWhatsHappening"
+                items={whatsHappeningData}
+                index={whatsHappeningIndexValue}
+                action={Actions.setWhatsHappeningIndexValue}/>
             } />
 
           <HomepageRow
