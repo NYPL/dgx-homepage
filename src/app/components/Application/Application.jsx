@@ -80,8 +80,8 @@ class App extends React.Component {
             seeMoreId='learn-SeeMore'
             content={
               <FeatureRow
-                name={'HP-Learn'}
-                id={'HP-Learn'}
+                name={'hpLearn'}
+                id={'hpLearn'}
                 className={'RightColumn'}
                 itemsToDisplay = {4}
                 items={learnSomethingNewData} />

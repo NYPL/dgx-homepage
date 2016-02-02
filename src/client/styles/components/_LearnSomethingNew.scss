@@ -1,6 +1,6 @@
-#HP-Learn {
+.hpLearn {
 
-  .HP-Learn-wrapper {
+  .hpLearn-wrapper {
 
     &:nth-child(n + 3) {
       @include visuallyHidden;
@@ -31,7 +31,7 @@
 
     @include grid-span(3);
 
-    .HP-Learn-wrapper {
+    .hpLearn-wrapper {
       &:nth-child(3) {
         @include displayVisuallyHidden;
       }
