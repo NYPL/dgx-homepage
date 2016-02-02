@@ -39,7 +39,6 @@ function HomepageApp(req, res, next) {
         headerParsed = parser.parse(headerData.data, headerOptions),
         headerModelData = HeaderModel.build(headerParsed);
 
-
       res.locals.data = {
         HomepageStore: {
           // modelData is an object with keys as the name of the catagories of
@@ -53,6 +52,7 @@ function HomepageApp(req, res, next) {
           staffPicksData: homepageModelData.StaffPicks,
           recommendedRecentReleasesData: homepageModelData.RecommendedRecentReleases,
           carouselIndexValue: 0,
+          whatsHappeningIndexValue: 0
         },
         HeaderStore: {
           headerData: headerModelData,
