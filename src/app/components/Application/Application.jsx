@@ -133,8 +133,8 @@ class App extends React.Component {
             seeMoreId='ofNote-SeeMore'
             content={
               <FeatureRow
-                name={'HP-OfNote'}
-                id={'HP-OfNote'}
+                name={'hpOfNote'}
+                id={'hpOfNote'}
                 className={'RightColumn'}
                 items={ofNoteData} />
             } />

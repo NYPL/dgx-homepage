@@ -1,6 +1,6 @@
-#HP-OfNote {
+.hpOfNote {
   // Mobile
-  .HP-OfNote-Wrapper {
+  .hpOfNote-wrapper {
     @include grid-span(3,1);
 
     margin-bottom: 15px;
@@ -23,7 +23,6 @@
   }
 
   p {
-    /* TODO: HIDE SO IT'S ACCESSIBLE TO SCREEN READERS */
     @include visuallyHidden;
 
     color: #333;
@@ -36,7 +35,7 @@
 
     @include float-span(2);
 
-    .HP-OfNote-Wrapper {
+    .hpOfNote-wrapper {
       &:first-child {
         @include float-span(1, 'first');
       }
@@ -64,11 +63,12 @@
 
   // Tablet Landscape
   @include layout-at(2, 1024px) {
+
     @include add-gutter(.07);
 
     @include float-span(2);
 
-    .HP-OfNote-Wrapper {
+    .hpOfNote-wrapper {
       &:first-child {
         @include float-span(1, 'first');
       }
