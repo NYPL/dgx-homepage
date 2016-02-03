@@ -81,8 +81,6 @@
         @include displayVisuallyHidden;
       }
 
-      @include grid-span(4);
-
       &:first-child {
         @include float-span(1, 'first');
       }
