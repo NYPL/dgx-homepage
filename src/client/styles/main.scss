@@ -1,9 +1,10 @@
 /*
-Import utils
+Import utils and fonts
 */
 @import 'utils/mixins';
 @import 'utils/colors';
 @import 'utils/utils';
+@import "utils/fonts";
 
 /*
 Import singularity and breakpoints
@@ -12,16 +13,13 @@ Import singularity and breakpoints
 @import "~breakpoint-sass/stylesheets/breakpoint";
 
 /*
-Set up grid
+Import Grid Settings for nyplHomepage App
 */
-@include add-grid(3);
-@include add-grid(7 at 768px);
-// @include sgs-change('debug', true);
+@import "utils/gridSettings";
 
 /*
 Import style rules from node module components
 */
-
 @import "~dgx-header-component/dist/styles/main";
 @import "~dgx-react-buttons/dist/styles/styles.scss";
 @import "~dgx-react-footer/dist/styles/styles.scss";
@@ -38,31 +36,3 @@ Import style rules from ./components
 @import "components/_StaffPicks";
 @import "components/_OfNote";
 @import "components/_FromOurBlogs";
-
-/*
-Import fonts
-*/
-$FONT_PATH: "//ux-static.nypl.org";
-$SECONDARY_FONT_KIEVIT: "Helvetica";
-$THIRD_FONT_KIEVIT: "arial";
-$FOURTH_FONT_KIEVIT: "sans-serif";
-
-@include font-face(Kievit-Book, "#{$FONT_PATH}/ff_kievit_web/KievitWeb-Book");
-
-@include font-face(Kievit-Medium, "#{$FONT_PATH}/ff_kievit_web/KievitWeb-Medi");
-
-@include font-face(Milo-Regular, "#{$FONT_PATH}/milo-web/milo-slab-pro-regular/MiloSlabWebPro");
-
-@mixin Kievit-Book {
-  font-family: "Kievit-Book", $SECONDARY_FONT_KIEVIT, $THIRD_FONT_KIEVIT;
-}
-
-@mixin Kievit-Medium {
-  font-family: "Kievit-Medium", $SECONDARY_FONT_KIEVIT, $THIRD_FONT_KIEVIT;
-}
-
-/* MILO INCLUDES */
-@mixin Milo-Regular {
-  font-family: "Milo-Regular", $SECONDARY_FONT_MILO, $THIRD_FONT_MILO;
-}
-

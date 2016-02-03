@@ -11,6 +11,7 @@ class HomepageStore {
       handleStaffPicksData: Actions.UPDATE_STAFF_PICKS_DATA,
       handleRecommendedRecentReleasesData: Actions.UPDATE_RECOMMENDED_RECENT_RELEASES_DATA,
       handleWhatsHappeningData: Actions.UPDATE_WHATS_HAPPENING_DATA,
+      handleSetWhatsHappeningIndexValue: Actions.SET_WHATS_HAPPENING_INDEX_VALUE,
       handleFromOurBlogsData: Actions.UPDATE_FROM_OUR_BLOGS_DATA,
     });
 
@@ -22,6 +23,7 @@ class HomepageStore {
       this.staffPicksData = [],
       this.recommendedRecentReleasesData = [],
       this.whatsHappeningData = [],
+      this.whatsHappeningIndexValue = 0,
       this.fromOurBlogsData = []
     });
   }
@@ -52,6 +54,10 @@ class HomepageStore {
 
   handleWhatsHappeningData(data) {
     this.whatsHappeningData = data;
+  }
+
+  handleSetWhatsHappeningIndexValue(value) {
+    this.whatsHappeningIndexValue = value;
   }
 
   handleFromOurBlogsData(data) {
