@@ -1,7 +1,6 @@
 .hpLearn {
   //Mobile
   .hpLearn-wrapper {
-
     &:nth-child(n + 3) {
       @include visuallyHidden;
     }
