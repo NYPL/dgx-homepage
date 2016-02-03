@@ -80,8 +80,8 @@ class App extends React.Component {
             seeMoreId='learn-SeeMore'
             content={
               <FeatureRow
-                name={'HP-Learn'}
-                id={'HP-Learn'}
+                name={'hpLearn'}
+                id={'hpLearn'}
                 className={'RightColumn'}
                 itemsToDisplay = {4}
                 items={learnSomethingNewData} />
@@ -133,9 +133,8 @@ class App extends React.Component {
             seeMoreId='ofNote-SeeMore'
             content={
               <FeatureRow
-                name={'HP-OfNote'}
-                id={'HP-OfNote'}
-                className={'RightColumn'}
+                id={'hpOfNote'}
+                className={'hpOfNote'}
                 items={ofNoteData} />
             } />
 
