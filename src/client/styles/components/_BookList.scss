@@ -2,6 +2,10 @@
 .bookList {
   .leftColumn {
     border: none;
+
+    h2 {
+      color: #FFFFFF;
+    }
   }
 
   &.homepageRow {
@@ -9,15 +13,13 @@
     color: #FFFFFF;
     margin-bottom: 25px;
 
-    h2 {
-      color: #FFFFFF;
-    }
-
     &__Content {
       color: #FFFFFF;
       margin-top: 20px;
 
       // Tablet Portrait
+      // Made the whole right side one column and let the plugin/css
+      // create the width of the carousel.
       @include layout-at(1, 768px) {
         @include float-span(1);
 
@@ -37,23 +39,18 @@
           }
 
           .slick-prev, .slick-next {
-            top: 120px;
+            top: 144px;
           }
 
           .slick-prev {
-            left: -17%;
+            left: -16%;
           }
 
           .slick-next {
-            left: -9%;
+            left: -8%;
           }
         }
       }
-    }
-
-    & .see-more-button {
-      border: 2px solid #FFFFFF;
-      color: #FFFFFF;
     }
   }
 }

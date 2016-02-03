@@ -4,11 +4,11 @@ Set up grid
 // @include add-grid(3);
 // @include sgs-change('debug', true);
 
-.CarouselComponent {
+.hpCarousel {
   // min-height: 500px;
   // @include background-grid($color: blue);
 
-  &-Image-Wrapper {
+  &-imageWrapper {
     @include grid-span(3,1);
 
     background-color: #89806F;
@@ -16,22 +16,18 @@ Set up grid
     margin: 0;
     padding: 0;
 
-    &-BannerImage {
-
-      display: flex;
-      height: 220px;
-      width: 100%;
-
+    .bannerImage {
+      display: none;
     }
 
-    &-RectangularImage {
-
-      display: none;
-
+    .rectangularImage {
+      display: flex;
+      height: auto;
+      width: 100%;
     }
   }
 
-  &-Button-Wrapper {
+  &-buttonWrapper {
     @include grid-span(2, 2, $gutter: -0.2);
 
 
@@ -51,7 +47,7 @@ Set up grid
       }
     }
 
-    &-Btn {
+    &-button {
       font-family: "Kievit-Book";
       margin: auto 0;
       text-align: center;
@@ -59,26 +55,26 @@ Set up grid
     }
   }
 
-  &-Text-Wrapper {
+  &-textWrapper {
     @include grid-span(3,1);
 
     color: #070707;
 
-    &-Tag {
+    &-tag {
       font-family: "Kievit-Book";
       font-size: 14px;
       margin: 15px 0 0 0;
       text-transform: uppercase;
     }
 
-    &-Title {
+    &-title {
       font-family: "Milo-Regular";
       font-size: 27px;
       font-weight: 400;
       margin: 15px 0 0 0;
     }
 
-    &-Description {
+    &-description {
       font-family: "Kievit-Book";
       font-size: 16px;
       font-weight: 300;
