@@ -1,5 +1,5 @@
 .hpLearn {
-
+  //Mobile
   .hpLearn-wrapper {
 
     &:nth-child(n + 3) {
@@ -21,13 +21,14 @@
   }
 
   p {
-    // TODO: HIDE SO IT'S ACCESSIBLE TO SCREEN READERS
-    display: none;
+    @include visuallyHidden;
   }
 
   // Tablet Portrait
-  @include layout-at(3, 768px) {
-    @include add-gutter(.1);
+  @include layout-at((
+    'grid': 3,
+    'gutter': .1
+    ), 768px) {
 
     @include grid-span(3);
 
@@ -57,6 +58,59 @@
           line-height: 20px;
           font-size: 20px;
           margin-top: 12px;
+        }
+
+        p {
+          @include visuallyHidden;
+        }
+      }
+    }
+  }
+
+  // Tablet Landscape
+  @include layout-at((
+    'grid': 4,
+    'gutter': .07
+    ), 1024px) {
+
+    @include grid-span(4);
+
+    .hpLearn-wrapper {
+      &:nth-child(4) {
+        @include displayVisuallyHidden;
+      }
+
+      @include grid-span(4);
+
+      &:first-child {
+        @include float-span(1, 'first');
+      }
+      &:nth-child(2) {
+        @include float-span(1, 'second');
+      }
+      &:nth-child(3) {
+        @include float-span(1, 'third');
+      }
+      &:nth-child(4) {
+        @include float-span(1, 'last');
+      }
+
+      @include layout(1) {
+        @include add-gutter(.25);
+
+        img {
+          @include grid-span(1, 1);
+        }
+
+        h2 {
+          @include grid-span(1, 1);
+          line-height: 20px;
+          font-size: 20px;
+          margin-top: 12px;
+        }
+
+        p {
+          @include visuallyHidden;
         }
       }
     }
