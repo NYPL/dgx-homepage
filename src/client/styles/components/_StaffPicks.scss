@@ -6,7 +6,7 @@
 
   @media screen and (min-width: 768px) {
     @include displayVisuallyHidden;
-    padding-bottom: 50px;
+    padding-bottom: 30px;
     margin-bottom: 0px;
   }
 
@@ -28,7 +28,7 @@
     @include layout-at(('grid': 2, 'gutter': .07), 768px) {
       @include float-span(2);
 
-      &-Wrapper {
+      &-wrapper {
         &:first-child {
           @include float-span(1, 'first');
         }
@@ -41,13 +41,13 @@
         }
       }
 
-      &-Pick {
+      &-pick {
         display: flex;
         height: 200px;
         padding-bottom: 15px;
         color: #000;
 
-        .quote-background {
+        .quoteBackground {
           width: 40%;
           height: 196px;
           position: absolute;
@@ -127,10 +127,10 @@
     @include layout-at(('grid': 2, 'gutter': 1), 1024px) {
       @include float-span(2);
 
-      &-Pick {
+      &-pick {
         height: 264px;
 
-        .quote-background {
+        .quoteBackground {
           width: 33%;
           height: 260px;
 
