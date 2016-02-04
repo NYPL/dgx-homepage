@@ -4,8 +4,8 @@
     &:nth-child(n + 3) {
       @include visuallyHidden;
     }
-
     @include grid-span(3, 1);
+
     margin-bottom: 15px;
   }
     
@@ -15,6 +15,7 @@
 
   h2 {
     @include grid-span(2, 2);
+
     color: #333;
     font-family:"Kievit-Book";
     font-size: 18px;
@@ -55,13 +56,10 @@
 
         h2 {
           @include grid-span(1, 1);
-          line-height: 20px;
-          font-size: 20px;
-          margin-top: 12px;
-        }
 
-        p {
-          @include visuallyHidden;
+          font-size: 20px;
+          line-height: 20px;
+          margin-top: 12px;
         }
       }
     }
@@ -94,11 +92,6 @@
       }
 
       @include layout(1) {
-        @include add-gutter(.25);
-
-        img {
-          @include grid-span(1, 1);
-        }
 
         h2 {
           @include grid-span(1, 1);
@@ -107,10 +100,6 @@
           font-weight: 400;
           line-height: 18px;
           margin-top: 15px;
-        }
-
-        p {
-          @include visuallyHidden;
         }
       }
     }
