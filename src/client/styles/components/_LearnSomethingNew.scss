@@ -1,6 +1,6 @@
 .hpLearn {
   //Mobile
-  .hpLearn-wrapper {
+  &-wrapper {
     &:nth-child(n + 3) {
       @include visuallyHidden;
     }
@@ -32,7 +32,7 @@
 
     @include grid-span(3);
 
-    .hpLearn-wrapper {
+    &-wrapper {
       &:nth-child(3) {
         @include displayVisuallyHidden;
       }
@@ -75,7 +75,7 @@
 
     @include grid-span(4);
 
-    .hpLearn-wrapper {
+    &-wrapper {
       &:nth-child(4) {
         @include displayVisuallyHidden;
       }

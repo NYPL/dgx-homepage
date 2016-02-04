@@ -77,7 +77,7 @@ class App extends React.Component {
             title={'Learn Something New'}
             link={'/events/classes/calendar'}
             seeMoreStyle={styles.mobileBtn}
-            seeMoreId='learn-SeeMore'
+            seeMoreId='learnSeeMore'
             content={
               <FeatureRow
                 id={'hpLearn'}
@@ -129,7 +129,7 @@ class App extends React.Component {
             title={'Of Note'}
             className='ofNoteRow homepageRow'
             seeMoreStyle={styles.mobileBtn}
-            seeMoreId='ofNote-SeeMore'
+            seeMoreId='ofNoteSeeMore'
             content={
               <FeatureRow
                 id={'hpOfNote'}
