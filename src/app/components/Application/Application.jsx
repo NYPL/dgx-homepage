@@ -88,15 +88,15 @@ class App extends React.Component {
             } />
 
           <HomepageRow
-            className='StaffPicks homepageRow'
+            className='staffPicksRow homepageRow'
             title={'Staff Picks'}
             link={'/staffpicks'}
             seeMoreId='staffPicks-SeeMore'
             seeMoreStyle={styles.whiteSeeMoreBtn}
             content={
               <HomepageStaffPicks
-                name={'HP-StaffPicks'}
-                id={'HP-StaffPicks'}
+                name={'hpStaffPicks'}
+                id={'hpStaffPicks'}
                 className={'RightColumn'}
                 items={staffPicksData} />
             } />
