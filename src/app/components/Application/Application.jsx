@@ -94,9 +94,8 @@ class App extends React.Component {
             seeMoreStyle={styles.whiteSeeMoreBtn}
             content={
               <HomepageStaffPicks
-                name={'HP-StaffPicks'}
-                id={'HP-StaffPicks'}
-                className={'RightColumn'}
+                className={'hpStaffPicks'}
+                id={'hpStaffPicks'}
                 items={staffPicksData} />
             } />
 
