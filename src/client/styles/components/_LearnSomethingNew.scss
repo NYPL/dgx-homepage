@@ -1,12 +1,11 @@
 .hpLearn {
-
-  .hpLearn-wrapper {
-
+  //Mobile
+  &-wrapper {
     &:nth-child(n + 3) {
       @include visuallyHidden;
     }
-
     @include grid-span(3, 1);
+
     margin-bottom: 15px;
   }
     
@@ -16,22 +15,23 @@
 
   h2 {
     @include grid-span(2, 2);
+
+    color: #333;
+    font-family:"Kievit-Book";
     font-size: 18px;
-    color: #000;
   }
 
   p {
-    // TODO: HIDE SO IT'S ACCESSIBLE TO SCREEN READERS
-    display: none;
+    @include visuallyHidden;
   }
 
   // Tablet Portrait
-  @include layout-at(3, 768px) {
-    @include add-gutter(.1);
+  @include layout-at((
+    'grid': 3,
+    'gutter': .1
+    ), 768px) {
 
-    @include grid-span(3);
-
-    .hpLearn-wrapper {
+    &-wrapper {
       &:nth-child(3) {
         @include displayVisuallyHidden;
       }
@@ -54,9 +54,52 @@
 
         h2 {
           @include grid-span(1, 1);
-          line-height: 20px;
+
           font-size: 20px;
+          line-height: 20px;
           margin-top: 12px;
+        }
+      }
+    }
+  }
+
+  // Tablet Landscape
+  @include layout-at((
+    'grid': 4,
+    'gutter': .14
+    ), 1024px) {
+
+    &-wrapper {
+      &:nth-child(4) {
+        @include displayVisuallyHidden;
+      }
+
+      &:first-child {
+        @include float-span(1, 'first');
+      }
+      &:nth-child(2) {
+        @include float-span(1, 'second');
+      }
+      &:nth-child(3) {
+        @include float-span(1, 'third');
+      }
+      &:nth-child(4) {
+        @include float-span(1, 'last');
+      }
+
+      @include layout(1) {
+
+        img {
+          @include grid-span(1, 1);
+        }
+
+        h2 {
+          @include grid-span(1, 1);
+
+          font-size: 20px;
+          font-weight: 400;
+          line-height: 18px;
+          margin-top: 15px;
         }
       }
     }
