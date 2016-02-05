@@ -87,7 +87,7 @@ class App extends React.Component {
             } />
 
           <HomepageRow
-            className='StaffPicks hpRow'
+            className='staffPicksRow hpRow'
             title={'Staff Picks'}
             link={'/staffpicks'}
             seeMoreId='staffPicks-SeeMore'
