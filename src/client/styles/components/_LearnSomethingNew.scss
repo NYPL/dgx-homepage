@@ -68,7 +68,7 @@
   // Tablet Landscape
   @include layout-at((
     'grid': 4,
-    'gutter': .07
+    'gutter': .15
     ), 1024px) {
 
     @include grid-span(4);
@@ -92,6 +92,10 @@
       }
 
       @include layout(1) {
+
+        img {
+          @include grid-span(1, 1);
+        }
 
         h2 {
           @include grid-span(1, 1);
