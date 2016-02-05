@@ -62,7 +62,7 @@ class App extends React.Component {
           <HomepageRow
             title={'What’s Happening'}
             link={'/events/'}
-            seeMoreStyle={styles.mobileBtn}
+            seeMoreStyle={styles.redSeeMoreBtn}
             seeMoreId='whatsHappening-SeeMore'
             content={
               <TabbedComponent
@@ -76,8 +76,8 @@ class App extends React.Component {
           <HomepageRow
             title={'Learn Something New'}
             link={'/events/classes/calendar'}
-            seeMoreStyle={styles.mobileBtn}
-            seeMoreId='learnSeeMore'
+            seeMoreStyle={styles.redSeeMoreBtn}
+            seeMoreId='learn-SeeMore'
             content={
               <FeatureRow
                 name={'hpLearn'}
@@ -88,7 +88,7 @@ class App extends React.Component {
             } />
 
           <HomepageRow
-            className='StaffPicks homepageRow'
+            className='StaffPicks hpRow'
             title={'Staff Picks'}
             link={'/staffpicks'}
             seeMoreId='staffPicks-SeeMore'
@@ -102,7 +102,7 @@ class App extends React.Component {
             } />
 
           <HomepageRow
-            className='bookList homepageRow'
+            className='bookList hpRow'
             title={'Recent Releases We Love'}
             seeMoreStyle={styles.whiteSeeMoreBtn}
             seeMoreId='bookList-seeMore'
@@ -117,7 +117,7 @@ class App extends React.Component {
           <HomepageRow
             title={'From Our Blog'}
             link={"//nypl.org/blog"}
-            seeMoreStyle={styles.mobileBtn}
+            seeMoreStyle={styles.redSeeMoreBtn}
             seeMoreId='blog-SeeMore'
             content={
               <BlogFeatures
@@ -128,9 +128,9 @@ class App extends React.Component {
 
           <HomepageRow
             title={'Of Note'}
-            className='ofNoteRow homepageRow'
-            seeMoreStyle={styles.mobileBtn}
-            seeMoreId='ofNoteSeeMore'
+            className='ofNoteRow hpRow'
+            seeMoreStyle={styles.redSeeMoreBtn}
+            seeMoreId='ofNote-SeeMore'
             content={
               <FeatureRow
                 id={'hpOfNote'}
@@ -146,12 +146,14 @@ class App extends React.Component {
 }
 
 const styles = {
-  mobileBtn: {
-    fontSize: '25px',
-  },
   whiteSeeMoreBtn: {
     color: '#fff',
     border: '2px solid #fff',
+    fontSize: '25px',
+  },
+  redSeeMoreBtn: {
+    color: '#ED1C24',
+    border: '2px solid #ED1C24',
     fontSize: '25px',
   }
 };
