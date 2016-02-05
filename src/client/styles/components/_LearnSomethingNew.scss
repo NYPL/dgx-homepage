@@ -31,8 +31,6 @@
     'gutter': .1
     ), 768px) {
 
-    @include grid-span(3);
-
     &-wrapper {
       &:nth-child(3) {
         @include displayVisuallyHidden;
@@ -70,8 +68,6 @@
     'grid': 4,
     'gutter': .15
     ), 1024px) {
-
-    @include grid-span(4);
 
     &-wrapper {
       &:nth-child(4) {
