@@ -1,26 +1,34 @@
-.StaffPicks {
+// This class is for the hpRow for the special background color
+// and margins.
+.staffPicksRow {
   @include visuallyHidden;
   background-color: $PRIMARY_COLOR;
 
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     @include displayVisuallyHidden;
-    min-height: 350px;
+    padding-bottom: 30px;
     margin-bottom: 0px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    padding: 30px 0 15px;
   }
 
   .leftColumn {
     border-top: 2px solid #fff;
-    h2 {
+
+    > h2 {
       color: #fff;
     }
   }
 
-  .HP-StaffPicks {
+  // This class is for the content itself.
+  .hpStaffPicks {
     // Tablet Portrait
     @include layout-at(('grid': 2, 'gutter': .07), 768px) {
       @include float-span(2);
 
-      &-Wrapper {
+      &-wrapper {
         &:first-child {
           @include float-span(1, 'first');
         }
@@ -33,16 +41,15 @@
         }
       }
 
-      &-Pick {
+      &-pick {
         display: flex;
         height: 200px;
         padding-bottom: 15px;
-        margin-bottom: 5px;
         color: #000;
 
-        .quote-background {
+        .quoteBackground {
           width: 40%;
-          height: 197px;
+          height: 196px;
           position: absolute;
           background: #fff;
           z-index: 0;
@@ -112,6 +119,43 @@
           font-size: 13px;
           margin: 0;
           font-weight: 300;
+        }
+      }
+    }
+
+    // Tablet Landscape 
+    @include layout-at(('grid': 2, 'gutter': 1), 1024px) {
+      @include float-span(2);
+
+      &-pick {
+        height: 264px;
+
+        .quoteBackground {
+          width: 33%;
+          height: 260px;
+
+          &:after {
+            left: 45px;
+          }
+        }
+
+        p {
+          font-size: 27px;
+          line-height: 27px;
+          padding: 0 15px 0 20px;
+        }
+
+        img {
+          max-height: 233px;
+        }
+      }
+
+      &-staff {
+        margin-left: 15px;
+
+        h3 {
+          padding-top: 20px;
+          font-size: 16px;
         }
       }
     }
