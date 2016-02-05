@@ -126,16 +126,14 @@
         }
       }
     }
+
+    @include layout-at(('grid': 8), 1024px) {
+      @include grid-span(4.9, 4);
+    }
   }
 
   // Tablet Landscape
   @include layout-at(('grid': 8), 1024px) {
-    @include grid-span(8, 1);
-
-    .titleTabs {
-      @include grid-span(1, 4);
-    }
-
     &-section {
       &.active {
 
@@ -146,7 +144,7 @@
             margin: 10px 0 0 0;
           }
 
-          // Styles for all the events
+          // Styles for all the events.
           &:nth-child(n) {
             @include grid-span(5, 4);
 
@@ -158,13 +156,15 @@
             }
           }
 
-          // Target the first child in the list,
-          // but it's not the correct pseudo name.
+          // Target the first child in the list.
+          // It's not the correct pseudo name... but it works somehow.
           &:nth-child(2) {
             @include grid-span(3, 1);
             margin-top: -70px;
 
             img, p, h2 {
+              // Not exactly sure why this needs to be 8 when I
+              // want it to expand 3 cols.
               @include grid-span(8, 1);
             }
 
