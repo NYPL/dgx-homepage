@@ -52,7 +52,7 @@ class App extends React.Component {
         <Header />
 
         <div className='nyplHomepage'>
-          <CarouselComponent id='HP-Carousel' name='HP-Carousel'
+          <CarouselComponent id='hpCarousel' className='hpCarousel'
             items={carouselData}
             itemIndex={carouselIndex}
             methods={
