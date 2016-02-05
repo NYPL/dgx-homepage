@@ -80,7 +80,7 @@
       }
 
       @include layout(4) {
-        @include add-gutter(.14);
+        @include add-gutter(.15);
 
         img {
           @include grid-span(2, 1);
