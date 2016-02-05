@@ -80,15 +80,14 @@ class App extends React.Component {
             seeMoreId='learn-SeeMore'
             content={
               <FeatureRow
-                name={'hpLearn'}
                 id={'hpLearn'}
-                className={'RightColumn'}
+                className={'hpLearn'}
                 itemsToDisplay = {4}
                 items={learnSomethingNewData} />
             } />
 
           <HomepageRow
-            className='StaffPicks hpRow'
+            className='staffPicksRow hpRow'
             title={'Staff Picks'}
             link={'/staffpicks'}
             seeMoreId='staffPicks-SeeMore'

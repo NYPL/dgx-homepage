@@ -65,22 +65,22 @@
 
   // Tablet Landscape
   @include layout-at((
-    'grid': 2,
-    'gutter': .15
+    'grid': 4,
+    'gutter': .14
     ), 1024px) {
 
-    @include float-span(2);
+    @include float-span(4);
 
     &-wrapper {
       &:first-child {
-        @include float-span(1, 'first');
+        @include float-span(2, 'first');
       }
       &:last-child {
-        @include float-span(1, 'last');
+        @include float-span(2, 'last');
       }
 
       @include layout(4) {
-        @include add-gutter(.25);
+        @include add-gutter(.15);
 
         img {
           @include grid-span(2, 1);
