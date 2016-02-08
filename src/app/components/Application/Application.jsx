@@ -102,7 +102,7 @@ class App extends React.Component {
             } />
 
           <HomepageRow
-            className='bookList hpRow'
+            className='bookListRow hpRow'
             title={'Recent Releases We Love'}
             seeMoreStyle={styles.whiteSeeMoreBtn}
             seeMoreId='bookList-seeMore'
