@@ -60,6 +60,7 @@ class App extends React.Component {
             } />
 
           <HomepageRow
+            className='whatsHappeningRow hpRow'
             title={'What’s Happening'}
             link={'/events/'}
             seeMoreStyle={styles.redSeeMoreBtn}
@@ -74,6 +75,7 @@ class App extends React.Component {
             } />
 
           <HomepageRow
+            className='learnRow hpRow'
             title={'Learn Something New'}
             link={'/events/classes/calendar'}
             seeMoreStyle={styles.redSeeMoreBtn}
@@ -82,7 +84,7 @@ class App extends React.Component {
               <FeatureRow
                 id={'hpLearn'}
                 className={'hpLearn'}
-                itemsToDisplay = {4}
+                itemsToDisplay={4}
                 items={learnSomethingNewData} />
             } />
 
@@ -113,6 +115,7 @@ class App extends React.Component {
             } />
 
           <HomepageRow
+            className='blogsRow hpRow'
             title={'From Our Blog'}
             link={"//nypl.org/blog"}
             seeMoreStyle={styles.redSeeMoreBtn}
@@ -135,7 +138,6 @@ class App extends React.Component {
                 className={'hpOfNote'}
                 items={ofNoteData} />
             } />
-
         </div>
         <Footer />
       </div>
