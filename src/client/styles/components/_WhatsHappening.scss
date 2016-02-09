@@ -1,4 +1,3 @@
-@include add-grid(3);
 // @include sgs-change('debug', true);
 
 .hpWhatsHappening {
@@ -25,30 +24,40 @@
     > h3 {
       color: $LIBRARY_RED;
       text-transform: uppercase;
-      font-size: 12px;
-      margin: 0 0 10px 0;
+      font-size: 14px;
+      margin: 10px 0;
       letter-spacing: 0.05em;
     }
 
-    img {
-      @include grid-span(1,1);
-    }
+    .eventItem {
+      @include Kievit-Medium;
 
-    h2 {
-      @include grid-span(2,2);
-      color: #000;
-      line-height: 22px;
-      margin: 0;
-    }
+      img {
+        @include grid-span(1,1);
+      }
 
-    p {
-      @include grid-span(2,2);
-      text-transform: uppercase;
-      font-size: 12px;
-      margin-top: 10px 0 0 0;
+      h2 {
+        @include grid-span(2,2);
+        color: #000;
+        line-height: 22px;
+        margin: 0;
+        font-size: 18px;
+      }
+
+      p {
+        @include grid-span(2,2);
+        text-transform: uppercase;
+        font-size: 12px;
+        margin-top: 10px 0 0 0;
+      }
+
+      &-location {
+        @include visuallyHidden;
+      }
     }
   }
 
+  // Tablet portrait
   @include layout-at(('grid': 6), 768px) {
     @include grid-span(6,1);
 
@@ -64,6 +73,15 @@
 
         .eventItem {
           display: block;
+          margin-bottom: 10px;
+
+          h2 {
+            font-size: 18px;
+          }
+
+          p {
+            font-size: 12px;
+          }
 
           &:nth-child(even) {
             @include float-span(3, 'first');
@@ -82,6 +100,7 @@
     margin: 0 0 20px 0;
     color: #000;
     text-transform: uppercase;
+    @include Kievit-Medium;
 
     @include layout-at(('grid': 6), 768px) {
       display: table;
@@ -104,6 +123,70 @@
           border: 2px solid $PRIMARY_COLOR;
           border-bottom: none;
           color: $PRIMARY_COLOR;
+        }
+      }
+    }
+
+    @include layout-at(('grid': 8), 1024px) {
+      @include grid-span(4.9, 4);
+    }
+  }
+
+  // Tablet Landscape
+  @include layout-at(('grid': 8), 1024px) {
+    &-section {
+      &.active {
+
+        .eventItem {
+          margin-bottom: 15px;
+
+          p, h2 {
+            margin: 10px 0 0 0;
+          }
+
+          // Styles for all the events.
+          &:nth-child(n) {
+            @include grid-span(5, 4);
+
+            img {
+              @include grid-span(2, 1);
+            }
+            p, h2 {
+              @include grid-span(6, 3);
+            }
+          }
+
+          // Target the first child in the list.
+          // It's not the correct pseudo name... but it works somehow.
+          &:nth-child(2) {
+            @include grid-span(3, 1);
+            margin-top: -70px;
+
+            img, p, h2 {
+              // Not exactly sure why this needs to be 8 when I
+              // want it to expand 3 cols.
+              @include grid-span(8, 1);
+            }
+
+            h2 {
+              font-size: 23px;
+            }
+
+            p {
+              font-size: 13px;
+            }
+
+            h2,
+            .eventItem-date {
+              margin-top: 15px;
+            }
+
+            .eventItem-location {
+              margin-top: 5px;
+              text-transform: none;
+              @include displayVisuallyHidden;
+            }
+          }
         }
       }
     }
