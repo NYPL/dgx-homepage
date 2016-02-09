@@ -2,8 +2,9 @@
 .bookListRow {
   .leftColumn {
     border: none;
+    padding-top: 0;
 
-    h2 {
+    & > h2 {
       color: #FFFFFF;
     }
   }
@@ -13,17 +14,14 @@
     color: #FFFFFF;
     margin-bottom: 25px;
 
-    &__Content {
+    .rightColumn {
       color: #FFFFFF;
-      margin-top: 20px;
 
       // Tablet Portrait
       // Made the whole right side one column and let the plugin/css
       // create the width of the carousel.
-      @include layout-at(1, 768px) {
-        @include float-span(1);
-
-        margin-top: 0;
+      @include layout-at(6, 768px) {
+        @include grid-span(6, 2);
 
         .slick-slider {
           .slick-track {
@@ -43,11 +41,11 @@
           }
 
           .slick-prev {
-            left: -16%;
+            left: -15%;
           }
 
           .slick-next {
-            left: -8%;
+            left: -9%;
           }
         }
       }
