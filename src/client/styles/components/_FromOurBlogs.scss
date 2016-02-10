@@ -76,17 +76,17 @@
   	}
   }
 
-  @include layout-at(7, 1024px) {
+  @include layout-at(8, 1024px) {
   	&-item {
-  		@include grid-span(7, 1);
+  		@include grid-span(8, 1);
   	}
 
   	&-imageBox {
-  		@include grid-span(3, 1);
+  		@include grid-span(4, 1);
   	}
 
   	&-contentBox {
-  		@include grid-span(4, 4);
+  		@include grid-span(4, 5);
   	}
 
   	&-description {
