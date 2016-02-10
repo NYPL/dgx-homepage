@@ -20,20 +20,80 @@
 
 	&-title {
     font-size: 18px;
-    color: #000;
+    color: #333;
     margin: 0;
     line-height: 1.25em;
+    @include Milo-Regular;
 	}
 
 	&-description {
 		@include visuallyHidden; // hidden on mobile
-		color: #000;
+		color: #333;
+		@include Kievit-Regular;
 	}
 
 	&-authorBox {
 		@include visuallyHidden; // hidden on mobile
+
+		&-name, &-title {
+			color: #333;
+			@include Kievit-Regular;
+		}
 	}
 
-	// Tablet View
+	// Tablet View (Portrait)
+  @include layout-at(6, 768px) {
+  	&-item {
+  		@include grid-span(6, 1);
+  	}
 
+  	&-imageBox {
+  		@include grid-span(3, 1);
+  	}
+
+  	&-contentBox {
+  		@include grid-span(3, 4);
+  	}
+
+		&-title {
+			font-size: 24px;
+			line-height: 1.15em;
+		}  	
+
+  	&-authorBox {
+  		@include displayVisuallyHidden;
+  		margin-top: 10px;
+
+  		&-name {
+  			margin: 5px 0 0 0;
+  			font-size: 18px;
+  		}
+
+  		&-title {
+  			margin: 5px 0 0 0;
+  			font-size: 13px;
+  		}
+  	}
+  }
+
+  @include layout-at(8, 1024px) {
+  	&-item {
+  		@include grid-span(8, 1);
+  	}
+
+  	&-imageBox {
+  		@include grid-span(4, 1);
+  	}
+
+  	&-contentBox {
+  		@include grid-span(4, 5);
+  	}
+
+  	&-description {
+  		@include displayVisuallyHidden;
+  		margin: 10px 0 0 0;
+  		font-size: 15px;
+  		line-height: 1.35em;
+  	}
+  }
 }
