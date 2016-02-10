@@ -21,7 +21,7 @@
       // Made the whole right side one column and let the plugin/css
       // create the width of the carousel.
       @include layout-at(6, 768px) {
-        @include grid-span(6, 2);
+        @include grid-span(5, 2);
 
         .slick-slider {
           .slick-track {
@@ -41,14 +41,44 @@
           }
 
           .slick-prev {
-            left: -15%;
+            left: -18%;
           }
 
           .slick-next {
-            left: -9%;
+            left: -11%;
+          }
+        }
+      }
+
+      @include layout-at(8, 1024px) {
+        @include grid-span(7, 2);
+
+        .slick-slider {
+          .slick-track {
+            height: 289px;
+          }
+
+          .slick-book-item {
+            margin-right: 33px;
+
+            img {
+              max-height: 289px;
+            }
+          }
+
+          .slick-prev {
+            left: -13%;
+          }
+
+          .slick-next {
+            left: -8%;
           }
         }
       }
     }
+  }
+
+  @media screen and (min-width: 1024px) {
+    min-height: 320px;
   }
 }
