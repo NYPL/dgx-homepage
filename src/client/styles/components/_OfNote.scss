@@ -1,8 +1,10 @@
 .hpOfNote {
+  margin: 0;
+  padding: 0;
+
   // Mobile
   &-wrapper {
-    @include grid-span(3, 1);
-
+    @include grid-span(3,1);
     margin-bottom: 15px;
   }
 
