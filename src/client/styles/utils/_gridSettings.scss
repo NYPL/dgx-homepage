@@ -1,6 +1,57 @@
 /*
 Set up grid
 */
-@include add-grid(3);
-@include add-grid(7 at 768px);
-@include add-grid(9 at 1024px);
+$app-max-width: 1313px !default;
+
+$tablet-portrait: 768px !default;
+$tablet-landscape: 1024px !default;
+$desktop: 1313px !default;
+
+$mobile-padding-left-right: 14px !default;
+$mobile-margin-top-bottom: 15px !default;
+
+.nyplGrid {
+	max-width: $app-max-width;
+	margin: $mobile-margin-top-bottom auto;
+	padding: 0 $mobile-padding-left-right;
+	display: block;
+	@extend %clearfix;
+
+	/* Mobile Layout (1 Column) */
+	@include add-grid(1);
+
+	.leftColumn {
+		@include grid-span(1);
+	}
+
+	.rightColumn {
+		@include grid-span(1);
+	}
+
+	/* Tablet Portrait Layout (7 Columns) */
+	@include layout-at(7, $tablet-portrait) {
+		.leftColumn {
+			@include grid-span(1, 1);
+		}
+
+		.rightColumn {
+			@include grid-span(6, 2);
+		}
+	}
+
+	/* Tablet Landscape/Desktop Layout (9 Columns) */
+	@include layout-at(9, $tablet-landscape) {
+		.leftColumn {
+			@include grid-span(1, 1);
+		}
+
+		.rightColumn {
+			@include grid-span(8, 2);
+		}
+	}
+}
+
+.nyplGrid-fullWidth {
+	@extend .nyplGrid;
+	margin: 0 auto;
+}
