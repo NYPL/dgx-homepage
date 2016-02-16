@@ -111,9 +111,8 @@ class App extends React.Component {
               seeMoreId='bookList-seeMore'
               content={
                 <BooklistWidget
-                  name={'hpBooklist'}
-                  id={'hpBooklist'}
-                  className={'hpBooklist'}
+                  id={'hpBookList'}
+                  className={'hpBookList'}
                   bookLists={recommendedRecentReleasesData} />
               } />
           </div>
