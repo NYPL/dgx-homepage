@@ -5,12 +5,11 @@ Set up grid
 // @include sgs-change('debug', true);
 
 .hpCarousel {
-  // min-height: 500px;
-  // @include background-grid($color: blue);
+  @include add-grid(3);
+  @extend %clearfix;
 
   &-imageWrapper {
     @include grid-span(3,1);
-
     background-color: #89806F;
     color: #89806F;
     margin: 0;
@@ -22,14 +21,15 @@ Set up grid
 
     .rectangularImage {
       display: flex;
-      height: auto;
+      max-width: 100%;
+      max-height: 500px;
       width: 100%;
     }
   }
 
   &-buttonWrapper {
-    @include grid-span(2, 2, $gutter: -0.2);
-
+    // We can use a better solution here to center the wrapper.
+    //@include grid-span(2, 2, $gutter: -0.2);
 
     &-container {
       display: inline-block;
@@ -48,7 +48,7 @@ Set up grid
     }
 
     &-button {
-      font-family: "Kievit-Book";
+      @include Kievit-Book;
       margin: auto 0;
       text-align: center;
       cursor: pointer;
@@ -57,30 +57,28 @@ Set up grid
 
   &-textWrapper {
     @include grid-span(3,1);
-
     color: #070707;
 
     &-tag {
-      font-family: "Kievit-Book";
+      @include Kievit-Book;
       font-size: 14px;
       margin: 15px 0 0 0;
       text-transform: uppercase;
     }
 
     &-title {
-      font-family: "Milo-Regular";
+      @include Milo-Regular;
       font-size: 27px;
       font-weight: 400;
       margin: 15px 0 0 0;
     }
 
     &-description {
-      font-family: "Kievit-Book";
+      @include Kievit-Book;
       font-size: 16px;
       font-weight: 300;
       line-height: 26px;
       margin: 20px 0 30px 0;
     }
-
   }
 }

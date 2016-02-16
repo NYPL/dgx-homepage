@@ -1,6 +1,8 @@
 /*
 Set up grid
 */
+// NOTE: Using default declarations to easily adapt to overrides
+// http://sass-lang.com/documentation/file.SASS_REFERENCE.html#variable_defaults_
 $app-max-width: 1313px !default;
 
 $tablet-portrait: 768px !default;
@@ -10,9 +12,8 @@ $desktop: 1313px !default;
 $mobile-padding-left-right: 14px !default;
 $mobile-margin-top-bottom: 15px !default;
 
-.nyplGrid {
+%baseGrid {
 	max-width: $app-max-width;
-	margin: $mobile-margin-top-bottom auto;
 	padding: 0 $mobile-padding-left-right;
 	display: block;
 	@extend %clearfix;
@@ -51,7 +52,13 @@ $mobile-margin-top-bottom: 15px !default;
 	}
 }
 
-.nyplGrid-fullWidth {
-	@extend .nyplGrid;
-	margin: 0 auto;
+// Using SASS @extend to setup our grid rules and apply specfic margins for both.
+.nyplGrid {
+	@extend %baseGrid;
+	margin: $mobile-margin-top-bottom auto;
+
+	&-fullWidth {
+		@extend %baseGrid;
+		margin: 0 auto;
+	}
 }
