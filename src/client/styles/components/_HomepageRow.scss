@@ -1,13 +1,8 @@
-
+// No Grid configurations on hpRow, simply set styles to leftColumn.
 .hpRow {
-  // Mobile First Rules
-  @include grid-span(3,1);
-  border-top: 2px solid $PRIMARY_COLOR;
-  min-height: 133px;
-  margin-bottom: 10px;
-  padding: 0;
-
+  // Mobile First
   .leftColumn {
+    border-top: 2px solid $PRIMARY_COLOR;
     position: relative;
 
     & > h2 {
@@ -16,8 +11,8 @@
       font-size: 18px;
       font-weight: normal;
       line-height: 1em;
-      margin: 0;
-      padding: 15px 0 0;
+      margin: 15px 0;
+      padding: 0;
     }
 
     .see-more-button {
@@ -28,47 +23,21 @@
     }
   }
 
-  .rightColumn {
-    margin-top: 25px;
-  }
-
-  // Tablet Portrait
-  @include layout-at(('grid': 7, 'gutter': .2), 768px) {
-    border-top: none;
-    
+  // Tablet Portrait and Up
+  @include layout-at(7, $tablet-portrait) {
     .leftColumn {
-      @include grid-span(1,1);
-      border-top: 2px solid $PRIMARY_COLOR;
       text-align: right;
 
       & > h2 {
-        padding: 10px 0 0;
-        top: 10px;
-        right: inherit;
+        padding: 0;
+        margin: 8px 0 12px;
       }
 
       .see-more-button {
-        font-size: 32px;
         position: relative;
+        top: initial;
+        font-size: 32px;
       }
-    }
-
-    .rightColumn {
-      margin-top: 0;
-      @include grid-span(6,2);
-    }
-  }
-
-  // Tablet Landscape
-  @include layout-at(9, 1024px) {
-    @include grid-span(9,1);
-    
-    .leftColumn {
-      @include grid-span(1,1);
-    }
-
-    .rightColumn {
-      @include grid-span(8,2);
     }
   }
 }

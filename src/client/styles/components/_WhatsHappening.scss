@@ -1,20 +1,18 @@
 // @include sgs-change('debug', true);
 
 .hpWhatsHappening {
-  display: flex;
-  flex-direction: column;
+  @include add-grid(1);
 
   &-section {
-    margin: 0;
+    @include grid-span(1);
+    margin: 0 0 15px;
     padding: 0;
-    margin-bottom: 10px;
-    display: inline-block;
     list-style: none;
     color: #000;
 
     // To hide 
     .eventItem + .eventItem {
-      display: none;
+      @include visuallyHidden;
     }
 
     a {
@@ -22,6 +20,7 @@
     }
 
     > h3 {
+      @include Kievit-Medium;
       color: $LIBRARY_RED;
       text-transform: uppercase;
       font-size: 14px;
@@ -31,6 +30,7 @@
 
     .eventItem {
       @include Kievit-Medium;
+      @include add-grid(3);
 
       img {
         @include grid-span(1,1);
@@ -48,7 +48,7 @@
         @include grid-span(2,2);
         text-transform: uppercase;
         font-size: 12px;
-        margin-top: 10px 0 0 0;
+        margin: 10px 0 0 0;
       }
 
       &-location {
@@ -58,13 +58,12 @@
   }
 
   // Tablet portrait
-  @include layout-at(('grid': 6), 768px) {
-    @include grid-span(6,1);
-
+  @include layout-at(6, $tablet-portrait) {
     &-section {
       display: none;
+      @include grid-span(6);
 
-      > h3 {
+      & > h3 {
         display: none;
       }
 
@@ -72,7 +71,7 @@
         display: block;
 
         .eventItem {
-          display: block;
+          @include displayVisuallyHidden;
           margin-bottom: 10px;
 
           h2 {
@@ -102,10 +101,9 @@
     text-transform: uppercase;
     @include Kievit-Medium;
 
-    @include layout-at(('grid': 6), 768px) {
+    @include layout-at(6, $tablet-portrait) {
       display: table;
-
-      @include grid-span(6, 1);
+      @include grid-span(6);
 
       li {
         display: table-cell;
@@ -127,13 +125,13 @@
       }
     }
 
-    @include layout-at(('grid': 8), 1024px) {
-      @include grid-span(4.9, 4);
+   @include layout-at(8, $tablet-landscape) {
+      @include grid-span(5, 4);
     }
   }
 
   // Tablet Landscape
-  @include layout-at(('grid': 8), 1024px) {
+  @include layout-at(8, $tablet-landscape) {
     &-section {
       &.active {
 

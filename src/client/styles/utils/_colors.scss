@@ -5,7 +5,19 @@
 */
 
 /* NYPL Primary Red*/
-$PRIMARY_COLOR: #ED1C24;
+$PRIMARY_COLOR: #ED1C24 !default;
+$SECONDARY_RED_COLOR: #FF4F43 !default;
 
 /* Coolgray*/
-$COOLGRAY_COLOR: #A3A19E;
+$COOLGRAY_COLOR: #A3A19E !default;
+
+/* Reusable Utility Color Classes for Fonts/Background Color */
+
+// Background Color Classes
+.bgPrimaryLibraryRed {
+	background-color: $PRIMARY_COLOR;
+}
+
+.bgSecondaryLibraryRed {
+	background-color: $SECONDARY_RED_COLOR;
+}

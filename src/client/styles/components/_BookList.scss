@@ -1,84 +1,89 @@
-
+// NOTE: Minimal overrides to left and right column only for this component
+// Overrides hpRow style definitions.
 .bookListRow {
-  .leftColumn {
-    border: none;
-    padding-top: 0;
 
+  .leftColumn {
+    border: none; // Only for this component do we override the border
     & > h2 {
       color: #FFFFFF;
+
+      @include min-screen($tablet-portrait) {
+        margin-top: 15px;
+      }
     }
   }
 
-  &.hpRow {
-    background-color: #ff4f43;
+  .rightColumn {
     color: #FFFFFF;
-    margin-bottom: 25px;
+    margin-bottom: 15px; // Slick adds !important to the wrapper, hence the need for this rule
 
-    .rightColumn {
-      color: #FFFFFF;
+    @include min-screen($tablet-portrait) {
+      margin-top: 15px;
+    }
+  }
+}
 
-      // Tablet Portrait
-      // Made the whole right side one column and let the plugin/css
-      // create the width of the carousel.
-      @include layout-at(6, 768px) {
-        @include grid-span(5, 2);
+// Namespacing at the component level, within the grid
+.hpBookList {
 
-        .slick-slider {
-          .slick-track {
-            height: 245px;
-          }
+  /* -- Tablet Portrait Layout --
+   * NOTE: Made the whole right side one column and let the plugin/css
+   * create the width of the carousel.
+  */
+  @include layout-at(6, $tablet-portrait) {
+    @include grid-span(5, 2);
 
-          .slick-book-item {
-            margin-right: 20px;
+    .slick-slider {
+      .slick-track {
+        height: 245px;
+      }
 
-            img {
-              max-height: 216px;
-            }
-          }
+      .slick-book-item {
+        margin-right: 20px;
 
-          .slick-prev, .slick-next {
-            top: 144px;
-          }
-
-          .slick-prev {
-            left: -18%;
-          }
-
-          .slick-next {
-            left: -11%;
-          }
+        img {
+          max-height: 216px;
         }
       }
 
-      @include layout-at(8, 1024px) {
-        @include grid-span(7, 2);
+      .slick-prev, .slick-next {
+        top: 144px;
+      }
 
-        .slick-slider {
-          .slick-track {
-            height: 289px;
-          }
+      .slick-prev {
+        left: -18%;
+      }
 
-          .slick-book-item {
-            margin-right: 33px;
-
-            img {
-              max-height: 289px;
-            }
-          }
-
-          .slick-prev {
-            left: -13%;
-          }
-
-          .slick-next {
-            left: -8%;
-          }
-        }
+      .slick-next {
+        left: -11%;
       }
     }
   }
 
-  @media screen and (min-width: 1024px) {
-    min-height: 320px;
+  // Tablet Landscape Layout
+  @include layout-at(8, $tablet-landscape) {
+    @include grid-span(7, 2);
+
+    .slick-slider {
+      .slick-track {
+        height: 289px;
+      }
+
+      .slick-book-item {
+        margin-right: 33px;
+
+        img {
+          max-height: 289px;
+        }
+      }
+
+      .slick-prev {
+        left: -13%;
+      }
+
+      .slick-next {
+        left: -8%;
+      }
+    }
   }
 }
