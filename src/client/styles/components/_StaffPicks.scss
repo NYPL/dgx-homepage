@@ -5,14 +5,17 @@
 
   @include min-screen($tablet-portrait) {
     @include displayVisuallyHidden;
+    padding-top: 15px;
+    height: 366px;
+  }
+
+  @include min-screen($tablet-landscape) {
+    padding-top: 30px;
+    height: 402px;
   }
 
   .leftColumn {
     border-top: 2px solid #FFF;
-
-    @include min-screen($tablet-portrait) {
-      margin-top: 15px;
-    }
 
     > h2 {
       color: #FFF;
@@ -23,16 +26,14 @@
 // Component specific mobile first rules
 .hpStaffPicks {
   // Tablet Portrait
-  @include layout-at(2, $tablet-portrait) {
-    @include float-span(2);
-    margin-top: 15px;
+  @include layout-at(6, $tablet-portrait) {
 
     &-wrapper {
       &:first-child {
-        @include float-span(1, 'first');
+        @include grid-span(3, 1);
       }
       &:last-child {
-        @include float-span(1, 'last');
+        @include grid-span(3, 4);
       }
 
       img {
@@ -47,7 +48,7 @@
       color: #000;
 
       .quoteBackground {
-        width: 40%;
+        width: 34%;
         height: 196px;
         position: absolute;
         background: #fff;
@@ -110,7 +111,7 @@
       h3 {
         margin: 0;
         font-size: 18px;
-        padding-top: 25px;
+        padding-top: 20px;
         font-weight: 300;
       }
 
@@ -123,14 +124,14 @@
   }
 
   // Tablet Landscape 
-  @include layout-at(2, $tablet-landscape) {
-    @include float-span(2);
+  @include layout-at(8, $tablet-landscape) {
 
     &-pick {
       height: 264px;
 
       .quoteBackground {
         width: 33%;
+        max-width: 470px;
         height: 260px;
 
         &:after {
