@@ -10,6 +10,8 @@ $tablet-landscape: 1024px !default;
 $desktop: 1313px !default;
 
 $mobile-padding-left-right: 14px !default;
+$tablet-portrait-padding-left-right: 34px !default;
+$tablet-landscape-padding-left-right: 20px !default;
 $mobile-margin-top-bottom: 15px !default;
 
 %baseGrid {
@@ -18,6 +20,13 @@ $mobile-margin-top-bottom: 15px !default;
 	display: block;
 	@extend %clearfix;
 
+	@include min-screen($tablet-portrait) {
+		padding: 0 $tablet-portrait-padding-left-right;
+	}
+
+	@include min-screen($tablet-landscape) {
+		padding: 0 $tablet-landscape-padding-left-right;
+	}
 	/* Mobile Layout (1 Column) */
 	@include add-grid(1);
 
