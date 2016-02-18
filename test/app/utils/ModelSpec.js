@@ -1,9 +1,10 @@
 var React = require('react');
 var TestUtils = require('react/lib/ReactTestUtils');
 var _ = require('underscore');
+var Model = require('./../../../src/app/utils/Model.js');
 
 describe('NYPL Homepage Utils Unit Tests', function () {
-  var build;
+  // var Model;
 
   /*
    * dayFormatUppercase
@@ -12,7 +13,11 @@ describe('NYPL Homepage Utils Unit Tests', function () {
    *   Returns the name in AP style with uppercase.
    */
   describe('Model: build', function () {
-    console.log('>>>>>test<<<<<');
+    it('should have build function', function () {
+      // console.log(Model.build);
+      var build = Model.build;
+      expect(build).toBeDefined();
+    });
     // beforeEach(inject(function (_build_) {
     //   build = _build_;
     // }));
