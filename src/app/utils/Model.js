@@ -5,7 +5,7 @@ class Model {
   build(data) {
     //Make sure there's data
     if (!data) {
-      return;
+      return null;
     }
 
     // Decide the type of data
@@ -16,9 +16,27 @@ class Model {
     } else if (_.isObject(data) && !_.isEmpty(data)) {
       return this.modelAppData(this.modelContainers(data));
     } else {
-      return;
+      return null;
     }
   };
+
+  /**
+  * modelAppData(data)
+  * Collect each modeled container data, and assigne them to different catagory,
+  * based on its id. Finally, return an object with keys as the catagories,
+  * and values as the arrays of the conatainer slots.
+  *
+  * @param (Array) data
+  */
+  modelAppData(data) {
+    let AppDataObj = {};
+
+    _.map(data, d => {
+      AppDataObj[d.name.en.text.replace(/ /g, '')] = d;
+    });
+
+    return AppDataObj;
+  }
 
   /**
   * modelContainers(data)
@@ -104,25 +122,6 @@ class Model {
       };
     });
   }
-
-  /**
-  * modelAppData(data)
-  * Collect each modeled container data, and assigne them to different catagory,
-  * based on its id. Finally, return an object with keys as the catagories,
-  * and values as the arrays of the conatainer slots.
-  *
-  * @param (Array) data
-  */
-  modelAppData(data) {
-    let AppDataObj = {};
-
-    _.map(data, (d) => {
-      AppDataObj[d.name.en.text.replace(/ /g, '')] = d;
-    });
-
-    return AppDataObj;
-  }
-
 }
 
 export default new Model;
