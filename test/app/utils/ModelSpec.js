@@ -10,7 +10,7 @@ describe('NYPL Homepage Utils Unit Tests', function () {
 
   /*
    * Model.build
-   * Mode.build is the main function passes the data from the api endpoint to
+   * Model.build is the main function passes the data from the api endpoint to
    * extract the value we need.
    * It eventually returns an object with the keys and values for all the 
    * components to ApiRoute.js.
@@ -41,7 +41,7 @@ describe('NYPL Homepage Utils Unit Tests', function () {
 
   /*
    * Model.modelAppData
-   * Mode.modelAppData is the function restructures the data from the api endpoint to
+   * Model.modelAppData is the function restructures the data from the api endpoint to
    * catogorize it into different sub objects by each sub object's different name.
    * It eventually returns an object back to Model.build.
    */
@@ -57,7 +57,7 @@ describe('NYPL Homepage Utils Unit Tests', function () {
 
   /*
    * Model.modelContainers
-   * Mode.modelContainers is the function restructures the data from api endpoint to
+   * Model.modelContainers is the function restructures the data from api endpoint to
    * a new object inlcudes the new keys and assignes the values to the components.
    * It eventually returns an object with the keys and values back to Model.modelAppData.
    */
