@@ -82,21 +82,19 @@ class Model {
       let bannerImage = currentItem['banner-image'] ?
         currentItem['banner-image'].attributes.uri['full-uri'] : null,
         rectangularImage = currentItem['rectangular-image'] ?
-          currentItem['rectangular-image'].attributes
-          .uri['full-uri'] : null,
+          currentItem['rectangular-image'].attributes.uri['full-uri'] : null,
         squareImage = currentItem['square-image'] ?
-          currentItem['square-image'].attributes.uri['full-uri'] :
-          null,
+          currentItem['square-image'].attributes.uri['full-uri'] : null,
         bookCoverImage = currentItem['book-cover-image'] ?
           currentItem['book-cover-image'].attributes.uri['full-uri'] : null,
-        date = currentItem.attributes.date ?
-          currentItem.attributes.date : null,
+        date = currentItem.attributes.date ? currentItem.attributes.date : null,
         firstName = currentItem.attributes['person-first-name'] ?
           currentItem.attributes['person-first-name'] : null,
         lastName = currentItem.attributes['person-last-name'] ?
           currentItem.attributes['person-last-name'] : null,
         authorTitle = currentItem.attributes['person-title'] ?
-          currentItem.attributes['person-title'] : null;
+          currentItem.attributes['person-title'] : null,
+        location = currentItem.attributes.location ? currentItem.attributes.location : null;
 
       return {
         title: (currentItem.attributes.title) ?
@@ -119,6 +117,7 @@ class Model {
           firstName,
           lastName,
         },
+        location,
       };
     });
   }

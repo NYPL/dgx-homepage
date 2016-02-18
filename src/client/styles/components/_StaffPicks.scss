@@ -1,162 +1,161 @@
-// This class is for the hpRow for the special background color
-// and margins.
+// NOTE: Minimal overrides to left column only for this component
+// Overrides hpRow style definitions.
 .staffPicksRow {
   @include visuallyHidden;
-  background-color: $PRIMARY_COLOR;
 
-  @media screen and (min-width: 768px) {
+  @include min-screen($tablet-portrait) {
     @include displayVisuallyHidden;
-    padding-bottom: 30px;
-    margin-bottom: 0px;
+    padding-top: 15px;
+    height: 366px;
   }
 
-  @media screen and (min-width: 1024px) {
-    padding: 30px 0 15px;
+  @include min-screen($tablet-landscape) {
+    padding-top: 30px;
+    height: 402px;
   }
 
   .leftColumn {
-    border-top: 2px solid #fff;
+    border-top: 2px solid #FFF;
 
     > h2 {
+      color: #FFF;
+    }
+  }
+}
+
+// Component specific mobile first rules
+.hpStaffPicks {
+  // Tablet Portrait
+  @include layout-at(6, $tablet-portrait) {
+
+    &-wrapper {
+      &:first-child {
+        @include grid-span(3, 1);
+      }
+      &:last-child {
+        @include grid-span(3, 4);
+      }
+
+      img {
+        max-height: 171px;
+      }
+    }
+
+    &-pick {
+      display: flex;
+      height: 200px;
+      padding-bottom: 15px;
+      color: #000;
+
+      .quoteBackground {
+        width: 34%;
+        height: 196px;
+        position: absolute;
+        background: #fff;
+        z-index: 0;
+
+        // For the down quote arrow
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: -20px;
+          left: 30px;
+          border-width: 20px 20px 0 0;
+          border-style: solid;
+          border-color: #fff transparent;
+          display: block;
+          width: 0;
+        }
+      }
+
+      p {
+        z-index: 100;
+        margin: 0;
+        padding: 0 5px 0 10px;
+        align-self: center;
+        color: #000;
+        font-family: MiloSlabPro;
+        font-size: 20px;
+        font-weight: 300;
+        font-style: italic;
+        line-height: 20px;
+      }
+
+      a {
+        z-index: 101;
+        align-self: flex-end;
+      }
+    }
+
+    &-staff {
       color: #fff;
+
+      img {
+        height: 60px;
+        width: 60px;
+        float: left;
+      }
+
+      .nypl-icon-logo-mark {
+        color: #c51d12;
+        font-size: 80px;
+        width: 60px;
+        margin-right: 5px;
+        float: left;
+
+        &:before {
+          margin-left: -20px;
+        }
+      }
+
+      h3 {
+        margin: 0;
+        font-size: 18px;
+        padding-top: 20px;
+        font-weight: 300;
+      }
+
+      h5 {
+        font-size: 13px;
+        margin: 0;
+        font-weight: 300;
+      }
     }
   }
 
-  // This class is for the content itself.
-  .hpStaffPicks {
-    // Tablet Portrait
-    @include layout-at(('grid': 2, 'gutter': .07), 768px) {
-      @include float-span(2);
+  // Tablet Landscape 
+  @include layout-at(8, $tablet-landscape) {
 
-      &-wrapper {
-        &:first-child {
-          @include float-span(1, 'first');
-        }
-        &:last-child {
-          @include float-span(1, 'last');
-        }
+    &-pick {
+      height: 264px;
 
-        img {
-          max-height: 171px;
+      .quoteBackground {
+        width: 33%;
+        max-width: 470px;
+        height: 260px;
+
+        &:after {
+          left: 45px;
         }
       }
 
-      &-pick {
-        display: flex;
-        height: 200px;
-        padding-bottom: 15px;
-        color: #000;
-
-        .quoteBackground {
-          width: 40%;
-          height: 196px;
-          position: absolute;
-          background: #fff;
-          z-index: 0;
-
-          // For the down quote arrow
-          &:after {
-            content: "";
-            position: absolute;
-            bottom: -20px;
-            left: 30px;
-            border-width: 20px 20px 0 0;
-            border-style: solid;
-            border-color: #fff transparent;
-            display: block;
-            width: 0;
-          }
-        }
-
-        p {
-          z-index: 100;
-          margin: 0;
-          padding: 0 5px 0 10px;
-          align-self: center;
-          color: #000;
-          font-family: MiloSlabPro;
-          font-size: 20px;
-          font-weight: 300;
-          font-style: italic;
-          line-height: 20px;
-        }
-
-        a {
-          z-index: 101;
-          align-self: flex-end;
-        }
+      p {
+        font-size: 27px;
+        line-height: 27px;
+        padding: 0 15px 0 20px;
       }
 
-      &-staff {
-        color: #fff;
-
-        img {
-          height: 60px;
-          width: 60px;
-          float: left;
-        }
-
-        .nypl-icon-logo-mark {
-          color: #c51d12;
-          font-size: 80px;
-          width: 60px;
-          margin-right: 5px;
-          float: left;
-
-          &:before {
-            margin-left: -20px;
-          }
-        }
-
-        h3 {
-          margin: 0;
-          font-size: 18px;
-          padding-top: 25px;
-          font-weight: 300;
-        }
-
-        h5 {
-          font-size: 13px;
-          margin: 0;
-          font-weight: 300;
-        }
+      img {
+        max-height: 233px;
       }
     }
 
-    // Tablet Landscape 
-    @include layout-at(('grid': 2, 'gutter': 1), 1024px) {
-      @include float-span(2);
+    &-staff {
+      margin-left: 15px;
 
-      &-pick {
-        height: 264px;
-
-        .quoteBackground {
-          width: 33%;
-          height: 260px;
-
-          &:after {
-            left: 45px;
-          }
-        }
-
-        p {
-          font-size: 27px;
-          line-height: 27px;
-          padding: 0 15px 0 20px;
-        }
-
-        img {
-          max-height: 233px;
-        }
-      }
-
-      &-staff {
-        margin-left: 15px;
-
-        h3 {
-          padding-top: 20px;
-          font-size: 16px;
-        }
+      h3 {
+        padding-top: 20px;
+        font-size: 16px;
       }
     }
   }

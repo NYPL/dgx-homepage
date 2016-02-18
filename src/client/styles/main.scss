@@ -13,12 +13,13 @@ Import singularity and breakpoints
 @import "~breakpoint-sass/stylesheets/breakpoint";
 
 /*
-Import Grid Settings for nyplHomepage App
+Import Normalize and Grid settings for nyplHomepage App
 */
+@import "utils/normalize";
 @import "utils/gridSettings";
 
 /*
-Import style rules from node module components
+Import style rules from NYPL React module components
 */
 @import "~dgx-header-component/dist/styles/main";
 @import "~dgx-react-buttons/dist/styles/styles.scss";
@@ -26,7 +27,7 @@ Import style rules from node module components
 @import "~dgx-booklist-component/dist/styles/main";
 
 /*
-Import style rules from ./components
+Import style rules from App components
 */
 @import "components/_HomepageRow";
 @import "components/_CarouselComponent";

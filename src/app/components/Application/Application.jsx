@@ -58,8 +58,9 @@ class App extends React.Component {
             methods={
               {buttonMethod: Actions.setCarouselIndexValue}
             } />
-
+            
           <HomepageRow
+            className='whatsHappeningRow hpRow nyplGrid'
             title={'What’s Happening'}
             link={'/events/'}
             seeMoreStyle={styles.redSeeMoreBtn}
@@ -74,6 +75,7 @@ class App extends React.Component {
             } />
 
           <HomepageRow
+            className='learnRow hpRow nyplGrid'
             title={'Learn Something New'}
             link={'/events/classes/calendar'}
             seeMoreStyle={styles.redSeeMoreBtn}
@@ -82,37 +84,41 @@ class App extends React.Component {
               <FeatureRow
                 id={'hpLearn'}
                 className={'hpLearn'}
-                itemsToDisplay = {4}
+                itemsToDisplay={4}
                 items={learnSomethingNewData} />
             } />
 
-          <HomepageRow
-            className='staffPicksRow hpRow'
-            title={'Staff Picks'}
-            link={'/staffpicks'}
-            seeMoreId='staffPicks-SeeMore'
-            seeMoreStyle={styles.whiteSeeMoreBtn}
-            content={
-              <HomepageStaffPicks
-                className={'hpStaffPicks'}
-                id={'hpStaffPicks'}
-                items={staffPicksData} />
-            } />
+          <div className='staffPicksRow bgPrimaryLibraryRed'>
+            <HomepageRow
+              className='hpRow nyplGrid-fullWidth'
+              title={'Staff Picks'}
+              link={'/staffpicks'}
+              seeMoreId='staffPicks-SeeMore'
+              seeMoreStyle={styles.whiteSeeMoreBtn}
+              content={
+                <HomepageStaffPicks
+                  className={'hpStaffPicks'}
+                  id={'hpStaffPicks'}
+                  items={staffPicksData} />
+              } />
+          </div>
+
+          <div className='bookListRow bgSecondaryLibraryRed'>
+            <HomepageRow
+              className={'hpRow nyplGrid-fullWidth'}
+              title={'Recent Releases We Love'}
+              seeMoreStyle={styles.whiteSeeMoreBtn}
+              seeMoreId='bookList-seeMore'
+              content={
+                <BooklistWidget
+                  id={'hpBookList'}
+                  className={'hpBookList'}
+                  bookLists={recommendedRecentReleasesData} />
+              } />
+          </div>
 
           <HomepageRow
-            className='bookList hpRow'
-            title={'Recent Releases We Love'}
-            seeMoreStyle={styles.whiteSeeMoreBtn}
-            seeMoreId='bookList-seeMore'
-            content={
-              <BooklistWidget
-                name={'hpBooklist'}
-                id={'hpBooklist'}
-                className={'hpBooklist'}
-                bookLists={recommendedRecentReleasesData} />
-            } />
-
-          <HomepageRow
+            className='blogsRow hpRow nyplGrid'
             title={'From Our Blog'}
             link={"//nypl.org/blog"}
             seeMoreStyle={styles.redSeeMoreBtn}
@@ -126,7 +132,7 @@ class App extends React.Component {
 
           <HomepageRow
             title={'Of Note'}
-            className='ofNoteRow hpRow'
+            className='ofNoteRow hpRow nyplGrid'
             seeMoreStyle={styles.redSeeMoreBtn}
             seeMoreId='ofNote-SeeMore'
             content={
@@ -135,7 +141,6 @@ class App extends React.Component {
                 className={'hpOfNote'}
                 items={ofNoteData} />
             } />
-
         </div>
         <Footer />
       </div>
