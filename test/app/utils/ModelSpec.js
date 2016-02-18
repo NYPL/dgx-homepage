@@ -1,16 +1,16 @@
-var React = require('react');
-var TestUtils = require('react/lib/ReactTestUtils');
-var _ = require('underscore');
+// var React = require('react');
+// var TestUtils = require('react/lib/ReactTestUtils');
+// var _ = require('underscore');
 var Model = require('./../../../src/app/utils/Model.js');
 
 describe('NYPL Homepage Utils Unit Tests', function () {
-  // var Model;
 
   /*
-   * dayFormatUppercase
-   *   The input is a string of the name of the weekday.
-   *
-   *   Returns the name in AP style with uppercase.
+   * Model.build
+   * Mode.build is the main function to pass the data from api endpoint to
+   * extract the value we need.
+   * It eventually returns an object with the keys and values for all the 
+   * components to ApiRoute.js.
    */
   describe('Model: build', function () {
     it('should have build function', function () {
