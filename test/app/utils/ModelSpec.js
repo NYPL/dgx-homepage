@@ -4,7 +4,6 @@
 const Model = require('./../../../src/app/utils/Model.js');
 
 describe('NYPL Homepage Utils Unit Tests', function () {
-
   const build = Model.build;
   const modelAppData = Model.modelAppData;
   const modelContainers = Model.modelContainers;
@@ -46,7 +45,7 @@ describe('NYPL Homepage Utils Unit Tests', function () {
    * catogorize it into different sub objects by each sub object's different name.
    * It eventually returns an object back to Model.build.
    */
-   describe('Model: modelAppData', function () {
+  describe('Model: modelAppData', function () {
     it('should have modelAppData function', function () {
       expect(modelAppData).toBeDefined();
     });
@@ -54,7 +53,7 @@ describe('NYPL Homepage Utils Unit Tests', function () {
     it('should return an empty object if there is no data input', function () {
       expect(modelAppData()).toEqual({});
     });
-   });
+  });
 
   /*
    * Model.modelContainers
