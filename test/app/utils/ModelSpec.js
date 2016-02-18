@@ -73,5 +73,24 @@ describe('NYPL Homepage Utils Unit Tests', function () {
     it('should return an empty objcet if the input is an empty object', function () {
       expect(modelContainers({})).toEqual({});
     });
+
+    it('should return the value of empty string for type if there is no value as data.type',
+      function () {
+        expect(modelContainers({
+          type: undefined,
+          id: 'test',
+          attribute: {
+            name: 'test'
+          }
+        }))
+        .toEqual({
+          type: '',
+          id: 'test',
+          attribute: {
+            name: 'test'
+          }
+        });
+      }
+    );
   });
 });
