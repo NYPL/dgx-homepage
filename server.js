@@ -69,7 +69,7 @@ app.get('/', (req, res) => {
     isProduction: isProduction,
     gaCode: analytics.google.code(isProduction),
     webpackPort: WEBPACK_DEV_PORT,
-    appEnv: process.env.APP_ENV,
+    appEnv: process.env.APP_ENV || 'no APP_ENV available - using production',
     apiUrl: res.locals.data.completeApiUrl
   });
 
