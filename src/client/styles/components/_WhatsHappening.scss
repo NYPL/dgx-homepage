@@ -167,8 +167,6 @@
             margin-top: -70px;
 
             img, p, h2 {
-              // Not exactly sure why this needs to be 8 when I
-              // want it to expand 3 cols.
               @include grid-span(3, 1);
             }
 
