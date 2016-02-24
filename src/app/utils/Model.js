@@ -14,6 +14,7 @@ class Model {
         return this.modelContainers(d);
       }));
     } else if (_.isObject(data) && !_.isEmpty(data)) {
+      // *modelAppData can't handle object
       return this.modelAppData(this.modelContainers(data));
     } else {
       return null;
@@ -46,6 +47,7 @@ class Model {
   */
   modelContainers(data) {
     let container = {};
+    // let data = {attributes:{name: 'test'}};
 
     container.type = data.type;
     container.id = data.id;
