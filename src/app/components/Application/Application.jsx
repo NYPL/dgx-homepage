@@ -37,15 +37,71 @@ class App extends React.Component {
   }
 
   render() {
-    const carouselData = this.state.carouselData.slots, 
-      learnSomethingNewData = this.state.learnSomethingNewData.slots,
-      ofNoteData = this.state.ofNoteData.slots,
-      whatsHappeningData = this.state.whatsHappeningData.children,
-      whatsHappeningIndexValue = this.state.whatsHappeningIndexValue,
-      carouselIndex = this.state.carouselIndexValue,
-      fromOurBlogsData = this.state.fromOurBlogsData.slots,
-      staffPicksData = this.state.staffPicksData.slots,
-      recommendedRecentReleasesData = this.state.recommendedRecentReleasesData.slots;
+    const carouselData = this.state.carouselData.slots;
+    const learnSomethingNewData = this.state.learnSomethingNewData.slots;
+    const ofNoteData = this.state.ofNoteData.slots;
+    const whatsHappeningData = this.state.whatsHappeningData.children;
+    const whatsHappeningIndexValue = this.state.whatsHappeningIndexValue;
+    const carouselIndex = this.state.carouselIndexValue;
+    const fromOurBlogsData = this.state.fromOurBlogsData.slots;
+    const staffPicksData = this.state.staffPicksData.slots;
+    const recommendedRecentReleasesData = this.state.recommendedRecentReleasesData.slots;
+    const slickResponsiveSettings = [
+      {
+        breakpoint: 1400,
+        settings: {
+          slidesToShow: 5,
+        },
+      },
+      {
+        breakpoint: 1230,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 1000,
+        settings: {
+          slidesToShow: 5,
+        },
+      },
+      {
+        breakpoint: 915,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 830,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 5,
+        },
+      },
+      {
+        breakpoint: 675,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 350,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+    ];
 
     return (
       <div className='nyplHomepageApp'>
@@ -113,6 +169,7 @@ class App extends React.Component {
                 <BooklistWidget
                   id={'hpBookList'}
                   className={'hpBookList'}
+                  slickResponsiveSettings={slickResponsiveSettings}
                   bookLists={recommendedRecentReleasesData} />
               } />
           </div>
