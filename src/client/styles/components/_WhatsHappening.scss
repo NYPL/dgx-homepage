@@ -97,7 +97,9 @@
   // Tablet portrait
   @include layout-at(6, $tablet-portrait) {
     &-section {
+      min-height: 195px;
       display: none;
+
       @include grid-span(6);
 
       & > h3 {
@@ -133,6 +135,8 @@
   // Tablet Landscape
   @include layout-at(8, $tablet-landscape) {
     &-section {
+      min-height: 320px;
+
       &.active {
 
         .eventItem {
