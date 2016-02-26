@@ -22,58 +22,71 @@ class Model {
   };
 
   /**
-  * modelAppData(data)
+  * modelAppData(dataArray)
   * Collect each modeled container data, and assigne them to different catagory,
   * based on its id. Finally, return an object with keys as the catagories,
   * and values as the arrays of the conatainer slots.
   *
-  * @param (Array) data
+  * @param (Array) dataArray
   */
-  modelAppData(data) {
-    let AppDataObj = {};
+  modelAppData(dataArray) {
+    // Should have a type check here, typeof data === object, or === array
+    // it should get an array
+    let appObjectData = {};
 
-    _.map(data, d => {
-      AppDataObj[d.name.en.text.replace(/ /g, '')] = d;
+    _.map(dataArray, d => {
+      appObjectData[d.name.en.text.replace(/ /g, '')] = d;
     });
 
-    return AppDataObj;
+    return appObjectData;
   }
 
   /**
-  * modelContainers(data)
+  * modelContainers(dataObj)
   * Model the data from each container that is fetched from the Refinery
   *
-  * @param (Array) data
+  * @param (Object) dataObj
   */
-  modelContainers(data) {
+  modelContainers(dataObj) {
     let container = {};
-    // let data = {attributes:{name: 'test'}};
 
-    container.type = data.type;
-    container.id = data.id;
-    container.name = data.attributes.name;
-    container.slots = data.slots ? this.createSlots(data.slots) : null;
-    container.children = data.children ? this.createChildren(data.children) : null;
+    container.type = dataObj.type;
+    container.id = dataObj.id;
+    container.name = dataObj.attributes.name || {};
+    container.slots = dataObj.slots ? this.createSlots(dataObj.slots) : [];
+    container.children = dataObj.children ? this.createChildren(dataObj.children) : [];
 
     return container;
   }
 
-  createChildren(children) {
-    if (!children) {
+  /**
+  * createChildren(dataArray)
+  * Collect and restructure if an item has its children subobject
+  *
+  * @param (Array) dataArray
+  */
+  createChildren(dataArray) {
+    if (!dataArray) {
       return [];
     }
 
-    return _.map(children, c => {
-      return this.modelContainers(c);
+    return _.map(dataArray, d => {
+      return this.modelContainers(d);
     });
   }
 
-  createSlots(slots) {
-    if (!slots) {
+  /**
+  * createSlots(dataArray)
+  * Collect and restructure if an item has its children subobject
+  *
+  * @param (Array) dataArray
+  */
+  createSlots(dataArray) {
+    if (!dataArray) {
       return [];
     }
 
-    return slots.map((element) => {
+    return dataArray.map((element) => {
       if (_.isEmpty(element['current-item'])) {
         return {};
       }

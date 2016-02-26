@@ -31,12 +31,6 @@ describe('NYPL Homepage Utils Unit Tests', function () {
     it('should return null if the data is an object with no key and value', function () {
       expect(build({})).toEqual(null);
     });
-
-    it('should return null if the data is an array with an empty object as the first item',
-      function () {
-        expect(build([{}])).toEqual(null);
-      }
-    );
   });
 
   /*
@@ -50,15 +44,47 @@ describe('NYPL Homepage Utils Unit Tests', function () {
       expect(modelAppData).toBeDefined();
     });
 
-    it('should return an empty object if there is no data input', function () {
-      expect(modelAppData()).toEqual({});
+    it('should return an object with default keys if the data is null or not an array', function () {
+      expect(modelAppData() || modelAppData({}) || modelAppData('')).toEqual({
+        'What\'sHappening': [],
+        Banner: [],
+        LearnSomethingNew: [],
+        OfNote: [],
+        romOurBlog: [],
+        StaffPicks: [],
+        RecommendedRecentReleases: [],
+      });
+    });
+
+    it('should return an object with default keys if the data is an empty array', function () {
+      expect(modelAppData([])).toEqual({
+        'What\'sHappening': [],
+        Banner: [],
+        LearnSomethingNew: [],
+        OfNote: [],
+        romOurBlog: [],
+        StaffPicks: [],
+        RecommendedRecentReleases: [],
+      });
+    });
+
+    it('should return an object with default keys if the name of each item is an empty object', function () {
+      expect(modelAppData([{name: {}}])).toEqual({
+        'What\'sHappening': [],
+        Banner: [],
+        LearnSomethingNew: [],
+        OfNote: [],
+        romOurBlog: [],
+        StaffPicks: [],
+        RecommendedRecentReleases: [],
+      });
     });
   });
 
   /*
    * Model.modelContainers
    * Model.modelContainers is the function restructures the data from api endpoint to
-   * a new object inlcudes the new keys and assignes the values to the components.
+   * a new object inlcudes the new keys and assignes the values to each component.
    * It eventually returns an object with the keys and values back to Model.modelAppData.
    */
   describe('Model: modelContainers', function () {
@@ -66,31 +92,56 @@ describe('NYPL Homepage Utils Unit Tests', function () {
       expect(modelContainers).toBeDefined();
     });
 
-    it('should return an empty objcet if there is no data input', function () {
-      expect(modelContainers()).toEqual({});
+    it('should return an empty objcet with default keys if there is no data input or the input is not an object', function () {
+      expect(modelContainers() || modelContainers('') || modelContainers([])).toEqual({
+        type: [],
+        id: [],
+        name: {},
+        slots: [],
+        children: [],
+      });
     });
 
     it('should return an empty objcet if the input is an empty object', function () {
-      expect(modelContainers({})).toEqual({});
+      expect(modelContainers({})).toEqual({
+        type: [],
+        id: [],
+        name: {},
+        slots: [],
+        children: [],
+      });
     });
+  });
 
-    it('should return the value of empty string for type if there is no value as data.type',
-      function () {
-        expect(modelContainers({
-          type: undefined,
-          id: 'test',
-          attribute: {
-            name: 'test'
-          }
-        }))
-        .toEqual({
-          type: '',
-          id: 'test',
-          attribute: {
-            name: 'test'
-          }
-        });
-      }
-    );
+  /*
+   * Model.createChildren
+   * Model.createChildren is the function restructures the data of the children subobject of a
+   * component
+   */
+  describe('Model: createChildren', function () {
+    it('should have createChildren function', function () {
+      expect(createChildren).toBeDefined();
+    });
+    it('should return an empty array if no data input or it is not an array', function () {
+      expect().toEqual([]);
+      expect('').toEqual([]);
+      expect({}).toEqual([]);
+    });
+  });
+
+  /*
+   * Model.createSlots
+   * Model.createSlots is the function restructures the data of the slots subobject of a
+   * component
+   */
+  describe('Model: createSlots', function () {
+    it('should have createSlots function', function () {
+      expect(createSlots).toBeDefined();
+    });
+    it('should return an empty array if no data input or it is not an array', function () {
+      expect().toEqual([]);
+      expect('').toEqual([]);
+      expect({}).toEqual([]);
+    });
   });
 });
