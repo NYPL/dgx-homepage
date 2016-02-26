@@ -46,6 +46,10 @@
     <%- app %>
   </body>
 
+  <script type='text/javascript'>
+    var appEnv = "<%- appEnv %>";
+  </script>
+
 <% if (isProduction) { %>
   <script async src="/bundle.js"></script>
 <% } else { %>

@@ -5,6 +5,10 @@
 	&-item {
 		@include grid-span(3);
     margin-bottom: 15px;
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
 	}
 
 	&-imageBox {
@@ -59,7 +63,7 @@
 		&-title {
 			font-size: 24px;
 			line-height: 1.15em;
-		}  	
+		}
 
   	&-authorBox {
   		@include displayVisuallyHidden;
@@ -80,14 +84,15 @@
   @include layout-at(8, $tablet-landscape) {
   	&-item {
   		@include grid-span(8, 1);
+      margin-bottom: 30px;
   	}
 
   	&-imageBox {
-  		@include grid-span(4, 1);
+  		@include grid-span(3, 1);
   	}
 
   	&-contentBox {
-  		@include grid-span(4, 5);
+  		@include grid-span(5, 4);
   	}
 
   	&-description {
@@ -96,5 +101,26 @@
   		font-size: 15px;
   		line-height: 1.35em;
   	}
+  }
+
+  @include layout-at(8, $desktop) {
+
+    &-item {
+  		@include grid-span(8, 1);
+      margin-bottom: 45px;
+  	}
+
+    &-imageBox {
+      @include grid-span(4, 1);
+      text-align: right;
+
+      .rectangularImage {
+        max-width: 448px;
+      }
+    }
+
+    &-contentBox {
+      @include grid-span(4, 5);
+    }
   }
 }
