@@ -89,8 +89,12 @@
       }
     }
 
-   @include layout-at(8, $tablet-landscape) {
+    @include layout-at(8, $tablet-landscape) {
       @include grid-span(5, 4);
+    }
+
+    @include layout-at(8, $desktop) {
+      @include grid-span(4, 5);
     }
   }
 
@@ -148,7 +152,7 @@
 
           // Styles for all the events.
           &:nth-child(n) {
-            @include grid-span(5, 4);
+            @include float-span(5, 'last');
 
             img {
               @include grid-span(2, 1);
@@ -163,12 +167,11 @@
           // It's not the correct pseudo name... but it works somehow.
           &:nth-child(2) {
             @include grid-span(3, 1);
+            @include add-grid(3);
             margin-top: -70px;
 
             img, p, h2 {
-              // Not exactly sure why this needs to be 8 when I
-              // want it to expand 3 cols.
-              @include grid-span(8, 1);
+              @include grid-span(3, 1);
             }
 
             h2 {
@@ -188,6 +191,31 @@
               margin-top: 5px;
               text-transform: none;
               @include displayVisuallyHidden;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Desktop
+  @include layout-at(8, $desktop) {
+    &-section {
+      &.active {
+        .eventItem {
+          // Styles for all the events.
+          &:nth-child(n) {
+            @include float-span(4, 'last');
+          }
+
+          // Target the first child in the list.
+          // It's not the correct pseudo name... but it works somehow.
+          &:nth-child(2) {
+            @include grid-span(4, 1);
+            @include add-grid(4);
+
+            img, p, h2 {
+              @include grid-span(4, 1);
             }
           }
         }
