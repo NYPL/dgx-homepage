@@ -32,11 +32,31 @@ class Model {
   modelAppData(dataArray) {
     // Should have a type check here, typeof data === object, or === array
     // it should get an array
-    let appObjectData = {};
+    let appObjectData = {
+      'What\'sHappening': [],
+      Banner: [],
+      LearnSomethingNew: [],
+      OfNote: [],
+      FromOurBlog: [],
+      StaffPicks: [],
+      RecommendedRecentReleases: [],
+    },
+    arrayTest = ['What\'sHappening', 'Banner', 'LearnSomethingNew', 
+    'OfNote', 'FromOurBlog', 'StaffPicks', 'RecommendedRecentReleases'];
 
-    _.map(dataArray, d => {
-      appObjectData[d.name.en.text.replace(/ /g, '')] = d;
-    });
+    if (!dataArray || !(_.isArray(dataArray))) {
+      return appObjectData;
+    }
+
+    if(dataArray.length > 0) {
+      _.map(dataArray, d => {
+        let name = d.name.en.text.replace(/ /g, '');
+
+        if (arrayTest.includes(name)) {
+          appObjectData[d.name.en.text.replace(/ /g, '')] = d;
+        }
+      })
+    };
 
     return appObjectData;
   }

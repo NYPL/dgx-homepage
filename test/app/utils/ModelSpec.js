@@ -50,7 +50,7 @@ describe('NYPL Homepage Utils Unit Tests', function () {
         Banner: [],
         LearnSomethingNew: [],
         OfNote: [],
-        romOurBlog: [],
+        FromOurBlog: [],
         StaffPicks: [],
         RecommendedRecentReleases: [],
       });
@@ -62,7 +62,7 @@ describe('NYPL Homepage Utils Unit Tests', function () {
         Banner: [],
         LearnSomethingNew: [],
         OfNote: [],
-        romOurBlog: [],
+        FromOurBlog: [],
         StaffPicks: [],
         RecommendedRecentReleases: [],
       });
@@ -74,7 +74,7 @@ describe('NYPL Homepage Utils Unit Tests', function () {
         Banner: [],
         LearnSomethingNew: [],
         OfNote: [],
-        romOurBlog: [],
+        FromOurBlog: [],
         StaffPicks: [],
         RecommendedRecentReleases: [],
       });
