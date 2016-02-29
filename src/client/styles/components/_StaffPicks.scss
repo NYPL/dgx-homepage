@@ -6,12 +6,16 @@
   @include min-screen($tablet-portrait) {
     @include displayVisuallyHidden;
     padding-top: 15px;
-    height: 366px;
+    height: 350px;
   }
 
   @include min-screen($tablet-landscape) {
     padding-top: 30px;
-    height: 402px;
+    height: 375px;
+  }
+
+  @include min-screen($desktop) {
+    height: 520px;
   }
 
   .leftColumn {
@@ -44,7 +48,6 @@
     &-pick {
       display: flex;
       height: 200px;
-      padding-bottom: 15px;
       color: #000;
 
       .quoteBackground {
@@ -89,6 +92,7 @@
 
     &-staff {
       color: #fff;
+      margin-top: 15px;
 
       img {
         height: 60px;
@@ -142,7 +146,7 @@
       p {
         font-size: 27px;
         line-height: 27px;
-        padding: 0 15px 0 20px;
+        padding: 0 25px 0 20px;
       }
 
       img {
@@ -156,6 +160,53 @@
       h3 {
         padding-top: 20px;
         font-size: 16px;
+      }
+    }
+  }
+
+  // Tablet Landscape 
+  @include layout-at(8, $desktop) {
+    &-pick {
+      height: 374px;
+
+      .quoteBackground {
+        width: 31%;
+        max-width: 470px;
+        height: 370px;
+
+        &:after {
+          border-width: 30px 35px 0px 0px;
+          bottom: -30px;
+        }
+      }
+
+      p {
+        font-size: 38px;
+        line-height: 38px;
+        padding-left: 30px;
+      }
+
+      img {
+        max-height: 340px;
+      }
+    }
+
+    &-staff {
+      margin-top: 20px;
+      margin-left: 5px;
+
+      .nypl-icon-logo-mark {
+        font-size: 100px;
+        width: 80px;
+      }
+
+      h3 {
+        padding-top: 25px;
+        font-size: 20px;
+      }
+
+      h5 {
+        font-size: 15px;
       }
     }
   }
