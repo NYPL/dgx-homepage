@@ -44,7 +44,7 @@ describe('NYPL Homepage Utils Unit Tests', function () {
       expect(build([])).toEqual(null);
     });
 
-    it('should return null if the data is an object with no key and value', function () {
+    it('should return null if the data is not an array', function () {
       expect(build({})).toEqual(null);
     });
   });

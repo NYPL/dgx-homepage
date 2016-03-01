@@ -3,22 +3,19 @@ import _ from 'underscore';
 class Model {
 
   build(data) {
-    //Make sure there's data
-    if (!data) {
+    //Make sure there's input
+    if (!data || !(_.isArray(data))) {
       return null;
     }
 
     // Decide the type of data
-    if (_.isArray(data) && data.length > 0) {
+    if (data.length > 0) {
       return this.modelAppData(_.map(data, d => {
         return this.modelContainers(d);
       }));
-    } else if (_.isObject(data) && !_.isEmpty(data)) {
-      // *modelAppData can't handle object
-      return this.modelAppData(this.modelContainers(data));
-    } else {
-      return null;
     }
+
+    return null;
   };
 
   /**
