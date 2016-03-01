@@ -1,12 +1,28 @@
-// var React = require('react');
-// var TestUtils = require('react/lib/ReactTestUtils');
-// var _ = require('underscore');
 const Model = require('./../../../src/app/utils/Model.js');
 
 describe('NYPL Homepage Utils Unit Tests', function () {
   const build = Model.build;
   const modelAppData = Model.modelAppData;
   const modelContainers = Model.modelContainers;
+  const assignComponentData = Model.assignComponentData;
+  const createChildren = Model.createChildren;
+  const createSlots = Model.createSlots;
+  const defaultModelAppData = {
+    'What\'sHappening': [],
+    Banner: [],
+    LearnSomethingNew: [],
+    OfNote: [],
+    FromOurBlog: [],
+    StaffPicks: [],
+    RecommendedRecentReleases: [],
+  };
+  const defaultContainerData = {
+    type: undefined,
+    id: undefined,
+    name: {},
+    children: [],
+    slots: [],
+  };
 
   /*
    * Model.build
@@ -44,42 +60,40 @@ describe('NYPL Homepage Utils Unit Tests', function () {
       expect(modelAppData).toBeDefined();
     });
 
-    it('should return an object with default keys if the data is null or not an array', function () {
-      expect(modelAppData() || modelAppData({}) || modelAppData('')).toEqual({
-        'What\'sHappening': [],
-        Banner: [],
-        LearnSomethingNew: [],
-        OfNote: [],
-        FromOurBlog: [],
-        StaffPicks: [],
-        RecommendedRecentReleases: [],
-      });
+    it('should return an object with default keys if the input is null or not an array', function () {
+      expect(modelAppData() || modelAppData({}) || modelAppData('')).toEqual(
+        defaultModelAppData
+      );
     });
 
-    it('should return an object with default keys if the data is an empty array', function () {
-      expect(modelAppData([])).toEqual({
-        'What\'sHappening': [],
-        Banner: [],
-        LearnSomethingNew: [],
-        OfNote: [],
-        FromOurBlog: [],
-        StaffPicks: [],
-        RecommendedRecentReleases: [],
-      });
-    });
-
-    it('should return an object with default keys if the name of each item is an empty object', function () {
-      expect(modelAppData([{name: {}}])).toEqual({
-        'What\'sHappening': [],
-        Banner: [],
-        LearnSomethingNew: [],
-        OfNote: [],
-        FromOurBlog: [],
-        StaffPicks: [],
-        RecommendedRecentReleases: [],
-      });
+    it('should return an object with default keys if the input is an empty array', function () {
+      expect(modelAppData([])).toEqual(
+        defaultModelAppData
+      );
     });
   });
+
+  /* Model.assignComponentData
+   * Model.assignComponentData is the function that extract the name from old data, and rename it for
+   * a clearer structure.
+   */
+   describe('Model.assignComponentData', function () {
+    it('should have assignComponentData function', function () {
+      expect(assignComponentData).toBeDefined();
+    });
+
+    it('should return undefined if the input does not exist', function () {
+      expect(assignComponentData()).toEqual(undefined);
+    });
+
+    it('should return undefined if name.en.text does not exist', function () {
+      expect(assignComponentData({})).toEqual(undefined);
+    });
+
+    it('should return undefined if name.en.text does not exist', function () {
+      expect(assignComponentData({name:{}})).toEqual(undefined);
+    });
+   });
 
   /*
    * Model.modelContainers
@@ -92,24 +106,14 @@ describe('NYPL Homepage Utils Unit Tests', function () {
       expect(modelContainers).toBeDefined();
     });
 
-    it('should return an empty objcet with default keys if there is no data input or the input is not an object', function () {
-      expect(modelContainers() || modelContainers('') || modelContainers([])).toEqual({
-        type: [],
-        id: [],
-        name: {},
-        slots: [],
-        children: [],
-      });
+    it('should return the objcet with default key/value if there is no input or the input is not an object', function () {
+      expect(modelContainers() || modelContainers('') || modelContainers([])).toEqual(
+        defaultContainerData
+      );
     });
 
-    it('should return an empty objcet if the input is an empty object', function () {
-      expect(modelContainers({})).toEqual({
-        type: [],
-        id: [],
-        name: {},
-        slots: [],
-        children: [],
-      });
+    it('should return return the objcet with default key/value if the input is an empty object', function () {
+      expect(modelContainers({})).toEqual(defaultContainerData);
     });
   });
 
@@ -123,9 +127,9 @@ describe('NYPL Homepage Utils Unit Tests', function () {
       expect(createChildren).toBeDefined();
     });
     it('should return an empty array if no data input or it is not an array', function () {
-      expect().toEqual([]);
-      expect('').toEqual([]);
-      expect({}).toEqual([]);
+      expect(createChildren()).toEqual([]);
+      expect(createChildren('')).toEqual([]);
+      expect(createChildren({})).toEqual([]);
     });
   });
 
@@ -138,10 +142,10 @@ describe('NYPL Homepage Utils Unit Tests', function () {
     it('should have createSlots function', function () {
       expect(createSlots).toBeDefined();
     });
-    it('should return an empty array if no data input or it is not an array', function () {
-      expect().toEqual([]);
-      expect('').toEqual([]);
-      expect({}).toEqual([]);
+    it('should return an empty array if no data input or the input is not an array', function () {
+      expect(createSlots()).toEqual([]);
+      expect(createSlots('')).toEqual([]);
+      expect(createSlots({})).toEqual([]);
     });
   });
 });

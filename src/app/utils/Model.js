@@ -30,9 +30,8 @@ class Model {
   * @param (Array) dataArray
   */
   modelAppData(dataArray) {
-    // Should have a type check here, typeof data === object, or === array
     // it should get an array
-    let appObjectData = {
+    const appObjectData = {
       'What\'sHappening': [],
       Banner: [],
       LearnSomethingNew: [],
@@ -40,25 +39,55 @@ class Model {
       FromOurBlog: [],
       StaffPicks: [],
       RecommendedRecentReleases: [],
-    },
-    arrayTest = ['What\'sHappening', 'Banner', 'LearnSomethingNew', 
-    'OfNote', 'FromOurBlog', 'StaffPicks', 'RecommendedRecentReleases'];
+    };
 
+    // If the input is null or it is not a valid data type, array,
+    // it will return an empty object with preset key: value
     if (!dataArray || !(_.isArray(dataArray))) {
       return appObjectData;
     }
 
+    // If the input is not an empty array, it will loop through the array,
+    // and restructure the array and assign each item to the appOjectData
     if(dataArray.length > 0) {
       _.map(dataArray, d => {
-        let name = d.name.en.text.replace(/ /g, '');
-
-        if (arrayTest.includes(name)) {
-          appObjectData[d.name.en.text.replace(/ /g, '')] = d;
-        }
+        const componentName = this.assignComponentData(d);
+        
+        // assignComponentData() here will extract a valid name or an empty string
+        // If the name is an empty string, then it won't return the component data
+        appObjectData[componentName] = (componentName) ? d : {};
       })
     };
 
     return appObjectData;
+  }
+
+  /**
+  * assignComponentData(componentDataObj)
+  * Grab the old data's name object and extract the valid name.
+  * Assign the name to the particular component and populate it back to app data.
+  *
+  * @param (Object) componentDataObj
+  */
+  assignComponentData(componentDataObj) {
+    const componentNamesArray = [
+      'What\'sHappening',
+      'Banner',
+      'LearnSomethingNew',
+      'OfNote',
+      'FromOurBlog',
+      'StaffPicks',
+      'RecommendedRecentReleases'
+    ],
+      componentName = (componentDataObj && componentDataObj.name && componentDataObj.name.en &&
+        componentDataObj.name.en.text) ?
+        componentDataObj.name.en.text.replace(/ /g, '') : undefined;
+
+    if (_.contains(componentNamesArray, componentName)) {
+      return componentName;
+    }
+
+    return undefined;
   }
 
   /**
@@ -68,13 +97,23 @@ class Model {
   * @param (Object) dataObj
   */
   modelContainers(dataObj) {
-    let container = {};
+    const container = {
+      type: undefined,
+      id: undefined,
+      name: {},
+      children: [],
+      slots: [],
+    };
 
-    container.type = dataObj.type;
-    container.id = dataObj.id;
-    container.name = dataObj.attributes.name || {};
-    container.slots = dataObj.slots ? this.createSlots(dataObj.slots) : [];
+    if(!dataObj || !(_.isObject(dataObj))) {
+      return container;
+    }
+
+    container.type = dataObj.type || undefined;
+    container.id = dataObj.id || undefined;
+    container.name = (dataObj.attributes && dataObj.attributes.name) || {};
     container.children = dataObj.children ? this.createChildren(dataObj.children) : [];
+    container.slots = dataObj.slots ? this.createSlots(dataObj.slots) : [];
 
     return container;
   }
@@ -86,7 +125,7 @@ class Model {
   * @param (Array) dataArray
   */
   createChildren(dataArray) {
-    if (!dataArray) {
+    if (!dataArray || !(_.isArray(dataArray))) {
       return [];
     }
 
@@ -102,7 +141,7 @@ class Model {
   * @param (Array) dataArray
   */
   createSlots(dataArray) {
-    if (!dataArray) {
+    if (!dataArray || !(_.isArray(dataArray))) {
       return [];
     }
 
