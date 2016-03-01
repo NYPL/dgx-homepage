@@ -10,6 +10,10 @@
       @include min-screen($tablet-portrait) {
         margin-top: 15px;
       }
+      
+      @include min-screen($desktop) {
+        margin-top: 30px;
+      }
     }
   }
 
@@ -24,6 +28,10 @@
 
     @include min-screen($tablet-landscape) {
       margin-bottom: 30px;
+    }
+
+    @include min-screen($desktop) {
+      margin-top: 30px;
     }
   }
 }
@@ -82,6 +90,27 @@
 
       &-prev {
         left: -12%;
+      }
+
+      &-next {
+        left: -6%;
+      }
+    }
+
+    /* -- Tablet Landscape Layout -- */
+    @include layout-at(8, $desktop) {
+      &-track {
+        height: 320px;
+      }
+
+      &-book-item {
+        img {
+          max-height: 360px;
+        }
+      }
+
+      &-prev {
+        left: -10%;
       }
 
       &-next {
