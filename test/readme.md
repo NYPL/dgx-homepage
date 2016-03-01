@@ -6,4 +6,4 @@ For better performance and efficient developing, we integrate unit test with Kar
 
 You do not need to start up a server before running the unit tests. Simply run:
 
-    karma start
+karma start
