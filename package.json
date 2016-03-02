@@ -7,7 +7,8 @@
     "start": "node index",
     "dist": "NODE_ENV=production webpack --config webpack.config.js",
     "postinstall": "./node_modules/.bin/bower install",
-    "build-start": "npm run build && npm run start"
+    "build-start": "npm run build && npm run start",
+    "karma": "karma start"
   },
   "repository": {
     "type": "git",
