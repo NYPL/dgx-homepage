@@ -10,4 +10,4 @@ npm install
 
 after installing all the modules, then run
 
-karma start
+npm karma or karma start
