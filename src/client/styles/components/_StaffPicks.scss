@@ -117,12 +117,14 @@
         font-size: 18px;
         padding-top: 20px;
         font-weight: 300;
+        @include Kievit-Book;
       }
 
       h5 {
         font-size: 13px;
         margin: 0;
         font-weight: 300;
+        @include Kievit-Book;
       }
     }
   }
