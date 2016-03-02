@@ -167,7 +167,7 @@
     }
   }
 
-  // Tablet Landscape ( <-- Desktop?? ) 
+  // Desktop 
   @include layout-at(8, $desktop) {
     &-pick {
       height: 374px;
