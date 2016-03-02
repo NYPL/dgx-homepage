@@ -1,9 +1,8 @@
 /*
  * Set up grid
- * -----------
- * NOTE: Using default declarations to easily adapt to overrides
- * http://sass-lang.com/documentation/file.SASS_REFERENCE.html#variable_defaults_
  */
+// NOTE: Using default declarations to easily adapt to overrides
+// http://sass-lang.com/documentation/file.SASS_REFERENCE.html#variable_defaults_
 $app-max-width: 1313px !default;
 $tablet-portrait: 768px !default;
 $tablet-landscape: 1024px !default;
@@ -55,7 +54,7 @@ $mobile-margin-top-bottom: 15px !default;
       @include grid-span(8, 2);
     }
   }
-  
+
   /* Desktop Layout (9 Columns) */
   @include layout-at(( 'grid': 9, 'gutter': .23 ), $desktop) {
     .leftColumn {
