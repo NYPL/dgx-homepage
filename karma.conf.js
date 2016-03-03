@@ -1,6 +1,4 @@
-const webpack = require('webpack');
-
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -37,7 +35,8 @@ module.exports = function(config) {
     colors: true,
 
     // level of logging
-    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN ||
+    // config.LOG_INFO || config.LOG_DEBUG
     logLevel: config.LOG_INFO,
 
     // enable / disable watching file and executing tests whenever any file changes
@@ -64,21 +63,21 @@ module.exports = function(config) {
     // how many browser should be started simultaneous
     concurrency: Infinity,
 
-    //kind of a copy of your webpack config
+    // kind of a copy of your webpack config
     webpack: {
       module: {
         loaders: [
-          { 
+          {
             exclude: /node_modules/,
             loader: 'babel-loader',
-          }
-        ]
-      }
+          },
+        ],
+      },
     },
 
     webpackMiddleware: {
-     //please don't spam the console when running in karma!
-      noInfo: true
-    }
-  })
-}
+     // please don't spam the console when running in karma!
+      noInfo: true,
+    },
+  });
+};
