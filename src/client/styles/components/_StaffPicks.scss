@@ -116,13 +116,16 @@
         margin: 0;
         font-size: 18px;
         padding-top: 20px;
-        font-weight: 300;
+        padding-bottom: 4px;
+        font-weight: 400;
+        @include Kievit-Book;
       }
 
       h5 {
-        font-size: 13px;
+        font-size: 15px;
         margin: 0;
-        font-weight: 300;
+        font-weight: 400;
+        @include Kievit-Book;
       }
     }
   }
@@ -164,7 +167,7 @@
     }
   }
 
-  // Tablet Landscape 
+  // Desktop 
   @include layout-at(8, $desktop) {
     &-pick {
       height: 374px;
@@ -201,7 +204,7 @@
       }
 
       h3 {
-        padding-top: 25px;
+        padding-top: 34px;
         font-size: 20px;
       }
 
