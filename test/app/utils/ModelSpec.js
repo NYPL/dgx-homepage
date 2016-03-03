@@ -1,12 +1,11 @@
 const Model = require('./../../../src/app/utils/Model.js');
 
 describe('NYPL Homepage Utils Unit Tests', () => {
-
   /*
    * Model.build
    * Model.build is the main function passes the data from the api endpoint to
    * extract the value we need.
-   * It eventually returns an object with the keys and values for all the 
+   * It eventually returns an object with the keys and values for all the
    * components to the Store.
    */
   describe('Model: build', () => {
@@ -75,10 +74,10 @@ describe('NYPL Homepage Utils Unit Tests', () => {
   });
 
   /* Model.assignComponentName
-   * Model.assignComponentName is the function that extract the name from old data, and rename it for
-   * a clearer structure.
+   * Model.assignComponentName is the function that extract the name from old data, and rename it
+   * for a clearer structure.
    */
-   describe('Model.assignComponentName', () => {
+  describe('Model.assignComponentName', () => {
     const assignComponentName = Model.assignComponentName;
 
     it('should have assignComponentName function', () => {
@@ -94,9 +93,9 @@ describe('NYPL Homepage Utils Unit Tests', () => {
     });
 
     it('should return undefined if name.en.text does not exist', () => {
-      expect(assignComponentName({name:{}})).toEqual('');
+      expect(assignComponentName({ name: {} })).toEqual('');
     });
-   });
+  });
 
   /*
    * Model.modelContainers
@@ -118,27 +117,26 @@ describe('NYPL Homepage Utils Unit Tests', () => {
       expect(modelContainers).toBeDefined();
     });
 
-    it('should return the objcet with default key/value if there is no input or the input is not an object', () => {
-      expect(modelContainers()).toEqual(
-        defaultContainerData
-      );
+    it('should return the objcet with default key/value if there is no input or the input is not' +
+      'an object', () => {
+        expect(modelContainers()).toEqual(defaultContainerData);
     });
 
-     it('should return the objcet with default key/value if there is no input or the input is not an object', () => {
-      expect(modelContainers('')).toEqual(
-        defaultContainerData
-      );
+    it('should return the objcet with default key/value if there is no input or the input is not' +
+      'an object', () => {
+        expect(modelContainers('')).toEqual(defaultContainerData);
     });
 
-      it('should return the objcet with default key/value if there is no input or the input is not an object', () => {
-      expect(modelContainers([])).toEqual(
-        defaultContainerData
-      );
+    it('should return the objcet with default key/value if there is no input or the input is' +
+      'not an object', () => {
+        expect(modelContainers([])).toEqual(defaultContainerData);
     });
 
-    it('should return return the objcet with default key/value if the input is an empty object', () => {
-      expect(modelContainers({})).toEqual(defaultContainerData);
-    });
+    it('should return return the objcet with default key/value if the input is an empty object',
+      () => {
+        expect(modelContainers({})).toEqual(defaultContainerData);
+      }
+    );
   });
 
   /*
