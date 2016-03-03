@@ -48,9 +48,9 @@ class Model {
     // and restructure the array and assign each item to the appOjectData
     if(dataArray.length > 0) {
       _.map(dataArray, d => {
-        const componentName = this.assignComponentData(d);
+        const componentName = this.assignComponentName(d);
         
-        // assignComponentData() here will extract a valid name or an empty string
+        // assignComponentName() here will extract a valid name or an empty string
         // If the name is an empty string, then it won't return the component data
         appObjectData[componentName] = (componentName) ? d : {};
       })
@@ -60,13 +60,13 @@ class Model {
   }
 
   /**
-  * assignComponentData(componentDataObj)
+  * assignComponentName(componentDataObj)
   * Grab the old data's name object and extract the valid name.
   * Assign the name to the particular component and populate it back to app data.
   *
   * @param (Object) componentDataObj
   */
-  assignComponentData(componentDataObj) {
+  assignComponentName(componentDataObj) {
     const componentNamesArray = [
       'What\'sHappening',
       'Banner',

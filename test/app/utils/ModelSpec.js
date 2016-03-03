@@ -4,7 +4,7 @@ describe('NYPL Homepage Utils Unit Tests', function () {
   const build = Model.build;
   const modelAppData = Model.modelAppData;
   const modelContainers = Model.modelContainers;
-  const assignComponentData = Model.assignComponentData;
+  const assignComponentName = Model.assignComponentName;
   const createChildren = Model.createChildren;
   const createSlots = Model.createSlots;
   const defaultModelAppData = {
@@ -71,25 +71,25 @@ describe('NYPL Homepage Utils Unit Tests', function () {
     });
   });
 
-  /* Model.assignComponentData
-   * Model.assignComponentData is the function that extract the name from old data, and rename it for
+  /* Model.assignComponentName
+   * Model.assignComponentName is the function that extract the name from old data, and rename it for
    * a clearer structure.
    */
-   describe('Model.assignComponentData', function () {
-    it('should have assignComponentData function', function () {
-      expect(assignComponentData).toBeDefined();
+   describe('Model.assignComponentName', function () {
+    it('should have assignComponentName function', function () {
+      expect(assignComponentName).toBeDefined();
     });
 
     it('should return undefined if the input does not exist', function () {
-      expect(assignComponentData()).toEqual('');
+      expect(assignComponentName()).toEqual('');
     });
 
     it('should return undefined if name.en.text does not exist', function () {
-      expect(assignComponentData({})).toEqual('');
+      expect(assignComponentName({})).toEqual('');
     });
 
     it('should return undefined if name.en.text does not exist', function () {
-      expect(assignComponentData({name:{}})).toEqual('');
+      expect(assignComponentName({name:{}})).toEqual('');
     });
    });
 
