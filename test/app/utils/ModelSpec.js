@@ -1,28 +1,6 @@
 const Model = require('./../../../src/app/utils/Model.js');
 
 describe('NYPL Homepage Utils Unit Tests', function () {
-  const build = Model.build;
-  const modelAppData = Model.modelAppData;
-  const modelContainers = Model.modelContainers;
-  const assignComponentName = Model.assignComponentName;
-  const createChildren = Model.createChildren;
-  const createSlots = Model.createSlots;
-  const defaultModelAppData = {
-    'What\'sHappening': [],
-    Banner: [],
-    LearnSomethingNew: [],
-    OfNote: [],
-    FromOurBlog: [],
-    StaffPicks: [],
-    RecommendedRecentReleases: [],
-  };
-  const defaultContainerData = {
-    type: undefined,
-    id: undefined,
-    name: {},
-    children: [],
-    slots: [],
-  };
 
   /*
    * Model.build
@@ -32,6 +10,8 @@ describe('NYPL Homepage Utils Unit Tests', function () {
    * components to the Store.
    */
   describe('Model: build', function () {
+    const build = Model.build;
+
     it('should have build function', function () {
       expect(build).toBeDefined();
     });
@@ -56,6 +36,17 @@ describe('NYPL Homepage Utils Unit Tests', function () {
    * It eventually returns an object back to Model.build.
    */
   describe('Model: modelAppData', function () {
+    const modelAppData = Model.modelAppData;
+    const defaultModelAppData = {
+      'What\'sHappening': [],
+      Banner: [],
+      LearnSomethingNew: [],
+      OfNote: [],
+      FromOurBlog: [],
+      StaffPicks: [],
+      RecommendedRecentReleases: [],
+    };
+
     it('should have modelAppData function', function () {
       expect(modelAppData).toBeDefined();
     });
@@ -76,6 +67,8 @@ describe('NYPL Homepage Utils Unit Tests', function () {
    * a clearer structure.
    */
    describe('Model.assignComponentName', function () {
+    const assignComponentName = Model.assignComponentName;
+
     it('should have assignComponentName function', function () {
       expect(assignComponentName).toBeDefined();
     });
@@ -100,6 +93,15 @@ describe('NYPL Homepage Utils Unit Tests', function () {
    * It eventually returns an object with the keys and values back to Model.modelAppData.
    */
   describe('Model: modelContainers', function () {
+    const modelContainers = Model.modelContainers;
+    const defaultContainerData = {
+      type: undefined,
+      id: undefined,
+      name: {},
+      children: [],
+      slots: [],
+    };
+
     it('should have modelContainers function', function () {
       expect(modelContainers).toBeDefined();
     });
@@ -121,6 +123,8 @@ describe('NYPL Homepage Utils Unit Tests', function () {
    * component
    */
   describe('Model: createChildren', function () {
+    const createChildren = Model.createChildren;
+
     it('should have createChildren function', function () {
       expect(createChildren).toBeDefined();
     });
@@ -137,6 +141,8 @@ describe('NYPL Homepage Utils Unit Tests', function () {
    * component
    */
   describe('Model: createSlots', function () {
+    const createSlots = Model.createSlots;
+
     it('should have createSlots function', function () {
       expect(createSlots).toBeDefined();
     });
