@@ -78,13 +78,13 @@ class Model {
     ],
       componentName = (componentDataObj && componentDataObj.name && componentDataObj.name.en &&
         componentDataObj.name.en.text) ?
-        componentDataObj.name.en.text.replace(/ /g, '') : undefined;
+        componentDataObj.name.en.text.replace(/ /g, '') : '';
 
     if (_.contains(componentNamesArray, componentName)) {
       return componentName;
     }
 
-    return undefined;
+    return '';
   }
 
   /**

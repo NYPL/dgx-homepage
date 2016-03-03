@@ -83,15 +83,15 @@ describe('NYPL Homepage Utils Unit Tests', function () {
     });
 
     it('should return undefined if the input does not exist', function () {
-      expect(assignComponentData()).toEqual(undefined);
+      expect(assignComponentData()).toEqual('');
     });
 
     it('should return undefined if name.en.text does not exist', function () {
-      expect(assignComponentData({})).toEqual(undefined);
+      expect(assignComponentData({})).toEqual('');
     });
 
     it('should return undefined if name.en.text does not exist', function () {
-      expect(assignComponentData({name:{}})).toEqual(undefined);
+      expect(assignComponentData({name:{}})).toEqual('');
     });
    });
 
