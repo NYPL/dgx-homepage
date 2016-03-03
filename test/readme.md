@@ -10,4 +10,4 @@ npm install
 
 after installing all the modules, then run
 
-npm run karma or karma start
+npm run unit-tests or karma start
