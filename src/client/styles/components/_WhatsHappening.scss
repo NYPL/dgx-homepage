@@ -49,6 +49,7 @@
         text-transform: uppercase;
         font-size: 12px;
         margin: 10px 0 0 0;
+        letter-spacing: 0.05em
       }
 
       &-location {
@@ -123,7 +124,6 @@
 
           p {
             font-size: 12px;
-            letter-spacing: 0.05em
           }
 
           &:nth-child(even) {
