@@ -29,7 +29,7 @@ describe('NYPL Homepage Utils Unit Tests', function () {
    * Model.build is the main function passes the data from the api endpoint to
    * extract the value we need.
    * It eventually returns an object with the keys and values for all the 
-   * components to ApiRoute.js.
+   * components to the Store.
    */
   describe('Model: build', function () {
     it('should have build function', function () {
@@ -67,9 +67,7 @@ describe('NYPL Homepage Utils Unit Tests', function () {
     });
 
     it('should return an object with default keys if the input is an empty array', function () {
-      expect(modelAppData([])).toEqual(
-        defaultModelAppData
-      );
+      expect(modelAppData([])).toEqual(defaultModelAppData);
     });
   });
 
