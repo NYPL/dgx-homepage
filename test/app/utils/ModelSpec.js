@@ -1,6 +1,8 @@
 const Model = require('./../../../src/app/utils/Model.js');
 
 describe('NYPL Homepage Utils Unit Tests', () => {
+  const getContainerName = Model.getContainerName;
+
   /*
    * Model.build
    * Model.build is the main function passes the data from the api endpoint to
@@ -50,19 +52,19 @@ describe('NYPL Homepage Utils Unit Tests', () => {
       expect(modelAppData).toBeDefined();
     });
 
-    it('should return an object with default keys if the input is null or not an array', () => {
+    it('should return an object with default keys if the input is null', () => {
       expect(modelAppData()).toEqual(
         defaultModelAppData
       );
     });
 
-    it('should return an object with default keys if the input is null or not an array', () => {
+    it('should return an object with default keys if the input is not an array', () => {
       expect(modelAppData({})).toEqual(
         defaultModelAppData
       );
     });
 
-    it('should return an object with default keys if the input is null or not an array', () => {
+    it('should return an object with default keys if the input is not an array', () => {
       expect(modelAppData('')).toEqual(
         defaultModelAppData
       );
@@ -117,18 +119,15 @@ describe('NYPL Homepage Utils Unit Tests', () => {
       expect(modelContainers).toBeDefined();
     });
 
-    it('should return the objcet with default key/value if there is no input or the input is not' +
-      'an object', () => {
+    it('should return the objcet with default key/value if there is no input', () => {
         expect(modelContainers()).toEqual(defaultContainerData);
     });
 
-    it('should return the objcet with default key/value if there is no input or the input is not' +
-      'an object', () => {
+    it('should return the objcet with default key/value if the input is not an object', () => {
         expect(modelContainers('')).toEqual(defaultContainerData);
     });
 
-    it('should return the objcet with default key/value if there is no input or the input is' +
-      'not an object', () => {
+    it('should return the objcet with default key/value if the input is not an object', () => {
         expect(modelContainers([])).toEqual(defaultContainerData);
     });
 
