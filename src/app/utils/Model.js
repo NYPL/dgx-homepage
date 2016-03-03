@@ -75,16 +75,29 @@ class Model {
       'FromOurBlog',
       'StaffPicks',
       'RecommendedRecentReleases'
-    ],
-      componentName = (componentDataObj && componentDataObj.name && componentDataObj.name.en &&
-        componentDataObj.name.en.text) ?
-        componentDataObj.name.en.text.replace(/ /g, '') : '';
+    ];
 
-    if (_.contains(componentNamesArray, componentName)) {
-      return componentName;
+    let componentName;
+
+    try {
+      (dataObj) => {
+        const {
+          name: {
+            en: {
+              text
+            }
+          }
+        } = dataObj;
+        const nameString = text.replace(/ /g, '');
+
+        componentName = (_.contains(componentNamesArray, nameString)) ? nameString : '';
+      }(componentDataObj);
+
+    } catch (e) {
+      componentName = '';
     }
 
-    return '';
+    return componentName;
   }
 
   /**
