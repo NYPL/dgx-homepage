@@ -1,8 +1,6 @@
 const Model = require('./../../../src/app/utils/Model.js');
 
 describe('NYPL Homepage Utils Unit Tests', () => {
-  const getContainerName = Model.getContainerName;
-
   /*
    * Model.build
    * Model.build is the main function passes the data from the api endpoint to
@@ -120,15 +118,15 @@ describe('NYPL Homepage Utils Unit Tests', () => {
     });
 
     it('should return the objcet with default key/value if there is no input', () => {
-        expect(modelContainers()).toEqual(defaultContainerData);
+      expect(modelContainers()).toEqual(defaultContainerData);
     });
 
     it('should return the objcet with default key/value if the input is not an object', () => {
-        expect(modelContainers('')).toEqual(defaultContainerData);
+      expect(modelContainers('')).toEqual(defaultContainerData);
     });
 
     it('should return the objcet with default key/value if the input is not an object', () => {
-        expect(modelContainers([])).toEqual(defaultContainerData);
+      expect(modelContainers([])).toEqual(defaultContainerData);
     });
 
     it('should return return the objcet with default key/value if the input is an empty object',
@@ -136,6 +134,20 @@ describe('NYPL Homepage Utils Unit Tests', () => {
         expect(modelContainers({})).toEqual(defaultContainerData);
       }
     );
+  });
+
+  /*
+   * Model.getContainerName
+   * Model.getContainerName is the function to check if atributes.name exsits.
+   * If it does, the function returns the value, if not, it catch the error and return an empty
+   * object.
+   */
+  describe('Model: getContainerName', () => {
+    const getContainerName = Model.getContainerName;
+
+    it('should have getContainerName function', () => {
+      expect(getContainerName).toBeDefined();
+    });
   });
 
   /*

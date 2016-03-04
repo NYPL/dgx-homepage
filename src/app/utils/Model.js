@@ -107,36 +107,34 @@ class Model {
   * @param (Object) dataObj
   */
   modelContainers(dataObj) {
-    // const container = {
-    //   type: undefined,
-    //   id: undefined,
-    //   name: {},
-    //   children: [],
-    //   slots: [],
-    // };
+    try {
+      const { type, id, name, children, slots } = dataObj;
 
-    // if(!dataObj || !(_.isObject(dataObj))) {
-    //   return container;
-    // }
-
-    // container.type = dataObj.type || undefined;
-    // container.id = dataObj.id || undefined;
-    // container.name = (dataObj.attributes && dataObj.attributes.name) || {};
-    // container.children = dataObj.children ? this.createChildren(dataObj.children) : [];
-    // container.slots = dataObj.slots ? this.createSlots(dataObj.slots) : [];
-
-    // return container;
-    const { type, id, name, children, slots } = dataObj;
-
-    return {
-      type: type,
-      id: id,
-      name: this.getContainerName(dataObj),
-      children: children ? this.createChildren(children) : [],
-      slots: slots ? this.createSlots(slots) : [],
+      return {
+        type: type,
+        id: id,
+        name: this.getContainerName(dataObj),
+        children: children ? this.createChildren(children) : [],
+        slots: slots ? this.createSlots(slots) : [],
+      }
+    } catch(e) {
+      return {
+        type: undefined,
+        id: undefined,
+        name: {},
+        children: [],
+        slots: [],
+      };
     }
   }
 
+  /**
+  * getContainerName(dataObj)
+  * Check if attributes.name exists and return it as an object.
+  * It does not exist 
+  *
+  * @param (Object) dataObj
+  */
   getContainerName(dataObj) {
     let containerNameObj;
 
