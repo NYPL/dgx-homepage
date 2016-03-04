@@ -60,10 +60,11 @@ Set up grid
     color: #070707;
 
     &-tag {
-      @include Kievit-Book;
+      @include Kievit-Medium;
       font-size: 14px;
       margin: 15px 0 0 0;
       text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
     &-title {
@@ -77,7 +78,7 @@ Set up grid
       @include Kievit-Book;
       font-size: 16px;
       font-weight: 300;
-      line-height: 26px;
+      line-height: 24px;
       margin: 20px 0 30px 0;
     }
   }
