@@ -1,6 +1,8 @@
 import React from 'react';
+// ALT & Flux
 import HomepageStore from '../../stores/HomepageStore.js';
 import Actions from '../../actions/Actions.js';
+// NYPL Components
 import HomepageRow from 'dgx-homepage-row-component';
 import BlogFeatures from 'dgx-blog-features-component';
 import HomepageStaffPicks from 'dgx-homepage-staff-picks-component';
@@ -9,14 +11,11 @@ import Header from 'dgx-header-component';
 import FeatureRow from 'dgx-feature-row-component';
 import TabbedComponent from 'dgx-tabbed-features-component';
 import CarouselComponent from 'dgx-homepage-carousel-component';
-import { SeeMoreButton } from 'dgx-react-buttons';
 import Footer from 'dgx-react-footer';
-
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = HomepageStore.getState();
   }
 
@@ -28,7 +27,6 @@ class App extends React.Component {
     HomepageStore.unlisten(this._onChange.bind(this));
   }
 
-  // Update the state of the class
   _onChange() {
     this.setState({
       carouselIndexValue: HomepageStore.getState().carouselIndexValue,
@@ -104,118 +102,116 @@ class App extends React.Component {
     ];
 
     return (
-      <div className='nyplHomepageApp'>
+      <div className="nyplHomepageApp">
         <Header />
 
-        <div className='nyplHomepage'>
-          <CarouselComponent id='hpCarousel' className='hpCarousel'
+        <div className="nyplHomepage">
+          <CarouselComponent
+            id="hpCarousel"
+            className="hpCarousel"
             items={carouselData}
             itemIndex={carouselIndex}
             methods={
-              {buttonMethod: Actions.setCarouselIndexValue}
-            } />
-            
+              { buttonMethod: Actions.setCarouselIndexValue }
+            }
+          />
+
           <HomepageRow
-            className='whatsHappeningRow hpRow nyplGrid'
-            title={'What’s Happening'}
-            link={'/events/'}
-            seeMoreStyle={styles.redSeeMoreBtn}
-            seeMoreId='whatsHappening-SeeMore'
+            title="What’s Happening"
+            link="/events"
+            className="whatsHappeningRow hpRow nyplGrid"
+            seeMoreId="whatsHappening-seeMore"
             content={
               <TabbedComponent
                 id="hpWhatsHappening"
                 className="hpWhatsHappening"
                 items={whatsHappeningData}
                 index={whatsHappeningIndexValue}
-                action={Actions.setWhatsHappeningIndexValue}/>
-            } />
+                action={Actions.setWhatsHappeningIndexValue}
+              />
+            }
+          />
 
           <HomepageRow
-            className='learnRow hpRow nyplGrid'
-            title={'Learn Something New'}
-            link={'/events/classes/calendar'}
-            seeMoreStyle={styles.redSeeMoreBtn}
-            seeMoreId='learn-SeeMore'
+            title="Learn Something New"
+            link="/events/classes/calendar"
+            className="learnRow hpRow nyplGrid"
+            seeMoreId="learn-seeMore"
             content={
               <FeatureRow
-                id={'hpLearn'}
-                className={'hpLearn'}
+                id="hpLearn"
+                className="hpLearn"
                 itemsToDisplay={4}
-                items={learnSomethingNewData} />
-            } />
+                items={learnSomethingNewData}
+              />
+            }
+          />
 
-          <div className='staffPicksRow bgPrimaryLibraryRed'>
+          <div className="staffPicksRow bgPrimaryLibraryRed">
             <HomepageRow
-              className='hpRow nyplGrid-fullWidth'
-              title={'Staff Picks'}
-              link={'/staffpicks'}
-              seeMoreId='staffPicks-SeeMore'
-              seeMoreStyle={styles.whiteSeeMoreBtn}
+              title="Staff Picks"
+              link="/staffpicks"
+              className="hpRow nyplGrid-fullWidth"
+              seeMoreId="staffPicks-SeeMore"
               content={
                 <HomepageStaffPicks
-                  className={'hpStaffPicks'}
-                  id={'hpStaffPicks'}
-                  items={staffPicksData} />
-              } />
+                  className="hpStaffPicks"
+                  id="hpStaffPicks"
+                  items={staffPicksData}
+                />
+              }
+            />
           </div>
 
-          <div className='bookListRow bgSecondaryLibraryRed'>
+          <div className="bookListRow bgSecondaryLibraryRed">
             <HomepageRow
-              className={'hpRow nyplGrid-fullWidth'}
-              title={'Recent Releases We Love'}
-              seeMoreStyle={styles.whiteSeeMoreBtn}
-              seeMoreId='bookList-seeMore'
+              title="Recent Releases We Love"
+              className="hpRow nyplGrid-fullWidth"
+              seeMoreId="bookList-seeMore"
               content={
                 <BooklistWidget
-                  id={'hpBookList'}
-                  className={'hpBookList'}
+                  id="hpBookList"
+                  className="hpBookList"
                   slickResponsiveSettings={slickResponsiveSettings}
-                  bookLists={recommendedRecentReleasesData} />
-              } />
+                  bookLists={recommendedRecentReleasesData}
+                />
+              }
+            />
           </div>
 
           <HomepageRow
-            className='blogsRow hpRow nyplGrid'
-            title={'From Our Blog'}
-            link={"//nypl.org/blog"}
-            seeMoreStyle={styles.redSeeMoreBtn}
-            seeMoreId='blog-SeeMore'
+            title="From Our Blog"
+            link="/blog"
+            className="blogsRow hpRow nyplGrid"
+            seeMoreId="blogs-seeMore"
             content={
               <BlogFeatures
-                className={'hpBlogs'}
-                id={'hpBlogs'}
-                items={fromOurBlogsData} />
-            } />
+                className="hpBlogs"
+                id="hpBlogs"
+                items={fromOurBlogsData}
+              />
+            }
+          />
 
           <HomepageRow
-            title={'Of Note'}
-            className='ofNoteRow hpRow nyplGrid'
-            seeMoreStyle={styles.redSeeMoreBtn}
-            seeMoreId='ofNote-SeeMore'
+            title="Of Note"
+            link="/ofnote"
+            className="ofNoteRow hpRow nyplGrid"
+            seeMoreId="ofNote-seeMore"
             content={
               <FeatureRow
-                id={'hpOfNote'}
-                className={'hpOfNote'}
-                items={ofNoteData} />
-            } />
+                id="hpOfNote"
+                className="hpOfNote"
+                items={ofNoteData}
+              />
+            }
+          />
         </div>
+
         <Footer />
       </div>
     );
   }
 }
-
-const styles = {
-  whiteSeeMoreBtn: {
-    color: '#fff',
-    border: '2px solid #fff',
-    fontSize: '25px',
-  },
-  redSeeMoreBtn: {
-    color: '#ED1C24',
-    border: '2px solid #ED1C24',
-    fontSize: '25px',
-  }
-};
 
 export default App;

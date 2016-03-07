@@ -1,7 +1,7 @@
 {
   "name": "dgx-homepage",
   "version": "0.1.0",
-  "description": "React NYPL Homepage",
+  "description": "React NYPL Homepage App",
   "main": "index.js",
   "scripts": {
     "start": "node index",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://bitbucket.org/NYPL/dgx-homepage"
   },
   "engines": {
     "node": "0.10",
@@ -20,11 +20,33 @@
   "keywords": [
     "react",
     "webpack",
+    "es6",
+    "nypl",
+    "alt",
+    "flux",
     "sass",
     "hot",
     "reload"
   ],
-  "author": "Edwin Guzman",
+  "author": "NYPL Digital Experience",
+  "contributors": [
+    {
+      "name": "Edwin Guzman",
+      "email": "edwinguzman@nypl.org"
+    },
+    {
+      "name": "Rafael Hernandez",
+      "email": "rafaelhernandez@nypl.org"
+    },
+    {
+      "name": "Kang-Ting Peng",
+      "email": "kangtingpeng@nypl.org"
+    },
+    {
+      "name": "Sean Redmond",
+      "email": "seanredmond@nypl.org"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/issues"
@@ -55,12 +77,11 @@
     "dgx-feature-row-component": "git+ssh://bitbucket.org/NYPL/dgx-feature-row-component.git#v0.0.10",
     "dgx-header-component": "git+ssh://bitbucket.org/NYPL/dgx-header-component.git#master",
     "dgx-homepage-carousel-component": "git+ssh://bitbucket.org/NYPL/dgx-homepage-carousel-component#v0.0.7",
-    "dgx-homepage-row-component": "git+ssh://bitbucket.org/NYPL/dgx-homepage-row-component.git#v0.0.6",
+    "dgx-homepage-row-component": "git+ssh://bitbucket.org/NYPL/dgx-homepage-row-component.git#v0.0.8",
     "dgx-homepage-staff-picks-component": "git+ssh://bitbucket.org/NYPL/dgx-homepage-staff-picks-component.git#v0.0.6",
-    "dgx-react-buttons": "git+ssh://bitbucket.org/NYPL/dgx-react-buttons.git#v0.0.3",
     "dgx-react-footer": "git+ssh://bitbucket.org/NYPL/dgx-react-footer.git#v0.0.4.1",
     "dgx-react-ga": "git+ssh://bitbucket.org/NYPL/dgx-react-ga.git#v0.0.2",
-    "dgx-tabbed-features-component": "git+ssh://bitbucket.org/NYPL/dgx-tabbed-features-component#v0.0.8",
+    "dgx-tabbed-features-component": "git+ssh://bitbucket.org/NYPL/dgx-tabbed-features-component#v0.0.9",
     "ejs": "^2.3.3",
     "express": "^4.13.1",
     "express-favicon": "^1.0.1",
