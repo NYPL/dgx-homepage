@@ -46,7 +46,7 @@ $mobile-margin-top-bottom: 15px !default;
   }
 
   /* Tablet Landscape Layout (9 Columns) */
-  @include layout-at(( 'grid': 9, 'gutter': .1 ), $tablet-landscape) {
+  @include layout-at(( 'grid': 9, 'gutter': .23 ), $tablet-landscape) {
     .leftColumn {
       @include grid-span(1, 1);
     }
