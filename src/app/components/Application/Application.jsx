@@ -102,11 +102,13 @@ class App extends React.Component {
     ];
 
     return (
-      <div className={'nyplHomepageApp'}>
+      <div className="nyplHomepageApp">
         <Header />
 
-        <div className={'nyplHomepage'}>
-          <CarouselComponent id={'hpCarousel'} className={'hpCarousel'}
+        <div className="nyplHomepage">
+          <CarouselComponent
+            id="hpCarousel"
+            className="hpCarousel"
             items={carouselData}
             itemIndex={carouselIndex}
             methods={
@@ -115,10 +117,10 @@ class App extends React.Component {
           />
 
           <HomepageRow
-            title={'What’s Happening'}
-            link={'/events'}
-            className={'whatsHappeningRow hpRow nyplGrid'}
-            seeMoreId={'whatsHappening-seeMore'}
+            title="What’s Happening"
+            link="/events"
+            className="whatsHappeningRow hpRow nyplGrid"
+            seeMoreId="whatsHappening-seeMore"
             content={
               <TabbedComponent
                 id="hpWhatsHappening"
@@ -131,45 +133,45 @@ class App extends React.Component {
           />
 
           <HomepageRow
-            title={'Learn Something New'}
-            link={'/events/classes/calendar'}
-            className={'learnRow hpRow nyplGrid'}
-            seeMoreId={'learn-seeMore'}
+            title="Learn Something New"
+            link="/events/classes/calendar"
+            className="learnRow hpRow nyplGrid"
+            seeMoreId="learn-seeMore"
             content={
               <FeatureRow
-                id={'hpLearn'}
-                className={'hpLearn'}
+                id="hpLearn"
+                className="hpLearn"
                 itemsToDisplay={4}
                 items={learnSomethingNewData}
               />
             }
           />
 
-          <div className={'staffPicksRow bgPrimaryLibraryRed'}>
+          <div className="staffPicksRow bgPrimaryLibraryRed">
             <HomepageRow
-              title={'Staff Picks'}
-              link={'/staffpicks'}
-              className={'hpRow nyplGrid-fullWidth'}
-              seeMoreId={'staffPicks-SeeMore'}
+              title="Staff Picks"
+              link="/staffpicks"
+              className="hpRow nyplGrid-fullWidth"
+              seeMoreId="staffPicks-SeeMore"
               content={
                 <HomepageStaffPicks
-                  className={'hpStaffPicks'}
-                  id={'hpStaffPicks'}
+                  className="hpStaffPicks"
+                  id="hpStaffPicks"
                   items={staffPicksData}
                 />
               }
             />
           </div>
 
-          <div className={'bookListRow bgSecondaryLibraryRed'}>
+          <div className="bookListRow bgSecondaryLibraryRed">
             <HomepageRow
-              title={'Recent Releases We Love'}
-              className={'hpRow nyplGrid-fullWidth'}
-              seeMoreId={'bookList-seeMore'}
+              title="Recent Releases We Love"
+              className="hpRow nyplGrid-fullWidth"
+              seeMoreId="bookList-seeMore"
               content={
                 <BooklistWidget
-                  id={'hpBookList'}
-                  className={'hpBookList'}
+                  id="hpBookList"
+                  className="hpBookList"
                   slickResponsiveSettings={slickResponsiveSettings}
                   bookLists={recommendedRecentReleasesData}
                 />
@@ -178,28 +180,28 @@ class App extends React.Component {
           </div>
 
           <HomepageRow
-            title={'From Our Blog'}
-            link={"/blog"}
-            className={'blogsRow hpRow nyplGrid'}
-            seeMoreId={'blogs-seeMore'}
+            title="From Our Blog"
+            link="/blog"
+            className="blogsRow hpRow nyplGrid"
+            seeMoreId="blogs-seeMore"
             content={
               <BlogFeatures
-                className={'hpBlogs'}
-                id={'hpBlogs'}
+                className="hpBlogs"
+                id="hpBlogs"
                 items={fromOurBlogsData}
               />
             }
           />
 
           <HomepageRow
-            title={'Of Note'}
-            link={"/ofnote"}
-            className={'ofNoteRow hpRow nyplGrid'}
-            seeMoreId={'ofNote-seeMore'}
+            title="Of Note"
+            link="/ofnote"
+            className="ofNoteRow hpRow nyplGrid"
+            seeMoreId="ofNote-seeMore"
             content={
               <FeatureRow
-                id={'hpOfNote'}
-                className={'hpOfNote'}
+                id="hpOfNote"
+                className="hpOfNote"
                 items={ofNoteData}
               />
             }
