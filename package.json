@@ -1,7 +1,7 @@
 {
   "name": "dgx-homepage",
   "version": "0.1.0",
-  "description": "React NYPL Homepage",
+  "description": "React NYPL Homepage App",
   "main": "index.js",
   "scripts": {
     "start": "node index",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://bitbucket.org/NYPL/dgx-homepage"
   },
   "engines": {
     "node": "0.10",
@@ -20,11 +20,33 @@
   "keywords": [
     "react",
     "webpack",
+    "es6",
+    "nypl",
+    "alt",
+    "flux",
     "sass",
     "hot",
     "reload"
   ],
   "author": "NYPL Digital Experience",
+  "contributors": [
+    {
+      "name": "Edwin Guzman",
+      "email": "edwinguzman@nypl.org"
+    },
+    {
+      "name": "Rafael Hernandez",
+      "email": "rafaelhernandez@nypl.org"
+    },
+    {
+      "name": "Kang-Ting Peng",
+      "email": "kangtingpeng@nypl.org"
+    },
+    {
+      "name": "Sean Redmond",
+      "email": "seanredmond@nypl.org"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/issues"
