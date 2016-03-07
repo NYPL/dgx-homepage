@@ -16,7 +16,6 @@ import Footer from 'dgx-react-footer';
 class App extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = HomepageStore.getState();
   }
 
@@ -28,7 +27,6 @@ class App extends React.Component {
     HomepageStore.unlisten(this._onChange.bind(this));
   }
 
-  // Update the state of the class
   _onChange() {
     this.setState({
       carouselIndexValue: HomepageStore.getState().carouselIndexValue,
@@ -117,9 +115,9 @@ class App extends React.Component {
           />
 
           <HomepageRow
-            className={'whatsHappeningRow hpRow nyplGrid'}
             title={'What’s Happening'}
             link={'/events'}
+            className={'whatsHappeningRow hpRow nyplGrid'}
             seeMoreId={'whatsHappening-seeMore'}
             content={
               <TabbedComponent
@@ -133,9 +131,9 @@ class App extends React.Component {
           />
 
           <HomepageRow
-            className={'learnRow hpRow nyplGrid'}
             title={'Learn Something New'}
             link={'/events/classes/calendar'}
+            className={'learnRow hpRow nyplGrid'}
             seeMoreId={'learn-seeMore'}
             content={
               <FeatureRow
@@ -149,9 +147,9 @@ class App extends React.Component {
 
           <div className={'staffPicksRow bgPrimaryLibraryRed'}>
             <HomepageRow
-              className={'hpRow nyplGrid-fullWidth'}
               title={'Staff Picks'}
               link={'/staffpicks'}
+              className={'hpRow nyplGrid-fullWidth'}
               seeMoreId={'staffPicks-SeeMore'}
               content={
                 <HomepageStaffPicks
@@ -165,8 +163,8 @@ class App extends React.Component {
 
           <div className={'bookListRow bgSecondaryLibraryRed'}>
             <HomepageRow
-              className={'hpRow nyplGrid-fullWidth'}
               title={'Recent Releases We Love'}
+              className={'hpRow nyplGrid-fullWidth'}
               seeMoreId={'bookList-seeMore'}
               content={
                 <BooklistWidget
@@ -180,9 +178,9 @@ class App extends React.Component {
           </div>
 
           <HomepageRow
-            className={'blogsRow hpRow nyplGrid'}
             title={'From Our Blog'}
             link={"/blog"}
+            className={'blogsRow hpRow nyplGrid'}
             seeMoreId={'blogs-seeMore'}
             content={
               <BlogFeatures
@@ -195,6 +193,7 @@ class App extends React.Component {
 
           <HomepageRow
             title={'Of Note'}
+            link={"/ofnote"}
             className={'ofNoteRow hpRow nyplGrid'}
             seeMoreId={'ofNote-seeMore'}
             content={
@@ -206,6 +205,7 @@ class App extends React.Component {
             }
           />
         </div>
+
         <Footer />
       </div>
     );
