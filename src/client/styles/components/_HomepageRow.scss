@@ -15,11 +15,17 @@
       padding: 0;
     }
 
-    .see-more-button {
+    .seeMoreLink {
       position: absolute;
       right: 0;
       top: 8px;
-      font-size: 26px;
+      fill: $PRIMARY_COLOR;
+      stroke: $PRIMARY_COLOR;
+
+      svg {
+        width: 25px;
+        height: 25px;
+      }
     }
   }
 
@@ -33,10 +39,9 @@
         margin: 8px 0 12px;
       }
 
-      .see-more-button {
+      .seeMoreLink {
         position: relative;
         top: initial;
-        font-size: 32px;
       }
     }
   }

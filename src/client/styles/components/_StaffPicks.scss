@@ -24,6 +24,11 @@
     > h2 {
       color: #FFF;
     }
+
+    .seeMoreLink {
+      fill: #FFF;
+      stroke: #FFF;
+    }
   }
 }
 
@@ -130,7 +135,7 @@
     }
   }
 
-  // Tablet Landscape 
+  // Tablet Landscape
   @include layout-at(8, $tablet-landscape) {
 
     &-pick {
@@ -167,7 +172,7 @@
     }
   }
 
-  // Desktop 
+  // Desktop
   @include layout-at(8, $desktop) {
     &-pick {
       height: 374px;
