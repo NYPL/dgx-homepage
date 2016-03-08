@@ -6,16 +6,16 @@
   @include min-screen($tablet-portrait) {
     @include displayVisuallyHidden;
     padding-top: 15px;
-    height: 350px;
+    min-height: 350px;
   }
 
   @include min-screen($tablet-landscape) {
     padding-top: 30px;
-    height: 375px;
+    min-height: 375px;
   }
 
   @include min-screen($desktop) {
-    height: 520px;
+    min-height: 520px;
   }
 
   .leftColumn {
@@ -44,21 +44,20 @@
       &:last-child {
         @include grid-span(3, 4);
       }
-
-      img {
-        max-height: 171px;
-      }
     }
 
     &-pick {
-      display: flex;
+      display: block;
       height: 200px;
+      width: 100%;
       color: #000;
+      position: relative;
 
       .quoteBackground {
-        width: 34%;
-        height: 196px;
-        position: absolute;
+        display: block;
+        width: auto;
+        height: 100%;
+        margin: 0 55px 0 0;
         background: #fff;
         z-index: 0;
 
@@ -76,22 +75,36 @@
         }
       }
 
-      p {
+      .description {
+        @include Milo-Light-Italic;
+        position: absolute;
+        left: 0;
+        bottom: 10%;
+        width: auto;
         z-index: 100;
         margin: 0;
-        padding: 0 5px 0 10px;
-        align-self: center;
+        padding: 0 120px 0 15px;
         color: #000;
-        font-family: MiloSlabPro;
         font-size: 20px;
-        font-weight: 300;
-        font-style: italic;
-        line-height: 20px;
+        font-weight: normal;
+        line-height: 22px;
       }
 
-      a {
+      .link {
+        display: block;
         z-index: 101;
-        align-self: flex-end;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+
+        img {
+          max-height: 175px;
+          max-width: 115px;
+          padding: 0;
+          margin: 0;
+          border: 0;
+          float: left;
+        }
       }
     }
 
@@ -141,24 +154,17 @@
     &-pick {
       height: 264px;
 
-      .quoteBackground {
-        width: 33%;
-        max-width: 470px;
-        height: 260px;
-
-        &:after {
-          left: 45px;
-        }
-      }
-
-      p {
+      .description {
         font-size: 27px;
-        line-height: 27px;
-        padding: 0 25px 0 20px;
+        line-height: 32px;
+        padding-right: 155px;
       }
 
-      img {
-        max-height: 233px;
+      .link {
+        img {
+          max-height: 233px;
+          max-width: 153px;
+        }
       }
     }
 
@@ -177,25 +183,18 @@
     &-pick {
       height: 374px;
 
-      .quoteBackground {
-        width: 31%;
-        max-width: 470px;
-        height: 370px;
-
-        &:after {
-          border-width: 30px 35px 0px 0px;
-          bottom: -30px;
-        }
-      }
-
-      p {
+      .description {
         font-size: 38px;
         line-height: 38px;
-        padding-left: 30px;
+        padding: 0 214px 0 30px;
+        bottom: 13%;
       }
 
-      img {
-        max-height: 340px;
+      .link {
+        img {
+          max-height: 320px;
+          max-width: 212px;
+        }
       }
     }
 
