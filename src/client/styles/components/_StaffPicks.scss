@@ -154,10 +154,22 @@
     &-pick {
       height: 264px;
 
+      .quoteBackground {
+        margin-right: 75px;
+      }
+
       .description {
         font-size: 27px;
         line-height: 32px;
-        padding-right: 155px;
+        padding-right: 157px;
+
+        @include min-screen(1140px) {
+          line-height: 35px;
+        }
+
+        @include min-screen(1234px) {
+          line-height: 37px;
+        }
       }
 
       .link {
@@ -183,10 +195,14 @@
     &-pick {
       height: 374px;
 
+      .quoteBackground {
+        margin-right: 105px;
+      }
+
       .description {
         font-size: 38px;
         line-height: 38px;
-        padding: 0 214px 0 30px;
+        padding: 0 220px 0 30px;
         bottom: 13%;
       }
 
