@@ -36,7 +36,7 @@ class Model {
 
   /**
    * modelAppData(dataArray)
-   * Collect each modeled container data, and assigne them to different 
+   * Collect each modeled container data, and assigne them to different
    * category based on its id. Finally, return an object with keys and values
    * that are with preset types.
    *
@@ -55,7 +55,7 @@ class Model {
       StaffPicks: [],
       RecommendedRecentReleases: [],
     };
-    
+
     /**
      * If the input is null or it dose not have a valid type, that is an array,
      * it will return an empty object with preset key: value.
@@ -71,10 +71,10 @@ class Model {
     if(dataArray.length > 0) {
       _.map(dataArray, d => {
         const componentName = this.assignComponentName(d);
-        
-        /** 
+
+        /**
          * assignComponentName() extracts a valid name, or an empty string if no
-         * valid value. If the name is an empty string, then it won't return 
+         * valid value. If the name is an empty string, then it won't return
          * the component data.
          */
         appObjectData[componentName] = (componentName) ? d : {};
@@ -116,7 +116,7 @@ class Model {
             text
           }
         }
-      } = dataObj;
+      } = componentDataObj;
       const nameString = text.replace(/ /g, '');
 
       /**
@@ -144,7 +144,7 @@ class Model {
    */
   modelContainers(dataObj) {
     /**
-     * Assign an object to the input, check if the values inside the object are valid, 
+     * Assign an object to the input, check if the values inside the object are valid,
      * and return the result as an object.
      */
     try {
@@ -181,7 +181,7 @@ class Model {
     let containerNameObj;
 
     /**
-     * Assign an object to the input, check if the values inside the object are valid, 
+     * Assign an object to the input, check if the values inside the object are valid,
      * and return the result as an object.
      */
     try {
