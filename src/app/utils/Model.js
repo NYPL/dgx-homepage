@@ -1,66 +1,247 @@
 import _ from 'underscore';
 
+/**
+ * Model class extracts, cleans, and restructures the data from the Refinery.
+ */
+
 class Model {
 
+  /**
+   * build(data)
+   * It is the initial function of Model class.
+   * It gets the data from the Refinery, and returns an object in the end.
+   * it returns null if the input is invalid.
+   *
+   * @param (Array) data
+   */
   build(data) {
-    //Make sure there's data
-    if (!data) {
-      return;
+    /**
+     * Make sure there's an input.
+     */
+    if (!data || !(_.isArray(data))) {
+      return null;
     }
 
-    // Decide the type of data
-    if (_.isArray(data) && data.length > 0) {
+    /**
+     * Make sure the data is not empty.
+     */
+    if (data.length > 0) {
       return this.modelAppData(_.map(data, d => {
         return this.modelContainers(d);
       }));
-    } else if (_.isObject(data) && !_.isEmpty(data)) {
-      return this.modelAppData(this.modelContainers(data));
-    } else {
-      return;
     }
+
+    return null;
   };
 
   /**
-  * modelContainers(data)
-  * Model the data from each container that is fetched from the Refinery
-  *
-  * @param (Array) data
-  */
-  modelContainers(data) {
-    let container = {};
+   * modelAppData(dataArray)
+   * Collect each modeled container data, and assigne them to different
+   * category based on its id. Finally, return an object with keys and values
+   * that are with preset types.
+   *
+   * @param (Array) dataArray
+   */
+  modelAppData(dataArray) {
+    /**
+     * The input should be an array.
+     */
+    const appObjectData = {
+      'What\'sHappening': [],
+      Banner: [],
+      LearnSomethingNew: [],
+      OfNote: [],
+      FromOurBlog: [],
+      StaffPicks: [],
+      RecommendedRecentReleases: [],
+    };
 
-    container.type = data.type;
-    container.id = data.id;
-    container.name = data.attributes.name;
-    container.slots = data.slots ? this.createSlots(data.slots) : null;
-    container.children = data.children ? this.createChildren(data.children) : null;
+    /**
+     * If the input is null or it dose not have a valid type, that is an array,
+     * it will return an empty object with preset key: value.
+     */
+    if (!dataArray || !(_.isArray(dataArray))) {
+      return appObjectData;
+    }
 
-    return container;
+    /**
+     * If the input is valid, it will loop through the array, restructure it,
+     * and assign each item to a new object, appOjectData.
+     */
+    if(dataArray.length > 0) {
+      _.map(dataArray, d => {
+        const componentName = this.assignComponentName(d);
+
+        /**
+         * assignComponentName() extracts a valid name, or an empty string if no
+         * valid value. If the name is an empty string, then it won't return
+         * the component data.
+         */
+        appObjectData[componentName] = (componentName) ? d : {};
+      })
+    };
+
+    return appObjectData;
   }
 
-  createChildren(children) {
-    if (!children) {
+  /**
+   * assignComponentName(componentDataObj)
+   * Grab the old data's name object and extract the valid name string from it.
+   * Assign the name string to the matched component and populate it back to
+   * modelAppdata.
+   *
+   * @param (Object) componentDataObj
+   */
+  assignComponentName(componentDataObj) {
+    const componentNamesArray = [
+      'What\'sHappening',
+      'Banner',
+      'LearnSomethingNew',
+      'OfNote',
+      'FromOurBlog',
+      'StaffPicks',
+      'RecommendedRecentReleases'
+    ];
+
+    let componentName;
+
+    /**
+     * Assign an object to the input, and check if the values inside the object
+     * are valid.
+     */
+    try {
+      const {
+        name: {
+          en: {
+            text
+          }
+        }
+      } = componentDataObj;
+      const nameString = text.replace(/ /g, '');
+
+      /**
+       * Check if the name matches any item in the preset name array.
+       */
+      componentName = (_.contains(componentNamesArray, nameString)) ? nameString : '';
+    } catch (e) {
+      /**
+       * If any error is raised during the assigning, it will assign the default value.
+       */
+      componentName = '';
+    }
+
+    /**
+     * Return the result.
+     */
+    return componentName;
+  }
+
+  /**
+   * modelContainers(dataObj)
+   * Extract the necessary data from all the containers that are fetched from the Refinery.
+   *
+   * @param (Object) dataObj
+   */
+  modelContainers(dataObj) {
+    /**
+     * Assign an object to the input, check if the values inside the object are valid,
+     * and return the result as an object.
+     */
+    try {
+      const { type, id, name, children, slots } = dataObj;
+
+      return {
+        type: type,
+        id: id,
+        name: this.getContainerName(dataObj),
+        children: children ? this.createChildren(children) : [],
+        slots: slots ? this.createSlots(slots) : [],
+      }
+    } catch(e) {
+      /**
+       * If any error is raised during the assigning, it will return the default value.
+       */
+      return {
+        type: undefined,
+        id: undefined,
+        name: {},
+        children: [],
+        slots: [],
+      };
+    }
+  }
+
+  /**
+   * getContainerName(dataObj)
+   * Check if attributes.name exists and return it as an object.
+   *
+   * @param (Object) dataObj
+   */
+  getContainerName(dataObj) {
+    let containerNameObj;
+
+    /**
+     * Assign an object to the input, check if the values inside the object are valid,
+     * and return the result as an object.
+     */
+    try {
+      (dataObj) => {
+        const {
+          attributes: {
+            name
+          }
+        } = dataObj;
+
+        containerNameObj = (name) ? name : {};
+
+      }(dataObj);
+
+    } catch (e) {
+      /**
+       * If any error is raised during the assigning, it will return the default value.
+       */
+      containerNameObj = {};
+    }
+    return containerNameObj;
+  }
+
+  /**
+   * createChildren(dataArray)
+   * Collect and restructure the input if an item has children object.
+   *
+   * @param (Array) dataArray
+   */
+  createChildren(dataArray) {
+    if (!dataArray || !(_.isArray(dataArray))) {
       return [];
     }
 
-    return _.map(children, c => {
-      return this.modelContainers(c);
+    return _.map(dataArray, d => {
+      return this.modelContainers(d);
     });
   }
 
-  createSlots(slots) {
-    if (!slots) {
+  /**
+   * createSlots(dataArray)
+   * Collect and restructure if an item has slot object.
+   *
+   * @param (Array) dataArray
+   */
+  createSlots(dataArray) {
+    if (!dataArray || !(_.isArray(dataArray))) {
       return [];
     }
 
-    return slots.map((element) => {
+    return dataArray.map((element) => {
       if (_.isEmpty(element['current-item'])) {
         return {};
       }
 
       const currentItem = element['current-item'];
 
-      // Check if different sizes of the images exist
+      /**
+       * Check if different sizes of the images exist.
+       */
       let bannerImage = currentItem['banner-image'] ?
         currentItem['banner-image'].attributes.uri['full-uri'] : null,
         rectangularImage = currentItem['rectangular-image'] ?
@@ -103,25 +284,6 @@ class Model {
       };
     });
   }
-
-  /**
-  * modelAppData(data)
-  * Collect each modeled container data, and assigne them to different catagory,
-  * based on its id. Finally, return an object with keys as the catagories,
-  * and values as the arrays of the conatainer slots.
-  *
-  * @param (Array) data
-  */
-  modelAppData(data) {
-    let AppDataObj = {};
-
-    _.map(data, (d) => {
-      AppDataObj[d.name.en.text.replace(/ /g, '')] = d;
-    });
-
-    return AppDataObj;
-  }
-
 }
 
 export default new Model;
