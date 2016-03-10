@@ -20,6 +20,22 @@ Set up grid
     background-position: center;
     width: 100%;
 
+    @include min-screen(600px) {
+      height: 350px;
+    }
+
+    @include min-screen($tablet-portrait) {
+      height: 400px;
+    }
+
+    @include min-screen($tablet-landscape) {
+      height: 450px;
+    }
+
+    @include min-screen($desktop) {
+      height: 520px;
+    }
+
     .bannerImage {
       display: none;
     }
@@ -38,6 +54,22 @@ Set up grid
     margin: 0 auto;
     width: 120px;
     text-align: center;
+
+    @include min-screen(600px) {
+      top: 280px;
+    }
+
+    @include min-screen($tablet-portrait) {
+      top: 330px;
+    }
+
+    @include min-screen($tablet-landscape) {
+      top: 360px;
+    }
+
+    @include min-screen($desktop) {
+      top: 440px;
+    }
 
     &-container {
       display: inline-block;
