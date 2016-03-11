@@ -23,7 +23,7 @@
 
   .rightColumn {
     color: #FFFFFF;
-    margin-bottom: 15px; // Slick adds !important to the wrapper, hence the need for this rule
+    margin-bottom: 30px; // Slick adds !important to the wrapper, hence the need for this rule
 
     @include min-screen($tablet-portrait) {
       margin-top: 15px;
