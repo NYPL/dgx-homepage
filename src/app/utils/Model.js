@@ -221,6 +221,22 @@ class Model {
     });
   }
 
+  getObjProperty(key, obj) {
+    const res = {};
+    // Base case
+    if (_.has(obj, key)) {
+      return obj[key];
+    }
+    // Recursive check
+    _.each(obj, (v) => {
+      if (typeof v === 'object' && (v = this.getObjProperty(key, v)).length) {
+        _.extend(res, v);
+      }
+    });
+
+    return res;
+  }
+
   /**
    * createSlots(dataArray)
    * Collect and restructure if an item has slot object.
@@ -279,6 +295,7 @@ class Model {
           title: authorTitle,
           firstName,
           lastName,
+          headshot: this.getObjProperty('authors', currentItem),
         },
         location,
       };

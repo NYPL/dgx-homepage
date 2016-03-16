@@ -101,6 +101,8 @@ class App extends React.Component {
       },
     ];
 
+    console.log(fromOurBlogsData);
+
     return (
       <div className="nyplHomepageApp">
         <Header />

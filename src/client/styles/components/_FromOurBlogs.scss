@@ -44,6 +44,17 @@
 			color: #333;
 			@include Kievit-Regular;
 		}
+
+    &-lionIcon {
+      padding: 0;
+      stroke: transparent;
+      fill: #7b7b7b;
+      opacity: 0.3;
+      height: 38px;
+      width: 38px;
+      margin: 5px 10px 0 0;
+      float: left;
+    }
 	}
 
 	// Tablet View (Portrait)
