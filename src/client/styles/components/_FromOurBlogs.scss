@@ -34,7 +34,7 @@
 	&-description {
 		@include visuallyHidden; // hidden on mobile
 		color: #333;
-		@include Kievit-Regular;
+		@include Kievit-Book;
 	}
 
 	&-authorBox {
@@ -42,7 +42,7 @@
 
 		&-name, &-title {
 			color: #333;
-			@include Kievit-Regular;
+			@include Kievit-Book;
 		}
 	}
 
