@@ -221,20 +221,36 @@ class Model {
     });
   }
 
-  getObjProperty(key, obj) {
+  getObjProperty(obj, key) {
     const res = {};
     // Base case
     if (_.has(obj, key)) {
       return obj[key];
     }
     // Recursive check
-    _.each(obj, (v) => {
-      if (typeof v === 'object' && (v = this.getObjProperty(key, v)).length) {
-        _.extend(res, v);
+    _.each(obj, (elem) => {
+      if (typeof elem === 'object' && (elem = this.getObjProperty(elem, key)).length) {
+        _.extend(res, elem);
       }
     });
 
     return res;
+  }
+
+  getImage(source, type) {
+    if (!source && !_.isEmpty(source)) {
+      return null;
+    }
+
+    if (type === 'headshot') {
+      let currentElement = source['0'];
+      if (currentElement && currentElement[type] && currentElement[type].attributes) {
+        let uri = currentElement[type].attributes.uri;
+        return (uri && uri['full-uri']) ? uri['full-uri'] : null;
+      }
+    }
+
+    return null;
   }
 
   /**
@@ -273,7 +289,9 @@ class Model {
           currentItem.attributes['person-last-name'] : null,
         authorTitle = currentItem.attributes['person-title'] ?
           currentItem.attributes['person-title'] : null,
-        location = currentItem.attributes.location ? currentItem.attributes.location : null;
+        location = currentItem.attributes.location ? currentItem.attributes.location : null,
+        // Need to curry fn here
+        authorImage = this.getImage(this.getObjProperty(currentItem, 'authors'), 'headshot');
 
       return {
         title: (currentItem.attributes.title) ?
@@ -295,7 +313,7 @@ class Model {
           title: authorTitle,
           firstName,
           lastName,
-          headshot: this.getObjProperty('authors', currentItem),
+          image: authorImage,
         },
         location,
       };
