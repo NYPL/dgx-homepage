@@ -246,8 +246,6 @@ class Model {
         currentItem['banner-image'].attributes.uri : null,
         rectangularImage = currentItem['rectangular-image'] ?
           currentItem['rectangular-image'].attributes.uri : null,
-        // squareImage = currentItem['square-image'] ?
-        //   currentItem['square-image'].attributes.uri['full-uri'] : null,
         bookCoverImage = currentItem['book-cover-image'] ?
           currentItem['book-cover-image'].attributes.uri['full-uri'] : null,
         date = currentItem.attributes.date ? currentItem.attributes.date : null,
@@ -259,8 +257,6 @@ class Model {
           currentItem.attributes['person-title'] : null,
         location = currentItem.attributes.location ? currentItem.attributes.location : null;
 
-        console.log(rectangularImage);
-
       return {
         title: (currentItem.attributes.title) ?
           currentItem.attributes.title : '',
@@ -271,7 +267,6 @@ class Model {
         image: {
           bannerImage,
           rectangularImage,
-          // squareImage,
           bookCoverImage,
         },
         link: (currentItem.attributes.url.length) ?
