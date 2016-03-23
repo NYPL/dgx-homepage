@@ -45,14 +45,23 @@
 			@include Kievit-Regular;
 		}
 
-    &-lionIcon {
+    &-image {
+      width: 50px;
+      height: 50px;
+      padding: 0;
+      float: left;
+      margin: 0px 10px 0 0;
+      border-radius: 50%;
+    }
+
+    .svgIcon {
       padding: 0;
       stroke: transparent;
       fill: #7b7b7b;
       opacity: 0.3;
-      height: 38px;
-      width: 38px;
-      margin: 5px 10px 0 0;
+      height: 50px;
+      width: 50px;
+      margin: 0px 10px 0 0;
       float: left;
     }
 	}

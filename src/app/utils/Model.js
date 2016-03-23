@@ -221,36 +221,38 @@ class Model {
     });
   }
 
-  getObjProperty(obj, key) {
-    const res = {};
-    // Base case
-    if (_.has(obj, key)) {
-      return obj[key];
-    }
-    // Recursive check
-    _.each(obj, (elem) => {
-      if (typeof elem === 'object' && (elem = this.getObjProperty(elem, key)).length) {
-        _.extend(res, elem);
-      }
-    });
-
-    return res;
-  }
-
-  getImage(source, type) {
-    if (!source && !_.isEmpty(source)) {
+  /**
+   * Uses ES6 Destructuring to extract author's image object properties.
+   * @returns {object} returns { full-uri: (string), description: (string)}.
+   */
+  getAuthorImage(obj) {
+    let result;
+    if (!obj && _.isEmpty(obj)) {
       return null;
     }
 
-    if (type === 'headshot') {
-      let currentElement = source['0'];
-      if (currentElement && currentElement[type] && currentElement[type].attributes) {
-        let uri = currentElement[type].attributes.uri;
-        return (uri && uri['full-uri']) ? uri['full-uri'] : null;
-      }
+    try {
+      const {
+    		'related-node': {
+        	authors: [
+            {
+          	  headshot: {
+            	  attributes: {
+              	  uri: image = null
+                }
+              }
+            },
+            ...rest
+          ]
+        }
+    	} = obj;
+
+      result = image;
+    }  catch (e) {
+      result = null;
     }
 
-    return null;
+    return result;
   }
 
   /**
@@ -290,8 +292,7 @@ class Model {
         authorTitle = currentItem.attributes['person-title'] ?
           currentItem.attributes['person-title'] : null,
         location = currentItem.attributes.location ? currentItem.attributes.location : null,
-        // Need to curry fn here
-        authorImage = this.getImage(this.getObjProperty(currentItem, 'authors'), 'headshot');
+        authorImage = this.getAuthorImage(currentItem);
 
       return {
         title: (currentItem.attributes.title) ?
