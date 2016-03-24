@@ -247,7 +247,7 @@ class Model {
         rectangularImage = currentItem['rectangular-image'] ?
           currentItem['rectangular-image'].attributes.uri : null,
         bookCoverImage = currentItem['book-cover-image'] ?
-          currentItem['book-cover-image'].attributes.uri['full-uri'] : null,
+          currentItem['book-cover-image'].attributes.uri : null,
         date = currentItem.attributes.date ? currentItem.attributes.date : null,
         firstName = currentItem.attributes['person-first-name'] ?
           currentItem.attributes['person-first-name'] : null,
