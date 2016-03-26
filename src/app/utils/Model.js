@@ -26,13 +26,13 @@ class Model {
      * Make sure the data is not empty.
      */
     if (data.length > 0) {
-      return this.modelAppData(_.map(data, d => {
-        return this.modelContainers(d);
-      }));
+      return this.modelAppData(_.map(data, d =>
+        this.modelContainers(d)
+      ));
     }
 
     return null;
-  };
+  }
 
   /**
    * modelAppData(dataArray)
@@ -68,7 +68,7 @@ class Model {
      * If the input is valid, it will loop through the array, restructure it,
      * and assign each item to a new object, appOjectData.
      */
-    if(dataArray.length > 0) {
+    if (dataArray.length > 0) {
       _.map(dataArray, d => {
         const componentName = this.assignComponentName(d);
 
@@ -78,8 +78,8 @@ class Model {
          * the component data.
          */
         appObjectData[componentName] = (componentName) ? d : {};
-      })
-    };
+      });
+    }
 
     return appObjectData;
   }
@@ -100,7 +100,7 @@ class Model {
       'OfNote',
       'FromOurBlog',
       'StaffPicks',
-      'RecommendedRecentReleases'
+      'RecommendedRecentReleases',
     ];
 
     let componentName;
@@ -113,9 +113,9 @@ class Model {
       const {
         name: {
           en: {
-            text
-          }
-        }
+            text,
+          },
+        },
       } = componentDataObj;
       const nameString = text.replace(/ /g, '');
 
@@ -148,16 +148,16 @@ class Model {
      * and return the result as an object.
      */
     try {
-      const { type, id, name, children, slots } = dataObj;
+      const { type, id, children, slots } = dataObj;
 
       return {
-        type: type,
-        id: id,
+        type,
+        id,
         name: this.getContainerName(dataObj),
         children: children ? this.createChildren(children) : [],
         slots: slots ? this.createSlots(slots) : [],
-      }
-    } catch(e) {
+      };
+    } catch (e) {
       /**
        * If any error is raised during the assigning, it will return the default value.
        */
@@ -185,17 +185,15 @@ class Model {
      * and return the result as an object.
      */
     try {
-      (dataObj) => {
+      ((Obj) => {
         const {
           attributes: {
-            name
-          }
-        } = dataObj;
+            name = {},
+          },
+        } = Obj;
 
-        containerNameObj = (name) ? name : {};
-
-      }(dataObj);
-
+        containerNameObj = name;
+      })(dataObj);
     } catch (e) {
       /**
        * If any error is raised during the assigning, it will return the default value.
@@ -216,9 +214,9 @@ class Model {
       return [];
     }
 
-    return _.map(dataArray, d => {
-      return this.modelContainers(d);
-    });
+    return _.map(dataArray, d =>
+      this.modelContainers(d)
+    );
   }
 
   /**
@@ -242,26 +240,26 @@ class Model {
       /**
        * Check if different sizes of the images exist.
        */
-      let bannerImage = currentItem['banner-image'] ?
-        currentItem['banner-image'].attributes.uri : null,
-        rectangularImage = currentItem['rectangular-image'] ?
-          currentItem['rectangular-image'].attributes.uri : null,
-        bookCoverImage = currentItem['book-cover-image'] ?
-          currentItem['book-cover-image'].attributes.uri : null,
-        date = currentItem.attributes.date ? currentItem.attributes.date : null,
-        firstName = currentItem.attributes['person-first-name'] ?
-          currentItem.attributes['person-first-name'] : null,
-        lastName = currentItem.attributes['person-last-name'] ?
-          currentItem.attributes['person-last-name'] : null,
-        authorTitle = currentItem.attributes['person-title'] ?
-          currentItem.attributes['person-title'] : null,
-        location = currentItem.attributes.location ? currentItem.attributes.location : null;
+      const bannerImage = currentItem['banner-image'] ?
+        currentItem['banner-image'].attributes.uri : null;
+      const rectangularImage = currentItem['rectangular-image'] ?
+          currentItem['rectangular-image'].attributes.uri : null;
+      const bookCoverImage = currentItem['book-cover-image'] ?
+          currentItem['book-cover-image'].attributes.uri : null;
+      const date = currentItem.attributes.date ? currentItem.attributes.date : null;
+      const firstName = currentItem.attributes['person-first-name'] ?
+          currentItem.attributes['person-first-name'] : null;
+      const lastName = currentItem.attributes['person-last-name'] ?
+          currentItem.attributes['person-last-name'] : null;
+      const authorTitle = currentItem.attributes['person-title'] ?
+          currentItem.attributes['person-title'] : null;
+      const location = currentItem.attributes.location ? currentItem.attributes.location : null;
 
       return {
         title: (currentItem.attributes.title) ?
           currentItem.attributes.title : '',
         category: (currentItem.attributes.category) ?
-          currentItem.attributes.category: '',
+          currentItem.attributes.category : '',
         description: (currentItem.attributes.description) ?
           currentItem.attributes.description : '',
         image: {
