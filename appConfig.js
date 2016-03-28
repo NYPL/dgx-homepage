@@ -17,6 +17,7 @@ const config = {
       'slots.current-item.rectangular-image.full-uri',
       'slots.current-item.banner-image.full-uri',
       'slots.current-item.book-cover-image',
+      'slots.current-item.related-node.authors.headshot',
       // Should be children.slots but slots comes from above....
       'children.slots.current-item.rectangular-image',
     ],
@@ -44,4 +45,3 @@ const config = {
 };
 
 export default config;
-
