@@ -277,11 +277,9 @@ class Model {
        * Check if different sizes of the images exist.
        */
       let bannerImage = currentItem['banner-image'] ?
-        currentItem['banner-image'].attributes.uri['full-uri'] : null,
+        currentItem['banner-image'].attributes.uri : null,
         rectangularImage = currentItem['rectangular-image'] ?
-          currentItem['rectangular-image'].attributes.uri['full-uri'] : null,
-        squareImage = currentItem['square-image'] ?
-          currentItem['square-image'].attributes.uri['full-uri'] : null,
+          currentItem['rectangular-image'].attributes.uri : null,
         bookCoverImage = currentItem['book-cover-image'] ?
           currentItem['book-cover-image'].attributes.uri['full-uri'] : null,
         date = currentItem.attributes.date ? currentItem.attributes.date : null,
@@ -304,7 +302,6 @@ class Model {
         image: {
           bannerImage,
           rectangularImage,
-          squareImage,
           bookCoverImage,
         },
         link: (currentItem.attributes.url.length) ?
