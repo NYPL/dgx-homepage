@@ -220,6 +220,40 @@ class Model {
   }
 
   /**
+   * Uses ES6 Destructuring to extract author's image object properties.
+   * @returns {object} returns { full-uri: (string), description: (string)}.
+   */
+  getAuthorImage(obj) {
+    let result;
+    if (!obj && _.isEmpty(obj)) {
+      return null;
+    }
+
+    try {
+      const {
+    		'related-node': {
+        	authors: [
+            {
+          	  headshot: {
+            	  attributes: {
+              	  uri: image = null
+                }
+              }
+            },
+            ...rest
+          ]
+        }
+    	} = obj;
+
+      result = image;
+    }  catch (e) {
+      result = null;
+    }
+
+    return result;
+  }
+
+  /**
    * createSlots(dataArray)
    * Collect and restructure if an item has slot object.
    *
@@ -254,6 +288,7 @@ class Model {
       const authorTitle = currentItem.attributes['person-title'] ?
           currentItem.attributes['person-title'] : null;
       const location = currentItem.attributes.location ? currentItem.attributes.location : null;
+      const authorImage = this.getAuthorImage(currentItem);
 
       return {
         title: (currentItem.attributes.title) ?
@@ -274,6 +309,7 @@ class Model {
           title: authorTitle,
           firstName,
           lastName,
+          image: authorImage,
         },
         location,
       };
