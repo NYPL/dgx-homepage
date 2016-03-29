@@ -83,7 +83,7 @@
     "dgx-blog-features-component": "git+ssh://git@bitbucket.org/NYPL/dgx-blog-features-component.git#change-data-structure-for-images",
     "dgx-booklist-component": "git+ssh://git@bitbucket.org/NYPL/dgx-booklist-component.git#change-data-structure-for-images",
     "dgx-feature-row-component": "git+ssh://git@bitbucket.org/NYPL/dgx-feature-row-component.git#change-data-structure-for-images",
-    "dgx-header-component": "git+ssh://git@bitbucket.org/NYPL/dgx-header-component.git#master",
+    "dgx-header-component": "git+ssh://git@bitbucket.org/NYPL/dgx-header-component.git#reactv0.13",
     "dgx-homepage-carousel-component": "git+ssh://git@bitbucket.org/NYPL/dgx-homepage-carousel-component#change-data-structure-for-images",
     "dgx-homepage-row-component": "git+ssh://git@bitbucket.org/NYPL/dgx-homepage-row-component.git#v0.0.9",
     "dgx-homepage-staff-picks-component": "git+ssh://git@bitbucket.org/NYPL/dgx-homepage-staff-picks-component.git#change-data-structure-for-images",
