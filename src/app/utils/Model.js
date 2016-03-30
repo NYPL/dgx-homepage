@@ -26,9 +26,7 @@ class Model {
      * Make sure the data is not empty.
      */
     if (data.length > 0) {
-      return this.modelAppData(_.map(data, d =>
-        this.modelContainers(d)
-      ));
+      return this.modelAppData(_.map(data, d => this.modelContainers(d)));
     }
 
     return null;
@@ -214,9 +212,7 @@ class Model {
       return [];
     }
 
-    return _.map(dataArray, d =>
-      this.modelContainers(d)
-    );
+    return _.map(dataArray, d => this.modelContainers(d));
   }
 
   /**
@@ -231,22 +227,22 @@ class Model {
 
     try {
       const {
-    		'related-node': {
-        	authors: [
+        'related-node': {
+          authors: [
             {
-          	  headshot: {
-            	  attributes: {
-              	  uri: image = null
-                }
-              }
+              headshot: {
+                attributes: {
+                  uri: image = null,
+                },
+              },
             },
             ...rest
-          ]
-        }
-    	} = obj;
+          ],
+        },
+      } = obj;
 
       result = image;
-    }  catch (e) {
+    } catch (e) {
       result = null;
     }
 
