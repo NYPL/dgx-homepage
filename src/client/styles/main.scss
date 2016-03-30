@@ -1,166 +1,38 @@
 /*
-Import utils
+Import utils and fonts
 */
+@import 'utils/mixins';
 @import 'utils/colors';
-
-/*
-Import style rules from node module components
-*/
-
-@import '~dgx-header-component/dist/styles/main';
-@import '~dgx-react-buttons/dist/styles/styles.scss';
-@import '~dgx-react-footer/dist/styles/styles.scss';
+@import 'utils/utils';
+@import "utils/fonts";
 
 /*
 Import singularity and breakpoints
 */
-@import '~singularitygs/stylesheets/singularitygs';
-@import '~breakpoint-sass/stylesheets/breakpoint';
+@import "~singularitygs/stylesheets/singularitygs";
+@import "~breakpoint-sass/stylesheets/breakpoint";
 
 /*
-Set up grid
+Import Normalize and Grid settings for nyplHomepage App
 */
-@include add-grid(3);
+@import "utils/normalize";
+@import "utils/gridSettings";
 
 /*
-Import fonts
+Import style rules from NYPL React module components
 */
-$FONT_PATH: '//ux-static.nypl.org';
-$SECONDARY_FONT_KIEVIT: 'Helvetica';
-$THIRD_FONT_KIEVIT: 'arial';
-$FOURTH_FONT_KIEVIT: 'sans-serif';
+@import "~dgx-header-component/dist/styles/main";
+@import "~dgx-react-footer/dist/styles/styles.scss";
+@import "~dgx-booklist-component/dist/styles/main";
 
-@include font-face(Kievit-Book, '#{$FONT_PATH}/ff_kievit_web/KievitWeb-Book');
-@include font-face(Kievit-Medium, '#{$FONT_PATH}/ff_kievit_web/KievitWeb-Medi');
-
-@include font-face(Milo-Regular, '#{$FONT_PATH}/milo-web/milo-slab-pro-regular/MiloSlabWebPro');
-
-@mixin Kievit-Book {
-  font-family: 'Kievit-Book', $SECONDARY_FONT_KIEVIT, $THIRD_FONT_KIEVIT;
-}
-
-@mixin Kievit-Medium {
-  font-family: 'Kievit-Medium', $SECONDARY_FONT_KIEVIT, $THIRD_FONT_KIEVIT;
-}
-
-/* MILO INCLUDES */
-@mixin Milo-Regular {
-	font-family: 'Milo-Regular', $SECONDARY_FONT_MILO, $THIRD_FONT_MILO;
-}
-
-
-.app-wrapper {
-  margin: 0 14px;
-  @media (min-width: 769px) {
-      margin: 0 20px;
-  }
-}
-
-#app {
-  margin: 0;
-  min-width: 320px;
-}
-
-.CarouselComponent {
-    &.error {
-	color: #070707;
-	
-	h2 {
-	    font-family: "Kievit-Book";
-	    text-transform: uppercase;
-	}
-
-	.errMsg {
-	    font-family: "Milo-Regular";
-	    font-size: 50px;
-	    margin-bottom: 30px;
-	}
-
-	.errDesc {
-	    font-family: "Kievit-Book";
-	    font-size: 28px;
-	    line-height: 38px;
-	    margin-bottom: 30px;
-	}
-    }
-}
-
-.homepageRow {
-  border-top: 4px solid $PRIMARY_COLOR;
-  min-height: 133px;
-
-  h2 {
-    @include Kievit-Medium;
-    color: $PRIMARY_COLOR;
-    font-weight: normal;
-  }
-  
-  &__Content {
-    @include Kievit-Book;
-    font-size: 24px;
-    color: $COOLGRAY_COLOR;
-  }
-
-  .see-more-button {
-    span:nth-of-type(2) {
-      // NOT THE ACCESSIBLE WAY TO HIDE THIS HERE!!
-      display: none !important;
-    }
-  }
-
-  @include grid-span(3,1);
-
-  @include layout-at(6, 768px) {
-    @include grid-span(6,1);
-    border-top: none;
-
-    h2, &__Content {
-      font-size: 18px;
-    }
-    
-    .leftColumn {
-      border-top: 2px solid $PRIMARY_COLOR;
-      @include grid-span(1,1);
-      text-align: right;
-    }
-
-    .rightColumn {
-	@include grid-span(6,2);
-    }
-  }
-
-  @include layout-at(9, 1024px) {
-    @include grid-span(9,1);
-
-    h2, &__Content {
-      font-size: 20px;
-    }
-    
-    .leftColumn {
-      @include grid-span(1,1);
-    }
-
-    .rightColumn {
-	@include grid-span(8,2);
-    }
-  }
-  
-  @media (max-width: 767px) {
-    position: relative;
-      
-    .leftColumn {
-	margin: 32px 0;
-
-	h2 {
-          padding: 0;
-	  margin: 0;
-	}
-    }
-
-    .see-more-button {
-      position: absolute;
-      right: 0;
-      top: 28px;
-    }
-  }
-}
+/*
+Import style rules from App components
+*/
+@import "components/_HomepageRow";
+@import "components/_CarouselComponent";
+@import "components/_WhatsHappening";
+@import "components/_LearnSomethingNew";
+@import "components/_BookList";
+@import "components/_StaffPicks";
+@import "components/_OfNote";
+@import "components/_FromOurBlogs";

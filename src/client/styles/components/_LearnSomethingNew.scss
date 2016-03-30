@@ -1,0 +1,104 @@
+.hpLearn {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  @include add-grid(3);
+
+  //Mobile
+  &-wrapper {
+    &:nth-child(n + 3) {
+      @include visuallyHidden;
+    }
+
+    @include grid-span(3);
+    margin-bottom: 15px;
+  }
+    
+  img {
+    @include grid-span(1, 1);
+  }
+
+  h2 {
+    @include grid-span(2, 2);
+    color: #333;
+    @include Kievit-Book;
+    font-size: 18px;
+  }
+
+  p {
+    @include visuallyHidden;
+  }
+
+  // Tablet Portrait
+  @include layout-at(6, $tablet-portrait) {
+
+    &-wrapper {
+      &:nth-child(3) {
+        @include displayVisuallyHidden;
+      }
+
+      @include grid-span(2);
+
+      &:first-child {
+        @include float-span(2, 'first');
+      }
+      &:nth-child(3) {
+        @include float-span(2, 'last');
+      }
+
+      @include layout(1) {
+        img {
+          @include grid-span(1);
+        }
+
+        h2 {
+          @include grid-span(1);
+
+          font-size: 20px;
+          line-height: 20px;
+          margin-top: 12px;
+        }
+      }
+    }
+  }
+
+  // Tablet Landscape
+  @include layout-at(8, $tablet-landscape) {
+
+    &-wrapper {
+      &:nth-child(4) {
+        @include displayVisuallyHidden;
+      }
+
+      &:first-child {
+        @include float-span(2, 'first');
+      }
+      &:nth-child(2) {
+        @include float-span(2, 'second');
+      }
+      &:nth-child(3) {
+        @include float-span(2, 'third');
+      }
+      &:nth-child(4) {
+        @include float-span(2, 'last');
+      }
+
+      @include layout(1) {
+
+        img {
+          @include grid-span(1);
+        }
+
+        h2 {
+          @include grid-span(1);
+
+          font-size: 20px;
+          font-weight: 400;
+          line-height: 18px;
+          margin-top: 15px;
+        }
+      }
+    }
+  }
+}
+

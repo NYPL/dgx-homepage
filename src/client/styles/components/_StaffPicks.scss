@@ -1,0 +1,236 @@
+// NOTE: Minimal overrides to left column only for this component
+// Overrides hpRow style definitions.
+.staffPicksRow {
+  @include visuallyHidden;
+
+  @include min-screen($tablet-portrait) {
+    @include displayVisuallyHidden;
+    padding-top: 15px;
+    min-height: 350px;
+  }
+
+  @include min-screen($tablet-landscape) {
+    padding-top: 30px;
+    min-height: 375px;
+  }
+
+  @include min-screen($desktop) {
+    min-height: 520px;
+  }
+
+  .leftColumn {
+    border-top: 2px solid #FFF;
+
+    > h2 {
+      color: #FFF;
+    }
+
+    .seeMoreLink {
+      fill: #FFF;
+      stroke: #FFF;
+    }
+  }
+}
+
+// Component specific mobile first rules
+.hpStaffPicks {
+  // Tablet Portrait
+  @include layout-at(6, $tablet-portrait) {
+
+    &-wrapper {
+      &:first-child {
+        @include grid-span(3, 1);
+      }
+      &:last-child {
+        @include grid-span(3, 4);
+      }
+    }
+
+    &-pick {
+      display: block;
+      height: 200px;
+      width: 100%;
+      color: #000;
+      position: relative;
+
+      .quoteBackground {
+        display: block;
+        width: auto;
+        height: 100%;
+        margin: 0 55px 0 0;
+        background: #fff;
+        z-index: 0;
+
+        // For the down quote arrow
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: -20px;
+          left: 30px;
+          border-width: 20px 20px 0 0;
+          border-style: solid;
+          border-color: #fff transparent;
+          display: block;
+          width: 0;
+        }
+      }
+
+      .description {
+        @include Milo-Light-Italic;
+        position: absolute;
+        left: 0;
+        bottom: 10%;
+        width: auto;
+        z-index: 100;
+        margin: 0;
+        padding: 0 120px 0 15px;
+        color: #000;
+        font-size: 20px;
+        font-weight: normal;
+        line-height: 22px;
+      }
+
+      .link {
+        display: block;
+        z-index: 101;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+
+        img {
+          max-height: 175px;
+          max-width: 115px;
+          padding: 0;
+          margin: 0;
+          border: 0;
+          float: left;
+        }
+      }
+    }
+
+    &-staff {
+      color: #fff;
+      margin-top: 15px;
+
+      img {
+        height: 60px;
+        width: 60px;
+        float: left;
+      }
+
+      .nypl-icon-logo-mark {
+        color: #c51d12;
+        font-size: 80px;
+        width: 60px;
+        margin-right: 5px;
+        float: left;
+
+        &:before {
+          margin-left: -20px;
+        }
+      }
+
+      h3 {
+        margin: 0;
+        font-size: 18px;
+        padding-top: 20px;
+        padding-bottom: 4px;
+        font-weight: 400;
+        @include Kievit-Book;
+      }
+
+      h5 {
+        font-size: 15px;
+        margin: 0;
+        font-weight: 400;
+        @include Kievit-Book;
+      }
+    }
+  }
+
+  // Tablet Landscape
+  @include layout-at(8, $tablet-landscape) {
+
+    &-pick {
+      height: 264px;
+
+      .quoteBackground {
+        margin-right: 75px;
+      }
+
+      .description {
+        font-size: 27px;
+        line-height: 32px;
+        padding-right: 157px;
+
+        @include min-screen(1140px) {
+          line-height: 35px;
+        }
+
+        @include min-screen(1234px) {
+          line-height: 37px;
+        }
+      }
+
+      .link {
+        img {
+          max-height: 233px;
+          max-width: 153px;
+        }
+      }
+    }
+
+    &-staff {
+      margin-left: 15px;
+
+      h3 {
+        padding-top: 20px;
+        font-size: 16px;
+      }
+    }
+  }
+
+  // Desktop
+  @include layout-at(8, $desktop) {
+    &-pick {
+      height: 374px;
+
+      .quoteBackground {
+        margin-right: 105px;
+      }
+
+      .description {
+        font-size: 38px;
+        line-height: 38px;
+        padding: 0 220px 0 30px;
+        bottom: 13%;
+      }
+
+      .link {
+        img {
+          max-height: 320px;
+          max-width: 212px;
+        }
+      }
+    }
+
+    &-staff {
+      margin-top: 20px;
+      margin-left: 5px;
+
+      .nypl-icon-logo-mark {
+        font-size: 100px;
+        width: 80px;
+      }
+
+      h3 {
+        padding-top: 34px;
+        font-size: 20px;
+      }
+
+      h5 {
+        font-size: 15px;
+      }
+    }
+  }
+}

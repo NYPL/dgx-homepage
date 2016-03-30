@@ -1,0 +1,101 @@
+.hpOfNote {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  @include add-grid(3);
+
+  // Mobile
+  &-wrapper {
+    @include grid-span(3, 1);
+    margin-bottom: 15px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  img {
+    @include grid-span(1, 1);
+  }
+
+  h2 {
+    @include grid-span(2, 2);
+
+    color: #333;
+    @include Kievit-Book;
+    font-size: 18px;
+  }
+
+  p {
+    @include visuallyHidden;
+    color: #333;
+    @include Kievit-Book;
+  }
+
+  // Tablet Portrait
+  @include layout-at(6, $tablet-portrait) {
+    &-wrapper {
+
+      &:first-child {
+        @include grid-span(3, 1);
+      }
+      &:last-child {
+        @include grid-span(3, 4);
+      }
+
+      a {
+        @include add-grid(3);
+      }
+
+      img {
+        @include float-span(2, 'first');
+      }
+
+      h2 {
+        @include float-span(1, 'last');
+
+        line-height: 20px;
+        font-size: 18px;
+        margin-top: 5px;
+      }
+    }
+  }
+
+  // Tablet Landscape
+  @include layout-at(8, $tablet-landscape) {
+    &-wrapper {
+      &:first-child {
+        @include grid-span(4, 1);
+      }
+      &:last-child {
+        @include grid-span(4, 5);
+      }
+
+      a {
+        @include add-grid(2);
+      }
+
+      img {
+        @include float-span(1, 'first');
+      }
+
+      h2 {
+        @include float-span(1, 'last');
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 19px;
+        margin-top: 5px;
+      }
+
+      p {
+        @include displayVisuallyHidden;
+        @include float-span(1, 'last');
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 19px;
+        margin: 0 0 15px 0;
+      }
+    }
+  }
+}
+

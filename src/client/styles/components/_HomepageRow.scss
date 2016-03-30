@@ -1,0 +1,48 @@
+// No Grid configurations on hpRow, simply set styles to leftColumn.
+.hpRow {
+  // Mobile First
+  .leftColumn {
+    border-top: 2px solid $PRIMARY_COLOR;
+    position: relative;
+
+    & > h2 {
+      @include Kievit-Medium;
+      color: $PRIMARY_COLOR;
+      font-size: 20px;
+      font-weight: normal;
+      line-height: 1em;
+      margin: 15px 0;
+      padding: 0;
+    }
+
+    .seeMoreLink {
+      position: absolute;
+      right: 0;
+      top: 8px;
+      fill: $PRIMARY_COLOR;
+      stroke: $PRIMARY_COLOR;
+
+      svg {
+        width: 25px;
+        height: 25px;
+      }
+    }
+  }
+
+  // Tablet Portrait and Up
+  @include layout-at(7, $tablet-portrait) {
+    .leftColumn {
+      text-align: right;
+
+      & > h2 {
+        padding: 0;
+        margin: 8px 0 12px;
+      }
+
+      .seeMoreLink {
+        position: relative;
+        top: initial;
+      }
+    }
+  }
+}

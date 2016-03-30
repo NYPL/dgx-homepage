@@ -1,0 +1,225 @@
+.hpWhatsHappening {
+  @include add-grid(1);
+
+  &-section {
+    @include grid-span(1);
+    margin: 0 0 15px;
+    padding: 0;
+    list-style: none;
+    color: #000;
+
+    // To hide
+    .eventItem + .eventItem {
+      @include visuallyHidden;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    & > h3 {
+      @include Kievit-Medium;
+      color: $PRIMARY_COLOR;
+      text-transform: uppercase;
+      font-size: 12px;
+      margin: 10px 0;
+      letter-spacing: 0.05em;
+    }
+
+    .eventItem {
+      @include Kievit-Medium;
+      @include add-grid(3);
+
+      img {
+        @include grid-span(1,1);
+      }
+
+      h2 {
+        @include grid-span(2,2);
+        color: #000;
+        line-height: 22px;
+        margin: 0;
+        font-size: 18px;
+        font-weight: normal;
+      }
+
+      p {
+        @include grid-span(2,2);
+        text-transform: uppercase;
+        font-size: 12px;
+        margin: 10px 0 0 0;
+        letter-spacing: 0.05em
+      }
+
+      &-location {
+        @include visuallyHidden;
+      }
+    }
+  }
+
+  .titleTabs {
+    display: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    color: #000;
+    text-transform: uppercase;
+    @include Kievit-Medium;
+
+    @include layout-at(6, $tablet-portrait) {
+      display: table;
+      @include grid-span(6);
+
+      li {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        cursor: pointer;
+        padding: 10px 26px;
+        font-size: 12px;
+        width: 75px;
+        font-weight: 700;
+        line-height: 14px;
+        border-bottom: 2px solid $PRIMARY_COLOR;
+
+        &.active {
+          border: 2px solid $PRIMARY_COLOR;
+          border-bottom: none;
+          color: $PRIMARY_COLOR;
+        }
+      }
+    }
+
+    @include layout-at(8, $tablet-landscape) {
+      @include grid-span(5, 4);
+    }
+
+    @include layout-at(8, $desktop) {
+      @include grid-span(4, 5);
+    }
+  }
+
+  // Tablet portrait
+  @include layout-at(6, $tablet-portrait) {
+    &-section {
+      min-height: 195px;
+      display: none;
+
+      @include grid-span(6);
+
+      & > h3 {
+        display: none;
+      }
+
+      &.active {
+        display: block;
+
+        .eventItem {
+          @include displayVisuallyHidden;
+          margin-bottom: 10px;
+
+          h2 {
+            font-size: 20px;
+          }
+
+          p {
+            font-size: 12px;
+          }
+
+          &:nth-child(even) {
+            @include float-span(3, 'first');
+          }
+          &:nth-child(odd) {
+            @include float-span(3, 'last');
+          }
+        }
+      }
+    }
+  }
+
+  // Tablet Landscape
+  @include layout-at(8, $tablet-landscape) {
+    &-section {
+      min-height: 320px;
+
+      &.active {
+
+        .eventItem {
+          margin-bottom: 15px;
+
+          p, h2 {
+            margin: 10px 0 0 0;
+          }
+
+          // Styles for all the events.
+          &:nth-child(n) {
+            @include float-span(5, 'last');
+
+            img {
+              @include grid-span(2, 1);
+            }
+
+            p, h2 {
+              @include grid-span(6, 3);
+            }
+          }
+
+          // Target the first child in the list.
+          // It's not the correct pseudo name... but it works somehow.
+          &:nth-child(2) {
+            @include grid-span(3, 1);
+            @include add-grid(3);
+            margin-top: -70px;
+
+            img, p, h2 {
+              @include grid-span(3, 1);
+            }
+
+            h2 {
+              font-size: 23px;
+            }
+
+            p {
+              font-size: 13px;
+            }
+
+            h2,
+            .eventItem-date {
+              margin-top: 15px;
+            }
+
+            .eventItem-location {
+              margin-top: 5px;
+              text-transform: none;
+              @include displayVisuallyHidden;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Desktop
+  @include layout-at(8, $desktop) {
+    &-section {
+      &.active {
+        .eventItem {
+          // Styles for all the events.
+          &:nth-child(n) {
+            @include float-span(4, 'last');
+          }
+
+          // Target the first child in the list.
+          // It's not the correct pseudo name... but it works somehow.
+          &:nth-child(2) {
+            @include grid-span(4, 1);
+            @include add-grid(4);
+
+            img, p, h2 {
+              @include grid-span(4, 1);
+            }
+          }
+        }
+      }
+    }
+  }
+}

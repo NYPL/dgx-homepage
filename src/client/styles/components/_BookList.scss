@@ -1,0 +1,125 @@
+// NOTE: Minimal overrides to left and right column only for this component
+// Overrides hpRow style definitions.
+.bookListRow {
+
+  .leftColumn {
+    border: none; // Only for this component do we override the border
+    & > h2 {
+      color: #FFFFFF;
+
+      @include min-screen($tablet-portrait) {
+        margin-top: 15px;
+      }
+
+      @include min-screen($desktop) {
+        margin-top: 30px;
+      }
+    }
+    .seeMoreLink {
+      fill: #FFF;
+      stroke: #FFF;
+    }
+  }
+
+  .rightColumn {
+    color: #FFFFFF;
+    margin-bottom: 30px; // Slick adds !important to the wrapper, hence the need for this rule
+
+    @include min-screen($tablet-portrait) {
+      margin-top: 15px;
+      margin-bottom: 10px;
+    }
+
+    @include min-screen($tablet-landscape) {
+      margin-bottom: 30px;
+    }
+
+    @include min-screen($desktop) {
+      margin-top: 30px;
+    }
+  }
+}
+
+// Namespacing at the component level, within the grid
+.hpBookList {
+
+  .slick {
+    /* -- Tablet Portrait Layout --
+     * NOTE: Made the whole right side one column and let the plugin/css
+     * create the width of the carousel.
+    */
+    @include layout-at(6, $tablet-portrait) {
+      @include grid-span(6);
+
+      &-track {
+        height: 245px;
+      }
+
+      &-book-item {
+        margin-right: 20px;
+
+        img {
+          max-height: 216px;
+        }
+      }
+
+      &-prev, &-next {
+        top: 144px;
+      }
+
+      &-prev {
+        left: -16%;
+      }
+
+      &-next {
+        left: -9%;
+      }
+    }
+
+    /* -- Tablet Landscape Layout -- */
+    @include layout-at(8, $tablet-landscape) {
+      @include grid-span(8);
+
+      &-track {
+        height: 289px;
+      }
+
+      &-book-item {
+        margin-right: 33px;
+
+        img {
+          max-height: 289px;
+        }
+      }
+
+      &-prev {
+        left: -12%;
+      }
+
+      &-next {
+        left: -6%;
+      }
+    }
+
+    /* -- Tablet Landscape Layout -- */
+    @include layout-at(8, $desktop) {
+      &-track {
+        height: 320px;
+      }
+
+      &-book-item {
+        img {
+          max-height: 360px;
+        }
+      }
+
+      &-prev {
+        left: -10%;
+      }
+
+      &-next {
+        left: -6%;
+      }
+    }
+  }
+}
