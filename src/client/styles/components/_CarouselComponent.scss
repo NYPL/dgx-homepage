@@ -52,8 +52,8 @@
     top: 180px;
     margin: 0 auto;
     width: 120px;
-    text-align: center;
     z-index: 100;
+    text-align: center;
 
     @include min-screen(480px) {
       top: 290px;
@@ -64,23 +64,87 @@
     }
 
     @include min-screen($tablet-portrait) {
-      top: 220px;
+      margin: 0;
+      width: auto;
+      right: inherit;
+      top: 50px;
+      left: 8px;
+    }
+
+    @include min-screen($tablet-portrait + 1px) {
+      left: 32px;
     }
 
     @include min-screen($desktop) {
-      top: 410px;
+      width: 100%;
+      max-width: 1313px;
+      padding: 0;
+      margin: 0 auto;
+      text-align: left;
+      left: 0;
+      right: 0;
+      top: inherit;
+      bottom: 25px;
+    }
+
+    // React Tappable surrounding SPAN element
+    & > span {
+      display: inline-block;
+      margin: 0 15px 0 0;
+      padding: 0;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      @include min-screen($tablet-portrait) {
+        margin: 0 0 10px 0;
+        display: block;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      @include min-screen($desktop) {
+        display: inline-block;
+        margin: 0 20px 0 0;
+        padding: 0;
+
+        &:last-child {
+          margin-right: 0;
+        }
+        &:first-child {
+          margin-left: 135px;
+        }
+      }
     }
   }
 
   &-navButton {
-    display: inline-block;
-    cursor: pointer;
-    padding: 10px 8px 8px;
-    margin: 0 15px 0 0;
     @include Kievit-Book;
+    cursor: pointer;
+    outline : none;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    color: #FFF;
+    font-size: 12px;
+    line-height: 1.2em;
+    border: none;
+    opacity: .7;
 
-    &:last-child {
-      margin-right: 0;
+
+    @include min-screen($tablet-portrait) {
+      border: 2px solid #FFF;
+      width: auto;
+      max-width: 80px;
+      text-align: left;
+      padding: 9px 8px 7px;
+    }
+
+    &.active {
+      opacity: 1;
     }
   }
 
@@ -100,8 +164,8 @@
       margin: 0;
       padding: 0;
       position: absolute;
-      left: 115px;
-      top: 30px;
+      left: 137px;
+      top: 65px;
       color: #FFF;
     }
 
@@ -123,6 +187,7 @@
 
       @include min-screen($tablet-portrait) {
         color: #FFF;
+        margin: 0;
       }
 
       @include min-screen($tablet-landscape + 1px) {
@@ -139,6 +204,7 @@
 
       @include min-screen($tablet-portrait) {
         color: #FFF;
+        margin-top: 20px;
       }
 
       @include min-screen($tablet-landscape + 1px) {
@@ -147,17 +213,19 @@
     }
 
     &-description {
+      @include visuallyHidden;
       @include Kievit-Book;
       font-size: 16px;
       font-weight: 300;
       line-height: 24px;
       margin: 20px 0 30px 0;
-      @include visuallyHidden;
       color: #070707;
 
       @include min-screen($tablet-portrait) {
         @include displayVisuallyHidden;
         color: #FFF;
+        width: auto; //Override displayVisuallyHidden width rule
+        margin: 20px 0 0;
       }
 
       @include min-screen($tablet-landscape + 1px) {
