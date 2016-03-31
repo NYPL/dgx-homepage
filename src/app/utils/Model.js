@@ -277,6 +277,8 @@ class Model {
       const bookCoverImage = currentItem['book-cover-image'] ?
           currentItem['book-cover-image'].attributes.uri : null;
       const date = currentItem.attributes.date ? currentItem.attributes.date : null;
+      const shortTitle = (currentItem.attributes && currentItem.attributes['banner-short-title']) ?
+        currentItem.attributes['banner-short-title'] : null;
       const firstName = currentItem.attributes['person-first-name'] ?
           currentItem.attributes['person-first-name'] : null;
       const lastName = currentItem.attributes['person-last-name'] ?
@@ -293,6 +295,7 @@ class Model {
           currentItem.attributes.category : '',
         description: (currentItem.attributes.description) ?
           currentItem.attributes.description : '',
+        shortTitle,
         image: {
           bannerImage,
           rectangularImage,
