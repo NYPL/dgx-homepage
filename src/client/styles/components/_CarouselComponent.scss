@@ -51,7 +51,6 @@
     right: 0;
     top: 180px;
     margin: 0 auto;
-    width: 120px;
     z-index: 100;
     text-align: center;
 
@@ -90,7 +89,7 @@
     // React Tappable surrounding SPAN element
     & > span {
       display: inline-block;
-      margin: 0 15px 0 0;
+      margin: 0 40px 0 0;
       padding: 0;
 
       &:last-child {
@@ -132,8 +131,21 @@
     font-size: 12px;
     line-height: 1.2em;
     border: none;
-    opacity: .7;
+    opacity: 1;
 
+    & > span {
+      @include visuallyHidden;
+
+      @include min-screen($tablet-portrait) {
+        @include displayVisuallyHidden;
+      }
+    }
+
+    .svgIcon {
+      @include min-screen($tablet-portrait) {
+        display: none;
+      }
+    }
 
     @include min-screen($tablet-portrait) {
       border: 2px solid #FFF;
@@ -141,10 +153,13 @@
       max-width: 80px;
       text-align: left;
       padding: 9px 8px 7px;
+      opacity: .7;
     }
 
     &.active {
-      opacity: 1;
+      @include min-screen($tablet-portrait) {
+        opacity: 1;
+      }
     }
   }
 
