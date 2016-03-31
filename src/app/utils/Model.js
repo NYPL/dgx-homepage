@@ -277,7 +277,7 @@ class Model {
       const bookCoverImage = currentItem['book-cover-image'] ?
           currentItem['book-cover-image'].attributes.uri : null;
       const date = currentItem.attributes.date ? currentItem.attributes.date : null;
-      const shortTitle = currentItem.attributes['banner-short-title'] ?
+      const shortTitle = (currentItem.attributes && currentItem.attributes['banner-short-title']) ?
         currentItem.attributes['banner-short-title'] : null;
       const firstName = currentItem.attributes['person-first-name'] ?
           currentItem.attributes['person-first-name'] : null;
