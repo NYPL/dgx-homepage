@@ -55,13 +55,12 @@ class Model {
    * @param (Object) defaultData
    */
   modelAppData(dataArray, defaultData) {
-    const testData = defaultData;
     /**
      * If the input is null or it dose not have a valid type, that is an array,
      * it will return an empty object with preset key: value.
      */
     if (!dataArray || !(_isArray(dataArray))) {
-      return testData;
+      return defaultData;
     }
 
     /**
@@ -77,11 +76,10 @@ class Model {
          * valid value. If the name is an empty string, then it won't return
          * the component data.
          */
-        testData.componentName = (componentName) ? d : {};
+        defaultData[componentName] = (componentName) ? d : {};
       });
     }
-
-    return testData;
+    return defaultData;
   }
 
   /**
