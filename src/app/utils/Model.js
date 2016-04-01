@@ -1,4 +1,8 @@
-import _ from 'underscore';
+import { isArray as _isArray,
+         map as _map,
+         contains as _contains,
+         isEmpty as _isEmpty,
+} from 'underscore';
 
 /**
  * Model class extracts, cleans, and restructures the data from the Refinery.
@@ -18,7 +22,7 @@ class Model {
     /**
      * Make sure there's an input.
      */
-    if (!data || !(_.isArray(data))) {
+    if (!data || !(_isArray(data))) {
       return null;
     }
 
@@ -26,7 +30,7 @@ class Model {
      * Make sure the data is not empty.
      */
     if (data.length > 0) {
-      return this.modelAppData(_.map(data, d => this.modelContainers(d)));
+      return this.modelAppData(_map(data, d => this.modelContainers(d)));
     }
 
     return null;
@@ -58,7 +62,7 @@ class Model {
      * If the input is null or it dose not have a valid type, that is an array,
      * it will return an empty object with preset key: value.
      */
-    if (!dataArray || !(_.isArray(dataArray))) {
+    if (!dataArray || !(_isArray(dataArray))) {
       return appObjectData;
     }
 
@@ -67,7 +71,7 @@ class Model {
      * and assign each item to a new object, appOjectData.
      */
     if (dataArray.length > 0) {
-      _.map(dataArray, d => {
+      _map(dataArray, d => {
         const componentName = this.assignComponentName(d);
 
         /**
@@ -120,7 +124,7 @@ class Model {
       /**
        * Check if the name matches any item in the preset name array.
        */
-      componentName = (_.contains(componentNamesArray, nameString)) ? nameString : '';
+      componentName = (_contains(componentNamesArray, nameString)) ? nameString : '';
     } catch (e) {
       /**
        * If any error is raised during the assigning, it will assign the default value.
@@ -208,11 +212,11 @@ class Model {
    * @param (Array) dataArray
    */
   createChildren(dataArray) {
-    if (!dataArray || !(_.isArray(dataArray))) {
+    if (!dataArray || !(_isArray(dataArray))) {
       return [];
     }
 
-    return _.map(dataArray, d => this.modelContainers(d));
+    return _map(dataArray, d => this.modelContainers(d));
   }
 
   /**
@@ -221,7 +225,7 @@ class Model {
    */
   getAuthorImage(obj) {
     let result;
-    if (!obj && _.isEmpty(obj)) {
+    if (!obj && _isEmpty(obj)) {
       return null;
     }
 
@@ -256,12 +260,12 @@ class Model {
    * @param (Array) dataArray
    */
   createSlots(dataArray) {
-    if (!dataArray || !(_.isArray(dataArray))) {
+    if (!dataArray || !(_isArray(dataArray))) {
       return [];
     }
 
     return dataArray.map((element) => {
-      if (_.isEmpty(element['current-item'])) {
+      if (_isEmpty(element['current-item'])) {
         return {};
       }
 
