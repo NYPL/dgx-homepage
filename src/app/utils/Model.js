@@ -19,36 +19,7 @@ class Model {
    * @param (Array) data
    */
   build(data) {
-    /**
-     * Make sure there's an input.
-     */
-    if (!data || !(_isArray(data))) {
-      return null;
-    }
-
-    /**
-     * Make sure the data is not empty.
-     */
-    if (data.length > 0) {
-      return this.modelAppData(_map(data, d => this.modelContainers(d)));
-    }
-
-    return null;
-  }
-
-  /**
-   * modelAppData(dataArray)
-   * Collect each modeled container data, and assigne them to different
-   * category based on its id. Finally, return an object with keys and values
-   * that are with preset types.
-   *
-   * @param (Array) dataArray
-   */
-  modelAppData(dataArray) {
-    /**
-     * The input should be an array.
-     */
-    const appObjectData = {
+    const defaultModelStructure = {
       'What\'sHappening': [],
       Banner: [],
       LearnSomethingNew: [],
@@ -57,13 +28,40 @@ class Model {
       StaffPicks: [],
       RecommendedRecentReleases: [],
     };
+    /**
+     * Make sure there's an input.
+     */
+    if (!data || !(_isArray(data))) {
+      return defaultModelStructure;
+    }
 
+    /**
+     * Make sure the data is not empty.
+     */
+    if (data.length > 0) {
+      return this.modelAppData(_map(data, d => this.modelContainers(d)), defaultModelStructure);
+    }
+
+    return defaultModelStructure;
+  }
+
+  /**
+   * modelAppData(dataArray, defaultData)
+   * Collect each modeled container data, and assigne them to different
+   * category in defaultData based on its id. Finally, return an object with keys and values
+   * that are with preset types.
+   *
+   * @param (Array) dataArray
+   * @param (Object) defaultData
+   */
+  modelAppData(dataArray, defaultData) {
+    const testData = defaultData;
     /**
      * If the input is null or it dose not have a valid type, that is an array,
      * it will return an empty object with preset key: value.
      */
     if (!dataArray || !(_isArray(dataArray))) {
-      return appObjectData;
+      return testData;
     }
 
     /**
@@ -79,11 +77,11 @@ class Model {
          * valid value. If the name is an empty string, then it won't return
          * the component data.
          */
-        appObjectData[componentName] = (componentName) ? d : {};
+        testData.componentName = (componentName) ? d : {};
       });
     }
 
-    return appObjectData;
+    return testData;
   }
 
   /**
