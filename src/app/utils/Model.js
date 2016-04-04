@@ -1,3 +1,4 @@
+import { homepageApi } from '../../../appConfig.js';
 import { isArray as _isArray,
          map as _map,
          contains as _contains,
@@ -10,6 +11,14 @@ import { isArray as _isArray,
 
 class Model {
 
+  buildDefaultModel(slug) {
+    const defaultModel = slug.replace(/-([a-z])/ig, (match, letter) => {
+      return letter.toUpperCase();
+    }).split('|');
+
+    return defaultModel;
+  };
+
   /**
    * build(data)
    * It is the initial function of Model class.
@@ -19,15 +28,13 @@ class Model {
    * @param (Array) data
    */
   build(data) {
-    const defaultModelStructure = {
-      'What\'sHappening': [],
-      Banner: [],
-      LearnSomethingNew: [],
-      OfNote: [],
-      FromOurBlog: [],
-      StaffPicks: [],
-      RecommendedRecentReleases: [],
-    };
+    const defaultModel = this.buildDefaultModel(homepageApi.filters.slug);
+    const defaultModelStructure = {};
+
+    _map(defaultModel, d => {
+      defaultModelStructure[d] = [];
+    });
+
     /**
      * Make sure there's an input.
      */
@@ -91,15 +98,7 @@ class Model {
    * @param (Object) componentDataObj
    */
   assignComponentName(componentDataObj) {
-    const componentNamesArray = [
-      'What\'sHappening',
-      'Banner',
-      'LearnSomethingNew',
-      'OfNote',
-      'FromOurBlog',
-      'StaffPicks',
-      'RecommendedRecentReleases',
-    ];
+    const componentNamesArray = this.buildDefaultModel(homepageApi.filters.slug);
 
     let componentName;
 
@@ -109,19 +108,18 @@ class Model {
      */
     try {
       const {
-        name: {
-          en: {
-            text,
-          },
-        },
+        slug
       } = componentDataObj;
-      const nameString = text.replace(/ /g, '');
+      const nameString = slug.replace(/-([a-z])/ig, (match, letter) => {
+        return letter.toUpperCase();
+      });
 
       /**
        * Check if the name matches any item in the preset name array.
        */
       componentName = (_contains(componentNamesArray, nameString)) ? nameString : '';
     } catch (e) {
+      console.log(e);
       /**
        * If any error is raised during the assigning, it will assign the default value.
        */
@@ -154,6 +152,7 @@ class Model {
         name: this.getContainerName(dataObj),
         children: children ? this.createChildren(children) : [],
         slots: slots ? this.createSlots(slots) : [],
+        slug: this.getContainerSlug(dataObj),
       };
     } catch (e) {
       /**
@@ -199,6 +198,32 @@ class Model {
       containerNameObj = {};
     }
     return containerNameObj;
+  }
+
+  getContainerSlug(dataObj) {
+    let containerSlug;
+
+    /**
+     * Assign an object to the input, check if the values inside the object are valid,
+     * and return the result as an object.
+     */
+    try {
+      ((Obj) => {
+        const {
+          attributes: {
+            slug = '',
+          },
+        } = Obj;
+
+        containerSlug = slug;
+      })(dataObj);
+    } catch (e) {
+      /**
+       * If any error is raised during the assigning, it will return the default value.
+       */
+      containerSlug = '';
+    }
+    return containerSlug;
   }
 
   /**
