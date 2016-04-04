@@ -97,7 +97,7 @@
       }
 
       @include min-screen($tablet-portrait) {
-        margin: 0 0 10px 0;
+        margin: 0 0 20px 0;
         display: block;
 
         &:last-child {
@@ -107,7 +107,7 @@
 
       @include min-screen($desktop) {
         display: inline-block;
-        margin: 0 20px 0 0;
+        margin: 0 30px 0 0;
         padding: 0;
 
         &:last-child {
@@ -131,7 +131,6 @@
     font-size: 12px;
     line-height: 1.2em;
     border: none;
-    opacity: 1;
 
     & > span {
       @include visuallyHidden;
@@ -148,17 +147,18 @@
     }
 
     @include min-screen($tablet-portrait) {
-      border: 2px solid #FFF;
+      border-style: solid;
+      border-color: #FFF transparent transparent transparent;
+      border-width: 2px;
       width: auto;
       max-width: 80px;
       text-align: left;
       padding: 9px 8px 7px;
-      opacity: .7;
     }
 
     &.active {
       @include min-screen($tablet-portrait) {
-        opacity: 1;
+        border-color: #FFF;
       }
     }
   }
@@ -192,6 +192,10 @@
       right: 0;
     }
 
+    @include min-screen($desktop) {
+      top: 110px;
+    }
+
     &-tag {
       @include Kievit-Medium;
       font-size: 14px;
@@ -219,11 +223,15 @@
 
       @include min-screen($tablet-portrait) {
         color: #FFF;
-        margin-top: 20px;
+        margin-top: 25px;
       }
 
       @include min-screen($tablet-landscape + 1px) {
         margin-left: 135px;
+      }
+
+      @include min-screen($desktop) {
+        margin-top: 45px;
       }
     }
 
@@ -240,11 +248,15 @@
         @include displayVisuallyHidden;
         color: #FFF;
         width: auto; //Override displayVisuallyHidden width rule
-        margin: 20px 0 0;
+        margin: 25px 0 0;
       }
 
       @include min-screen($tablet-landscape + 1px) {
         margin-left: 135px;
+      }
+
+      @include min-screen($desktop) {
+        margin-top: 30px;
       }
     }
   }
