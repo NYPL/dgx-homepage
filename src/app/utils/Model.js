@@ -6,52 +6,64 @@ import {
   isEmpty as _isEmpty,
 } from 'underscore';
 
-/**
- * Model class extracts, cleans, and restructures the data from the Refinery.
- */
-
+// Model class extracts, cleans, and restructures the data from the Refinery.
 class Model {
-
-  buildDefaultModel(slug) {
-    const defaultModel = slug.replace(/-([a-z])/ig, (match, letter) => {
-      return letter.toUpperCase();
-    }).split('|');
-
-    return defaultModel;
-  };
 
   /**
    * build(data)
    * It is the initial function of Model class.
-   * It gets the data from the Refinery, and returns an object in the end.
+   * It gets the data from the Refinery, and returns an object as the result.
    * it returns null if the input is invalid.
    *
    * @param (Array) data
    */
   build(data) {
-    const defaultModel = this.buildDefaultModel(homepageApi.filters.slug);
-    const defaultModelStructure = {};
+    const defaultModelStructure = this.generateDefaultModel();
 
-    _map(defaultModel, d => {
-      defaultModelStructure[d] = [];
-    });
-
-    /**
-     * Make sure there's an input.
-     */
+     // Make sure there's an input.
     if (!data || !(_isArray(data))) {
       return defaultModelStructure;
     }
 
-    /**
-     * Make sure the data is not empty.
-     */
+    // Make sure the data is not empty.
     if (data.length > 0) {
       return this.modelAppData(_map(data, d => this.modelContainers(d)), defaultModelStructure);
     }
 
     return defaultModelStructure;
   }
+
+  /**
+   * generateDefaultModel()
+   * It generates the default data model. It returns a skeleton of the data structure with an empty
+   * array as the value of each item.
+   */
+  generateDefaultModel() {
+    const componentNamesArray = this.getComponentNames(homepageApi.filters.slug);
+    const defaultModelStructure = {};
+
+    _map(componentNamesArray, name => {
+      defaultModelStructure[name] = {};
+    });
+
+    return defaultModelStructure;
+  }
+
+  /**
+   * getComponentNames(slug)
+   * It extracts the names we need for the default model from the filters
+   * of the endpoint where the data comes from.
+   * It returns an empty array if no input.
+   *
+   * @param (String) slug
+   */
+  getComponentNames(slug) {
+    const componentNamesArray = (slug) ? slug.replace(/-([a-z])/ig,
+      (match, letter) => letter.toUpperCase()
+    ).split('|') : [];
+
+    return componentNamesArray;
+  };
 
   /**
    * modelAppData(dataArray, defaultData)
@@ -99,7 +111,7 @@ class Model {
    * @param (Object) componentDataObj
    */
   assignComponentName(componentDataObj) {
-    const componentNamesArray = this.buildDefaultModel(homepageApi.filters.slug);
+    const componentNamesArray = this.getComponentNames(homepageApi.filters.slug);
 
     let componentName;
 
@@ -115,21 +127,16 @@ class Model {
         return letter.toUpperCase();
       });
 
-      /**
-       * Check if the name matches any item in the preset name array.
-       */
+       // Check if the name matches any item in the preset name array.
       componentName = (_contains(componentNamesArray, nameString)) ? nameString : '';
     } catch (e) {
       console.log(e);
-      /**
-       * If any error is raised during the assigning, it will assign the default value.
-       */
+
+      // If any error is raised during the assigning, it will assign the default value.
       componentName = '';
     }
 
-    /**
-     * Return the result.
-     */
+    // Return the result.
     return componentName;
   }
 
@@ -139,6 +146,7 @@ class Model {
    *
    * @param (Object) dataObj
    */
+   
   modelContainers(dataObj) {
     /**
      * Assign an object to the input, check if the values inside the object are valid,
@@ -193,14 +201,19 @@ class Model {
         containerNameObj = name;
       })(dataObj);
     } catch (e) {
-      /**
-       * If any error is raised during the assigning, it will return the default value.
-       */
+
+      // If any error is raised during the assigning, it will return the default value.
       containerNameObj = {};
     }
     return containerNameObj;
   }
 
+  /**
+   * getContainerSlug(dataObj)
+   * Check if attributes.slug exists and return it as a string.
+   *
+   * @param (Object) dataObj
+   */
   getContainerSlug(dataObj) {
     let containerSlug;
 
@@ -219,9 +232,8 @@ class Model {
         containerSlug = slug;
       })(dataObj);
     } catch (e) {
-      /**
-       * If any error is raised during the assigning, it will return the default value.
-       */
+
+      // If any error is raised during the assigning, it will return the default value.
       containerSlug = '';
     }
     return containerSlug;
@@ -293,9 +305,8 @@ class Model {
 
       const currentItem = element['current-item'];
 
-      /**
-       * Check if different sizes of the images exist.
-       */
+
+      // Check if different sizes of the images exist.
       const bannerImage = currentItem['banner-image'] ?
         currentItem['banner-image'].attributes.uri : null;
       const rectangularImage = currentItem['rectangular-image'] ?
