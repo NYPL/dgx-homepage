@@ -42,9 +42,11 @@ class Model {
     const componentNamesArray = this.getComponentNames(homepageApi.filters.slug);
     const defaultModelStructure = {};
 
-    _map(componentNamesArray, name => {
-      defaultModelStructure[name] = {};
-    });
+    if(componentNamesArray && componentNamesArray.length) {
+      _map(componentNamesArray, name => {
+        defaultModelStructure[name] = {};
+      });
+    }
 
     return defaultModelStructure;
   }
