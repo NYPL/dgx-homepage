@@ -1,8 +1,9 @@
 import { homepageApi } from '../../../appConfig.js';
-import { isArray as _isArray,
-         map as _map,
-         contains as _contains,
-         isEmpty as _isEmpty,
+import {
+  isArray as _isArray,
+  map as _map,
+  contains as _contains,
+  isEmpty as _isEmpty,
 } from 'underscore';
 
 /**
