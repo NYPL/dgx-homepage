@@ -16,15 +16,15 @@ class HomepageStore {
     });
 
     this.on('init', () => {
-      this.carouselData = [],
-      this.learnSomethingNewData = [],
-      this.ofNoteData = [],
+      this.carouselData = {},
+      this.learnSomethingNewData = {},
+      this.ofNoteData = {},
       this.carouselIndexValue = 0,
-      this.staffPicksData = [],
-      this.recommendedRecentReleasesData = [],
-      this.whatsHappeningData = [],
+      this.staffPicksData = {},
+      this.recommendedRecentReleasesData = {},
+      this.whatsHappeningData = {},
       this.whatsHappeningIndexValue = 0,
-      this.fromOurBlogsData = []
+      this.fromOurBlogsData = {}
     });
   }
 
