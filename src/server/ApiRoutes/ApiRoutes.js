@@ -44,13 +44,13 @@ function HomepageApp(req, res, next) {
           // modelData is an object with keys as the name of the catagories of
           // the Homepage, and the values as the arrays consist of the items
           // in these categories
-          whatsHappeningData: homepageModelData['What\'sHappening'],
-          carouselData: homepageModelData.Banner,
-          learnSomethingNewData: homepageModelData.LearnSomethingNew,
-          ofNoteData: homepageModelData.OfNote,
-          fromOurBlogsData: homepageModelData.FromOurBlog,
-          staffPicksData: homepageModelData.StaffPicks,
-          recommendedRecentReleasesData: homepageModelData.RecommendedRecentReleases,
+          whatsHappeningData: homepageModelData.whatsHappening,
+          carouselData: homepageModelData.banner,
+          learnSomethingNewData: homepageModelData.learnSomethingNew,
+          ofNoteData: homepageModelData.ofNote,
+          fromOurBlogsData: homepageModelData.fromOurBlog,
+          staffPicksData: homepageModelData.staffPicks,
+          recommendedRecentReleasesData: homepageModelData.recommendedRecentReleases,
           carouselIndexValue: 0,
           whatsHappeningIndexValue: 0
         },

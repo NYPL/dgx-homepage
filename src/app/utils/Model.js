@@ -1,65 +1,88 @@
-import _ from 'underscore';
+import { homepageApi } from '../../../appConfig.js';
+import {
+  isArray as _isArray,
+  map as _map,
+  contains as _contains,
+  isEmpty as _isEmpty,
+} from 'underscore';
 
-/**
- * Model class extracts, cleans, and restructures the data from the Refinery.
- */
-
+// Model class extracts, cleans, and restructures the data from the Refinery.
 class Model {
 
   /**
    * build(data)
    * It is the initial function of Model class.
-   * It gets the data from the Refinery, and returns an object in the end.
+   * It gets the data from the Refinery, and returns an object as the result.
    * it returns null if the input is invalid.
    *
    * @param (Array) data
    */
   build(data) {
-    /**
-     * Make sure there's an input.
-     */
-    if (!data || !(_.isArray(data))) {
-      return null;
+    const defaultModelStructure = this.generateDefaultModel();
+
+     // Make sure there's an input.
+    if (!data || !(_isArray(data))) {
+      return defaultModelStructure;
     }
 
-    /**
-     * Make sure the data is not empty.
-     */
+    // Make sure the data is not empty.
     if (data.length > 0) {
-      return this.modelAppData(_.map(data, d => this.modelContainers(d)));
+      return this.modelAppData(_map(data, d => this.modelContainers(d)), defaultModelStructure);
     }
 
-    return null;
+    return defaultModelStructure;
   }
 
   /**
-   * modelAppData(dataArray)
+   * generateDefaultModel()
+   * It generates the default data model. It returns a skeleton of the data structure with an empty
+   * array as the value of each item.
+   */
+  generateDefaultModel() {
+    const componentNamesArray = this.getComponentNames(homepageApi.filters.slug);
+    const defaultModelStructure = {};
+
+    if(componentNamesArray.length) {
+      _map(componentNamesArray, name => {
+        defaultModelStructure[name] = {};
+      });
+    }
+
+    return defaultModelStructure;
+  }
+
+  /**
+   * getComponentNames(slug)
+   * It extracts the names we need for the default model from the filters
+   * of the endpoint where the data comes from.
+   * It returns an empty array if no input.
+   *
+   * @param (String) slug
+   */
+  getComponentNames(slug) {
+    const componentNamesArray = (slug) ? slug.replace(/-([a-z])/ig,
+      (match, letter) => letter.toUpperCase()
+    ).split('|') : [];
+
+    return componentNamesArray;
+  };
+
+  /**
+   * modelAppData(dataArray, defaultData)
    * Collect each modeled container data, and assigne them to different
-   * category based on its id. Finally, return an object with keys and values
+   * category in defaultData based on its id. Finally, return an object with keys and values
    * that are with preset types.
    *
    * @param (Array) dataArray
+   * @param (Object) defaultData
    */
-  modelAppData(dataArray) {
-    /**
-     * The input should be an array.
-     */
-    const appObjectData = {
-      'What\'sHappening': [],
-      Banner: [],
-      LearnSomethingNew: [],
-      OfNote: [],
-      FromOurBlog: [],
-      StaffPicks: [],
-      RecommendedRecentReleases: [],
-    };
-
+  modelAppData(dataArray, defaultData) {
     /**
      * If the input is null or it dose not have a valid type, that is an array,
      * it will return an empty object with preset key: value.
      */
-    if (!dataArray || !(_.isArray(dataArray))) {
-      return appObjectData;
+    if (!dataArray || !(_isArray(dataArray))) {
+      return defaultData;
     }
 
     /**
@@ -67,7 +90,7 @@ class Model {
      * and assign each item to a new object, appOjectData.
      */
     if (dataArray.length > 0) {
-      _.map(dataArray, d => {
+      _map(dataArray, d => {
         const componentName = this.assignComponentName(d);
 
         /**
@@ -75,11 +98,10 @@ class Model {
          * valid value. If the name is an empty string, then it won't return
          * the component data.
          */
-        appObjectData[componentName] = (componentName) ? d : {};
+        defaultData[componentName] = (componentName) ? d : {};
       });
     }
-
-    return appObjectData;
+    return defaultData;
   }
 
   /**
@@ -91,15 +113,7 @@ class Model {
    * @param (Object) componentDataObj
    */
   assignComponentName(componentDataObj) {
-    const componentNamesArray = [
-      'What\'sHappening',
-      'Banner',
-      'LearnSomethingNew',
-      'OfNote',
-      'FromOurBlog',
-      'StaffPicks',
-      'RecommendedRecentReleases',
-    ];
+    const componentNamesArray = this.getComponentNames(homepageApi.filters.slug);
 
     let componentName;
 
@@ -109,28 +123,22 @@ class Model {
      */
     try {
       const {
-        name: {
-          en: {
-            text,
-          },
-        },
+        slug
       } = componentDataObj;
-      const nameString = text.replace(/ /g, '');
+      const nameString = slug.replace(/-([a-z])/ig, (match, letter) => {
+        return letter.toUpperCase();
+      });
 
-      /**
-       * Check if the name matches any item in the preset name array.
-       */
-      componentName = (_.contains(componentNamesArray, nameString)) ? nameString : '';
+       // Check if the name matches any item in the preset name array.
+      componentName = (_contains(componentNamesArray, nameString)) ? nameString : '';
     } catch (e) {
-      /**
-       * If any error is raised during the assigning, it will assign the default value.
-       */
+      console.log(e);
+
+      // If any error is raised during the assigning, it will assign the default value.
       componentName = '';
     }
 
-    /**
-     * Return the result.
-     */
+    // Return the result.
     return componentName;
   }
 
@@ -140,6 +148,7 @@ class Model {
    *
    * @param (Object) dataObj
    */
+   
   modelContainers(dataObj) {
     /**
      * Assign an object to the input, check if the values inside the object are valid,
@@ -154,6 +163,7 @@ class Model {
         name: this.getContainerName(dataObj),
         children: children ? this.createChildren(children) : [],
         slots: slots ? this.createSlots(slots) : [],
+        slug: this.getContainerSlug(dataObj),
       };
     } catch (e) {
       /**
@@ -193,12 +203,42 @@ class Model {
         containerNameObj = name;
       })(dataObj);
     } catch (e) {
-      /**
-       * If any error is raised during the assigning, it will return the default value.
-       */
+
+      // If any error is raised during the assigning, it will return the default value.
       containerNameObj = {};
     }
     return containerNameObj;
+  }
+
+  /**
+   * getContainerSlug(dataObj)
+   * Check if attributes.slug exists and return it as a string.
+   *
+   * @param (Object) dataObj
+   */
+  getContainerSlug(dataObj) {
+    let containerSlug;
+
+    /**
+     * Assign an object to the input, check if the values inside the object are valid,
+     * and return the result as an object.
+     */
+    try {
+      ((Obj) => {
+        const {
+          attributes: {
+            slug = '',
+          },
+        } = Obj;
+
+        containerSlug = slug;
+      })(dataObj);
+    } catch (e) {
+
+      // If any error is raised during the assigning, it will return the default value.
+      containerSlug = '';
+    }
+    return containerSlug;
   }
 
   /**
@@ -208,11 +248,11 @@ class Model {
    * @param (Array) dataArray
    */
   createChildren(dataArray) {
-    if (!dataArray || !(_.isArray(dataArray))) {
+    if (!dataArray || !(_isArray(dataArray))) {
       return [];
     }
 
-    return _.map(dataArray, d => this.modelContainers(d));
+    return _map(dataArray, d => this.modelContainers(d));
   }
 
   /**
@@ -221,7 +261,7 @@ class Model {
    */
   getAuthorImage(obj) {
     let result;
-    if (!obj && _.isEmpty(obj)) {
+    if (!obj && _isEmpty(obj)) {
       return null;
     }
 
@@ -256,20 +296,19 @@ class Model {
    * @param (Array) dataArray
    */
   createSlots(dataArray) {
-    if (!dataArray || !(_.isArray(dataArray))) {
+    if (!dataArray || !(_isArray(dataArray))) {
       return [];
     }
 
     return dataArray.map((element) => {
-      if (_.isEmpty(element['current-item'])) {
+      if (_isEmpty(element['current-item'])) {
         return {};
       }
 
       const currentItem = element['current-item'];
 
-      /**
-       * Check if different sizes of the images exist.
-       */
+
+      // Check if different sizes of the images exist.
       const bannerImage = currentItem['banner-image'] ?
         currentItem['banner-image'].attributes.uri : null;
       const rectangularImage = currentItem['rectangular-image'] ?
