@@ -80,7 +80,7 @@
     }
 
     @include min-screen($tablet-portrait + 1px) {
-      left: 32px;
+      left: 15px;
     }
 
     @include min-screen($desktop) {
@@ -137,8 +137,11 @@
     margin: 0;
     background-color: transparent;
     color: #FFF;
-    font-size: 12px;
+    font-size: 13px;
+    text-transform: uppercase;
     line-height: 1.2em;
+    letter-spacing: .05em;
+    word-wrap: break-word;
     border: none;
 
     & > span {
@@ -160,9 +163,13 @@
       border-color: #FFF transparent transparent transparent;
       border-width: 2px;
       width: auto;
-      max-width: 80px;
+      max-width: 110px;
       text-align: left;
       padding: 9px 8px 7px;
+    }
+
+    @include min-screen($desktop) {
+      max-width: 110px;
     }
 
     &.active {
@@ -193,6 +200,10 @@
       color: #FFF;
     }
 
+    @include min-screen($tablet-portrait + 1px) {
+      left: 145px;
+    }
+
     @include min-screen($tablet-landscape + 1px) {
       max-width: 1313px;
       width: 100%;
@@ -219,7 +230,7 @@
       }
 
       @include min-screen($tablet-landscape + 1px) {
-        margin-left: 135px;
+        margin-left: 145px;
       }
     }
 
@@ -236,7 +247,7 @@
       }
 
       @include min-screen($tablet-landscape + 1px) {
-        margin-left: 135px;
+        margin-left: 145px;
       }
 
       @include min-screen($desktop) {
@@ -257,11 +268,11 @@
         @include displayVisuallyHidden;
         color: #FFF;
         width: auto; //Override displayVisuallyHidden width rule
-        margin: 25px 0 0;
+        margin: 25px 20px 0 0;
       }
 
       @include min-screen($tablet-landscape + 1px) {
-        margin-left: 135px;
+        margin-left: 145px;
       }
 
       @include min-screen($desktop) {
