@@ -39,8 +39,6 @@ function HomepageApp(req, res, next) {
         headerParsed = parser.parse(headerData.data, headerOptions),
         headerModelData = HeaderModel.build(headerParsed);
 
-        console.log(homepageParsed[0].slots[0]['current-item']['mobile-banner-image']);
-
       res.locals.data = {
         HomepageStore: {
           // modelData is an object with keys as the name of the catagories of
