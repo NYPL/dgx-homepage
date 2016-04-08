@@ -20,6 +20,7 @@ const config = {
       'slots.current-item.related-node.authors.headshot',
       // Should be children.slots but slots comes from above....
       'children.slots.current-item.rectangular-image',
+      'slots.current-item.mobile-banner-image.full-uri',
     ],
     filters: {
       // These slug names are under the 'slug' attributes for each container
