@@ -46,7 +46,7 @@ class App extends React.Component {
       fromOurBlogsData,
       ofNoteData,
       staffPicksData,
-      recommendedRecentReleasesData
+      recommendedRecentReleasesData,
     } = this.state;
 
     return (
@@ -65,8 +65,8 @@ class App extends React.Component {
           />
 
           <HomepageRow
-            title="What’s Happening"
-            link="/events"
+            title={whatsHappeningData.name}
+            link={whatsHappeningData.link}
             className="whatsHappeningRow hpRow nyplGrid"
             seeMoreId="whatsHappening-seeMore"
             content={
@@ -81,7 +81,7 @@ class App extends React.Component {
           />
 
           <HomepageRow
-            title="Learn Something New"
+            title={learnSomethingNewData.name}
             link={learnSomethingNewData.link}
             className="learnRow hpRow nyplGrid"
             seeMoreId="learn-seeMore"
@@ -97,7 +97,7 @@ class App extends React.Component {
 
           <div className="staffPicksRow bgPrimaryLibraryRed">
             <HomepageRow
-              title="Staff Picks"
+              title={staffPicksData.name}
               link={staffPicksData.link}
               className="hpRow nyplGrid-fullWidth"
               seeMoreId="staffPicks-SeeMore"
@@ -113,7 +113,7 @@ class App extends React.Component {
 
           <div className="bookListRow bgSecondaryLibraryRed">
             <HomepageRow
-              title="Recent Releases We Love"
+              title={recommendedRecentReleasesData.name}
               className="hpRow nyplGrid-fullWidth"
               seeMoreId="bookList-seeMore"
               content={
@@ -128,7 +128,7 @@ class App extends React.Component {
           </div>
 
           <HomepageRow
-            title="From Our Blog"
+            title={fromOurBlogsData.name}
             link={fromOurBlogsData.link}
             className="blogsRow hpRow nyplGrid"
             seeMoreId="blogs-seeMore"
@@ -142,7 +142,7 @@ class App extends React.Component {
           />
 
           <HomepageRow
-            title="Of Note"
+            title={ofNoteData.name}
             link={ofNoteData.link}
             className="ofNoteRow hpRow nyplGrid"
             seeMoreId="ofNote-seeMore"
