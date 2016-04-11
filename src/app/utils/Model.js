@@ -311,6 +311,8 @@ class Model {
       // Check if different sizes of the images exist.
       const bannerImage = currentItem['banner-image'] ?
         currentItem['banner-image'].attributes.uri : null;
+      const mobileBannerImage = currentItem['mobile-banner-image'] ?
+        currentItem['mobile-banner-image'].attributes.uri : null;
       const rectangularImage = currentItem['rectangular-image'] ?
           currentItem['rectangular-image'].attributes.uri : null;
       const bookCoverImage = currentItem['book-cover-image'] ?
@@ -337,6 +339,7 @@ class Model {
         shortTitle,
         image: {
           bannerImage,
+          mobileBannerImage,
           rectangularImage,
           bookCoverImage,
         },
