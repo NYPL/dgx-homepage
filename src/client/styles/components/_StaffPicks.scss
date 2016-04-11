@@ -118,16 +118,12 @@
         float: left;
       }
 
-      .nypl-icon-logo-mark {
-        color: #c51d12;
-        font-size: 80px;
-        width: 60px;
-        margin-right: 5px;
+      .svgIcon {
+        fill: #c51d12;
         float: left;
-
-        &:before {
-          margin-left: -20px;
-        }
+        height: 50px;
+        width: 50px;
+        margin: 12px 10px 0 0;
       }
 
       h3 {
@@ -218,9 +214,10 @@
       margin-top: 20px;
       margin-left: 5px;
 
-      .nypl-icon-logo-mark {
-        font-size: 100px;
-        width: 80px;
+      .svgIcon {
+        height: 60px;
+        width: 60px;
+        margin: 22px 10px 0 0;
       }
 
       h3 {
