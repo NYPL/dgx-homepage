@@ -114,6 +114,7 @@ class App extends React.Component {
           <div className="bookListRow bgSecondaryLibraryRed">
             <HomepageRow
               title={recommendedRecentReleasesData.name}
+              link={recommendedRecentReleasesData.link}
               className="hpRow nyplGrid-fullWidth"
               seeMoreId="bookList-seeMore"
               content={
