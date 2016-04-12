@@ -148,7 +148,7 @@ class Model {
    *
    * @param (Object) dataObj
    */
-   
+
   modelContainers(dataObj) {
     /**
      * Assign an object to the input, check if the values inside the object are valid,
@@ -164,6 +164,7 @@ class Model {
         children: children ? this.createChildren(children) : [],
         slots: slots ? this.createSlots(slots) : [],
         slug: this.getContainerSlug(dataObj),
+        link: this.getContainerLink(dataObj),
       };
     } catch (e) {
       /**
@@ -210,6 +211,30 @@ class Model {
     return containerNameObj;
   }
 
+  /**
+   * getContainerLink(dataObj)
+   * @desc Check if attributes.link exists and return the full-uri string value.
+   * @param {Object} dataObj
+   */
+  getContainerLink(dataObj) {
+    let containerLink;
+
+    try {
+      const {
+        attributes: {
+          link: {
+            'full-uri': url = '',
+          }
+        },
+      } = dataObj;
+
+      containerLink = url;
+    } catch (e) {
+      containerLink = '';
+    }
+
+    return containerLink;
+  }
   /**
    * getContainerSlug(dataObj)
    * Check if attributes.slug exists and return it as a string.
