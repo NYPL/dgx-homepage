@@ -1,6 +1,7 @@
 const Model = require('./../../../src/app/utils/Model.js');
 
-describe('NYPL Homepage Utils Unit Tests', () => {
+describe('NYPL Homepage Unit Test: ', () => {
+        // const generateDefaultModel = Model.generateDefaultModel;
   /*
    * Model.build
    * Model.build is the main function passes the data from the api endpoint to
@@ -15,16 +16,59 @@ describe('NYPL Homepage Utils Unit Tests', () => {
       expect(build).toBeDefined();
     });
 
-    it('should return null if there is no data input', () => {
-      expect(build()).toEqual(null);
+    it('should return default data skeleton if there is no data input', () => {
+      expect(build()).toEqual(
+        { whatsHappening: [],
+          banner: [],
+          learnSomethingNew: [],
+          ofNote: [],
+          fromOurBlog: [],
+          staffPicks: [],
+          recommendedRecentReleases: [],
+        }
+      );
     });
 
-    it('should return null if the data is an empty array', () => {
-      expect(build([])).toEqual(null);
+    it('should return default data skeleton if the data is an empty array', () => {
+      expect(build([])).toEqual(
+        { whatsHappening: [],
+          banner: [],
+          learnSomethingNew: [],
+          ofNote: [],
+          fromOurBlog: [],
+          staffPicks: [],
+          recommendedRecentReleases: [],
+        }
+      );
     });
 
-    it('should return null if the data is not an array', () => {
-      expect(build({})).toEqual(null);
+    it('should return default data skeleton if the data is not an array', () => {
+      expect(build({})).toEqual(
+        { whatsHappening: [  ],
+          banner: [  ],
+          learnSomethingNew: [  ],
+          ofNote: [  ],
+          fromOurBlog: [  ],
+          staffPicks: [  ],
+          recommendedRecentReleases: [  ] 
+        }
+      );
+    });
+  });
+
+  describe('Model: generateDefaultModel', () => {
+    const generateDefaultModel = Model.generateDefaultModel;
+
+    it('should have generateDefaultModel function', () => {
+      expect(generateDefaultModel).toBeDefined();
+    });
+  });
+
+  describe('Model: getComponentNames', () => {
+    const getComponentNames = Model.getComponentNames;
+
+    it('should have getComponentNames function', () => {
+      expect(getComponentNames).toBeDefined();
     });
   });
 
