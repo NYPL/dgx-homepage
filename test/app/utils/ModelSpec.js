@@ -1,7 +1,6 @@
 const Model = require('./../../../src/app/utils/Model.js');
 
 describe('NYPL Homepage Unit Test: ', () => {
-        // const generateDefaultModel = Model.generateDefaultModel;
   /*
    * Model.build
    * Model.build is the main function passes the data from the api endpoint to
