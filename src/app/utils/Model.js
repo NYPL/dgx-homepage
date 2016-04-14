@@ -287,7 +287,7 @@ class Model {
   getAuthorImage(obj) {
     let result;
     if (!obj && _isEmpty(obj)) {
-      return null;
+      return undefined;
     }
 
     try {
@@ -297,7 +297,7 @@ class Model {
             {
               headshot: {
                 attributes: {
-                  uri: image = null,
+                  uri: image = undefined,
                 },
               },
             },
@@ -308,7 +308,7 @@ class Model {
 
       result = image;
     } catch (e) {
-      result = null;
+      result = undefined;
     }
 
     return result;
