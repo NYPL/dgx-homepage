@@ -17,39 +17,39 @@ describe('NYPL Homepage Unit Test: ', () => {
 
     it('should return default data skeleton if there is no data input', () => {
       expect(build()).toEqual(
-        { whatsHappening: [],
-          banner: [],
-          learnSomethingNew: [],
-          ofNote: [],
-          fromOurBlog: [],
-          staffPicks: [],
-          recommendedRecentReleases: [],
+        { banner: {},
+          whatsHappening: {},
+          learnSomethingNew: {},
+          ofNote: {},
+          fromOurBlog: {},
+          staffPicks: {},
+          recommendedRecentReleases: {},
         }
       );
     });
 
     it('should return default data skeleton if the data is an empty array', () => {
       expect(build([])).toEqual(
-        { whatsHappening: [],
-          banner: [],
-          learnSomethingNew: [],
-          ofNote: [],
-          fromOurBlog: [],
-          staffPicks: [],
-          recommendedRecentReleases: [],
+        { banner: {},
+          whatsHappening: {},
+          learnSomethingNew: {},
+          ofNote: {},
+          fromOurBlog: {},
+          staffPicks: {},
+          recommendedRecentReleases: {},
         }
       );
     });
 
     it('should return default data skeleton if the data is not an array', () => {
       expect(build({})).toEqual(
-        { whatsHappening: [  ],
-          banner: [  ],
-          learnSomethingNew: [  ],
-          ofNote: [  ],
-          fromOurBlog: [  ],
-          staffPicks: [  ],
-          recommendedRecentReleases: [  ] 
+        { banner: {},
+          whatsHappening: {},
+          learnSomethingNew: {},
+          ofNote: {},
+          fromOurBlog: {},
+          staffPicks: {},
+          recommendedRecentReleases: {},
         }
       );
     });
@@ -80,39 +80,39 @@ describe('NYPL Homepage Unit Test: ', () => {
   describe('Model: modelAppData', () => {
     const modelAppData = Model.modelAppData;
     const defaultModelAppData = {
-      'What\'sHappening': [],
-      Banner: [],
-      LearnSomethingNew: [],
-      OfNote: [],
-      FromOurBlog: [],
-      StaffPicks: [],
-      RecommendedRecentReleases: [],
+      Banner: {},
+      'What\'sHappening': {},
+      LearnSomethingNew: {},
+      OfNote: {},
+      FromOurBlog: {},
+      StaffPicks: {},
+      RecommendedRecentReleases: {},
     };
 
     it('should have modelAppData function', () => {
       expect(modelAppData).toBeDefined();
     });
 
-    it('should return an object with default keys if the input is null', () => {
-      expect(modelAppData()).toEqual(
+    it('should return default data skeleton if the input is undefined', () => {
+      expect(modelAppData({}, defaultModelAppData)).toEqual(
         defaultModelAppData
       );
     });
 
-    it('should return an object with default keys if the input is not an array', () => {
-      expect(modelAppData({})).toEqual(
+    it('should return default data skeleton if the input is not an array', () => {
+      expect(modelAppData({}, defaultModelAppData)).toEqual(
         defaultModelAppData
       );
     });
 
-    it('should return an object with default keys if the input is not an array', () => {
-      expect(modelAppData('')).toEqual(
+    it('should return default data skeleton if the input is not an array', () => {
+      expect(modelAppData('', defaultModelAppData)).toEqual(
         defaultModelAppData
       );
     });
 
-    it('should return an object with default keys if the input is an empty array', () => {
-      expect(modelAppData([])).toEqual(defaultModelAppData);
+    it('should return default data skeleton if the input is an empty array', () => {
+      expect(modelAppData([], defaultModelAppData)).toEqual(defaultModelAppData);
     });
   });
 
@@ -140,7 +140,6 @@ describe('NYPL Homepage Unit Test: ', () => {
     });
   });
 
-  
   /** Model.modelContainers
    * Model.modelContainers is the function restructures the data from api endpoint to
    * a new object inlcudes the new keys and assignes the values to each component.
@@ -154,6 +153,8 @@ describe('NYPL Homepage Unit Test: ', () => {
       name: {},
       children: [],
       slots: [],
+      slug: '',
+      link: '',
     };
 
     it('should have modelContainers function', () => {
