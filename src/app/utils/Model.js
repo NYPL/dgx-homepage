@@ -287,7 +287,7 @@ function Model() {
     getAuthorImage(obj) {
       let result;
       if (!obj && _isEmpty(obj)) {
-        return null;
+        return undefined;
       }
 
       try {
@@ -297,7 +297,7 @@ function Model() {
               {
                 headshot: {
                   attributes: {
-                    uri: image = null,
+                    uri: image = undefined,
                   },
                 },
               },
@@ -308,7 +308,7 @@ function Model() {
 
         result = image;
       } catch (e) {
-        result = null;
+        result = undefined;
       }
 
       return result;
@@ -331,26 +331,27 @@ function Model() {
         }
 
         const currentItem = element['current-item'];
+
+
         // Check if different sizes of the images exist.
         const bannerImage = currentItem['banner-image'] ?
-          currentItem['banner-image'].attributes.uri : null;
+          currentItem['banner-image'].attributes.uri : undefined;
         const mobileBannerImage = currentItem['mobile-banner-image'] ?
-          currentItem['mobile-banner-image'].attributes.uri : null;
+          currentItem['mobile-banner-image'].attributes.uri : undefined;
         const rectangularImage = currentItem['rectangular-image'] ?
-            currentItem['rectangular-image'].attributes.uri : null;
+            currentItem['rectangular-image'].attributes.uri : undefined;
         const bookCoverImage = currentItem['book-cover-image'] ?
-            currentItem['book-cover-image'].attributes.uri : null;
-        const date = currentItem.attributes.date ? currentItem.attributes.date : null;
-        const shortTitle = (currentItem.attributes &&
-          currentItem.attributes['banner-short-title']) ?
-          currentItem.attributes['banner-short-title'] : null;
+            currentItem['book-cover-image'].attributes.uri : undefined;
+        const date = currentItem.attributes.date ? currentItem.attributes.date : undefined;
+        const shortTitle = (currentItem.attributes && currentItem.attributes['banner-short-title']) ?
+          currentItem.attributes['banner-short-title'] : undefined;
         const firstName = currentItem.attributes['person-first-name'] ?
-            currentItem.attributes['person-first-name'] : null;
+            currentItem.attributes['person-first-name'] : undefined;
         const lastName = currentItem.attributes['person-last-name'] ?
-            currentItem.attributes['person-last-name'] : null;
+            currentItem.attributes['person-last-name'] : undefined;
         const authorTitle = currentItem.attributes['person-title'] ?
-            currentItem.attributes['person-title'] : null;
-        const location = currentItem.attributes.location ? currentItem.attributes.location : null;
+            currentItem.attributes['person-title'] : undefined;
+        const location = currentItem.attributes.location ? currentItem.attributes.location : undefined;
         const authorImage = this.getAuthorImage(currentItem);
 
         return {
@@ -380,7 +381,7 @@ function Model() {
         };
       });
     },
-  };
+  }
 }
 
 export default new Model();
