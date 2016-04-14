@@ -8,7 +8,6 @@ import {
 
 // Model class extracts, cleans, and restructures the data from the Refinery.
 function Model() {
-  return {
 
     /**
      * build(data)
@@ -18,7 +17,7 @@ function Model() {
      *
      * @param (Array) data
      */
-    build(data) {
+    this.build = data => {
       const defaultModelStructure = this.generateDefaultModel();
 
        // Make sure there's an input.
@@ -26,20 +25,20 @@ function Model() {
         return defaultModelStructure;
       }
 
-      // Make sure the data is not empty.
+      // // Make sure the data is not empty.
       if (data.length > 0) {
         return this.modelAppData(_map(data, d => this.modelContainers(d)), defaultModelStructure);
       }
 
       return defaultModelStructure;
-    },
+    }
 
     /**
      * generateDefaultModel()
      * It generates the default data model. It returns a skeleton of the data structure with
      * an empty array as the value of each item.
      */
-    generateDefaultModel() {
+    this.generateDefaultModel = () => {
       const componentNamesArray = this.getComponentNames(homepageApi.filters.slug);
       const defaultModelStructure = {};
 
@@ -50,7 +49,7 @@ function Model() {
       }
 
       return defaultModelStructure;
-    },
+    }
 
     /**
      * getComponentNames(slug)
@@ -60,7 +59,7 @@ function Model() {
      *
      * @param (String) slug
      */
-    getComponentNames(slug) {
+    this.getComponentNames = slug => {
       const componentNamesArray = (slug) ? slug.replace(/-([a-z])/ig,
         (match, letter) => letter.toUpperCase()
       ).split('|') : [];
@@ -77,7 +76,7 @@ function Model() {
      * @param (Array) dataArray
      * @param (Object) defaultData
      */
-    modelAppData(dataArray, defaultData) {
+    this.modelAppData = (dataArray, defaultData) => {
       /**
        * If the input is null or it dose not have a valid type, that is an array,
        * it will return an empty object with preset key: value.
@@ -113,7 +112,7 @@ function Model() {
      *
      * @param (Object) componentDataObj
      */
-    assignComponentName(componentDataObj) {
+    this.assignComponentName = componentDataObj => {
       const componentNamesArray = this.getComponentNames(homepageApi.filters.slug);
 
       let componentName;
@@ -149,8 +148,7 @@ function Model() {
      *
      * @param (Object) dataObj
      */
-
-    modelContainers(dataObj) {
+    this.modelContainers = dataObj => {
       /**
        * Assign an object to the input, check if the values inside the object are valid,
        * and return the result as an object.
@@ -187,7 +185,7 @@ function Model() {
      *
      * @param (Object) dataObj
      */
-    getContainerName(dataObj) {
+    this.getContainerName = dataObj => {
       let containerNameObj;
 
       /**
@@ -216,7 +214,7 @@ function Model() {
      * @desc Check if attributes.link exists and return the full-uri string value.
      * @param {Object} dataObj
      */
-    getContainerLink(dataObj) {
+    this.getContainerLink = dataObj => {
       let containerLink;
 
       try {
@@ -242,7 +240,7 @@ function Model() {
      *
      * @param (Object) dataObj
      */
-    getContainerSlug(dataObj) {
+    this.getContainerSlug = dataObj => {
       let containerSlug;
 
       /**
@@ -272,7 +270,7 @@ function Model() {
      *
      * @param (Array) dataArray
      */
-    createChildren(dataArray) {
+    this.createChildren = dataArray => {
       if (!dataArray || !(_isArray(dataArray))) {
         return [];
       }
@@ -284,7 +282,7 @@ function Model() {
      * Uses ES6 Destructuring to extract author's image object properties.
      * @returns {object} returns { full-uri: (string), description: (string)}.
      */
-    getAuthorImage(obj) {
+    this.getAuthorImage = obj => {
       let result;
       if (!obj && _isEmpty(obj)) {
         return undefined;
@@ -320,7 +318,7 @@ function Model() {
      *
      * @param (Array) dataArray
      */
-    createSlots(dataArray) {
+    this.createSlots = dataArray => {
       if (!dataArray || !(_isArray(dataArray))) {
         return [];
       }
@@ -380,8 +378,22 @@ function Model() {
           location,
         };
       });
-    },
-  }
+    }
+
+  return {
+    build: this.build,
+    generateDefaultModel: this.generateDefaultModel,
+    getComponentNames: this.getComponentNames,
+    modelAppData: this.modelAppData,
+    assignComponentName: this.assignComponentName,
+    modelContainers: this.modelContainers,
+    getContainerName: this.getContainerName,
+    getContainerLink: this.getContainerLink,
+    getContainerSlug: this.getContainerSlug,
+    creatChildren: this.createChildren,
+    getAuthorImage: this.getAuthorImage,
+    createSlots: this.createSlots,
+  };
 }
 
 export default new Model();

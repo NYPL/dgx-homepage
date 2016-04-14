@@ -1,7 +1,7 @@
-const Model = require('./../../../src/app/utils/Model.js');
+import Model from './../../../src/app/utils/Model.js';
 
 describe('NYPL Homepage Unit Test: ', () => {
-  /*
+  /**
    * Model.build
    * Model.build is the main function passes the data from the api endpoint to
    * extract the value we need.
@@ -71,7 +71,7 @@ describe('NYPL Homepage Unit Test: ', () => {
     });
   });
 
-  /*
+  /**
    * Model.modelAppData
    * Model.modelAppData is the function restructures the data from the api endpoint to
    * catogorize it into different sub objects by each sub object's different name.
@@ -116,7 +116,7 @@ describe('NYPL Homepage Unit Test: ', () => {
     });
   });
 
-  /* Model.assignComponentName
+  /** Model.assignComponentName
    * Model.assignComponentName is the function that extract the name from old data, and rename it
    * for a clearer structure.
    */
@@ -140,8 +140,8 @@ describe('NYPL Homepage Unit Test: ', () => {
     });
   });
 
-  /*
-   * Model.modelContainers
+  
+  /** Model.modelContainers
    * Model.modelContainers is the function restructures the data from api endpoint to
    * a new object inlcudes the new keys and assignes the values to each component.
    * It eventually returns an object with the keys and values back to Model.modelAppData.
@@ -179,7 +179,7 @@ describe('NYPL Homepage Unit Test: ', () => {
     );
   });
 
-  /*
+  /**
    * Model.getContainerName
    * Model.getContainerName is the function to check if atributes.name exsits.
    * If it does, the function returns the value, if not, it catch the error and return an empty
@@ -193,7 +193,7 @@ describe('NYPL Homepage Unit Test: ', () => {
     });
   });
 
-  /*
+  /**
    * Model.createChildren
    * Model.createChildren is the function restructures the data of the children subobject of a
    * component
@@ -211,7 +211,7 @@ describe('NYPL Homepage Unit Test: ', () => {
     });
   });
 
-  /*
+  /**
    * Model.createSlots
    * Model.createSlots is the function restructures the data of the slots subobject of a
    * component
