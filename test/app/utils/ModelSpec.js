@@ -8,15 +8,18 @@ describe('NYPL Homepage Unit Test: ', () => {
    * It eventually returns an object with the keys and values for all the
    * components to the Store.
    */
+
+   /* decribe('build') */
   describe('Model: build', () => {
     const build = Model.build;
-
+/* no need to check exisit */
     it('should have build function', () => {
       expect(build).toBeDefined();
     });
 
     it('should return default data skeleton if there is no data input', () => {
       expect(build()).toEqual(
+        // make it a variable
         { banner: {},
           whatsHappening: {},
           learnSomethingNew: {},
