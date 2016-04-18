@@ -15,6 +15,7 @@ import analytics from './analytics.js';
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
 import webpackConfig from './webpack.config.js';
+import apiRoutes from './src/server/ApiRoutes/ApiRoutes.js';
 
 import Application from './src/app/components/Application/Application.jsx';
 
@@ -24,10 +25,10 @@ const DIST_PATH = path.resolve(ROOT_PATH, 'dist');
 const VIEWS_PATH = path.resolve(ROOT_PATH, 'src/views');
 const WEBPACK_DEV_PORT = appConfig.webpackDevServerPort || 3000;
 
-let isProduction = process.env.NODE_ENV === 'production',
+let isProduction = process.env.NODE_ENV === 'production';
   // Assign API Routes
-  apiRoutes = require('./src/server/ApiRoutes/ApiRoutes.js'),
-  app = express();
+
+let app = express();
 
 app.use(compress());
 

@@ -1,4 +1,4 @@
-import { homepageApi } from '../../../appConfig.js';
+import config from '../../../appConfig.js';
 import {
   isArray as _isArray,
   map as _map,
@@ -38,7 +38,7 @@ function Model() {
    * an empty array as the value of each item.
    */
   this.generateDefaultModel = () => {
-    const componentNamesArray = this.getComponentNames(homepageApi.filters.slug);
+    const componentNamesArray = this.getComponentNames(config.homepageApi.filters.slug);
     const defaultModelStructure = {};
 
     if (componentNamesArray.length) {
@@ -112,7 +112,7 @@ function Model() {
    * @param (Object) componentDataObj
    */
   this.assignComponentName = componentDataObj => {
-    const componentNamesArray = this.getComponentNames(homepageApi.filters.slug);
+    const componentNamesArray = this.getComponentNames(config.homepageApi.filters.slug);
 
     let componentName;
 

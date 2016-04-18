@@ -72,7 +72,7 @@ if (ENV === 'development') {
         {
           test: /\.jsx?$/,
           exclude: /(node_modules|bower_components)/,
-          loaders: 'babel',
+          loader: 'babel',
           query: {
             presets: ['react', 'es2015']
           }
@@ -103,7 +103,7 @@ if (ENV === 'production') {
         {
           test: /\.jsx?$/,
           exclude: /(node_modules|bower_components)/,
-          loaders: 'babel',
+          loader: 'babel',
           query: {
             presets: ['react', 'es2015']
           }
