@@ -4,13 +4,13 @@ import parser from 'jsonapi-parserinator';
 
 import HeaderModel from '../../app/utils/HeaderItemModel.js';
 import Model from '../../app/utils/Model.js';
-import { api, homepageApi, headerApi } from '../../../appConfig.js';
+import config from '../../../appConfig.js';
 
 let router = express.Router(),
   appEnvironment = process.env.APP_ENV || 'production',
-  apiRoot = api.root[appEnvironment],
-  headerOptions = createOptions(headerApi),
-  homepageOptions = createOptions(homepageApi);
+  apiRoot = config.api.root[appEnvironment],
+  headerOptions = createOptions(config.headerApi),
+  homepageOptions = createOptions(config.homepageApi);
 
 function createOptions(api) {
   return {
