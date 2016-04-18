@@ -6,11 +6,11 @@ import HeaderModel from '../../app/utils/HeaderItemModel.js';
 import Model from '../../app/utils/Model.js';
 import config from '../../../appConfig.js';
 
-let router = express.Router(),
-  appEnvironment = process.env.APP_ENV || 'production',
-  apiRoot = config.api.root[appEnvironment],
-  headerOptions = createOptions(config.headerApi),
-  homepageOptions = createOptions(config.homepageApi);
+const router = express.Router();
+const appEnvironment = process.env.APP_ENV || 'production';
+const apiRoot = config.api.root[appEnvironment];
+const headerOptions = createOptions(config.headerApi);
+const homepageOptions = createOptions(config.homepageApi);
 
 function createOptions(api) {
   return {
@@ -34,10 +34,10 @@ function HomepageApp(req, res, next) {
 
   axios.all([getHeaderData(), fetchApiData(homepageApiUrl)])
     .then(axios.spread((headerData, homepageData) => {
-      let homepageParsed = parser.parse(homepageData.data, homepageOptions),
-        homepageModelData = Model.build(homepageParsed),
-        headerParsed = parser.parse(headerData.data, headerOptions),
-        headerModelData = HeaderModel.build(headerParsed);
+      const homepageParsed = parser.parse(homepageData.data, homepageOptions);
+      const homepageModelData = Model.build(homepageParsed);
+      const headerParsed = parser.parse(headerData.data, headerOptions);
+      const headerModelData = HeaderModel.build(headerParsed);
 
       res.locals.data = {
         HomepageStore: {
@@ -52,14 +52,14 @@ function HomepageApp(req, res, next) {
           staffPicksData: homepageModelData.staffPicks,
           recommendedRecentReleasesData: homepageModelData.recommendedRecentReleases,
           carouselIndexValue: 0,
-          whatsHappeningIndexValue: 0
+          whatsHappeningIndexValue: 0,
         },
         HeaderStore: {
           headerData: headerModelData,
         },
         // Set the API URL here so we can access it when we
         // render in the EJS file.
-        completeApiUrl: ''
+        completeApiUrl: '',
       };
 
       next();
@@ -70,7 +70,7 @@ function HomepageApp(req, res, next) {
 
       res.locals.data = {
         Store: {
-          _storeVar: []
+          _storeVar: [],
         },
       };
       next();

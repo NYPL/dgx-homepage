@@ -40,10 +40,8 @@
 //     });
 //   });
 // });
-import chai from 'chai';
+import { expect } from 'chai';
 import Model from './../src/app/utils/Model.js';
-
-chai.expect();
 
 describe('NYPL Homepage Model Unit Test: ', () => {
   /**
@@ -53,7 +51,6 @@ describe('NYPL Homepage Model Unit Test: ', () => {
    * It eventually returns an object with the keys and values for all the
    * components to the Store.
    */
-
   describe('build', () => {
     const build = Model.build;
     const defaultDataStructure = {
@@ -66,34 +63,16 @@ describe('NYPL Homepage Model Unit Test: ', () => {
       recommendedRecentReleases: {},
     };
 
-    it('should return default data skeleton if there is no data input', () => {
-      expect(build()).to.equal(defaultDataStructure);
-    });
+    // it('should return default data skeleton if there is no data input', () => {
+    //   expect(build()).to.equal(defaultDataStructure);
+    // });
 
     it('should return default data skeleton if the data is an empty array', () => {
-      expect(build([])).toEqual(
-        { banner: {},
-          whatsHappening: {},
-          learnSomethingNew: {},
-          ofNote: {},
-          fromOurBlog: {},
-          staffPicks: {},
-          recommendedRecentReleases: {},
-        }
-      );
+      expect(build([])).to.equal(defaultDataStructure);
     });
 
     it('should return default data skeleton if the data is not an array', () => {
-      expect(build({})).toEqual(
-        { banner: {},
-          whatsHappening: {},
-          learnSomethingNew: {},
-          ofNote: {},
-          fromOurBlog: {},
-          staffPicks: {},
-          recommendedRecentReleases: {},
-        }
-      );
+      expect(build({})).to.equal(defaultDataStructure);
     });
   });
 
