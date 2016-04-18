@@ -11,10 +11,6 @@ describe('NYPL Homepage Unit Test: ', () => {
   describe('Model: build', () => {
     const build = Model.build;
 
-    it('should have build function', () => {
-      expect(build).toBeDefined();
-    });
-
     it('should return default data skeleton if there is no data input', () => {
       expect(build()).toEqual(
         { banner: {},
@@ -57,18 +53,10 @@ describe('NYPL Homepage Unit Test: ', () => {
 
   describe('Model: generateDefaultModel', () => {
     const generateDefaultModel = Model.generateDefaultModel;
-
-    it('should have generateDefaultModel function', () => {
-      expect(generateDefaultModel).toBeDefined();
-    });
   });
 
   describe('Model: getComponentNames', () => {
     const getComponentNames = Model.getComponentNames;
-
-    it('should have getComponentNames function', () => {
-      expect(getComponentNames).toBeDefined();
-    });
   });
 
   /**
@@ -88,10 +76,6 @@ describe('NYPL Homepage Unit Test: ', () => {
       StaffPicks: {},
       RecommendedRecentReleases: {},
     };
-
-    it('should have modelAppData function', () => {
-      expect(modelAppData).toBeDefined();
-    });
 
     it('should return default data skeleton if the input is undefined', () => {
       expect(modelAppData({}, defaultModelAppData)).toEqual(
@@ -123,10 +107,6 @@ describe('NYPL Homepage Unit Test: ', () => {
   describe('Model.assignComponentName', () => {
     const assignComponentName = Model.assignComponentName;
 
-    it('should have assignComponentName function', () => {
-      expect(assignComponentName).toBeDefined();
-    });
-
     it('should return undefined if the input does not exist', () => {
       expect(assignComponentName()).toEqual('');
     });
@@ -157,10 +137,6 @@ describe('NYPL Homepage Unit Test: ', () => {
       link: '',
     };
 
-    it('should have modelContainers function', () => {
-      expect(modelContainers).toBeDefined();
-    });
-
     it('should return the objcet with default key/value if there is no input', () => {
       expect(modelContainers()).toEqual(defaultContainerData);
     });
@@ -188,10 +164,6 @@ describe('NYPL Homepage Unit Test: ', () => {
    */
   describe('Model: getContainerName', () => {
     const getContainerName = Model.getContainerName;
-
-    it('should have getContainerName function', () => {
-      expect(getContainerName).toBeDefined();
-    });
   });
 
   /**
@@ -202,9 +174,6 @@ describe('NYPL Homepage Unit Test: ', () => {
   describe('Model: createChildren', () => {
     const createChildren = Model.createChildren;
 
-    it('should have createChildren function', () => {
-      expect(createChildren).toBeDefined();
-    });
     it('should return an empty array if no data input or it is not an array', () => {
       expect(createChildren()).toEqual([]);
       expect(createChildren('')).toEqual([]);
@@ -220,9 +189,6 @@ describe('NYPL Homepage Unit Test: ', () => {
   describe('Model: createSlots', () => {
     const createSlots = Model.createSlots;
 
-    it('should have createSlots function', () => {
-      expect(createSlots).toBeDefined();
-    });
     it('should return an empty array if no data input or the input is not an array', () => {
       expect(createSlots()).toEqual([]);
       expect(createSlots('')).toEqual([]);
