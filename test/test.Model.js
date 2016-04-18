@@ -40,8 +40,10 @@
 //     });
 //   });
 // });
-
+import chai from 'chai';
 import Model from './../src/app/utils/Model.js';
+
+chai.expect();
 
 describe('NYPL Homepage Model Unit Test: ', () => {
   /**
