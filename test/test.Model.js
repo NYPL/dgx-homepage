@@ -1,6 +1,49 @@
-import Model from './../../../src/app/utils/Model.js';
+// import Model from './../src/app/utils/Model.js';
 
-describe('NYPL Homepage Unit Test: ', () => {
+// var expect = require('chai').expect
+//   , foo = 'bar'
+//   , beverages = { tea: [ 'chai', 'matcha', 'oolong' ] };
+
+// // expect(foo).to.be.a('string');
+// // expect(foo).to.equal('bar');
+// // expect(foo).to.have.length(3);
+// // expect(beverages).to.have.property('tea').with.length(3);
+
+// // var assert = require('chai').assert;
+
+// describe('NYPL Homepage Unit Test: ', function() {
+//   describe('Model: build', function () {
+//      const build = Model.build;
+//     // it('should have build function', function () {
+//     //   // assert.equal(-1, [1,2,3].indexOf(5));
+//     //   // assert.equal(-1, [1,2,3].indexOf(0));
+//     //   // expect(foo).to.be.a('string');
+//     //   // expect(foo).to.equal('bar');
+//     //   // expect(foo).to.have.length(3);
+//     //   // expect(beverages).to.have.property('tea').with.length(3);
+//     //    expect(build).toBeDefined();
+
+
+//     // });
+//         it('should return default data skeleton if there is no data input', () => {
+//       expect(build()).to.equal(
+//         // make it a variable
+//         { banner: {},
+//           whatsHappening: {},
+//           learnSomethingNew: {},
+//           ofNote: {},
+//           fromOurBlog: {},
+//           staffPicks: {},
+//           recommendedRecentReleases: {},
+//         }
+//       );
+//     });
+//   });
+// });
+
+import Model from './../src/app/utils/Model.js';
+
+describe('NYPL Homepage Model Unit Test: ', () => {
   /**
    * Model.build
    * Model.build is the main function passes the data from the api endpoint to
@@ -9,26 +52,20 @@ describe('NYPL Homepage Unit Test: ', () => {
    * components to the Store.
    */
 
-   /* decribe('build') */
-  describe('Model: build', () => {
+  describe('build', () => {
     const build = Model.build;
-/* no need to check exisit */
-    it('should have build function', () => {
-      expect(build).toBeDefined();
-    });
+    const defaultDataStructure = {
+      banner: {},
+      whatsHappening: {},
+      learnSomethingNew: {},
+      ofNote: {},
+      fromOurBlog: {},
+      staffPicks: {},
+      recommendedRecentReleases: {},
+    };
 
     it('should return default data skeleton if there is no data input', () => {
-      expect(build()).toEqual(
-        // make it a variable
-        { banner: {},
-          whatsHappening: {},
-          learnSomethingNew: {},
-          ofNote: {},
-          fromOurBlog: {},
-          staffPicks: {},
-          recommendedRecentReleases: {},
-        }
-      );
+      expect(build()).to.equal(defaultDataStructure);
     });
 
     it('should return default data skeleton if the data is an empty array', () => {
