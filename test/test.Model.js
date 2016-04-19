@@ -18,24 +18,16 @@ describe('NYPL Homepage Model Unit Test: ', () => {
       staffPicks: {},
       recommendedRecentReleases: {},
       fromOurBlog: {},
-      ofNote: {}
+      ofNote: {},
     };
 
     it('should return default data skeleton if the data is an empty array', () => {
-      expect(build([])).to.equal(defaultDataStructure);
+      expect(build([])).to.deep.equal(defaultDataStructure);
     });
 
     it('should return default data skeleton if the data is not an array', () => {
-      expect(build({})).to.equal(defaultDataStructure);
+      expect(build({})).to.deep.equal(defaultDataStructure);
     });
-  });
-
-  describe('generateDefaultModel', () => {
-    const generateDefaultModel = Model.generateDefaultModel;
-  });
-
-  describe('getComponentNames', () => {
-    const getComponentNames = Model.getComponentNames;
   });
 
   /**
@@ -83,7 +75,7 @@ describe('NYPL Homepage Model Unit Test: ', () => {
    * Model.assignComponentName is the function that extract the name from old data, and rename it
    * for a clearer structure.
    */
-  describe('Model.assignComponentName', () => {
+  describe('assignComponentName', () => {
     const assignComponentName = Model.assignComponentName;
 
     it('should return undefined if the input does not exist', () => {
@@ -113,36 +105,26 @@ describe('NYPL Homepage Model Unit Test: ', () => {
       children: [],
       slots: [],
       slug: '',
-      link: ''
+      link: '',
     };
 
     it('should return the objcet with default key/value if there is no input', () => {
-      expect(modelContainers()).to.equal(defaultContainerData);
+      expect(modelContainers()).to.deep.equal(defaultContainerData);
     });
 
     it('should return the objcet with default key/value if the input is not an object', () => {
-      expect(modelContainers('')).to.equal(defaultContainerData);
+      expect(modelContainers('')).to.deep.equal(defaultContainerData);
     });
 
     it('should return the objcet with default key/value if the input is not an object', () => {
-      expect(modelContainers([])).to.equal(defaultContainerData);
+      expect(modelContainers([])).to.deep.equal(defaultContainerData);
     });
 
     it('should return return the objcet with default key/value if the input is an empty object',
       () => {
-        expect(modelContainers({})).t.equal(defaultContainerData);
+        expect(modelContainers({})).to.deep.equal(defaultContainerData);
       }
     );
-  });
-
-  /**
-   * Model.getContainerName
-   * Model.getContainerName is the function to check if atributes.name exsits.
-   * If it does, the function returns the value, if not, it catch the error and return an empty
-   * object.
-   */
-  describe('getContainerName', () => {
-    const getContainerName = Model.getContainerName;
   });
 
   /**
@@ -154,9 +136,9 @@ describe('NYPL Homepage Model Unit Test: ', () => {
     const createChildren = Model.createChildren;
 
     it('should return an empty array if no data input or it is not an array', () => {
-      expect(createChildren()).to.equal([]);
-      expect(createChildren('')).to.equal([]);
-      expect(createChildren({})).to.equal([]);
+      expect(createChildren()).to.deep.equal([]);
+      expect(createChildren('')).to.deep.equal([]);
+      expect(createChildren({})).to.deep.equal([]);
     });
   });
 
@@ -169,9 +151,9 @@ describe('NYPL Homepage Model Unit Test: ', () => {
     const createSlots = Model.createSlots;
 
     it('should return an empty array if no data input or the input is not an array', () => {
-      expect(createSlots()).to.equal([]);
-      expect(createSlots('')).to.equal([]);
-      expect(createSlots({})).to.equal([]);
+      expect(createSlots()).to.deep.equal([]);
+      expect(createSlots('')).to.deep.equal([]);
+      expect(createSlots({})).to.deep.equal([]);
     });
   });
 });
