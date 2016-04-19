@@ -82,7 +82,7 @@
     "dgx-booklist-component": "git+ssh://git@bitbucket.org/NYPL/dgx-booklist-component.git#v0.0.8",
     "dgx-feature-row-component": "git+ssh://git@bitbucket.org/NYPL/dgx-feature-row-component.git#v0.0.11",
     "dgx-header-component": "git+ssh://git@bitbucket.org/NYPL/dgx-header-component.git#reactv0.13",
-    "dgx-homepage-carousel-component": "git+ssh://git@bitbucket.org/NYPL/dgx-homepage-carousel-component#v0.0.12",
+    "dgx-homepage-carousel-component": "git+ssh://git@bitbucket.org/NYPL/dgx-homepage-carousel-component#v0.0.13",
     "dgx-homepage-row-component": "git+ssh://git@bitbucket.org/NYPL/dgx-homepage-row-component.git#v0.0.11",
     "dgx-homepage-staff-picks-component": "git+ssh://git@bitbucket.org/NYPL/dgx-homepage-staff-picks-component.git#v0.0.9",
     "dgx-react-footer": "git+ssh://git@bitbucket.org/NYPL/dgx-react-footer.git#v0.0.4.1",
