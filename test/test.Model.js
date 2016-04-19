@@ -1,6 +1,7 @@
-import Model from './../../../src/app/utils/Model.js';
+import { expect } from 'chai';
+import Model from './../src/app/utils/Model.js';
 
-describe('NYPL Homepage Unit Test: ', () => {
+describe('NYPL Homepage Model Unit Test: ', () => {
   /**
    * Model.build
    * Model.build is the main function passes the data from the api endpoint to
@@ -8,55 +9,25 @@ describe('NYPL Homepage Unit Test: ', () => {
    * It eventually returns an object with the keys and values for all the
    * components to the Store.
    */
-  describe('Model: build', () => {
+  describe('build', () => {
     const build = Model.build;
-
-    it('should return default data skeleton if there is no data input', () => {
-      expect(build()).toEqual(
-        { banner: {},
-          whatsHappening: {},
-          learnSomethingNew: {},
-          ofNote: {},
-          fromOurBlog: {},
-          staffPicks: {},
-          recommendedRecentReleases: {},
-        }
-      );
-    });
+    const defaultDataStructure = {
+      banner: {},
+      whatsHappening: {},
+      learnSomethingNew: {},
+      staffPicks: {},
+      recommendedRecentReleases: {},
+      fromOurBlog: {},
+      ofNote: {},
+    };
 
     it('should return default data skeleton if the data is an empty array', () => {
-      expect(build([])).toEqual(
-        { banner: {},
-          whatsHappening: {},
-          learnSomethingNew: {},
-          ofNote: {},
-          fromOurBlog: {},
-          staffPicks: {},
-          recommendedRecentReleases: {},
-        }
-      );
+      expect(build([])).to.deep.equal(defaultDataStructure);
     });
 
     it('should return default data skeleton if the data is not an array', () => {
-      expect(build({})).toEqual(
-        { banner: {},
-          whatsHappening: {},
-          learnSomethingNew: {},
-          ofNote: {},
-          fromOurBlog: {},
-          staffPicks: {},
-          recommendedRecentReleases: {},
-        }
-      );
+      expect(build({})).to.deep.equal(defaultDataStructure);
     });
-  });
-
-  describe('Model: generateDefaultModel', () => {
-    const generateDefaultModel = Model.generateDefaultModel;
-  });
-
-  describe('Model: getComponentNames', () => {
-    const getComponentNames = Model.getComponentNames;
   });
 
   /**
@@ -65,7 +36,7 @@ describe('NYPL Homepage Unit Test: ', () => {
    * catogorize it into different sub objects by each sub object's different name.
    * It eventually returns an object back to Model.build.
    */
-  describe('Model: modelAppData', () => {
+  describe('modelAppData', () => {
     const modelAppData = Model.modelAppData;
     const defaultModelAppData = {
       Banner: {},
@@ -78,25 +49,25 @@ describe('NYPL Homepage Unit Test: ', () => {
     };
 
     it('should return default data skeleton if the input is undefined', () => {
-      expect(modelAppData({}, defaultModelAppData)).toEqual(
+      expect(modelAppData({}, defaultModelAppData)).to.equal(
         defaultModelAppData
       );
     });
 
     it('should return default data skeleton if the input is not an array', () => {
-      expect(modelAppData({}, defaultModelAppData)).toEqual(
+      expect(modelAppData({}, defaultModelAppData)).to.equal(
         defaultModelAppData
       );
     });
 
     it('should return default data skeleton if the input is not an array', () => {
-      expect(modelAppData('', defaultModelAppData)).toEqual(
+      expect(modelAppData('', defaultModelAppData)).to.equal(
         defaultModelAppData
       );
     });
 
     it('should return default data skeleton if the input is an empty array', () => {
-      expect(modelAppData([], defaultModelAppData)).toEqual(defaultModelAppData);
+      expect(modelAppData([], defaultModelAppData)).to.equal(defaultModelAppData);
     });
   });
 
@@ -104,19 +75,19 @@ describe('NYPL Homepage Unit Test: ', () => {
    * Model.assignComponentName is the function that extract the name from old data, and rename it
    * for a clearer structure.
    */
-  describe('Model.assignComponentName', () => {
+  describe('assignComponentName', () => {
     const assignComponentName = Model.assignComponentName;
 
     it('should return undefined if the input does not exist', () => {
-      expect(assignComponentName()).toEqual('');
+      expect(assignComponentName()).to.equal('');
     });
 
     it('should return undefined if name.en.text does not exist', () => {
-      expect(assignComponentName({})).toEqual('');
+      expect(assignComponentName({})).to.equal('');
     });
 
     it('should return undefined if name.en.text does not exist', () => {
-      expect(assignComponentName({ name: {} })).toEqual('');
+      expect(assignComponentName({ name: {} })).to.equal('');
     });
   });
 
@@ -125,7 +96,7 @@ describe('NYPL Homepage Unit Test: ', () => {
    * a new object inlcudes the new keys and assignes the values to each component.
    * It eventually returns an object with the keys and values back to Model.modelAppData.
    */
-  describe('Model: modelContainers', () => {
+  describe('modelContainers', () => {
     const modelContainers = Model.modelContainers;
     const defaultContainerData = {
       type: undefined,
@@ -138,32 +109,22 @@ describe('NYPL Homepage Unit Test: ', () => {
     };
 
     it('should return the objcet with default key/value if there is no input', () => {
-      expect(modelContainers()).toEqual(defaultContainerData);
+      expect(modelContainers()).to.deep.equal(defaultContainerData);
     });
 
     it('should return the objcet with default key/value if the input is not an object', () => {
-      expect(modelContainers('')).toEqual(defaultContainerData);
+      expect(modelContainers('')).to.deep.equal(defaultContainerData);
     });
 
     it('should return the objcet with default key/value if the input is not an object', () => {
-      expect(modelContainers([])).toEqual(defaultContainerData);
+      expect(modelContainers([])).to.deep.equal(defaultContainerData);
     });
 
     it('should return return the objcet with default key/value if the input is an empty object',
       () => {
-        expect(modelContainers({})).toEqual(defaultContainerData);
+        expect(modelContainers({})).to.deep.equal(defaultContainerData);
       }
     );
-  });
-
-  /**
-   * Model.getContainerName
-   * Model.getContainerName is the function to check if atributes.name exsits.
-   * If it does, the function returns the value, if not, it catch the error and return an empty
-   * object.
-   */
-  describe('Model: getContainerName', () => {
-    const getContainerName = Model.getContainerName;
   });
 
   /**
@@ -171,13 +132,13 @@ describe('NYPL Homepage Unit Test: ', () => {
    * Model.createChildren is the function restructures the data of the children subobject of a
    * component
    */
-  describe('Model: createChildren', () => {
+  describe('createChildren', () => {
     const createChildren = Model.createChildren;
 
     it('should return an empty array if no data input or it is not an array', () => {
-      expect(createChildren()).toEqual([]);
-      expect(createChildren('')).toEqual([]);
-      expect(createChildren({})).toEqual([]);
+      expect(createChildren()).to.deep.equal([]);
+      expect(createChildren('')).to.deep.equal([]);
+      expect(createChildren({})).to.deep.equal([]);
     });
   });
 
@@ -186,13 +147,13 @@ describe('NYPL Homepage Unit Test: ', () => {
    * Model.createSlots is the function restructures the data of the slots subobject of a
    * component
    */
-  describe('Model: createSlots', () => {
+  describe('createSlots', () => {
     const createSlots = Model.createSlots;
 
     it('should return an empty array if no data input or the input is not an array', () => {
-      expect(createSlots()).toEqual([]);
-      expect(createSlots('')).toEqual([]);
-      expect(createSlots({})).toEqual([]);
+      expect(createSlots()).to.deep.equal([]);
+      expect(createSlots('')).to.deep.equal([]);
+      expect(createSlots({})).to.deep.equal([]);
     });
   });
 });
