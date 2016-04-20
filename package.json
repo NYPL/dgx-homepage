@@ -8,8 +8,7 @@
     "dist": "NODE_ENV=production webpack --config webpack.config.js",
     "postinstall": "./node_modules/.bin/bower install",
     "build-start": "npm run dist && NODE_ENV=production npm start",
-    "unit-tests": "node_modules/.bin/mocha --compilers js:babel-core/register",
-    "karma": "karma start"
+    "unit-tests": "node_modules/.bin/mocha --compilers js:babel-core/register"
   },
   "repository": {
     "type": "git",
