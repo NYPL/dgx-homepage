@@ -60,12 +60,6 @@ describe('NYPL Homepage Model Unit Test: ', () => {
       );
     });
 
-    it('should return default data skeleton if the input is not an array', () => {
-      expect(modelAppData('', defaultModelAppData)).to.equal(
-        defaultModelAppData
-      );
-    });
-
     it('should return default data skeleton if the input is an empty array', () => {
       expect(modelAppData([], defaultModelAppData)).to.equal(defaultModelAppData);
     });
