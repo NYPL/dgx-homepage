@@ -69,11 +69,7 @@ function HomepageApp(req, res, next) {
       console.log(`error calling API : ${error}`);
       console.log(`Attempted to call : ${homepageApiUrl}`);
 
-      res.locals.data = {
-        Store: {
-          _storeVar: [],
-        },
-      };
+      res.locals.data = {};
       next();
     }); /* end Axios call */
 }
