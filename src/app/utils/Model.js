@@ -392,4 +392,4 @@ function Model() {
   };
 }
 
-export default new Model();
+export default new Model;
