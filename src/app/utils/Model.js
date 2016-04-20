@@ -6,6 +6,8 @@ import {
   isEmpty as _isEmpty,
 } from 'underscore';
 
+const { homepageApi } = config;
+
 // Model class extracts, cleans, and restructures the data from the Refinery.
 function Model() {
   /**
@@ -24,7 +26,7 @@ function Model() {
       return defaultModelStructure;
     }
 
-    // // Make sure the data is not empty.
+    // Make sure the data is not empty.
     if (data.length > 0) {
       return this.modelAppData(_map(data, d => this.modelContainers(d)), defaultModelStructure);
     }
@@ -38,7 +40,7 @@ function Model() {
    * an empty array as the value of each item.
    */
   this.generateDefaultModel = () => {
-    const componentNamesArray = this.getComponentNames(config.homepageApi.filters.slug);
+    const componentNamesArray = this.getComponentNames(homepageApi.filters.slug);
     const defaultModelStructure = {};
 
     if (componentNamesArray.length) {
@@ -76,12 +78,14 @@ function Model() {
    * @param (Object) defaultData
    */
   this.modelAppData = (dataArray, defaultData) => {
+    const defaultDataStructure = defaultData;
+
     /**
      * If the input is null or it dose not have a valid type, that is an array,
      * it will return an empty object with preset key: value.
      */
     if (!dataArray || !(_isArray(dataArray))) {
-      return defaultData;
+      return defaultDataStructure;
     }
 
     /**
@@ -97,10 +101,10 @@ function Model() {
          * valid value. If the name is an empty string, then it won't return
          * the component data.
          */
-        defaultData[componentName] = (componentName) ? d : {};
+        defaultDataStructure[componentName] = (componentName) ? d : {};
       });
     }
-    return defaultData;
+    return defaultDataStructure;
   };
 
   /**
@@ -112,7 +116,7 @@ function Model() {
    * @param (Object) componentDataObj
    */
   this.assignComponentName = componentDataObj => {
-    const componentNamesArray = this.getComponentNames(config.homepageApi.filters.slug);
+    const componentNamesArray = this.getComponentNames(homepageApi.filters.slug);
 
     let componentName;
 
@@ -124,9 +128,7 @@ function Model() {
       const {
         slug,
       } = componentDataObj;
-      const nameString = slug.replace(/-([a-z])/ig, (match, letter) =>
-        letter.toUpperCase()
-      );
+      const nameString = slug.replace(/-([a-z])/ig, (match, letter) => letter.toUpperCase());
 
        // Check if the name matches any item in the preset name array.
       componentName = (_contains(componentNamesArray, nameString)) ? nameString : '';

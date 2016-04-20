@@ -6,11 +6,12 @@ import HeaderModel from '../../app/utils/HeaderItemModel.js';
 import Model from '../../app/utils/Model.js';
 import config from '../../../appConfig.js';
 
+const { api, homepageApi, headerApi } = config;
 const router = express.Router();
 const appEnvironment = process.env.APP_ENV || 'production';
-const apiRoot = config.api.root[appEnvironment];
-const headerOptions = createOptions(config.headerApi);
-const homepageOptions = createOptions(config.homepageApi);
+const apiRoot = api.root[appEnvironment];
+const headerOptions = createOptions(headerApi);
+const homepageOptions = createOptions(homepageApi);
 
 function createOptions(api) {
   return {
@@ -65,8 +66,8 @@ function HomepageApp(req, res, next) {
       next();
     }))
     .catch(error => {
-      console.log('error calling API : ' + error);
-      console.log('Attempted to call : ' + completeApiUrl);
+      console.log(`error calling API : ${error}`);
+      console.log(`Attempted to call : ${homepageApiUrl}`);
 
       res.locals.data = {
         Store: {
