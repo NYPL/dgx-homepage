@@ -49,7 +49,7 @@ describe('NYPL Homepage Model Unit Test: ', () => {
     };
 
     it('should return default data skeleton if the input is undefined', () => {
-      expect(modelAppData({}, defaultModelAppData)).to.equal(
+      expect(modelAppData(undefined, defaultModelAppData)).to.equal(
         defaultModelAppData
       );
     });
@@ -79,22 +79,22 @@ describe('NYPL Homepage Model Unit Test: ', () => {
     const assignComponentName = Model.assignComponentName;
 
     it('should return undefined if the input does not exist', () => {
-      expect(assignComponentName()).to.equal('');
+      expect(assignComponentName()).to.equal(undefined);
     });
 
-    it('should return undefined if name.en.text does not exist', () => {
-      expect(assignComponentName({})).to.equal('');
+    it('should return undefined if a component data is an empty object', () => {
+      expect(assignComponentName({})).to.equal(undefined);
     });
 
-    it('should return undefined if name.en.text does not exist', () => {
-      expect(assignComponentName({ name: {} })).to.equal('');
+    it('should return undefined if the slug of a compoent data has no value', () => {
+      expect(assignComponentName({ slug: {} })).to.equal(undefined);
     });
   });
 
   /** Model.modelContainers
    * Model.modelContainers is the function restructures the data from api endpoint to
-   * a new object inlcudes the new keys and assignes the values to each component.
-   * It eventually returns an object with the keys and values back to Model.modelAppData.
+   * a new object includes the new keys and values to each component.
+   * It eventually returns an object back to Model.modelAppData.
    */
   describe('modelContainers', () => {
     const modelContainers = Model.modelContainers;
@@ -108,19 +108,19 @@ describe('NYPL Homepage Model Unit Test: ', () => {
       link: '',
     };
 
-    it('should return the objcet with default key/value if there is no input', () => {
+    it('should return the object with default key/value if there is no input', () => {
       expect(modelContainers()).to.deep.equal(defaultContainerData);
     });
 
-    it('should return the objcet with default key/value if the input is not an object', () => {
+    it('should return the object with default key/value if the input is not an object', () => {
       expect(modelContainers('')).to.deep.equal(defaultContainerData);
     });
 
-    it('should return the objcet with default key/value if the input is not an object', () => {
+    it('should return the object with default key/value if the input is not an object', () => {
       expect(modelContainers([])).to.deep.equal(defaultContainerData);
     });
 
-    it('should return return the objcet with default key/value if the input is an empty object',
+    it('should return return the object with default key/value if the input is an empty object',
       () => {
         expect(modelContainers({})).to.deep.equal(defaultContainerData);
       }

@@ -131,12 +131,12 @@ function Model() {
       const nameString = slug.replace(/-([a-z])/ig, (match, letter) => letter.toUpperCase());
 
        // Check if the name matches any item in the preset name array.
-      componentName = (_contains(componentNamesArray, nameString)) ? nameString : '';
+      componentName = (_contains(componentNamesArray, nameString)) ? nameString : undefined;
     } catch (e) {
       console.log(e);
 
       // If any error is raised during the assigning, it will assign the default value.
-      componentName = '';
+      componentName = undefined;
     }
 
     // Return the result.
