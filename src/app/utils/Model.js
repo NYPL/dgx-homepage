@@ -81,29 +81,20 @@ function Model() {
     const defaultDataStructure = defaultData;
 
     /**
-     * If the input is null or it dose not have a valid type, that is an array,
-     * it will return an empty object with preset key: value.
-     */
-    if (!dataArray || !(_isArray(dataArray))) {
-      return defaultDataStructure;
-    }
-
-    /**
-     * If the input is valid, it will loop through the array, restructure it,
+     * It loops through the array, restructure it,
      * and assign each item to a new object, appOjectData.
      */
-    if (dataArray.length > 0) {
-      _map(dataArray, d => {
-        const componentName = this.assignComponentName(d);
+    _map(dataArray, d => {
+      const componentName = this.assignComponentName(d);
 
-        /**
-         * assignComponentName() extracts a valid name, or an empty string if no
-         * valid value. If the name is an empty string, then it won't return
-         * the component data.
-         */
-        defaultDataStructure[componentName] = (componentName) ? d : {};
-      });
-    }
+      /**
+       * assignComponentName() extracts a valid name, or an empty string if no
+       * valid value. If the name is an empty string, then it won't return
+       * the component data.
+       */
+      defaultDataStructure[componentName] = (componentName) ? d : {};
+    });
+
     return defaultDataStructure;
   };
 
