@@ -375,21 +375,6 @@ function Model() {
       };
     });
   };
-
-  return {
-    build: this.build,
-    generateDefaultModel: this.generateDefaultModel,
-    getComponentNames: this.getComponentNames,
-    modelAppData: this.modelAppData,
-    assignComponentName: this.assignComponentName,
-    modelContainers: this.modelContainers,
-    getContainerName: this.getContainerName,
-    getContainerLink: this.getContainerLink,
-    getContainerSlug: this.getContainerSlug,
-    createChildren: this.createChildren,
-    getAuthorImage: this.getAuthorImage,
-    createSlots: this.createSlots,
-  };
 }
 
 export default new Model;
