@@ -161,6 +161,19 @@
             p, h2 {
               @include grid-span(6, 3);
             }
+
+            h2,
+            .eventItem-date {
+              margin-top: 15px;
+              @include grid-span(6, 3);
+            }
+
+            .eventItem-location {
+              margin-top: 5px;
+              text-transform: none;
+              @include displayVisuallyHidden;
+              @include grid-span(6, 3);
+            }
           }
 
           // Target the first child in the list.
