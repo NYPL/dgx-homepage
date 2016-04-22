@@ -168,7 +168,14 @@
               @include grid-span(6, 3);
             }
 
+            .eventItem-date {
+              font-size: 13px;
+              font-weight: 500;
+              line-height: 21px;
+            }
+
             .eventItem-location {
+              line-height: 17px;
               margin-top: 5px;
               text-transform: none;
               @include displayVisuallyHidden;
@@ -188,7 +195,8 @@
             }
 
             h2 {
-              font-size: 23px;
+              font-size: 26px;
+              line-height: 28px;
             }
 
             p {
@@ -198,9 +206,11 @@
             h2,
             .eventItem-date {
               margin-top: 15px;
+              @include grid-span(3, 1);
             }
 
             .eventItem-location {
+              font-size: 14px;
               margin-top: 5px;
               text-transform: none;
               @include displayVisuallyHidden;
