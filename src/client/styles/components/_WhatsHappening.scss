@@ -46,13 +46,9 @@
       p {
         @include grid-span(2,2);
         text-transform: uppercase;
-        font-size: 12px;
+        font-size: 9px;
         margin: 10px 0 0 0;
         letter-spacing: 0.05em
-      }
-
-      &-location {
-        @include visuallyHidden;
       }
     }
   }
@@ -118,11 +114,12 @@
           margin-bottom: 10px;
 
           h2 {
-            font-size: 20px;
+            font-size: 18px;
           }
 
           p {
             font-size: 12px;
+            line-height: 21px;
           }
 
           &:nth-child(even) {
@@ -173,14 +170,6 @@
               font-weight: 500;
               line-height: 21px;
             }
-
-            .eventItem-location {
-              line-height: 17px;
-              margin-top: 5px;
-              text-transform: none;
-              @include displayVisuallyHidden;
-              @include grid-span(6, 3);
-            }
           }
 
           // Target the first child in the list.
@@ -213,7 +202,6 @@
               font-size: 14px;
               margin-top: 5px;
               text-transform: none;
-              @include displayVisuallyHidden;
             }
           }
         }
@@ -229,6 +217,13 @@
           // Styles for all the events.
           &:nth-child(n) {
             @include float-span(4, 'last');
+
+            .eventItem-location {
+              line-height: 17px;
+              margin-top: 5px;
+              text-transform: none;
+              @include grid-span(6, 3);
+            }
           }
 
           // Target the first child in the list.
@@ -238,6 +233,10 @@
             @include add-grid(4);
 
             img, p, h2 {
+              @include grid-span(4, 1);
+            }
+
+            .eventItem-location {
               @include grid-span(4, 1);
             }
           }
