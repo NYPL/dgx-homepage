@@ -1,8 +1,14 @@
 const slickResponsiveSettings = [
   {
-    breakpoint: 1400,
+    breakpoint: 1700,
     settings: {
       slidesToShow: 5,
+    },
+  },
+  {
+    breakpoint: 1400,
+    settings: {
+      slidesToShow: 4,
     },
   },
   {
@@ -48,7 +54,7 @@ const slickResponsiveSettings = [
     },
   },
   {
-    breakpoint: 350,
+    breakpoint: 380,
     settings: {
       slidesToShow: 2,
     },
