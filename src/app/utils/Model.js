@@ -1,4 +1,4 @@
-import { homepageApi } from '../../../appConfig.js';
+import config from '../../../appConfig.js';
 import {
   isArray as _isArray,
   map as _map,
@@ -6,9 +6,10 @@ import {
   isEmpty as _isEmpty,
 } from 'underscore';
 
-// Model class extracts, cleans, and restructures the data from the Refinery.
-class Model {
+const { homepageApi } = config;
 
+// Model class extracts, cleans, and restructures the data from the Refinery.
+function Model() {
   /**
    * build(data)
    * It is the initial function of Model class.
@@ -17,7 +18,7 @@ class Model {
    *
    * @param (Array) data
    */
-  build(data) {
+  this.build = data => {
     const defaultModelStructure = this.generateDefaultModel();
 
      // Make sure there's an input.
@@ -31,25 +32,25 @@ class Model {
     }
 
     return defaultModelStructure;
-  }
+  };
 
   /**
    * generateDefaultModel()
-   * It generates the default data model. It returns a skeleton of the data structure with an empty
-   * array as the value of each item.
+   * It generates the default data model. It returns a skeleton of the data structure with
+   * an empty array as the value of each item.
    */
-  generateDefaultModel() {
+  this.generateDefaultModel = () => {
     const componentNamesArray = this.getComponentNames(homepageApi.filters.slug);
     const defaultModelStructure = {};
 
-    if(componentNamesArray.length) {
+    if (componentNamesArray.length) {
       _map(componentNamesArray, name => {
         defaultModelStructure[name] = {};
       });
     }
 
     return defaultModelStructure;
-  }
+  };
 
   /**
    * getComponentNames(slug)
@@ -59,7 +60,7 @@ class Model {
    *
    * @param (String) slug
    */
-  getComponentNames(slug) {
+  this.getComponentNames = slug => {
     const componentNamesArray = (slug) ? slug.replace(/-([a-z])/ig,
       (match, letter) => letter.toUpperCase()
     ).split('|') : [];
@@ -76,43 +77,36 @@ class Model {
    * @param (Array) dataArray
    * @param (Object) defaultData
    */
-  modelAppData(dataArray, defaultData) {
-    /**
-     * If the input is null or it dose not have a valid type, that is an array,
-     * it will return an empty object with preset key: value.
-     */
-    if (!dataArray || !(_isArray(dataArray))) {
-      return defaultData;
-    }
+  this.modelAppData = (dataArray, defaultData) => {
+    const defaultDataStructure = defaultData;
 
     /**
-     * If the input is valid, it will loop through the array, restructure it,
+     * It loops through the array, restructure it,
      * and assign each item to a new object, appOjectData.
      */
-    if (dataArray.length > 0) {
-      _map(dataArray, d => {
-        const componentName = this.assignComponentName(d);
+    _map(dataArray, d => {
+      const componentName = this.assignComponentName(d);
 
-        /**
-         * assignComponentName() extracts a valid name, or an empty string if no
-         * valid value. If the name is an empty string, then it won't return
-         * the component data.
-         */
-        defaultData[componentName] = (componentName) ? d : {};
-      });
-    }
-    return defaultData;
-  }
+      /**
+       * assignComponentName() extracts a valid name, or an empty string if no
+       * valid value. If the name is an empty string, then it won't return
+       * the component data.
+       */
+      defaultDataStructure[componentName] = (componentName) ? d : {};
+    });
+
+    return defaultDataStructure;
+  };
 
   /**
    * assignComponentName(componentDataObj)
    * Grab the old data's name object and extract the valid name string from it.
    * Assign the name string to the matched component and populate it back to
-   * modelAppdata.
+   * modelAppData.
    *
    * @param (Object) componentDataObj
    */
-  assignComponentName(componentDataObj) {
+  this.assignComponentName = componentDataObj => {
     const componentNamesArray = this.getComponentNames(homepageApi.filters.slug);
 
     let componentName;
@@ -123,24 +117,22 @@ class Model {
      */
     try {
       const {
-        slug
+        slug,
       } = componentDataObj;
-      const nameString = slug.replace(/-([a-z])/ig, (match, letter) => {
-        return letter.toUpperCase();
-      });
+      const nameString = slug.replace(/-([a-z])/ig, (match, letter) => letter.toUpperCase());
 
        // Check if the name matches any item in the preset name array.
-      componentName = (_contains(componentNamesArray, nameString)) ? nameString : '';
+      componentName = (_contains(componentNamesArray, nameString)) ? nameString : undefined;
     } catch (e) {
       console.log(e);
 
       // If any error is raised during the assigning, it will assign the default value.
-      componentName = '';
+      componentName = undefined;
     }
 
     // Return the result.
     return componentName;
-  }
+  };
 
   /**
    * modelContainers(dataObj)
@@ -148,8 +140,7 @@ class Model {
    *
    * @param (Object) dataObj
    */
-   
-  modelContainers(dataObj) {
+  this.modelContainers = dataObj => {
     /**
      * Assign an object to the input, check if the values inside the object are valid,
      * and return the result as an object.
@@ -164,6 +155,7 @@ class Model {
         children: children ? this.createChildren(children) : [],
         slots: slots ? this.createSlots(slots) : [],
         slug: this.getContainerSlug(dataObj),
+        link: this.getContainerLink(dataObj),
       };
     } catch (e) {
       /**
@@ -175,9 +167,11 @@ class Model {
         name: {},
         children: [],
         slots: [],
+        slug: '',
+        link: '',
       };
     }
-  }
+  };
 
   /**
    * getContainerName(dataObj)
@@ -185,7 +179,7 @@ class Model {
    *
    * @param (Object) dataObj
    */
-  getContainerName(dataObj) {
+  this.getContainerName = dataObj => {
     let containerNameObj;
 
     /**
@@ -203,12 +197,36 @@ class Model {
         containerNameObj = name;
       })(dataObj);
     } catch (e) {
-
       // If any error is raised during the assigning, it will return the default value.
       containerNameObj = {};
     }
     return containerNameObj;
-  }
+  };
+
+  /**
+   * getContainerLink(dataObj)
+   * @desc Check if attributes.link exists and return the full-uri string value.
+   * @param {Object} dataObj
+   */
+  this.getContainerLink = dataObj => {
+    let containerLink;
+
+    try {
+      const {
+        attributes: {
+          link: {
+            'full-uri': url = '',
+          },
+        },
+      } = dataObj;
+
+      containerLink = url;
+    } catch (e) {
+      containerLink = '';
+    }
+
+    return containerLink;
+  };
 
   /**
    * getContainerSlug(dataObj)
@@ -216,7 +234,7 @@ class Model {
    *
    * @param (Object) dataObj
    */
-  getContainerSlug(dataObj) {
+  this.getContainerSlug = dataObj => {
     let containerSlug;
 
     /**
@@ -234,12 +252,11 @@ class Model {
         containerSlug = slug;
       })(dataObj);
     } catch (e) {
-
       // If any error is raised during the assigning, it will return the default value.
       containerSlug = '';
     }
     return containerSlug;
-  }
+  };
 
   /**
    * createChildren(dataArray)
@@ -247,22 +264,22 @@ class Model {
    *
    * @param (Array) dataArray
    */
-  createChildren(dataArray) {
+  this.createChildren = dataArray => {
     if (!dataArray || !(_isArray(dataArray))) {
       return [];
     }
 
     return _map(dataArray, d => this.modelContainers(d));
-  }
+  };
 
   /**
    * Uses ES6 Destructuring to extract author's image object properties.
    * @returns {object} returns { full-uri: (string), description: (string)}.
    */
-  getAuthorImage(obj) {
+  this.getAuthorImage = obj => {
     let result;
     if (!obj && _isEmpty(obj)) {
-      return null;
+      return undefined;
     }
 
     try {
@@ -272,7 +289,7 @@ class Model {
             {
               headshot: {
                 attributes: {
-                  uri: image = null,
+                  uri: image = undefined,
                 },
               },
             },
@@ -283,11 +300,11 @@ class Model {
 
       result = image;
     } catch (e) {
-      result = null;
+      result = undefined;
     }
 
     return result;
-  }
+  };
 
   /**
    * createSlots(dataArray)
@@ -295,7 +312,7 @@ class Model {
    *
    * @param (Array) dataArray
    */
-  createSlots(dataArray) {
+  this.createSlots = dataArray => {
     if (!dataArray || !(_isArray(dataArray))) {
       return [];
     }
@@ -310,21 +327,25 @@ class Model {
 
       // Check if different sizes of the images exist.
       const bannerImage = currentItem['banner-image'] ?
-        currentItem['banner-image'].attributes.uri : null;
+        currentItem['banner-image'].attributes.uri : undefined;
+      const mobileBannerImage = currentItem['mobile-banner-image'] ?
+        currentItem['mobile-banner-image'].attributes.uri : undefined;
       const rectangularImage = currentItem['rectangular-image'] ?
-          currentItem['rectangular-image'].attributes.uri : null;
+          currentItem['rectangular-image'].attributes.uri : undefined;
       const bookCoverImage = currentItem['book-cover-image'] ?
-          currentItem['book-cover-image'].attributes.uri : null;
-      const date = currentItem.attributes.date ? currentItem.attributes.date : null;
-      const shortTitle = (currentItem.attributes && currentItem.attributes['banner-short-title']) ?
-        currentItem.attributes['banner-short-title'] : null;
+          currentItem['book-cover-image'].attributes.uri : undefined;
+      const date = currentItem.attributes.date ? currentItem.attributes.date : undefined;
+      const shortTitle = (currentItem.attributes &&
+        currentItem.attributes['banner-short-title']) ?
+        currentItem.attributes['banner-short-title'] : undefined;
       const firstName = currentItem.attributes['person-first-name'] ?
-          currentItem.attributes['person-first-name'] : null;
+          currentItem.attributes['person-first-name'] : undefined;
       const lastName = currentItem.attributes['person-last-name'] ?
-          currentItem.attributes['person-last-name'] : null;
+          currentItem.attributes['person-last-name'] : undefined;
       const authorTitle = currentItem.attributes['person-title'] ?
-          currentItem.attributes['person-title'] : null;
-      const location = currentItem.attributes.location ? currentItem.attributes.location : null;
+          currentItem.attributes['person-title'] : undefined;
+      const location = currentItem.attributes.location ?
+        currentItem.attributes.location : undefined;
       const authorImage = this.getAuthorImage(currentItem);
 
       return {
@@ -337,6 +358,7 @@ class Model {
         shortTitle,
         image: {
           bannerImage,
+          mobileBannerImage,
           rectangularImage,
           bookCoverImage,
         },
@@ -352,7 +374,7 @@ class Model {
         location,
       };
     });
-  }
+  };
 }
 
 export default new Model;

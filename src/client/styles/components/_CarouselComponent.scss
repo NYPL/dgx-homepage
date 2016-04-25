@@ -251,7 +251,9 @@
       }
 
       @include min-screen($desktop) {
+        font-size: 36px;
         margin-top: 45px;
+        max-width: 400px;
       }
     }
 
@@ -277,6 +279,7 @@
 
       @include min-screen($desktop) {
         margin-top: 30px;
+        max-width: 400px;
       }
     }
   }

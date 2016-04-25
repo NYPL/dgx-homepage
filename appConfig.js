@@ -1,7 +1,7 @@
 const config = {
   appTitle: 'NYPL | Welcome to The New York Public Library',
   appName: 'Homepage',
-  favIconPath: 'http://ux-static.nypl.org.s3-website-us-east-1.amazonaws.com/images/favicon.ico',
+  favIconPath: '//ux-static.nypl.org.s3-website-us-east-1.amazonaws.com/images/favicon.ico',
   port: 3001,
   webpackDevServerPort: 3000,
   api: {
@@ -20,11 +20,12 @@ const config = {
       'slots.current-item.related-node.authors.headshot',
       // Should be children.slots but slots comes from above....
       'children.slots.current-item.rectangular-image',
+      'slots.current-item.mobile-banner-image.full-uri',
     ],
     filters: {
       // These slug names are under the 'slug' attributes for each container
       slug: 'banner|whats-happening|learn-something-new|staff-picks|' +
-        'recommended-recent-releases|from-our-blog|of-note'
+        'recommended-recent-releases|from-our-blog|of-note',
     },
   },
   headerApi: {
@@ -36,11 +37,11 @@ const config = {
       'related-mega-menu-panes.current-mega-menu-item.related-content.location',
       'related-mega-menu-panes.default-mega-menu-item.images',
       'related-mega-menu-panes.default-mega-menu-item.related-content.authors.nypl-location',
-      'related-mega-menu-panes.default-mega-menu-item.related-content.location'
+      'related-mega-menu-panes.default-mega-menu-item.related-content.location',
     ],
     filters: {
-      'relationships': {'parent': 'null'}
-    }
+      relationships: { parent: 'null' },
+    },
   },
 };
 

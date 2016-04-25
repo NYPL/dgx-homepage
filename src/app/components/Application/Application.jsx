@@ -2,6 +2,8 @@ import React from 'react';
 // ALT & Flux
 import HomepageStore from '../../stores/HomepageStore.js';
 import Actions from '../../actions/Actions.js';
+// Utils
+import slickResponsiveSettings from '../../utils/slickSettings.js';
 // NYPL Components
 import HomepageRow from 'dgx-homepage-row-component';
 import BlogFeatures from 'dgx-blog-features-component';
@@ -35,71 +37,17 @@ class App extends React.Component {
   }
 
   render() {
-    const carouselData = this.state.carouselData.slots;
-    const learnSomethingNewData = this.state.learnSomethingNewData.slots;
-    const ofNoteData = this.state.ofNoteData.slots;
-    const whatsHappeningData = this.state.whatsHappeningData.children;
-    const whatsHappeningIndexValue = this.state.whatsHappeningIndexValue;
-    const carouselIndex = this.state.carouselIndexValue;
-    const fromOurBlogsData = this.state.fromOurBlogsData.slots;
-    const staffPicksData = this.state.staffPicksData.slots;
-    const recommendedRecentReleasesData = this.state.recommendedRecentReleasesData.slots;
-    const slickResponsiveSettings = [
-      {
-        breakpoint: 1400,
-        settings: {
-          slidesToShow: 5,
-        },
-      },
-      {
-        breakpoint: 1230,
-        settings: {
-          slidesToShow: 4,
-        },
-      },
-      {
-        breakpoint: 1000,
-        settings: {
-          slidesToShow: 5,
-        },
-      },
-      {
-        breakpoint: 915,
-        settings: {
-          slidesToShow: 4,
-        },
-      },
-      {
-        breakpoint: 830,
-        settings: {
-          slidesToShow: 3,
-        },
-      },
-      {
-        breakpoint: 767,
-        settings: {
-          slidesToShow: 5,
-        },
-      },
-      {
-        breakpoint: 675,
-        settings: {
-          slidesToShow: 4,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 3,
-        },
-      },
-      {
-        breakpoint: 350,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-    ];
+    const {
+      carouselIndexValue,
+      carouselData,
+      whatsHappeningIndexValue,
+      whatsHappeningData,
+      learnSomethingNewData,
+      fromOurBlogsData,
+      ofNoteData,
+      staffPicksData,
+      recommendedRecentReleasesData,
+    } = this.state;
 
     return (
       <div className="nyplHomepageApp">
@@ -109,55 +57,40 @@ class App extends React.Component {
           <CarouselComponent
             id="hpCarousel"
             className="hpCarousel"
-            items={carouselData}
-            itemIndex={carouselIndex}
+            items={carouselData.slots}
+            itemIndex={carouselIndexValue}
             methods={
               { buttonMethod: Actions.setCarouselIndexValue }
             }
           />
 
           <HomepageRow
-            title="What’s Happening"
-            link="/events"
+            title={whatsHappeningData.name}
+            link={whatsHappeningData.link}
             className="whatsHappeningRow hpRow nyplGrid"
             seeMoreId="whatsHappening-seeMore"
             content={
               <TabbedComponent
                 id="hpWhatsHappening"
                 className="hpWhatsHappening"
-                items={whatsHappeningData}
+                items={whatsHappeningData.children}
                 index={whatsHappeningIndexValue}
                 action={Actions.setWhatsHappeningIndexValue}
               />
             }
           />
 
-          <HomepageRow
-            title="Learn Something New"
-            link="/events/classes/calendar"
-            className="learnRow hpRow nyplGrid"
-            seeMoreId="learn-seeMore"
-            content={
-              <FeatureRow
-                id="hpLearn"
-                className="hpLearn"
-                itemsToDisplay={4}
-                items={learnSomethingNewData}
-              />
-            }
-          />
-
           <div className="staffPicksRow bgPrimaryLibraryRed">
             <HomepageRow
-              title="Staff Picks"
-              link="/staffpicks"
+              title={staffPicksData.name}
+              link={staffPicksData.link}
               className="hpRow nyplGrid-fullWidth"
               seeMoreId="staffPicks-SeeMore"
               content={
                 <HomepageStaffPicks
                   className="hpStaffPicks"
                   id="hpStaffPicks"
-                  items={staffPicksData}
+                  items={staffPicksData.slots}
                 />
               }
             />
@@ -165,7 +98,8 @@ class App extends React.Component {
 
           <div className="bookListRow bgSecondaryLibraryRed">
             <HomepageRow
-              title="Recent Releases We Love"
+              title={recommendedRecentReleasesData.name}
+              link={recommendedRecentReleasesData.link}
               className="hpRow nyplGrid-fullWidth"
               seeMoreId="bookList-seeMore"
               content={
@@ -173,36 +107,51 @@ class App extends React.Component {
                   id="hpBookList"
                   className="hpBookList"
                   slickResponsiveSettings={slickResponsiveSettings}
-                  bookLists={recommendedRecentReleasesData}
+                  bookLists={recommendedRecentReleasesData.slots}
                 />
               }
             />
           </div>
 
           <HomepageRow
-            title="From Our Blog"
-            link="/blog"
+            title={learnSomethingNewData.name}
+            link={learnSomethingNewData.link}
+            className="learnRow hpRow nyplGrid"
+            seeMoreId="learn-seeMore"
+            content={
+              <FeatureRow
+                id="hpLearn"
+                className="hpLearn"
+                itemsToDisplay={4}
+                items={learnSomethingNewData.slots}
+              />
+            }
+          />
+
+          <HomepageRow
+            title={fromOurBlogsData.name}
+            link={fromOurBlogsData.link}
             className="blogsRow hpRow nyplGrid"
             seeMoreId="blogs-seeMore"
             content={
               <BlogFeatures
                 className="hpBlogs"
                 id="hpBlogs"
-                items={fromOurBlogsData}
+                items={fromOurBlogsData.slots}
               />
             }
           />
 
           <HomepageRow
-            title="Of Note"
-            link="/ofnote"
+            title={ofNoteData.name}
+            link={ofNoteData.link}
             className="ofNoteRow hpRow nyplGrid"
             seeMoreId="ofNote-seeMore"
             content={
               <FeatureRow
                 id="hpOfNote"
                 className="hpOfNote"
-                items={ofNoteData}
+                items={ofNoteData.slots}
               />
             }
           />
