@@ -51,6 +51,7 @@
     &-slide {
       .book-cover {
         .itemOverlay {
+          @include Kievit-Book;
           bottom: -30px;
           height: 130px;
         }
