@@ -3,7 +3,9 @@
 .bookListRow {
 
   .leftColumn {
-    border: none; // Only for this component do we override the border
+    // Only for this component do we override the border
+    border: none;
+
     & > h2 {
       color: #FFFFFF;
 
@@ -15,6 +17,7 @@
         margin-top: 30px;
       }
     }
+
     .seeMoreLink {
       fill: #FFF;
       stroke: #FFF;
@@ -22,8 +25,9 @@
   }
 
   .rightColumn {
+    // Slick adds !important to the wrapper, hence the need for this rule
+    margin-bottom: 30px;
     color: #FFFFFF;
-    margin-bottom: 30px; // Slick adds !important to the wrapper, hence the need for this rule
 
     @include min-screen($tablet-portrait) {
       margin-top: 15px;
@@ -42,7 +46,6 @@
 
 // Namespacing at the component level, within the grid
 .hpBookList {
-
   .slick {
     &-track {
       height: 350px;
@@ -52,6 +55,7 @@
       .book-cover {
         .itemOverlay {
           @include Kievit-Book;
+          font-weight: 400;
           bottom: -30px;
           height: 130px;
         }
