@@ -3,7 +3,9 @@
 .bookListRow {
 
   .leftColumn {
-    border: none; // Only for this component do we override the border
+    // Only for this component do we override the border
+    border: none;
+
     & > h2 {
       color: #FFFFFF;
 
@@ -15,6 +17,7 @@
         margin-top: 30px;
       }
     }
+
     .seeMoreLink {
       fill: #FFF;
       stroke: #FFF;
@@ -22,8 +25,9 @@
   }
 
   .rightColumn {
+    // Slick adds !important to the wrapper, hence the need for this rule
+    margin-bottom: 30px;
     color: #FFFFFF;
-    margin-bottom: 30px; // Slick adds !important to the wrapper, hence the need for this rule
 
     @include min-screen($tablet-portrait) {
       margin-top: 15px;
@@ -42,8 +46,26 @@
 
 // Namespacing at the component level, within the grid
 .hpBookList {
-
   .slick {
+    &-track {
+      height: 350px;
+    }
+
+    &-slide {
+      .book-cover {
+        .itemOverlay {
+          @include Kievit-Book;
+          font-weight: 400;
+          bottom: -30px;
+          height: 130px;
+
+          h3 {
+            font-weight: 400;
+          }
+        }
+      }
+    }
+
     /* -- Tablet Portrait Layout --
      * NOTE: Made the whole right side one column and let the plugin/css
      * create the width of the carousel.
@@ -52,7 +74,16 @@
       @include grid-span(6);
 
       &-track {
-        height: 245px;
+        height: 300px;
+      }
+
+      &-slide {
+        .book-cover {
+          .itemOverlay {
+            bottom: 0px;
+            height: 140px;
+          }
+        }
       }
 
       &-book-item {
@@ -80,8 +111,16 @@
     @include layout-at(8, $tablet-landscape) {
       @include grid-span(8);
 
+      &-slide {
+        .book-cover {
+          .itemOverlay {
+            bottom: -50px;
+          }
+        }
+      }
+
       &-track {
-        height: 289px;
+        height: 330px;
       }
 
       &-book-item {
@@ -104,7 +143,15 @@
     /* -- Tablet Landscape Layout -- */
     @include layout-at(8, $desktop) {
       &-track {
-        height: 320px;
+        height: 340px;
+      }
+
+       &-slide {
+        .book-cover {
+          .itemOverlay {
+            bottom: -60px;
+          }
+        }
       }
 
       &-book-item {
