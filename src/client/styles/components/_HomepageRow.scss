@@ -46,3 +46,11 @@
     }
   }
 }
+
+.whatsHappeningRow {
+  @include layout-at(7, $tablet-portrait) {
+    .leftColumn {
+      margin-top: 48px;
+    }
+  }
+}
