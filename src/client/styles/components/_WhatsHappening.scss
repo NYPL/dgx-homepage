@@ -94,7 +94,7 @@
     }
 
     @include layout-at(8, $tablet-landscape) {
-      @include grid-span(5, 4);
+      @include grid-span(8, 1);
     }
 
     @include layout-at(8, $desktop) {
@@ -185,7 +185,7 @@
           &:nth-child(2) {
             @include grid-span(3, 1);
             @include add-grid(3);
-            margin-top: -70px;
+            /*margin-top: -70px;*/
 
             img, p, h2 {
               @include grid-span(3, 1);
