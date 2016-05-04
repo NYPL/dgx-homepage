@@ -98,7 +98,19 @@
     }
 
     @include layout-at(8, $desktop) {
-      @include grid-span(4, 5);
+      @include grid-span(8, 1);
+    }
+  }
+
+  .titleTabs::before {
+    content: none;
+
+    @include layout-at(8, $tablet-landscape) {
+      @include grid-span(8, 1);
+
+      border-bottom: 2px solid $PRIMARY_COLOR;
+      content: '';
+      height: 48px;
     }
   }
 
@@ -185,7 +197,6 @@
           &:nth-child(2) {
             @include grid-span(3, 1);
             @include add-grid(3);
-            /*margin-top: -70px;*/
 
             img, p, h2 {
               @include grid-span(3, 1);
