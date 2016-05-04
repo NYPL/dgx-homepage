@@ -96,10 +96,6 @@
     @include layout-at(8, $tablet-landscape) {
       @include grid-span(8, 1);
     }
-
-    @include layout-at(8, $desktop) {
-      @include grid-span(8, 1);
-    }
   }
 
   .titleTabs::before {
