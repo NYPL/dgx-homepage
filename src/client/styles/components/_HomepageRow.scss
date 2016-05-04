@@ -48,7 +48,7 @@
 }
 
 .whatsHappeningRow {
-  @include layout-at(7, $tablet-portrait) {
+  @include layout-at(8, $tablet-landscape) {
     .leftColumn {
       margin-top: 48px;
     }
