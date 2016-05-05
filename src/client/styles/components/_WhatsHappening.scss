@@ -63,11 +63,13 @@
 
   &-titleWrapper {
     display: none;
+
+    @include layout-at(6, $tablet-portrait) {
+      display: block;
+    }
+
     @include layout-at(8, $tablet-landscape) {
       @include grid-span(8, 1);
-
-      display: block;
-      margin: 0 0 20px 0;
     }
   }
 
@@ -94,6 +96,7 @@
 
     @include layout-at(6, $tablet-portrait) {
       display: table;
+      margin: 0 0 20px 0;
       @include grid-span(6);
 
       li {
