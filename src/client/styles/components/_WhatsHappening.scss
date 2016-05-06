@@ -61,16 +61,42 @@
     }
   }
 
-  .titleTabs {
+  &-titleWrapper {
     display: none;
-    padding: 0;
-    margin: 0 0 20px 0;
+
+    @include layout-at(6, $tablet-portrait) {
+      display: block;
+    }
+
+    @include layout-at(8, $tablet-landscape) {
+      @include grid-span(8, 1);
+    }
+  }
+
+   &-titleWrapper::before {
+    @include layout-at(8, $tablet-landscape) {
+      @include grid-span(4, 1);
+      content: '';
+      height: 48px;
+      border-bottom: 2px solid $PRIMARY_COLOR;
+    }
+
+    @include layout-at(8, $desktop) {
+      @include grid-span(5, 1);
+    }
+  }
+
+  .titleTabs {
     color: #000;
+    display: none;
+    margin: 0;
+    padding: 0;
     text-transform: uppercase;
     @include Kievit-Medium;
 
     @include layout-at(6, $tablet-portrait) {
       display: table;
+      margin: 0 0 20px 0;
       @include grid-span(6);
 
       li {
@@ -84,6 +110,12 @@
         font-weight: 700;
         line-height: 14px;
         border-bottom: 2px solid $PRIMARY_COLOR;
+
+        &:first-child {
+          &.active {
+           background-color: #FFF;
+         }
+        }
 
         &.active {
           border: 2px solid $PRIMARY_COLOR;
@@ -185,7 +217,6 @@
           &:nth-child(2) {
             @include grid-span(3, 1);
             @include add-grid(3);
-            margin-top: -70px;
 
             img, p, h2 {
               @include grid-span(3, 1);
