@@ -13,7 +13,19 @@
       line-height: 1em;
       margin: 15px 0;
       padding: 0;
+
+      & a {
+        color:$PRIMARY_COLOR;
+        text-decoration: none;
+      }
+
+      & a:hover {
+        color: $TERTIARY_BLUE_COLOR;
+        //text-decoration: underline;
+      }
+
     }
+
 
     .seeMoreLink {
       position: absolute;
@@ -21,6 +33,11 @@
       top: 8px;
       fill: $PRIMARY_COLOR;
       stroke: $PRIMARY_COLOR;
+
+      &:hover {
+        fill:$TERTIARY_BLUE_COLOR;
+        stroke:$TERTIARY_BLUE_COLOR;
+      }
 
       svg {
         width: 25px;
@@ -46,6 +63,53 @@
     }
   }
 }
+
+  // Staff Picks
+  .staffPicksRow .leftColumn {
+
+      & > h2 a {
+        color:#FFF;
+        text-decoration: none;
+
+      &:hover {
+        color:#FFF;
+      }
+    }
+
+    .seeMoreLink {
+      fill: #FFF;
+      stroke: #FFF;
+
+      &:hover {
+        fill:#FFF;
+        stroke:#FFF;
+      }
+    }
+  } // /.staffPicsRow
+
+  // New & Noteworthy
+  .bookListRow .leftColumn {
+
+    & > h2 a {
+      color:#FFF;
+        text-decoration: none;
+
+        &:hover {
+          color: #FFF;
+          //text-decoration: underline;
+        }
+      }
+
+      .seeMoreLink {
+        fill: #FFF;
+        stroke: #FFF;
+
+        &:hover {
+          fill:#FFF;
+          stroke:#FFF;
+        }
+      }
+    }
 
 .whatsHappeningRow {
   @include layout-at(8, $tablet-landscape) {
