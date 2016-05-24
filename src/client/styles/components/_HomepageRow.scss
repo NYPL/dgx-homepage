@@ -15,7 +15,7 @@
       padding: 0;
 
       & a {
-        color:$PRIMARY_COLOR;
+        color: $PRIMARY_COLOR;
         text-decoration: none;
       }
 
@@ -35,8 +35,8 @@
       stroke: $PRIMARY_COLOR;
 
       &:hover {
-        fill:$TERTIARY_BLUE_COLOR;
-        stroke:$TERTIARY_BLUE_COLOR;
+        fill: $TERTIARY_BLUE_COLOR;
+        stroke: $TERTIARY_BLUE_COLOR;
       }
 
       svg {
@@ -64,15 +64,18 @@
   }
 }
 
-  // Staff Picks
-  .staffPicksRow .leftColumn {
-
-      & > h2 a {
-        color:#FFF;
+// Staff Picks
+// New & Noteworthy
+.staffPicksRow, .bookListRow {
+  .leftColumn {
+    & > h2 {
+      a {
+        color: #FFF;
         text-decoration: none;
 
-      &:hover {
-        color:#FFF;
+        &:hover {
+          color: #FFF;
+        }
       }
     }
 
@@ -81,35 +84,12 @@
       stroke: #FFF;
 
       &:hover {
-        fill:#FFF;
-        stroke:#FFF;
-      }
-    }
-  } // /.staffPicsRow
-
-  // New & Noteworthy
-  .bookListRow .leftColumn {
-
-    & > h2 a {
-      color:#FFF;
-        text-decoration: none;
-
-        &:hover {
-          color: #FFF;
-          //text-decoration: underline;
-        }
-      }
-
-      .seeMoreLink {
         fill: #FFF;
         stroke: #FFF;
-
-        &:hover {
-          fill:#FFF;
-          stroke:#FFF;
-        }
       }
     }
+  }
+}
 
 .whatsHappeningRow {
   @include layout-at(8, $tablet-landscape) {
