@@ -195,13 +195,12 @@
       color: #FFF;
     }
 
-    @include min-screen($tablet-portrait + 1px) {
-      left: 145px;
+        // &-description {
+        //   @include min-screen($tablet-portrait + 1px)
+        //   left: 145px;
+        //   max-width: 55%;
+        // }
 
-        &-description {
-          max-width: 55%;
-        }
-      }
 
     @include min-screen($tablet-landscape + 1px) {
       max-width: 1313px;
@@ -257,6 +256,11 @@
     }
 
     &-description {
+      @include min-screen($tablet-portrait + 1px) {
+        left: 145px;
+        max-width: 55%;
+      }
+
       @include visuallyHidden;
       @include Kievit-Book;
       font-size: 16px;
