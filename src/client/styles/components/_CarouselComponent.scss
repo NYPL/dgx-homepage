@@ -248,12 +248,6 @@
       }
     }
 
-    &-description {
-      @include min-screen($tablet-portrait + 1px) {
-        left: 145px;
-        max-width: 55%;
-      }
-
       @include visuallyHidden;
       @include Kievit-Book;
       font-size: 16px;
@@ -280,3 +274,8 @@
     }
   }
 }
+&-description {
+  @include min-screen($tablet-portrait + 1px) {
+    left: 145px;
+    max-width: 55%;
+  }
