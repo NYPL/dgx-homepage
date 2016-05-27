@@ -306,6 +306,60 @@ function Model() {
     return result;
   };
 
+  this.getAuthorFullName = obj => {
+    let result;
+    if (!obj && _isEmpty(obj)) {
+      return undefined;
+    }
+
+    try {
+      const {
+        attributes: {
+          'author-name': fullName = '',
+        },
+      } = obj;
+
+      result = fullName;
+    } catch (e) {
+      result = undefined;
+    }
+
+    return result; 
+  };
+
+  this.getBookItem = obj => {
+    let result;
+    if (!obj && _isEmpty(obj)) {
+      return undefined;
+    }
+
+    try {
+      const {
+        attributes: {
+          audience: {
+            en: {
+              text: audience = '',
+            },
+          },
+          genre: {
+            en: {
+              text: genre = '',
+            },
+          },
+        },
+      } = obj;
+
+      result = {
+        audience,
+        genre,
+      };
+    } catch (e) {
+      result = undefined;
+    }
+
+    return result; 
+  };
+
   /**
    * createSlots(dataArray)
    * Collect and restructure if an item has slot object.
@@ -323,7 +377,6 @@ function Model() {
       }
 
       const currentItem = element['current-item'];
-
 
       // Check if different sizes of the images exist.
       const bannerImage = currentItem['banner-image'] ?
@@ -347,6 +400,8 @@ function Model() {
       const location = currentItem.attributes.location ?
         currentItem.attributes.location : undefined;
       const authorImage = this.getAuthorImage(currentItem);
+      const fullName = this.getAuthorFullName(currentItem);
+      const bookItem = this.getBookItem(currentItem);
 
       return {
         title: (currentItem.attributes.title) ?
@@ -367,11 +422,13 @@ function Model() {
         date,
         author: {
           title: authorTitle,
+          image: authorImage,
           firstName,
           lastName,
-          image: authorImage,
+          fullName,
         },
         location,
+        bookItem,
       };
     });
   };

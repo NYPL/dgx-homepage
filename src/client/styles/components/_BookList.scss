@@ -5,24 +5,7 @@
   .leftColumn {
     // Only for this component do we override the border
     border: none;
-
-    & > h2 {
-      color: #FFFFFF;
-
-      @include min-screen($tablet-portrait) {
-        margin-top: 15px;
-      }
-
-      @include min-screen($desktop) {
-        margin-top: 30px;
-      }
     }
-
-    .seeMoreLink {
-      fill: #FFF;
-      stroke: #FFF;
-    }
-  }
 
   .rightColumn {
     // Slick adds !important to the wrapper, hence the need for this rule
@@ -61,6 +44,22 @@
 
           h3 {
             font-weight: 400;
+            font-size: 20px;
+          }
+
+          .details {
+            margin: 10px 0 5px;
+
+            &-author {
+              font-size: 16px;
+              margin-bottom: 15px;
+            }
+
+            &-audience,
+            &-genre {
+              font-size: 12px;
+              margin-bottom: 5px;
+            }
           }
         }
       }
@@ -82,6 +81,22 @@
           .itemOverlay {
             bottom: 0px;
             height: 140px;
+
+            h3 {
+              font-weight: 400;
+              font-size: 22px;
+            }
+
+            .details {
+              &-author {
+                font-size: 18px;
+              }
+
+              &-audience,
+              &-genre {
+                font-size: 12px;
+              }
+            }
           }
         }
       }

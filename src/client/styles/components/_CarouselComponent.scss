@@ -130,7 +130,8 @@
     padding: 0;
     margin: 0;
     background-color: transparent;
-    color: rgba(255,255,255,0.6);
+    color: rgba(255,255,255,0.8);
+
     font-size: 13px;
     text-transform: uppercase;
     line-height: 1.2em;
@@ -154,7 +155,7 @@
 
     @include min-screen($tablet-portrait) {
       border-style: solid;
-      border-color: rgba(255,255,255,0.6) transparent transparent transparent;
+      border-color: rgba(255,255,255,0.8) transparent transparent transparent;
       border-width: 2px;
       width: auto;
       max-width: 110px;
