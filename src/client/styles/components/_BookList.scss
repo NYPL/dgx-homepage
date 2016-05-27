@@ -5,24 +5,7 @@
   .leftColumn {
     // Only for this component do we override the border
     border: none;
-
-    // & > h2 {
-    //   color: #FFFFFF;
-    //
-    //   @include min-screen($tablet-portrait) {
-    //     margin-top: 15px;
-    //   }
-    //
-    //   @include min-screen($desktop) {
-    //     margin-top: 30px;
-    //   }
-    // }
-
-    // .seeMoreLink {
-    //   fill: #FFF;
-    //   stroke: #FFF;
-    // }
-  }
+    }
 
   .rightColumn {
     // Slick adds !important to the wrapper, hence the need for this rule
