@@ -130,7 +130,7 @@
     padding: 0;
     margin: 0;
     background-color: transparent;
-    color: #FFF;
+    color: rgba(255,255,255,0.8);
     font-size: 13px;
     text-transform: uppercase;
     line-height: 1.2em;
@@ -154,7 +154,7 @@
 
     @include min-screen($tablet-portrait) {
       border-style: solid;
-      border-color: #FFF transparent transparent transparent;
+      border-color: rgba(255,255,255,0.8) transparent transparent transparent;
       border-width: 2px;
       width: auto;
       max-width: 110px;
@@ -169,6 +169,7 @@
     &.active {
       @include min-screen($tablet-portrait) {
         border-color: #FFF;
+        color: #FFF;
       }
     }
   }
@@ -192,10 +193,6 @@
       left: 137px;
       top: 65px;
       color: #FFF;
-    }
-
-    @include min-screen($tablet-portrait + 1px) {
-      left: 145px;
     }
 
     @include min-screen($tablet-landscape + 1px) {
@@ -252,6 +249,11 @@
     }
 
     &-description {
+      @include min-screen($tablet-portrait + 1px) {
+        left: 145px;
+        max-width: 55%;
+      }
+
       @include visuallyHidden;
       @include Kievit-Book;
       font-size: 16px;
