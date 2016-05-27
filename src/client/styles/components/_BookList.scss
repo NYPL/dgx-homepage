@@ -5,7 +5,7 @@
   .leftColumn {
     // Only for this component do we override the border
     border: none;
-  }
+    }
 
   .rightColumn {
     // Slick adds !important to the wrapper, hence the need for this rule
