@@ -51,9 +51,9 @@ class App extends React.Component {
 
     return (
       <div className="nyplHomepageApp">
-        <Header skipNav={{ target: 'maincontent' }}/>
+        <Header skipNav={{ target: 'mainContent' }}/>
 
-        <div className="nyplHomepage" id="maincontent" tabIndex="-1">
+        <div className="nyplHomepage" id="mainContent" tabIndex="-1">
           <CarouselComponent
             id="hpCarousel"
             className="hpCarousel"
