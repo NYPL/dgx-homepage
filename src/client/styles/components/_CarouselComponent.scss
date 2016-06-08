@@ -252,9 +252,13 @@
     }
 
     &-description {
-      @include min-screen($tablet-portrait + 1px) {
-        left: 145px;
+      @include min-screen($tablet-portrait) {
         max-width: 55%;
+      }
+
+      @include min-screen($tablet-landscape + 1px) {
+        left: 145px;
+        max-width: 40%;
       }
 
       @include visuallyHidden;
