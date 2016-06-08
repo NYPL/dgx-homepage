@@ -35,7 +35,7 @@
     }
 
     @include min-screen($tablet-portrait) {
-      height: 260px;
+      height: 280px;
     }
 
     @include min-screen($desktop) {
