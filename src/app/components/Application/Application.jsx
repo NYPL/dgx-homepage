@@ -80,6 +80,21 @@ class App extends React.Component {
             }
           />
 
+          <HomepageRow
+            title={learnSomethingNewData.name}
+            link={learnSomethingNewData.link}
+            className="learnRow hpRow nyplGrid"
+            seeMoreId="learn-seeMore"
+            content={
+              <FeatureRow
+                id="hpLearn"
+                className="hpLearn"
+                itemsToDisplay={4}
+                items={learnSomethingNewData.slots}
+              />
+            }
+          />
+
           <div className="staffPicksRow bgPrimaryLibraryRed">
             <HomepageRow
               title={staffPicksData.name}
@@ -112,21 +127,6 @@ class App extends React.Component {
               }
             />
           </div>
-
-          <HomepageRow
-            title={learnSomethingNewData.name}
-            link={learnSomethingNewData.link}
-            className="learnRow hpRow nyplGrid"
-            seeMoreId="learn-seeMore"
-            content={
-              <FeatureRow
-                id="hpLearn"
-                className="hpLearn"
-                itemsToDisplay={4}
-                items={learnSomethingNewData.slots}
-              />
-            }
-          />
 
           <HomepageRow
             title={fromOurBlogsData.name}
