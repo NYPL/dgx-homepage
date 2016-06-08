@@ -39,7 +39,7 @@
     }
 
     @include min-screen($desktop) {
-      height: 458px;
+      height: 400px;
     }
   }
 
@@ -206,7 +206,8 @@
     }
 
     @include min-screen($desktop) {
-      top: 110px;
+      top: 60px;
+      left: 0;
     }
 
     &-tag {
