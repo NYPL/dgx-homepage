@@ -35,11 +35,11 @@
     }
 
     @include min-screen($tablet-portrait) {
-      height: 260px;
+      height: 280px;
     }
 
     @include min-screen($desktop) {
-      height: 458px;
+      height: 400px;
     }
   }
 
@@ -131,7 +131,6 @@
     margin: 0;
     background-color: transparent;
     color: rgba(255,255,255,0.8);
-
     font-size: 13px;
     text-transform: uppercase;
     line-height: 1.2em;
@@ -155,7 +154,7 @@
 
     @include min-screen($tablet-portrait) {
       border-style: solid;
-      border-color: rgba(255,255,255,0.8) transparent transparent transparent;
+      border-color: transparent;
       border-width: 2px;
       width: auto;
       max-width: 110px;
@@ -164,6 +163,7 @@
     }
 
     @include min-screen($desktop) {
+      border-color: rgba(255,255,255,0.8) transparent transparent transparent;
       max-width: 110px;
     }
 
@@ -174,6 +174,7 @@
       }
     }
   }
+  // /-navButton
 
   // Text Description Area
   &-textWrapper {
@@ -191,7 +192,7 @@
       margin: 0;
       padding: 0;
       position: absolute;
-      left: 137px;
+      left: 157px;
       top: 65px;
       color: #FFF;
     }
@@ -200,12 +201,13 @@
       max-width: 1313px;
       width: 100%;
       margin: 0 auto;
-      left: 0;
+      left: 10px;
       right: 0;
     }
 
     @include min-screen($desktop) {
-      top: 110px;
+      top: 60px;
+      left: 0;
     }
 
     &-tag {
@@ -250,15 +252,20 @@
     }
 
     &-description {
-      @include min-screen($tablet-portrait + 1px) {
-        left: 145px;
+      @include min-screen($tablet-portrait) {
         max-width: 55%;
+      }
+
+      @include min-screen($tablet-landscape + 1px) {
+        left: 145px;
+        max-width: 40%;
       }
 
       @include visuallyHidden;
       @include Kievit-Book;
       font-size: 16px;
       font-weight: 300;
+      letter-spacing: .03em;
       line-height: 24px;
       margin: 20px 0 30px 0;
       color: #070707;
