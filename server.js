@@ -3,20 +3,22 @@ import express from 'express';
 import favicon from 'express-favicon';
 import compress from 'compression';
 import colors from 'colors';
-
+// React
 import React from 'react';
+import ReactDOMServer from 'react-dom/server';
 import DocMeta from 'react-doc-meta';
-
+// Flux Alt library
 import Iso from 'iso';
 import alt from 'dgx-alt-center';
-
+// Configuration
 import appConfig from './appConfig.js';
 import analytics from './analytics.js';
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
 import webpackConfig from './webpack.config.js';
+// API Routes
 import apiRoutes from './src/server/ApiRoutes/ApiRoutes.js';
-
+// Homepage App
 import Application from './src/app/components/Application/Application.jsx';
 
 const ROOT_PATH = __dirname;
@@ -40,23 +42,18 @@ app.set('views', VIEWS_PATH);
 
 app.set('port', process.env.PORT || 3001);
 
-// * is used for Reverse Proxy at the moment but can be cleaned up:
-// For webpack
 app.use(express.static(DIST_PATH));
 // For images
 app.use('*/src/client', express.static(INDEX_PATH));
-
 
 app.use('/', apiRoutes);
 
 app.get('/', (req, res) => {
   const iso = new Iso();
+  const hpApp = ReactDOMServer.renderToString(<Application />);
 
   alt.bootstrap(JSON.stringify(res.locals.data || {}));
-
-  const appString = React.renderToString(React.createElement(Application));
-
-  iso.add(appString, alt.flush());
+  iso.add(hpApp, alt.flush());
 
   // First parameter references the ejs filename
   res.render('index', {

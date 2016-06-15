@@ -1,14 +1,14 @@
 import React from 'react';
-
+import { render } from 'react-dom';
 import alt from 'dgx-alt-center';
 import Iso from 'iso';
-
-import './styles/main.scss';
-
+// Homepage App
 import App from '../app/components/Application/Application.jsx';
-
+// Analytics
 import ga from 'react-ga';
-import {config} from 'dgx-react-ga';
+import { config } from 'dgx-react-ga';
+// Styles
+import './styles/main.scss';
 
 window.onload = () => {
   if (!window.ga) {
@@ -20,6 +20,6 @@ window.onload = () => {
   // Render Isomorphically
   Iso.bootstrap((state, meta, container) => {
     alt.bootstrap(state);
-    React.render(<App />, container);
+    render(<App />, container);
   });
 };
