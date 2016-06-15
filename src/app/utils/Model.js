@@ -324,7 +324,7 @@ function Model() {
       result = undefined;
     }
 
-    return result; 
+    return result;
   };
 
   this.getBookItem = obj => {
@@ -357,7 +357,7 @@ function Model() {
       result = undefined;
     }
 
-    return result; 
+    return result;
   };
 
   /**

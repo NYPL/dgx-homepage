@@ -31,14 +31,12 @@ class App extends React.Component {
 
   _onChange() {
     this.setState({
-      carouselIndexValue: HomepageStore.getState().carouselIndexValue,
       whatsHappeningIndexValue: HomepageStore.getState().whatsHappeningIndexValue,
     });
   }
 
   render() {
     const {
-      carouselIndexValue,
       carouselData,
       whatsHappeningIndexValue,
       whatsHappeningData,
