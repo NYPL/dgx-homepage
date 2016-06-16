@@ -53,7 +53,7 @@ class App extends React.Component {
 
         <div className="nyplHomepage" id="mainContent" tabIndex="-1">
           <CarouselComponent
-            ref={i => this.CarouselComponent = i}
+            ref={i => (this.CarouselComponent = i)}
             items={carouselData.slots}
           />
         </div>

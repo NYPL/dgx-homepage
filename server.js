@@ -43,6 +43,7 @@ app.set('views', VIEWS_PATH);
 app.set('port', process.env.PORT || 3001);
 
 app.use(express.static(DIST_PATH));
+
 // For images
 app.use('*/src/client', express.static(INDEX_PATH));
 
@@ -74,8 +75,10 @@ const server = app.listen(app.get('port'), (error) => {
   }
 
   console.log(colors.yellow.underline(appConfig.appName));
-  console.log(colors.green('Express server is listening at'),
-    colors.cyan(`localhost:${app.get('port')}`));
+  console.log(
+    colors.green('Express server is listening at'),
+    colors.cyan(`localhost:${app.get('port')}`)
+  );
 });
 
 // This function is called when you want the server to die gracefully
