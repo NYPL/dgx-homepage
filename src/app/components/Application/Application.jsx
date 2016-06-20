@@ -3,17 +3,17 @@ import React from 'react';
 import HomepageStore from '../../stores/HomepageStore.js';
 import Actions from '../../actions/Actions.js';
 // Utils
-// import slickResponsiveSettings from '../../utils/slickSettings.js';
+import slickResponsiveSettings from '../../utils/slickSettings.js';
 // NYPL Components
 import Header from 'dgx-header-component';
-// import HomepageRow from 'dgx-homepage-row-component';
+import HomepageRow from 'dgx-homepage-row-component';
 // import BlogFeatures from 'dgx-blog-features-component';
-// import HomepageStaffPicks from 'dgx-homepage-staff-picks-component';
-// import BooklistWidget from 'dgx-booklist-component';
+import HomepageStaffPicks from 'dgx-homepage-staff-picks-component';
+import BooklistWidget from 'dgx-booklist-component';
 // import FeatureRow from 'dgx-feature-row-component';
-// import TabbedComponent from 'dgx-tabbed-features-component';
+import TabbedComponent from 'dgx-tabbed-features-component';
 import CarouselComponent from 'dgx-homepage-carousel-component';
-//import Footer from 'dgx-react-footer';
+import Footer from 'dgx-react-footer';
 
 class App extends React.Component {
   constructor(props) {
@@ -56,7 +56,58 @@ class App extends React.Component {
             ref={i => (this.CarouselComponent = i)}
             items={carouselData.slots}
           />
+
+          <HomepageRow
+            title={whatsHappeningData.name}
+            link={whatsHappeningData.link}
+            className="whatsHappeningRow hpRow nyplGrid"
+            seeMoreId="whatsHappening-seeMore"
+            content={
+              <TabbedComponent
+                id="hpWhatsHappening"
+                className="hpWhatsHappening"
+                items={whatsHappeningData.children}
+                index={whatsHappeningIndexValue}
+                action={Actions.setWhatsHappeningIndexValue}
+              />
+            }
+          />
+
+          <div className="staffPicksRow bgPrimaryLibraryRed">
+            <HomepageRow
+              title={staffPicksData.name}
+              link={staffPicksData.link}
+              className="hpRow nyplGrid-fullWidth"
+              seeMoreId="staffPicks-SeeMore"
+              content={
+                <HomepageStaffPicks
+                  className="hpStaffPicks"
+                  id="hpStaffPicks"
+                  items={staffPicksData.slots}
+                />
+              }
+            />
+          </div>
+
+          <div className="bookListRow bgSecondaryLibraryRed">
+            <HomepageRow
+              title={recommendedRecentReleasesData.name}
+              link={recommendedRecentReleasesData.link}
+              className="hpRow nyplGrid-fullWidth"
+              seeMoreId="bookList-seeMore"
+              content={
+                <BooklistWidget
+                  id="hpBookList"
+                  className="hpBookList"
+                  slickResponsiveSettings={slickResponsiveSettings}
+                  bookLists={recommendedRecentReleasesData.slots}
+                />
+              }
+            />
+          </div>
         </div>
+
+        <Footer id="footer" className="footer" />
       </div>
     );
   }
