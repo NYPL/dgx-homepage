@@ -50,10 +50,11 @@ app.use('*/src/client', express.static(INDEX_PATH));
 app.use('/', apiRoutes);
 
 app.get('/', (req, res) => {
+  alt.bootstrap(JSON.stringify(res.locals.data || {}));
+
   const iso = new Iso();
   const hpApp = ReactDOMServer.renderToString(<Application />);
 
-  alt.bootstrap(JSON.stringify(res.locals.data || {}));
   iso.add(hpApp, alt.flush());
 
   // First parameter references the ejs filename

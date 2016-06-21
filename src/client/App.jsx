@@ -18,7 +18,7 @@ window.onload = () => {
   }
 
   // Render Isomorphically
-  Iso.bootstrap((state, meta, container) => {
+  Iso.bootstrap((state, container) => {
     alt.bootstrap(state);
     render(<App />, container);
   });
