@@ -77,6 +77,7 @@
     "dgx-alt-center": "git+ssh://git@bitbucket.org/NYPL/dgx-alt-center.git#master",
     "dgx-blog-features-component": "git+ssh://git@bitbucket.org/NYPL/dgx-blog-features-component.git#v0.0.11",
     "dgx-booklist-component": "git+ssh://git@bitbucket.org/NYPL/dgx-booklist-component.git#master",
+    "dgx-feature-flags": "git+ssh://git@bitbucket.org/NYPL/dgx-feature-flags.git#master",
     "dgx-feature-row-component": "git+ssh://git@bitbucket.org/NYPL/dgx-feature-row-component.git#v0.0.11",
     "dgx-header-component": "git+ssh://git@bitbucket.org/NYPL/dgx-header-component.git#master",
     "dgx-homepage-carousel-component": "git+ssh://git@bitbucket.org/NYPL/dgx-homepage-carousel-component#prototype-new-carousel-with-lazyload",
