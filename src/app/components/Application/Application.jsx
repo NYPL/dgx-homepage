@@ -10,7 +10,7 @@ import HomepageRow from 'dgx-homepage-row-component';
 // import BlogFeatures from 'dgx-blog-features-component';
 import HomepageStaffPicks from 'dgx-homepage-staff-picks-component';
 import BooklistWidget from 'dgx-booklist-component';
-// import FeatureRow from 'dgx-feature-row-component';
+import FeatureRow from 'dgx-feature-row-component';
 import TabbedComponent from 'dgx-tabbed-features-component';
 import CarouselComponent from 'dgx-homepage-carousel-component';
 import Footer from 'dgx-react-footer';
@@ -73,6 +73,21 @@ class App extends React.Component {
             }
           />
 
+          <HomepageRow
+            title={learnSomethingNewData.name}
+            link={learnSomethingNewData.link}
+            className="learnRow hpRow nyplGrid"
+            seeMoreId="learn-seeMore"
+            content={
+              <FeatureRow
+                id="hpLearn"
+                className="hpLearn"
+                itemsToDisplay={4}
+                items={learnSomethingNewData.slots}
+              />
+            }
+          />
+
           <div className="staffPicksRow bgPrimaryLibraryRed">
             <HomepageRow
               title={staffPicksData.name}
@@ -105,6 +120,35 @@ class App extends React.Component {
               }
             />
           </div>
+
+          <HomepageRow
+            title={fromOurBlogsData.name}
+            link={fromOurBlogsData.link}
+            className="blogsRow hpRow nyplGrid"
+            seeMoreId="blogs-seeMore"
+            content={
+              <BlogFeatures
+                className="hpBlogs"
+                id="hpBlogs"
+                items={fromOurBlogsData.slots}
+              />
+            }
+          />
+
+          <HomepageRow
+            title={ofNoteData.name}
+            link={ofNoteData.link}
+            className="ofNoteRow hpRow nyplGrid"
+            seeMoreId="ofNote-seeMore"
+            content={
+              <FeatureRow
+                id="hpOfNote"
+                className="hpOfNote"
+                items={ofNoteData.slots}
+              />
+            }
+          />
+
         </div>
 
         <Footer id="footer" className="footer" />
