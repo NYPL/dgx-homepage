@@ -122,20 +122,6 @@ class App extends React.Component {
           </div>
 
           <HomepageRow
-            title={fromOurBlogsData.name}
-            link={fromOurBlogsData.link}
-            className="blogsRow hpRow nyplGrid"
-            seeMoreId="blogs-seeMore"
-            content={
-              <BlogFeatures
-                className="hpBlogs"
-                id="hpBlogs"
-                items={fromOurBlogsData.slots}
-              />
-            }
-          />
-
-          <HomepageRow
             title={ofNoteData.name}
             link={ofNoteData.link}
             className="ofNoteRow hpRow nyplGrid"
