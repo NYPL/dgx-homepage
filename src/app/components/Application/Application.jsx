@@ -5,11 +5,11 @@ import Actions from '../../actions/Actions.js';
 // Utils
 import slickResponsiveSettings from '../../utils/slickSettings.js';
 // NYPL Components
+import Header from 'dgx-header-component';
 import HomepageRow from 'dgx-homepage-row-component';
 import BlogFeatures from 'dgx-blog-features-component';
 import HomepageStaffPicks from 'dgx-homepage-staff-picks-component';
 import BooklistWidget from 'dgx-booklist-component';
-import Header from 'dgx-header-component';
 import FeatureRow from 'dgx-feature-row-component';
 import TabbedComponent from 'dgx-tabbed-features-component';
 import CarouselComponent from 'dgx-homepage-carousel-component';
@@ -31,14 +31,12 @@ class App extends React.Component {
 
   _onChange() {
     this.setState({
-      carouselIndexValue: HomepageStore.getState().carouselIndexValue,
       whatsHappeningIndexValue: HomepageStore.getState().whatsHappeningIndexValue,
     });
   }
 
   render() {
     const {
-      carouselIndexValue,
       carouselData,
       whatsHappeningIndexValue,
       whatsHappeningData,
@@ -55,13 +53,8 @@ class App extends React.Component {
 
         <div className="nyplHomepage" id="mainContent" tabIndex="-1">
           <CarouselComponent
-            id="hpCarousel"
-            className="hpCarousel"
+            ref={i => (this.CarouselComponent = i)}
             items={carouselData.slots}
-            itemIndex={carouselIndexValue}
-            methods={
-              { buttonMethod: Actions.setCarouselIndexValue }
-            }
           />
 
           <HomepageRow
@@ -155,9 +148,10 @@ class App extends React.Component {
               />
             }
           />
+
         </div>
 
-        <Footer />
+        <Footer id="footer" className="footer" />
       </div>
     );
   }

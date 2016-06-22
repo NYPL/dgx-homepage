@@ -1,7 +1,9 @@
 .hpCarousel {
-  position: relative;
   @extend %clearfix;
-  margin: 0 0 25px 0;
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+  width: 100%;
 
   @include min-screen($tablet-portrait) {
     margin-bottom: 15px;
@@ -15,16 +17,32 @@
     text-decoration: none;
   }
 
-  &-image {
-    display: block;
+  // Slides Wrapper
+  &-slides {
+    line-height: 0;
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+  }
+
+  // Each individual slide container holds an image and content
+  &-slide {
+    left: 0;
+    position: absolute;
+    top: 0;
     width: 100%;
+
+    &.center {
+      position: relative;
+    }
+  }
+
+  // Wrapper around the image tag
+  &-imageBox {
+    background-color: #89806F;
     height: 220px;
     margin: 0;
     padding: 0;
-    background-position: center;
-    background-size: cover;
-    background-color: #89806F;
-    color: #000;
 
     @include min-screen(480px) {
       height: 330px;
@@ -41,13 +59,186 @@
     @include min-screen($desktop) {
       height: 400px;
     }
+
+    // Using responsive rules to apply proper position
+    & > img {
+      max-width: 100%;
+      height: 100%;
+      width: 100%;
+      -o-object-fit: cover;
+      object-fit: cover;
+      -o-object-position: center 0;
+      object-position: center 0;
+
+      &.loaded {
+        -webkit-transition: opacity .3s;
+        transition: opacity .3s;
+        opacity: 1;
+      }
+
+      &.notLoaded {
+        opacity: 0;
+      }
+    }
   }
 
-  &-imageCaption {
-    @include visuallyHidden;
+  // Holds tag, title, desc, location, date
+  &-content {
+    max-width: 1313px;
+    padding: 0 14px;
+    margin: 15px auto 0px;
+    display: block;
+    line-height: normal;
+    white-space: normal;
+    color: #000;
+
+    @include min-screen($tablet-portrait) {
+      max-width: none;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      left: 157px;
+      top: 65px;
+      color: #FFF;
+    }
+
+    @include min-screen($tablet-landscape + 1px) {
+      max-width: 1313px;
+      width: 100%;
+      margin: 0 auto;
+      left: 10px;
+      right: 0;
+    }
+
+    @include min-screen($desktop) {
+      top: 60px;
+      left: 0;
+    }
+
+    a {
+      display: block;
+    }
+
+    &-tag {
+      color: #070707;
+      margin: 15px 0 0 0;
+
+      & > h3 {
+        @include Kievit-Medium;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin: 0;
+      }
+
+      @include min-screen($tablet-portrait) {
+        color: #FFF;
+        margin: 0;
+      }
+
+      @include min-screen($tablet-landscape + 1px) {
+        margin-left: 145px;
+      }
+    }
+
+    &-title {
+      margin: 15px 0 0 0;
+      color: #070707;
+
+      & > h2 {
+        @include Milo-Regular;
+        font-size: 27px;
+        font-weight: 400;
+        margin: 0;
+
+        @include min-screen($desktop) {
+          font-size: 36px;
+        }
+      }
+
+      @include min-screen($tablet-portrait) {
+        color: #FFF;
+        margin-top: 25px;
+      }
+
+      @include min-screen($tablet-landscape + 1px) {
+        margin-left: 145px;
+      }
+
+      @include min-screen($desktop) {
+        margin-top: 45px;
+        max-width: 400px;
+      }
+    }
+
+    &-details {
+      margin: 20px 0 30px 0;
+      color: #070707;
+
+      @include min-screen($tablet-portrait) {
+        color: #FFF;
+        margin: 25px 20px 0 0;
+      }
+
+      @include min-screen($tablet-landscape + 1px) {
+        margin-left: 145px;
+      }
+    }
+
+    &-date {
+      @include Kievit-Medium;
+      font-weight: normal;
+      display: block;
+      margin: 0 0 7.5px;
+      @include min-screen($tablet-portrait) {
+        margin-bottom: 12.5px;
+      }
+    }
+
+    &-location {
+      @include Kievit-Book;
+      font-weight: normal;
+      display: block;
+      margin: 7.5px 0 0;
+      @include min-screen($tablet-portrait) {
+        margin-top: 12.5px;
+      }
+    }
+
+    &-description {
+      @include visuallyHidden;
+      margin: 20px 0 30px 0;
+      color: #070707;
+
+      & > p {
+        @include Kievit-Book;
+        font-size: 16px;
+        font-weight: 300;
+        letter-spacing: .03em;
+        line-height: 24px;
+      }
+
+      @include min-screen($tablet-portrait) {
+        @include displayVisuallyHidden;
+        color: #FFF;
+        width: auto; // Override displayVisuallyHidden width rule
+        margin: 25px 20px 0 0;
+        max-width: 55%;
+      }
+
+      @include min-screen($tablet-landscape + 1px) {
+        margin-left: 145px;
+        max-width: 40%;
+      }
+
+      @include min-screen($desktop) {
+        margin-top: 30px;
+        max-width: 420px;
+      }
+    }
   }
 
-  &-buttonWrapper {
+  &-nav {
     display: block;
     position: absolute;
     left: 0;
@@ -58,11 +249,11 @@
     text-align: center;
 
     @include min-screen(480px) {
-      top: 290px;
+      top: 285px;
     }
 
     @include min-screen(560px) {
-      top: 345px;
+      top: 350px;
     }
 
     @include min-screen($tablet-portrait) {
@@ -70,6 +261,7 @@
       width: auto;
       right: inherit;
       top: 50px;
+      bottom: inherit;
       left: 8px;
     }
 
@@ -89,8 +281,13 @@
       bottom: 25px;
     }
 
-    // React Tappable surrounding SPAN element
-    & > span {
+    &-list {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+
+    &-item {
       display: inline-block;
       margin: 0 40px 0 0;
       padding: 0;
@@ -121,169 +318,58 @@
         }
       }
     }
-  }
 
-  &-navButton {
-    @include Kievit-Book;
-    cursor: pointer;
-    outline : none;
-    padding: 0;
-    margin: 0;
-    background-color: transparent;
-    color: rgba(255,255,255,0.8);
-    font-size: 13px;
-    text-transform: uppercase;
-    line-height: 1.2em;
-    letter-spacing: .05em;
-    word-wrap: break-word;
-    border: none;
-
-    & > span {
-      @include visuallyHidden;
-
-      @include min-screen($tablet-portrait) {
-        @include displayVisuallyHidden;
-      }
-    }
-
-    .svgIcon {
-      @include min-screen($tablet-portrait) {
-        display: none;
-      }
-    }
-
-    @include min-screen($tablet-portrait) {
-      border-style: solid;
-      border-color: transparent;
-      border-width: 2px;
-      width: auto;
-      max-width: 110px;
-      text-align: left;
-      padding: 9px 8px 7px;
-    }
-
-    @include min-screen($desktop) {
-      border-color: rgba(255,255,255,0.8) transparent transparent transparent;
-      max-width: 110px;
-    }
-
-    &.active {
-      @include min-screen($tablet-portrait) {
-        border-color: #FFF;
-        color: #FFF;
-      }
-    }
-  }
-  // /-navButton
-
-  // Text Description Area
-  &-textWrapper {
-    max-width: 1313px;
-    padding: 0 14px;
-    margin: 15px auto 0px;
-    display: block;
-
-    a {
-      display: block;
-    }
-
-    @include min-screen($tablet-portrait) {
-      max-width: none;
-      margin: 0;
-      padding: 0;
-      position: absolute;
-      left: 157px;
-      top: 65px;
-      color: #FFF;
-    }
-
-    @include min-screen($tablet-landscape + 1px) {
-      max-width: 1313px;
-      width: 100%;
-      margin: 0 auto;
-      left: 10px;
-      right: 0;
-    }
-
-    @include min-screen($desktop) {
-      top: 60px;
-      left: 0;
-    }
-
-    &-tag {
-      @include Kievit-Medium;
-      font-size: 14px;
-      margin: 15px 0 0 0;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: #070707;
-
-      @include min-screen($tablet-portrait) {
-        color: #FFF;
-        margin: 0;
-      }
-
-      @include min-screen($tablet-landscape + 1px) {
-        margin-left: 145px;
-      }
-    }
-
-    &-title {
-      @include Milo-Regular;
-      font-size: 27px;
-      font-weight: 400;
-      margin: 15px 0 0 0;
-      color: #070707;
-
-      @include min-screen($tablet-portrait) {
-        color: #FFF;
-        margin-top: 25px;
-      }
-
-      @include min-screen($tablet-landscape + 1px) {
-        margin-left: 145px;
-      }
-
-      @include min-screen($desktop) {
-        font-size: 36px;
-        margin-top: 45px;
-        max-width: 400px;
-      }
-    }
-
-    &-description {
-      @include min-screen($tablet-portrait) {
-        max-width: 55%;
-      }
-
-      @include min-screen($tablet-landscape + 1px) {
-        left: 145px;
-        max-width: 40%;
-      }
-
-      @include visuallyHidden;
+    &-button {
       @include Kievit-Book;
-      font-size: 16px;
-      font-weight: 300;
-      letter-spacing: .03em;
-      line-height: 24px;
-      margin: 20px 0 30px 0;
-      color: #070707;
+      cursor: pointer;
+      outline : none;
+      padding: 0;
+      margin: 0;
+      background-color: transparent;
+      color: rgba(255,255,255,0.8);
+      font-size: 13px;
+      text-transform: uppercase;
+      line-height: 1.2em;
+      letter-spacing: .05em;
+      word-wrap: break-word;
+      border: none;
 
-      @include min-screen($tablet-portrait) {
-        @include displayVisuallyHidden;
-        color: #FFF;
-        width: auto; //Override displayVisuallyHidden width rule
-        margin: 25px 20px 0 0;
+      &.active {
+        @include min-screen($tablet-portrait) {
+          border-color: #FFF;
+          color: #FFF;
+        }
       }
 
-      @include min-screen($tablet-landscape + 1px) {
-        margin-left: 145px;
+      @include min-screen($tablet-portrait) {
+        border-style: solid;
+        border-color: transparent;
+        border-width: 2px;
+        width: auto;
+        max-width: 110px;
+        text-align: left;
+        padding: 9px 8px 7px;
       }
 
       @include min-screen($desktop) {
-        margin-top: 30px;
-        max-width: 400px;
+        border-color: rgba(255,255,255,0.8) transparent transparent transparent;
+        max-width: 110px;
+      }
+
+      &-label {
+        @include visuallyHidden;
+
+        @include min-screen($tablet-portrait) {
+          @include displayVisuallyHidden;
+        }
+      }
+
+      &-icon {
+        display: inline-block;
+
+        @include min-screen($tablet-portrait) {
+          display: none;
+        }
       }
     }
   }
