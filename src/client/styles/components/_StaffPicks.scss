@@ -18,19 +18,10 @@
     min-height: 520px;
   }
 
-  .leftColumn {
-    border-top: 2px solid #FFF;
-
-    > h2 {
-      color: #FFF;
-    }
-
-    .seeMoreLink {
-      fill: #FFF;
-      stroke: #FFF;
-    }
-  }
-}
+   .leftColumn {
+     border-top: 2px solid #FFF;
+   }
+ }
 
 // Component specific mobile first rules
 .hpStaffPicks {
