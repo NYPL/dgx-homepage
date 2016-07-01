@@ -99,7 +99,7 @@
 .bookListRow {
 
   .leftColumn {
-    
+
     & > h2 {
       @include min-screen($tablet-portrait) {
         margin-top: 15px;
@@ -110,3 +110,4 @@
       }
     }
   }
+}
