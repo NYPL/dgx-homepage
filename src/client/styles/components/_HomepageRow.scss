@@ -102,10 +102,16 @@
 
     & > h2 {
       @include min-screen($tablet-portrait) {
+        letter-spacing: -.04em;
         margin-top: 15px;
       }
 
       @include min-screen($tablet-landscape) {
+        margin-top: 15px;
+        letter-spacing: normal;
+      }
+
+      @include min-screen($desktop) {
         margin-top: 30px;
       }
     }
