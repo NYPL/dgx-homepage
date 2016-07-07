@@ -75,14 +75,15 @@
 
    &-titleWrapper::before {
     @include layout-at(8, $tablet-landscape) {
-      @include grid-span(4, 1);
+      @include grid-span(4, 1, $grid: 10);
+
       content: '';
       height: 48px;
       border-bottom: 2px solid $PRIMARY_COLOR;
     }
 
     @include layout-at(8, $desktop) {
-      @include grid-span(5, 1);
+      @include grid-span(14, 1, $grid: 27);
     }
   }
 
