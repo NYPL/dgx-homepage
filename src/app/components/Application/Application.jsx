@@ -5,7 +5,7 @@ import Actions from '../../actions/Actions.js';
 // Utils
 import slickResponsiveSettings from '../../utils/slickSettings.js';
 // NYPL Components
-import Header from 'dgx-header-component';
+import { Header } from 'dgx-header-component';
 import HomepageRow from 'dgx-homepage-row-component';
 import BlogFeatures from 'dgx-blog-features-component';
 import HomepageStaffPicks from 'dgx-homepage-staff-picks-component';

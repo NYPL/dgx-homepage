@@ -69,16 +69,6 @@
       object-fit: cover;
       -o-object-position: center 0;
       object-position: center 0;
-
-      &.loaded {
-        -webkit-transition: opacity .3s;
-        transition: opacity .3s;
-        opacity: 1;
-      }
-
-      &.notLoaded {
-        opacity: 0;
-      }
     }
   }
 
