@@ -2,10 +2,13 @@ import express from 'express';
 import axios from 'axios';
 import parser from 'jsonapi-parserinator';
 
-import HeaderModel from '../../app/utils/HeaderItemModel.js';
-import Model from '../../app/utils/Model.js';
+import { navConfig } from 'dgx-header-component';
+
+import Model from 'dgx-model-data';
+import HomepageModel from '../../app/utils/Model.js';
 import config from '../../../appConfig.js';
 
+const { HeaderItemModel } = Model;
 const { api, homepageApi, headerApi } = config;
 const router = express.Router();
 const appEnvironment = process.env.APP_ENV || 'production';
@@ -36,9 +39,9 @@ function HomepageApp(req, res, next) {
   axios.all([getHeaderData(), fetchApiData(homepageApiUrl)])
     .then(axios.spread((headerData, homepageData) => {
       const homepageParsed = parser.parse(homepageData.data, homepageOptions);
-      const homepageModelData = Model.build(homepageParsed);
+      const homepageModelData = HomepageModel.build(homepageParsed);
       const headerParsed = parser.parse(headerData.data, headerOptions);
-      const headerModelData = HeaderModel.build(headerParsed);
+      const headerModelData = HeaderItemModel.build(headerParsed);
 
       res.locals.data = {
         HomepageStore: {
@@ -56,7 +59,7 @@ function HomepageApp(req, res, next) {
           whatsHappeningIndexValue: 0,
         },
         HeaderStore: {
-          headerData: headerModelData,
+          headerData: navConfig.current,
         },
         // Set the API URL here so we can access it when we
         // render in the EJS file.
