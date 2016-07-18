@@ -35,6 +35,18 @@
     &.center {
       position: relative;
     }
+
+    img {
+      &.loaded {
+        -webkit-transition: opacity .3s;
+        transition: opacity .3s;
+        opacity: 1;
+      }
+      
+      &.notLoaded {
+        opacity: 0;
+      }
+    }
   }
 
   // Wrapper around the image tag
