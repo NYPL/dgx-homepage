@@ -20,6 +20,9 @@ window.onload = () => {
     window.dgxFeatureFlags = FeatureFlags.utils;
   }
 
+  // Fire off the Feature Flag prior to render
+  FeatureFlags.utils.activateFeature('shop-link');
+
   if (!window.ga) {
     const gaOpts = { debug: true };
     // Passing in false for the dev GA code
