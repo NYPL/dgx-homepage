@@ -15,6 +15,8 @@ import TabbedComponent from 'dgx-tabbed-features-component';
 import CarouselComponent from 'dgx-homepage-carousel-component';
 import Footer from 'dgx-react-footer';
 
+import SkinnyBanner from './../SkinnyBanner/SkinnyBanner.jsx';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -50,6 +52,8 @@ class App extends React.Component {
     return (
       <div className="nyplHomepageApp">
         <Header skipNav={{ target: 'mainContent' }}/>
+
+        <SkinnyBanner />
 
         <div className="nyplHomepage" id="mainContent" tabIndex="-1">
           <CarouselComponent
