@@ -1,29 +1,5 @@
 import React from 'react';
 
-const ReturnLink = <a href="#" style={{color: 'inherit',}}>Return</a>;
-const surveyLink =
-  <a
-    href="https://www.surveymonkey.com/r/BQGKY96"
-    target="_blank"
-    style={{color: 'inherit',}}
-   >
-    give us feedback
-  </a>;
-
-const SkinnyBanner = () => {
-  const textContent =
-    <p style={styles.textContent}>
-      Thanks for previewing upcoming changes to our website. {ReturnLink} to the 
-      current version of our website or {surveyLink} on the new version.
-    </p>;
-
-  return (
-    <div style={styles.mainDIV}>
-      {textContent}
-    </div>
-  );
-};
-
 const styles = {
   mainDIV: {
     backgroundColor: '#89806F',
@@ -42,5 +18,95 @@ const styles = {
     margin: '0',
   },
 };
+
+class SkinnyBanner extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.createMarkup = this.createMarkup.bind(this);
+  }
+
+  createMarkup(bodyText) {
+    return { __html: bodyText };
+  }
+
+  render() {
+    const ReturnLink = <a id="cookieClear" href="#" style={{ color: 'inherit' }}>Return</a>;
+    const surveyLink = (
+      <a
+        href="https://www.surveymonkey.com/r/BQGKY96"
+        target="_blank"
+        style={{ color: 'inherit' }}
+      >
+        give us feedback
+      </a>
+    );
+    const textContent = (
+      <p style={styles.textContent}>
+        Thanks for previewing upcoming changes to our website. {ReturnLink} to the 
+        current version of our website or {surveyLink} on the new version.
+      </p>
+    );
+
+    return (
+      <div style={styles.mainDIV}>
+        <script
+          dangerouslySetInnerHTML={this.createMarkup(`
+            var docCookies = {
+              getItem: function (sKey) {
+                if (!sKey) { return null; }
+                return decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || null;
+              },
+              setItem: function (sKey, sValue, vEnd, sPath, sDomain, bSecure) {
+                if (!sKey || /^(?:expires|max\-age|path|domain|secure)$/i.test(sKey)) { return false; }
+                var sExpires = "";
+                if (vEnd) {
+                  switch (vEnd.constructor) {
+                    case Number:
+                      sExpires = vEnd === Infinity ? "; expires=Fri, 31 Dec 9999 23:59:59 GMT" : "; max-age=" + vEnd;
+                      break;
+                    case String:
+                      sExpires = "; expires=" + vEnd;
+                      break;
+                    case Date:
+                      sExpires = "; expires=" + vEnd.toUTCString();
+                      break;
+                  }
+                }
+                document.cookie = encodeURIComponent(sKey) + "=" + encodeURIComponent(sValue) + sExpires + (sDomain ? "; domain=" + sDomain : "") + (sPath ? "; path=" + sPath : "") + (bSecure ? "; secure" : "");
+                return true;
+              },
+              removeItem: function (sKey, sPath, sDomain) {
+                if (!this.hasItem(sKey)) { return false; }
+                document.cookie = encodeURIComponent(sKey) + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT" + (sDomain ? "; domain=" + sDomain : "") + (sPath ? "; path=" + sPath : "");
+                return true;
+              },
+              hasItem: function (sKey) {
+                if (!sKey) { return false; }
+                return (new RegExp("(?:^|;\\s*)" + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=")).test(document.cookie);
+              }
+            };
+
+            document.addEventListener("DOMContentLoaded", function(event) {
+              console.log(docCookies.getItem('nyplpreview'));
+
+              var el = document.getElementById('cookieClear');
+              el.addEventListener('click', function(event) {
+                event.preventDefault();
+                console.log('test');
+
+                docCookies.removeItem('nyplpreview');
+
+                // Refresh the page.
+              }, false);
+            });
+          `)}
+        >
+        </script>
+        {textContent}
+      </div>
+    );
+  }
+}
 
 export default SkinnyBanner;
