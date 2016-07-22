@@ -31,7 +31,22 @@ class SkinnyBanner extends React.Component {
   }
 
   render() {
-    const ReturnLink = <a id="cookieClear" href="#" style={{ color: 'inherit' }}>Return</a>;
+    const ReturnLink = (
+      <button
+        id="cookieClear"
+        style={{
+          backgroundColor: 'transparent',
+          border: 'none',
+          color: 'inherit',
+          cursor: 'pointer',
+          fontSize: '16px',
+          padding: '0',
+          textDecoration: 'underline',
+        }}
+      >
+        Return
+      </button>
+    );
     const surveyLink = (
       <a
         href="https://www.surveymonkey.com/r/BQGKY96"
