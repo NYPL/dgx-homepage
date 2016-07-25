@@ -2,7 +2,7 @@ import React from 'react';
 
 const styles = {
   mainDIV: {
-    backgroundColor: '#89806F',
+    backgroundColor: '#54514a',
     color: 'white',
     fontFamily: 'Kievit-Medium',
     minHeight: '20px',
