@@ -68,8 +68,6 @@ class SkinnyBanner extends React.Component {
       };
 
       document.addEventListener("DOMContentLoaded", function(event) {
-        console.log(docCookies.getItem('nyplpreview'));
-
         var el = document.getElementById('cookieClear');
         el.addEventListener('click', function(event) {
           event.preventDefault();
