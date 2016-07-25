@@ -1,23 +1,23 @@
 import React from 'react';
 
-const styles = {
-  mainDIV: {
-    backgroundColor: '#54514a',
-    color: 'white',
-    fontFamily: 'Kievit-Medium',
-    minHeight: '20px',
-    margin: '0',
-    padding: '20px 10px',
-    textDecoration: 'none',
-  },
-  textContent: {
-    fontSize: '16px',
-    fontWeight: '300',
-    letterSpacing: '.03em',
-    lineHeight: '24px',
-    margin: '0',
-  },
-};
+// const styles = {
+  // mainDIV: {
+  //   backgroundColor: '#54514a',
+  //   color: 'white',
+  //   fontFamily: 'Kievit-Medium',
+  //   minHeight: '20px',
+  //   margin: '0',
+  //   padding: '20px 10px',
+  //   textDecoration: 'none',
+  // },
+  // textContent: {
+  //   fontSize: '16px',
+  //   fontWeight: '300',
+  //   letterSpacing: '.03em',
+  //   lineHeight: '24px',
+  //   margin: '0',
+  // },
+// };
 
 class SkinnyBanner extends React.Component {
   constructor(props) {
@@ -82,16 +82,7 @@ class SkinnyBanner extends React.Component {
     const ReturnLink = (
       <button
         id="cookieClear"
-        style={{
-          backgroundColor: 'transparent',
-          border: 'none',
-          color: 'inherit',
-          cursor: 'pointer',
-          fontFamily: 'Kievit-Medium',
-          fontSize: '16px',
-          padding: '0',
-          textDecoration: 'underline',
-        }}
+        className="cookieClearButton"
       >
         Return
       </button>
@@ -106,18 +97,67 @@ class SkinnyBanner extends React.Component {
       </a>
     );
     const textContent = (
-      <p style={styles.textContent}>
+      <p className="skinnyBannerText">
         Thanks for previewing upcoming changes to our website. {ReturnLink} to the 
         current version of our website or {surveyLink} on the new version.
       </p>
     );
 
     return (
-      <div style={styles.mainDIV}>
+      <div className="skinnyBannerDiv">
         <script
           dangerouslySetInnerHTML={this.createMarkup(removeCookieScript)}
         >
         </script>
+        <style>{
+          "\
+            .skinnyBannerDiv {\
+              background-color: #54514a;\
+              color: white;\
+              font-family: Kievit-Medium;\
+              min-height: 20px;\
+              margin: 0;\
+              padding: 20px 10px;\
+              text-decoration: none;\
+            }\
+            .skinnyBannerText {\
+              font-size: 16px;\
+              font-weight: 300;\
+              letter-spacing: .03em;\
+              line-height: 24px;\
+              margin: 0;\
+            }\
+            .cookieClearButton {\
+              background-color: transparent;\
+              border: none;\
+              color: inherit;\
+              cursor: pointer;\
+              font-family: Kievit-Medium;\
+              font-size: 16px;\
+              padding: 0;\
+              text-decoration: underline;\
+            }\
+            @media (min-width: 1023px) {\
+              .skinnyBannerDiv {\
+                padding: 20px;\
+              }\
+            }\
+            @media (min-width: 1025px) {\
+              .skinnyBannerDiv {\
+                padding: 27px;\
+              }\
+            }\
+            @media (min-width: 1313px) {\
+              .skinnyBannerDiv {\
+              }\
+              .skinnyBannerText {\
+                max-width: 1312px;\
+                margin: 0 auto;\
+                padding: 0 0 0 115px;\
+              }\
+            }\
+          "}
+        </style>
         {textContent}
       </div>
     );
