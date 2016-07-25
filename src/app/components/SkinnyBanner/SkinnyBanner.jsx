@@ -72,7 +72,7 @@ class SkinnyBanner extends React.Component {
         el.addEventListener('click', function(event) {
           event.preventDefault();
 
-          docCookies.setItem('nyplpreview', 0);
+          docCookies.setItem('nyplpreview', 0, 'Infinity', '/', '.nypl.org');
 
           // Refresh the page.
           document.location.reload(true);
