@@ -73,11 +73,11 @@ class SkinnyBanner extends React.Component {
         var el = document.getElementById('cookieClear');
         el.addEventListener('click', function(event) {
           event.preventDefault();
-          console.log('test');
 
-          docCookies.removeItem('nyplpreview');
+          docCookies.setItem('nyplpreview', 0);
 
           // Refresh the page.
+          document.location.reload(true);
         }, false);
       });
     `;
