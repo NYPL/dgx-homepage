@@ -61,55 +61,56 @@ class SkinnyBanner extends React.Component {
       });`
     ;
     const skinnyBannerStyles =
-      '\n' +
-        '.skinnyBanner {\n' +
-          'background-color: #54514a;\n' +
-          'color: white;\n' +
-          'font-family: Kievit-Medium;\n' +
-          'min-height: 20px;\n' +
-          'margin: 0;\n' +
-          'padding: 20px 10px;\n' +
-          'text-decoration: none;\n' +
-        '}\n' +
-        '.textWrapper {\n' +
-          '  margin: 0 auto;\n' +
-          '  max-width: 1312px;\n' +
-        '}\n' +
-        '.skinnyBannerText {\n' +
-          'font-size: 16px;\n' +
-          'font-weight: 300;\n' +
-          'letter-spacing: .03em;\n' +
-          'line-height: 24px;\n' +
-          'margin: 0;\n' +
-        '}\n' +
-        '.cookieClearButton {\n' +
-          'background-color: transparent;\n' +
-          'border: none;\n' +
-          'color: inherit;\n' +
-          'cursor: pointer;\n' +
-          'font-family: Kievit-Medium;\n' +
-          'font-size: 16px;\n' +
-          'padding: 0;\n' +
-          'text-decoration: underline;\n' +
-        '}\n' +
-        '@media (min-width: 768px) {\n' +
-          '.skinnyBanner {\n' +
-            'padding: 24px;\n' +
-          '}\n' +
-        '}\n' +
-        '@media (min-width: 1023px) {\n' +
-          '.skinnyBanner {\n' +
-            'padding: 20px 30px;\n' +
-          '}\n' +
-        '}\n' +
-        '@media (min-width: 1313px) {\n' +
-          '.skinnyBanner {\n' +
-            'padding: 20px 0;\n' +
-          '}\n' +
-          '.skinnyBannerText {\n' +
-            'padding: 0 0 0 140px;\n' +
-          '}\n' +
-        '}\n'
+      `
+        .skinnyBanner {
+          background-color: #54514a;
+          color: white;
+          font-family: Kievit-Medium;
+          min-height: 20px;
+          margin: 0;
+          padding: 20px 10px;
+          text-decoration: none;
+        }
+        .textWrapper {
+          margin: 0 auto;
+          max-width: 1312px;
+        }
+        .skinnyBannerText {
+          font-size: 16px;
+          font-weight: 300;
+          letter-spacing: .03em;
+          line-height: 24px;
+          margin: 0;
+        }
+        .cookieClearButton {
+          background-color: transparent;
+          border: none;
+          color: inherit;
+          cursor: pointer;
+          font-family: Kievit-Medium;
+          font-size: 16px;
+          padding: 0;
+          text-decoration: underline;
+        }
+        @media (min-width: 768px) {
+          .skinnyBanner {
+            padding: 24px;
+          }
+        }
+        @media (min-width: 1023px) {
+          .skinnyBanner {
+            padding: 20px 30px;
+          }
+        }
+        @media (min-width: 1313px) {
+          .skinnyBanner {
+            padding: 20px 0;
+          }
+          .skinnyBannerText {
+            padding: 0 0 0 140px;
+          }
+        }
+      `
     ;
     const ReturnLink = (
       <button
