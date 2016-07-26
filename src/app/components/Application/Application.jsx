@@ -53,9 +53,8 @@ class App extends React.Component {
       <div className="nyplHomepageApp">
         <Header skipNav={{ target: 'mainContent' }}/>
 
-        <SkinnyBanner />
-
         <div className="nyplHomepage" id="mainContent" tabIndex="-1">
+          <SkinnyBanner />
           <CarouselComponent
             ref={i => (this.CarouselComponent = i)}
             items={carouselData.slots}

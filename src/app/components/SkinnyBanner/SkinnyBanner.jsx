@@ -62,7 +62,7 @@ class SkinnyBanner extends React.Component {
     ;
     const skinnyBannerStyles =
       '\n' +
-        '.skinnyBannerDiv {\n' +
+        '.skinnyBanner {\n' +
           'background-color: #54514a;\n' +
           'color: white;\n' +
           'font-family: Kievit-Medium;\n' +
@@ -93,17 +93,17 @@ class SkinnyBanner extends React.Component {
           'text-decoration: underline;\n' +
         '}\n' +
         '@media (min-width: 768px) {\n' +
-          '.skinnyBannerDiv {\n' +
+          '.skinnyBanner {\n' +
             'padding: 24px;\n' +
           '}\n' +
         '}\n' +
         '@media (min-width: 1023px) {\n' +
-          '.skinnyBannerDiv {\n' +
+          '.skinnyBanner {\n' +
             'padding: 20px 30px;\n' +
           '}\n' +
         '}\n' +
         '@media (min-width: 1313px) {\n' +
-          '.skinnyBannerDiv {\n' +
+          '.skinnyBanner {\n' +
             'padding: 20px 0;\n' +
           '}\n' +
           '.skinnyBannerText {\n' +
@@ -138,7 +138,7 @@ class SkinnyBanner extends React.Component {
     );
 
     return (
-      <div className="skinnyBannerDiv">
+      <div className="skinnyBanner">
         <script
           dangerouslySetInnerHTML={this.createMarkup(removeCookieScript)}
         >
