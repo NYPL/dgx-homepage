@@ -1,24 +1,5 @@
 import React from 'react';
 
-// const styles = {
-  // mainDIV: {
-  //   backgroundColor: '#54514a',
-  //   color: 'white',
-  //   fontFamily: 'Kievit-Medium',
-  //   minHeight: '20px',
-  //   margin: '0',
-  //   padding: '20px 10px',
-  //   textDecoration: 'none',
-  // },
-  // textContent: {
-  //   fontSize: '16px',
-  //   fontWeight: '300',
-  //   letterSpacing: '.03em',
-  //   lineHeight: '24px',
-  //   margin: '0',
-  // },
-// };
-
 class SkinnyBanner extends React.Component {
   constructor(props) {
     super(props);
@@ -97,10 +78,12 @@ class SkinnyBanner extends React.Component {
       </a>
     );
     const textContent = (
-      <p className="skinnyBannerText">
-        Thanks for previewing upcoming changes to our website. {ReturnLink} to the 
-        current version of our website or {surveyLink} on the new version.
-      </p>
+      <div className="textWrapper">
+        <p className="skinnyBannerText">
+          Thanks for previewing upcoming changes to our website. {ReturnLink} to the 
+          current version of our website or {surveyLink} on the new version.
+        </p>
+      </div>
     );
 
     return (
@@ -120,6 +103,10 @@ class SkinnyBanner extends React.Component {
               padding: 20px 10px;\
               text-decoration: none;\
             }\
+            .textWrapper {\
+              margin: 0 auto;\
+              max-width: 1312px;\
+            }\
             .skinnyBannerText {\
               font-size: 16px;\
               font-weight: 300;\
@@ -137,23 +124,22 @@ class SkinnyBanner extends React.Component {
               padding: 0;\
               text-decoration: underline;\
             }\
-            @media (min-width: 1023px) {\
+            @media (min-width: 768px) {\
               .skinnyBannerDiv {\
-                padding: 20px;\
+                padding: 24px;\
               }\
             }\
-            @media (min-width: 1025px) {\
+            @media (min-width: 1023px) {\
               .skinnyBannerDiv {\
-                padding: 27px;\
+                padding: 20px 30px;\
               }\
             }\
             @media (min-width: 1313px) {\
               .skinnyBannerDiv {\
+                padding: 20px 0;\
               }\
               .skinnyBannerText {\
-                max-width: 1312px;\
-                margin: 0 auto;\
-                padding: 0 0 0 115px;\
+                padding: 0 0 0 140px;\
               }\
             }\
           "}
