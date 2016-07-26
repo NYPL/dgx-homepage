@@ -71,11 +71,11 @@ class SkinnyBanner extends React.Component {
           padding: 20px 10px;
           text-decoration: none;
         }
-        .textWrapper {
+        .contentWrapper {
           margin: 0 auto;
           max-width: 1312px;
         }
-        .skinnyBannerText {
+        .skinnyBannerContent {
           font-size: 16px;
           font-weight: 300;
           letter-spacing: .03em;
@@ -106,7 +106,7 @@ class SkinnyBanner extends React.Component {
           .skinnyBanner {
             padding: 20px 0;
           }
-          .skinnyBannerText {
+          .skinnyBannerContent {
             padding: 0 0 0 140px;
           }
         }
@@ -129,9 +129,9 @@ class SkinnyBanner extends React.Component {
         give us feedback
       </a>
     );
-    const textContent = (
-      <div className="textWrapper">
-        <p className="skinnyBannerText">
+    const content = (
+      <div className="contentWrapper">
+        <p className="skinnyBannerContent">
           Thanks for previewing upcoming changes to our website. {ReturnLink} to the 
           current version of our website or {surveyLink} on the new version.
         </p>
@@ -148,7 +148,7 @@ class SkinnyBanner extends React.Component {
           dangerouslySetInnerHTML={this.createMarkup(skinnyBannerStyles)}
         >
         </style>
-        {textContent}
+        {content}
       </div>
     );
   }
