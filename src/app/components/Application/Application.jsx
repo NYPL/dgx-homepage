@@ -12,7 +12,7 @@ import HomepageStaffPicks from 'dgx-homepage-staff-picks-component';
 import BooklistWidget from 'dgx-booklist-component';
 import FeatureRow from 'dgx-feature-row-component';
 import TabbedComponent from 'dgx-tabbed-features-component';
-import CarouselComponent from 'dgx-homepage-carousel-component';
+import CarouselComponent from 'dgx-homepage-content-banner';
 import Footer from 'dgx-react-footer';
 
 class App extends React.Component {
