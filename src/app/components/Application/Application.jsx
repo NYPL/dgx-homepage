@@ -12,7 +12,7 @@ import HomepageStaffPicks from 'dgx-homepage-staff-picks-component';
 import BooklistWidget from 'dgx-booklist-component';
 import FeatureRow from 'dgx-feature-row-component';
 import TabbedComponent from 'dgx-tabbed-features-component';
-import CarouselComponent from 'dgx-homepage-content-banner';
+import ContentBanner from 'dgx-homepage-content-banner';
 import Footer from 'dgx-react-footer';
 
 import SkinnyBanner from './../SkinnyBanner/SkinnyBanner.jsx';
@@ -55,8 +55,8 @@ class App extends React.Component {
 
         <div className="nyplHomepage" id="mainContent" tabIndex="-1">
           <SkinnyBanner />
-          <CarouselComponent
-            ref={i => (this.CarouselComponent = i)}
+          <ContentBanner
+            ref={i => (this.ContentBanner = i)}
             items={carouselData.slots}
           />
 
