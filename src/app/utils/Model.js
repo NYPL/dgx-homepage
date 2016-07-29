@@ -360,6 +360,28 @@ function Model() {
     return result;
   };
 
+  this.getImageAlt = image => {
+    if (!image && _isEmpty(image)) {
+      return '';
+    }
+
+    try {
+      const {
+        attributes: {
+          ['alt-text']: {
+            en: {
+              text: alt = '',
+            },
+          },
+        },
+      } = image;
+
+      return alt;
+    } catch (e) {
+      return '';
+    }
+  };
+
   /**
    * createSlots(dataArray)
    * Collect and restructure if an item has slot object.
@@ -376,13 +398,18 @@ function Model() {
         return {};
       }
 
-      const currentItem = element['current-item'];
-
+      const currentItem = element['current-item'];console.log(currentItem);
       // Check if different sizes of the images exist.
-      const bannerImage = currentItem['banner-image'] ?
+      let bannerImage = currentItem['banner-image'] ?
         currentItem['banner-image'].attributes.uri : undefined;
-      const mobileBannerImage = currentItem['mobile-banner-image'] ?
+      if (bannerImage) {
+        bannerImage.alt = this.getImageAlt(currentItem['banner-image']);
+      }
+      let mobileBannerImage = currentItem['mobile-banner-image'] ?
         currentItem['mobile-banner-image'].attributes.uri : undefined;
+      if (mobileBannerImage) {
+        mobileBannerImage.alt = this.getImageAlt(currentItem['mobile-banner-image']);
+      }
       const rectangularImage = currentItem['rectangular-image'] ?
           currentItem['rectangular-image'].attributes.uri : undefined;
       const bookCoverImage = currentItem['book-cover-image'] ?
