@@ -113,13 +113,12 @@ class SkinnyBanner extends React.Component {
       `
     ;
     const ReturnLink = (
-      <a
-        href=""
+      <button
         id="cookieClear"
         className="cookieClearButton"
       >
         current version
-      </a>
+      </button>
     );
     const surveyLink = (
       <a
