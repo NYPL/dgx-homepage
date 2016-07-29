@@ -398,7 +398,7 @@ function Model() {
         return {};
       }
 
-      const currentItem = element['current-item'];console.log(currentItem);
+      const currentItem = element['current-item'];
       // Check if different sizes of the images exist.
       let bannerImage = currentItem['banner-image'] ?
         currentItem['banner-image'].attributes.uri : undefined;
