@@ -117,7 +117,7 @@ class SkinnyBanner extends React.Component {
         id="cookieClear"
         className="cookieClearButton"
       >
-        Return
+        current version
       </button>
     );
     const surveyLink = (
@@ -126,14 +126,14 @@ class SkinnyBanner extends React.Component {
         target="_blank"
         style={{ color: 'inherit' }}
       >
-        give us feedback
+        feedback
       </a>
     );
     const content = (
       <div className="contentWrapper">
         <p className="skinnyBannerContent">
-          Thanks for previewing upcoming changes to our website. {ReturnLink} to the 
-          current version of our website or {surveyLink} on the new version.
+          Thanks for previewing upcoming changes to our website. Give us your {surveyLink} or 
+          return to the {ReturnLink}.
         </p>
       </div>
     );
