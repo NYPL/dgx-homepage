@@ -17,7 +17,7 @@
       text-decoration: none;
     }
 
-    & > h3 {
+    li:first-child {
       @include Kievit-Medium;
       color: $PRIMARY_COLOR;
       text-transform: uppercase;
