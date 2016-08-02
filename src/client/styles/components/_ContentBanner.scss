@@ -1,4 +1,4 @@
-.hpCarousel {
+.hpContentBanner {
   @extend %clearfix;
   position: relative;
   margin: 0 auto;
@@ -15,14 +15,6 @@
 
   a {
     text-decoration: none;
-  }
-
-  // Slides Wrapper
-  &-slides {
-    line-height: 0;
-    overflow: hidden;
-    position: relative;
-    white-space: nowrap;
   }
 
   // Each individual slide container holds an image and content
@@ -236,142 +228,6 @@
       @include min-screen($desktop) {
         margin-top: 30px;
         max-width: 420px;
-      }
-    }
-  }
-
-  &-nav {
-    display: block;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 180px;
-    margin: 0 auto;
-    z-index: 100;
-    text-align: center;
-
-    @include min-screen(480px) {
-      top: 285px;
-    }
-
-    @include min-screen(560px) {
-      top: 350px;
-    }
-
-    @include min-screen($tablet-portrait) {
-      margin: 0;
-      width: auto;
-      right: inherit;
-      top: 50px;
-      bottom: inherit;
-      left: 8px;
-    }
-
-    @include min-screen($tablet-portrait + 1px) {
-      left: 15px;
-    }
-
-    @include min-screen($desktop) {
-      width: 100%;
-      max-width: 1313px;
-      padding: 0;
-      margin: 0 auto;
-      text-align: left;
-      left: 0;
-      right: 0;
-      top: inherit;
-      bottom: 25px;
-    }
-
-    &-list {
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
-    }
-
-    &-item {
-      display: inline-block;
-      margin: 0 40px 0 0;
-      padding: 0;
-
-      &:last-child {
-        margin-right: 0;
-      }
-
-      @include min-screen($tablet-portrait) {
-        margin: 0 0 20px 0;
-        display: block;
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-      }
-
-      @include min-screen($desktop) {
-        display: inline-block;
-        margin: 0 30px 0 0;
-        padding: 0;
-
-        &:last-child {
-          margin-right: 0;
-        }
-        &:first-child {
-          margin-left: 135px;
-        }
-      }
-    }
-
-    &-button {
-      @include Kievit-Book;
-      cursor: pointer;
-      outline : none;
-      padding: 0;
-      margin: 0;
-      background-color: transparent;
-      color: rgba(255,255,255,0.8);
-      font-size: 13px;
-      text-transform: uppercase;
-      line-height: 1.2em;
-      letter-spacing: .05em;
-      word-wrap: break-word;
-      border: none;
-
-      &.active {
-        @include min-screen($tablet-portrait) {
-          border-color: #FFF;
-          color: #FFF;
-        }
-      }
-
-      @include min-screen($tablet-portrait) {
-        border-style: solid;
-        border-color: transparent;
-        border-width: 2px;
-        width: auto;
-        max-width: 110px;
-        text-align: left;
-        padding: 9px 8px 7px;
-      }
-
-      @include min-screen($desktop) {
-        border-color: rgba(255,255,255,0.8) transparent transparent transparent;
-        max-width: 110px;
-      }
-
-      &-label {
-        @include visuallyHidden;
-
-        @include min-screen($tablet-portrait) {
-          @include displayVisuallyHidden;
-        }
-      }
-
-      &-icon {
-        display: inline-block;
-
-        @include min-screen($tablet-portrait) {
-          display: none;
-        }
       }
     }
   }

@@ -79,7 +79,7 @@
     "dgx-feature-flags": "git+ssh://git@bitbucket.org/NYPL/dgx-feature-flags.git#master",
     "dgx-feature-row-component": "git+ssh://git@bitbucket.org/NYPL/dgx-feature-row-component.git#master",
     "dgx-header-component": "git+ssh://git@bitbucket.org/NYPL/dgx-header-component.git#master",
-    "dgx-homepage-carousel-component": "git+ssh://git@bitbucket.org/NYPL/dgx-homepage-carousel-component#master",
+    "dgx-homepage-content-banner": "git+ssh://git@bitbucket.org/NYPL/dgx-homepage-content-banner#master",
     "dgx-homepage-row-component": "git+ssh://git@bitbucket.org/NYPL/dgx-homepage-row-component.git#master",
     "dgx-homepage-staff-picks-component": "git+ssh://git@bitbucket.org/NYPL/dgx-homepage-staff-picks-component.git#master",
     "dgx-model-data": "git+ssh://bitbucket.org/NYPL/dgx-model-data.git#master",
