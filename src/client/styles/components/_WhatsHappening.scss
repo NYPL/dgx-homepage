@@ -10,20 +10,26 @@
 
     // To hide
     .eventItem + .eventItem {
-      @include visuallyHidden;
+      display: none;
     }
 
     a {
       text-decoration: none;
     }
 
-    li:first-child {
+    h3 {
       @include Kievit-Medium;
       color: $PRIMARY_COLOR;
       text-transform: uppercase;
       font-size: 12px;
       margin: 10px 0;
       letter-spacing: 0.05em;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
     }
 
     .eventItem {
@@ -143,7 +149,7 @@
 
       @include grid-span(6);
 
-      li:first-child {
+      h3 {
         display: none;
       }
 
@@ -151,7 +157,7 @@
         display: block;
 
         .eventItem {
-          @include displayVisuallyHidden;
+          display: block;
           margin-bottom: 10px;
 
           h2 {
@@ -163,10 +169,10 @@
             line-height: 21px;
           }
 
-          &:nth-child(even) {
+          &:nth-child(odd) {
             @include float-span(3, 'first');
           }
-          &:nth-child(odd) {
+          &:nth-child(even) {
             @include float-span(3, 'last');
           }
         }
