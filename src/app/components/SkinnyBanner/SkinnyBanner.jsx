@@ -63,9 +63,10 @@ class SkinnyBanner extends React.Component {
     const skinnyBannerStyles =
       `
         .skinnyBanner {
-          background-color: #54514a;
+          background-color: #333333;
           color: white;
-          font-family: Kievit-Medium;
+          font-family: Kievit-Book;
+          font-weight: 400;
           min-height: 20px;
           margin: 0;
           padding: 20px 10px;
@@ -76,9 +77,9 @@ class SkinnyBanner extends React.Component {
           max-width: 1312px;
         }
         .skinnyBannerContent {
-          font-size: 16px;
-          font-weight: 300;
-          letter-spacing: .03em;
+          font-size: 17px;
+          font-weight: 400;
+          letter-spacing: .04em;
           line-height: 24px;
           margin: 0;
         }
@@ -87,8 +88,8 @@ class SkinnyBanner extends React.Component {
           border: none;
           color: inherit;
           cursor: pointer;
-          font-family: Kievit-Medium;
-          font-size: 16px;
+          font-family: Kievit-Book;
+          font-size: 17px;
           padding: 0;
           text-decoration: underline;
         }
