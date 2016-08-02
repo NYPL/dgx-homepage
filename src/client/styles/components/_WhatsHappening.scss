@@ -143,7 +143,7 @@
 
       @include grid-span(6);
 
-      & > h3 {
+      li:first-child {
         display: none;
       }
 
