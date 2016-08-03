@@ -223,7 +223,7 @@
 
           // Target the first child in the list.
           // It's not the correct pseudo name... but it works somehow.
-          &:nth-child(2) {
+          &:nth-child(1) {
             @include grid-span(3, 1);
             @include add-grid(3);
 
@@ -280,7 +280,7 @@
 
           // Target the first child in the list.
           // It's not the correct pseudo name... but it works somehow.
-          &:nth-child(2) {
+          &:nth-child(1) {
             @include grid-span(4, 1);
             @include add-grid(4);
 
