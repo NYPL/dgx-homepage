@@ -38,8 +38,9 @@
       .book-cover {
         .itemOverlay {
           @include Kievit-Book;
-          font-weight: 400;
+          background-color: $PRIMARY_COLOR;
           bottom: -30px;
+          font-weight: 400;
           height: 130px;
 
           h3 {
