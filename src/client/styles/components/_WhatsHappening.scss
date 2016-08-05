@@ -41,7 +41,7 @@
         @include grid-span(1, 1);
       }
 
-      h4 {
+      &-title {
         @include grid-span(2, 2);
         color: #000;
         line-height: 22px;
@@ -162,7 +162,7 @@
           display: block;
           margin-bottom: 10px;
 
-          h4 {
+          &-title {
             font-size: 18px;
           }
 
@@ -192,7 +192,8 @@
         .eventItem {
           margin-bottom: 15px;
 
-          p, h4 {
+          p,
+          &-title {
             margin: 10px 0 0 0;
           }
 
@@ -204,11 +205,12 @@
               @include grid-span(2, 1);
             }
 
-            p, h4 {
+            p,
+            .eventItem-title {
               @include grid-span(6, 3);
             }
 
-            h4,
+            .eventItem-title,
             .eventItem-date {
               margin-top: 5px;
               @include grid-span(6, 3);
@@ -223,15 +225,17 @@
 
           // Target the first child in the list.
           // It's not the correct pseudo name... but it works somehow.
-          &:nth-child(2) {
+          &:nth-child(1) {
             @include grid-span(3, 1);
             @include add-grid(3);
 
-            img, p, h4 {
+            p,
+            img,
+            .eventItem-title {
               @include grid-span(3, 1);
             }
 
-            h4 {
+            .eventItem-title {
               font-size: 26px;
               line-height: 28px;
             }
@@ -280,11 +284,13 @@
 
           // Target the first child in the list.
           // It's not the correct pseudo name... but it works somehow.
-          &:nth-child(2) {
+          &:nth-child(1) {
             @include grid-span(4, 1);
             @include add-grid(4);
 
-            img, p, h4 {
+            p,
+            img,
+            .eventItem-title {
               @include grid-span(4, 1);
             }
 

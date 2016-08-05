@@ -85,7 +85,7 @@
     "dgx-model-data": "git+ssh://bitbucket.org/NYPL/dgx-model-data.git#master",
     "dgx-react-footer": "git+ssh://git@bitbucket.org/NYPL/dgx-react-footer.git#master",
     "dgx-react-ga": "git+ssh://git@bitbucket.org/NYPL/dgx-react-ga.git#v0.0.2",
-    "dgx-tabbed-features-component": "git+ssh://git@bitbucket.org/NYPL/dgx-tabbed-features-component#development",
+    "dgx-tabbed-features-component": "git+ssh://git@bitbucket.org/NYPL/dgx-tabbed-features-component#master",
     "ejs": "2.3.3",
     "express": "4.13.1",
     "express-favicon": "1.0.1",
