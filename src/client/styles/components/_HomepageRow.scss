@@ -5,23 +5,22 @@
     border-top: 2px solid $PRIMARY_COLOR;
     position: relative;
 
-    & > h2 {
+    & > a {
       @include Kievit-Medium;
       color: $PRIMARY_COLOR;
-      font-size: 20px;
-      font-weight: normal;
-      line-height: 1em;
       margin: 15px 0;
       padding: 0;
+      text-decoration: none;
 
-       a {
-        color: $PRIMARY_COLOR;
-        text-decoration: none;
-        }
+      h2 {
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 1em;
+      }
 
-       :hover {
+      :hover {
         color: $TERTIARY_BLUE_COLOR;
-        }
+      }
     }
 
     .seeMoreLink {
