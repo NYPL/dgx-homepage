@@ -63,6 +63,7 @@ class App extends React.Component {
           <HomepageRow
             title={whatsHappeningData.name}
             link={whatsHappeningData.link}
+            label="Click to see all events or continue to see featured events"
             className="whatsHappeningRow hpRow nyplGrid"
             seeMoreId="whatsHappening-seeMore"
             content={
@@ -79,6 +80,7 @@ class App extends React.Component {
           <HomepageRow
             title={learnSomethingNewData.name}
             link={learnSomethingNewData.link}
+            label="Click to see all educational opportunities or continue to see featured opportunities"
             className="learnRow hpRow nyplGrid"
             seeMoreId="learn-seeMore"
             content={
@@ -95,6 +97,7 @@ class App extends React.Component {
             <HomepageRow
               title={staffPicksData.name}
               link={staffPicksData.link}
+              label="Click to see all staff picks or continue to see featured picks"
               className="hpRow nyplGrid-fullWidth"
               seeMoreId="staffPicks-SeeMore"
               content={
@@ -111,6 +114,7 @@ class App extends React.Component {
             <HomepageRow
               title={recommendedRecentReleasesData.name}
               link={recommendedRecentReleasesData.link}
+              label="Click to see all new arrivals or continue to see featured arrivals"
               className="hpRow nyplGrid-fullWidth"
               seeMoreId="bookList-seeMore"
               content={
@@ -127,6 +131,7 @@ class App extends React.Component {
           <HomepageRow
             title={fromOurBlogsData.name}
             link={fromOurBlogsData.link}
+            label="Click to see all blog posts or continue to see featured posts"
             className="blogsRow hpRow nyplGrid"
             seeMoreId="blogs-seeMore"
             content={
@@ -141,6 +146,7 @@ class App extends React.Component {
           <HomepageRow
             title={ofNoteData.name}
             link={ofNoteData.link}
+            label="Click to see all Library updates or continue to see featured updates"
             className="ofNoteRow hpRow nyplGrid"
             seeMoreId="ofNote-seeMore"
             content={
