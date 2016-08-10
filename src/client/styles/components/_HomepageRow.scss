@@ -27,21 +27,33 @@
 
   .seeMoreWrapper {
     clear: both;
+    height: 65px;
     text-align: center;
 
     .seeMoreLink {
-      position: relative;
+      @include Kievit-Medium;
+      border: 2px solid $PRIMARY_COLOR;
+      border-radius: 22px;
+      color: $PRIMARY_COLOR;
       fill: $PRIMARY_COLOR;
+      padding: 12px 18px 12px 14px;
+      position: relative;
       stroke: $PRIMARY_COLOR;
+      text-decoration: none;
+      width: 25px;
 
       &:hover {
+        border: 2px solid $TERTIARY_BLUE_COLOR;
+        color: $TERTIARY_BLUE_COLOR;
         fill: $TERTIARY_BLUE_COLOR;
         stroke: $TERTIARY_BLUE_COLOR;
       }
 
       svg {
-        width: 25px;
         height: 25px;
+        position: relative;
+        top: 7px;
+        width: 25px;
       }
     }
   }
@@ -56,9 +68,11 @@
         margin: 8px 0 12px;
       }
 
-      .seeMoreLink {
-        position: relative;
-        top: initial;
+      .seeMoreWrapper {
+        .seeMoreLink {
+          position: relative;
+          top: initial;
+        }
       }
     }
   }
@@ -82,13 +96,24 @@
 
   .seeMoreWrapper {
     clear: both;
+    height: 65px;
     text-align: center;
 
     .seeMoreLink {
+      @include Kievit-Medium;
+      border: 2px solid #FFF;
+      border-radius: 22px;
+      color: #FFF;
       fill: #FFF;
+      padding: 12px 18px 12px 14px;
+      position: relative;
       stroke: #FFF;
+      text-decoration: none;
+      width: 25px;
 
       &:hover {
+        border: 2px solid #FFF;
+        color: #FFF;
         fill: #FFF;
         stroke: #FFF;
       }
