@@ -18,7 +18,8 @@
     @include grid-span(1, 1);
   }
 
-  h2 {
+  h2,
+  &-title {
     @include grid-span(2, 2);
 
     color: #333;
@@ -51,12 +52,13 @@
         @include float-span(2, 'first');
       }
 
-      h2 {
+      h2,
+      .hpOfNote-title {
         @include float-span(1, 'last');
 
         line-height: 20px;
         font-size: 18px;
-        margin-top: 5px;
+        margin: 5px 0 15px;
       }
     }
   }
@@ -79,12 +81,12 @@
         @include float-span(1, 'first');
       }
 
-      h2 {
+      h2,
+      .hpOfNote-title {
         @include float-span(1, 'last');
         font-size: 18px;
         font-weight: 400;
         line-height: 19px;
-        margin-top: 5px;
       }
 
       p {
