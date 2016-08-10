@@ -14,14 +14,14 @@
       margin: 15px 0;
       padding: 0;
 
-       a {
+      a {
         color: $PRIMARY_COLOR;
         text-decoration: none;
-        }
+      }
 
-       :hover {
+      :hover {
         color: $TERTIARY_BLUE_COLOR;
-        }
+      }
     }
   }
 
@@ -35,21 +35,22 @@
       border: 2px solid $PRIMARY_COLOR;
       border-radius: 22px;
       color: $PRIMARY_COLOR;
-      fill: $PRIMARY_COLOR;
       padding: 12px 18px 12px 14px;
       position: relative;
-      stroke: $PRIMARY_COLOR;
       text-decoration: none;
       width: 25px;
 
       &:hover {
         border: 2px solid $TERTIARY_BLUE_COLOR;
         color: $TERTIARY_BLUE_COLOR;
-        fill: $TERTIARY_BLUE_COLOR;
-        stroke: $TERTIARY_BLUE_COLOR;
+
+        svg {
+          fill: $TERTIARY_BLUE_COLOR;
+        }
       }
 
       svg {
+        fill: $PRIMARY_COLOR;
         height: 25px;
         position: relative;
         top: 7px;
@@ -104,18 +105,22 @@
       border: 2px solid #FFF;
       border-radius: 22px;
       color: #FFF;
-      fill: #FFF;
       padding: 12px 18px 12px 14px;
       position: relative;
-      stroke: #FFF;
       text-decoration: none;
       width: 25px;
+
+      svg {
+        fill: #FFF;
+      }
 
       &:hover {
         border: 2px solid #FFF;
         color: #FFF;
-        fill: #FFF;
-        stroke: #FFF;
+
+        svg {
+          fill: #FFF;
+        }
       }
     }
   }
