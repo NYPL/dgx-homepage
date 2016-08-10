@@ -12,7 +12,7 @@ const { HeaderItemModel } = Model;
 const { api, homepageApi, headerApi } = config;
 const router = express.Router();
 const appEnvironment = process.env.APP_ENV || 'production';
-const apiRoot = api.root[appEnvironment];
+const apiRoot = api.root['production'];
 const headerOptions = createOptions(headerApi);
 const homepageOptions = createOptions(homepageApi);
 
