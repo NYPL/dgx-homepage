@@ -111,10 +111,11 @@
 
     a {
       display: block;
+      width: 62%;
 
       @include min-screen($tablet-landscape + 1px) {
         margin-left: 145px;
-        width: 40%;
+        width: 36%;
       }
     }
 
@@ -203,8 +204,7 @@
         @include displayVisuallyHidden;
         color: #FFF;
         width: auto; // Override displayVisuallyHidden width rule
-        margin: 25px 20px 0 0;
-        max-width: 55%;
+        margin: 25px 0 0;
       }
 
       @include min-screen($tablet-landscape + 1px) {
