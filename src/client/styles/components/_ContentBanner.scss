@@ -111,27 +111,25 @@
 
     a {
       display: block;
+      width: 62%;
+
+      @include min-screen($tablet-landscape + 1px) {
+        margin-left: 145px;
+        width: 36%;
+      }
     }
 
     &-tag {
       color: #070707;
       margin: 15px 0 0 0;
-
-      & > h3 {
-        @include Kievit-Medium;
-        font-size: 14px;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        margin: 0;
-      }
+      @include Kievit-Medium;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
 
       @include min-screen($tablet-portrait) {
         color: #FFF;
         margin: 0;
-      }
-
-      @include min-screen($tablet-landscape + 1px) {
-        margin-left: 145px;
       }
     }
 
@@ -139,15 +137,12 @@
       margin: 15px 0 0 0;
       color: #070707;
 
-      & > h2 {
-        @include Milo-Regular;
-        font-size: 27px;
-        font-weight: 400;
-        margin: 0;
+      @include Milo-Regular;
+      font-size: 27px;
+      font-weight: 400;
 
-        @include min-screen($desktop) {
-          font-size: 36px;
-        }
+      @include min-screen($desktop) {
+        font-size: 36px;
       }
 
       @include min-screen($tablet-portrait) {
@@ -155,11 +150,8 @@
         margin-top: 25px;
       }
 
-      @include min-screen($tablet-landscape + 1px) {
-        margin-left: 145px;
-      }
-
       @include min-screen($desktop) {
+        font-size: 36px;
         margin-top: 45px;
         max-width: 400px;
       }
@@ -172,10 +164,6 @@
       @include min-screen($tablet-portrait) {
         color: #FFF;
         margin: 25px 20px 0 0;
-      }
-
-      @include min-screen($tablet-landscape + 1px) {
-        margin-left: 145px;
       }
     }
 
@@ -216,13 +204,11 @@
         @include displayVisuallyHidden;
         color: #FFF;
         width: auto; // Override displayVisuallyHidden width rule
-        margin: 25px 20px 0 0;
-        max-width: 55%;
+        margin: 25px 0 0;
       }
 
       @include min-screen($tablet-landscape + 1px) {
-        margin-left: 145px;
-        max-width: 40%;
+        max-width: 100%;
       }
 
       @include min-screen($desktop) {
