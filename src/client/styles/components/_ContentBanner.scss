@@ -57,7 +57,7 @@
     }
 
     @include min-screen($tablet-portrait) {
-      height: 280px;
+      height: 320px;
     }
 
     @include min-screen($desktop) {
@@ -91,7 +91,7 @@
       margin: 0;
       padding: 0;
       position: absolute;
-      left: 157px;
+      left: 18%;
       top: 65px;
       color: #FFF;
     }
@@ -110,9 +110,14 @@
     }
 
     a {
-      background-color: #333;
+      background-color: #FFF;
       display: block;
       width: 62%;
+
+      @include min-screen($tablet-portrait) {
+        background-color: #333;
+        padding: 15px;
+      }
 
       @include min-screen($tablet-landscape + 1px) {
         margin-left: 145px;
