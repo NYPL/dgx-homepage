@@ -117,11 +117,12 @@
       @include min-screen($tablet-portrait) {
         background-color: #333;
         padding: 15px;
+        width: 55%;
       }
 
       @include min-screen($tablet-landscape + 1px) {
-        margin-left: 145px;
-        width: 36%;
+        margin-left: 11.5%;
+        width: 40%;
       }
     }
 
@@ -159,7 +160,7 @@
       @include min-screen($desktop) {
         font-size: 36px;
         margin-top: 45px;
-        max-width: 400px;
+        max-width: 100%;
       }
     }
 
