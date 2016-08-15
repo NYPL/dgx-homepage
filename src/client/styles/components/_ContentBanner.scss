@@ -34,7 +34,7 @@
         transition: opacity .3s;
         opacity: 1;
       }
-      
+
       &.notLoaded {
         opacity: 0;
       }
@@ -110,6 +110,7 @@
     }
 
     a {
+      background-color: #333;
       display: block;
       width: 62%;
 
