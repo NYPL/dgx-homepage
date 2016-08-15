@@ -220,7 +220,7 @@ function Model() {
         },
       } = dataObj;
 
-      containerLink = url;
+      containerLink = this.convertUrlRelative(url);
     } catch (e) {
       containerLink = '';
     }
@@ -468,6 +468,23 @@ function Model() {
         bookItem,
       };
     });
+  };
+
+  /**
+   * convertUrlRelative(url)
+   * @desc Convert the absolute urls to be relative.
+   * @param {String} url
+   * @return {String}
+   */
+  this.convertUrlRelative = (url) => {
+    if (typeof url !== 'string') {
+      return '#';
+    }
+
+    const regex = new RegExp(/^http(s)?\:\/\/(www.)?nypl.org/i);
+
+    // Test regex matching pattern
+    return (regex.test(url)) ? url.replace(regex, '') : url;
   };
 }
 
