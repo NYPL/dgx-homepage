@@ -56,7 +56,9 @@ class SkinnyBanner extends React.Component {
           docCookies.setItem('nyplpreview', 0, 'Infinity', '/', '.nypl.org');
 
           if(ga) {
+            console.log(ga);
             ga.set('dimension1', null);
+            console.log("test");
           }
 
           // Refresh the page.
