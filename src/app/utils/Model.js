@@ -220,7 +220,7 @@ function Model() {
         },
       } = dataObj;
 
-      containerLink = url;
+      containerLink = this.convertUrlRelative(url);
     } catch (e) {
       containerLink = '';
     }
@@ -360,6 +360,48 @@ function Model() {
     return result;
   };
 
+  this.getImageAlt = image => {
+    if (!image && _isEmpty(image)) {
+      return '';
+    }
+
+    try {
+      const {
+        attributes: {
+          ['alt-text']: {
+            en: {
+              text: alt = '',
+            },
+          },
+        },
+      } = image;
+
+      return alt;
+    } catch (e) {
+      return '';
+    }
+  };
+
+  this.getImage = (image) => {
+    if (!image || _isEmpty(image)) {
+      return {};
+    }
+
+    try {
+      const {
+        attributes: {
+          uri: uriObject = {},
+        }
+      } = image;
+
+      uriObject.alt = this.getImageAlt(image);
+
+      return uriObject;
+    } catch (e) {
+      return {};
+    }
+  };
+
   /**
    * createSlots(dataArray)
    * Collect and restructure if an item has slot object.
@@ -377,16 +419,11 @@ function Model() {
       }
 
       const currentItem = element['current-item'];
-
       // Check if different sizes of the images exist.
-      const bannerImage = currentItem['banner-image'] ?
-        currentItem['banner-image'].attributes.uri : undefined;
-      const mobileBannerImage = currentItem['mobile-banner-image'] ?
-        currentItem['mobile-banner-image'].attributes.uri : undefined;
-      const rectangularImage = currentItem['rectangular-image'] ?
-          currentItem['rectangular-image'].attributes.uri : undefined;
-      const bookCoverImage = currentItem['book-cover-image'] ?
-          currentItem['book-cover-image'].attributes.uri : undefined;
+      const bannerImage = this.getImage(currentItem['banner-image']);
+      const mobileBannerImage = this.getImage(currentItem['mobile-banner-image']);
+      const rectangularImage = this.getImage(currentItem['rectangular-image']);
+      const bookCoverImage = this.getImage(currentItem['book-cover-image']);
       const date = currentItem.attributes.date ? currentItem.attributes.date : undefined;
       const shortTitle = (currentItem.attributes &&
         currentItem.attributes['banner-short-title']) ?
@@ -431,6 +468,23 @@ function Model() {
         bookItem,
       };
     });
+  };
+
+  /**
+   * convertUrlRelative(url)
+   * @desc Convert the absolute urls to be relative.
+   * @param {String} url
+   * @return {String}
+   */
+  this.convertUrlRelative = (url) => {
+    if (typeof url !== 'string') {
+      return '#';
+    }
+
+    const regex = new RegExp(/^http(s)?\:\/\/(www.)?nypl.org/i);
+
+    // Test regex matching pattern
+    return (regex.test(url)) ? url.replace(regex, '') : url;
   };
 }
 

@@ -10,20 +10,27 @@
 
     // To hide
     .eventItem + .eventItem {
-      @include visuallyHidden;
+      display: none;
     }
 
     a {
       text-decoration: none;
     }
 
-    & > h3 {
+    h3 {
       @include Kievit-Medium;
       color: $PRIMARY_COLOR;
       text-transform: uppercase;
       font-size: 12px;
+      font-weight: 400;
       margin: 10px 0;
       letter-spacing: 0.05em;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
     }
 
     .eventItem {
@@ -31,20 +38,21 @@
       @include add-grid(3);
 
       img {
-        @include grid-span(1,1);
+        @include grid-span(1, 1);
       }
 
-      h2 {
-        @include grid-span(2,2);
+      &-title {
+        @include grid-span(2, 2);
         color: #000;
         line-height: 22px;
         margin: 0;
+        padding: 0;
         font-size: 18px;
         font-weight: normal;
       }
 
       p {
-        @include grid-span(2,2);
+        @include grid-span(2, 2);
         font-size: 12px;
         line-height: 20px;
         margin: 5px 0 0 0;
@@ -143,7 +151,7 @@
 
       @include grid-span(6);
 
-      & > h3 {
+      h3 {
         display: none;
       }
 
@@ -151,10 +159,10 @@
         display: block;
 
         .eventItem {
-          @include displayVisuallyHidden;
+          display: block;
           margin-bottom: 10px;
 
-          h2 {
+          &-title {
             font-size: 18px;
           }
 
@@ -163,10 +171,10 @@
             line-height: 21px;
           }
 
-          &:nth-child(even) {
+          &:nth-child(odd) {
             @include float-span(3, 'first');
           }
-          &:nth-child(odd) {
+          &:nth-child(even) {
             @include float-span(3, 'last');
           }
         }
@@ -184,7 +192,8 @@
         .eventItem {
           margin-bottom: 15px;
 
-          p, h2 {
+          p,
+          &-title {
             margin: 10px 0 0 0;
           }
 
@@ -196,11 +205,12 @@
               @include grid-span(2, 1);
             }
 
-            p, h2 {
+            p,
+            .eventItem-title {
               @include grid-span(6, 3);
             }
 
-            h2,
+            .eventItem-title,
             .eventItem-date {
               margin-top: 5px;
               @include grid-span(6, 3);
@@ -215,15 +225,17 @@
 
           // Target the first child in the list.
           // It's not the correct pseudo name... but it works somehow.
-          &:nth-child(2) {
+          &:nth-child(1) {
             @include grid-span(3, 1);
             @include add-grid(3);
 
-            img, p, h2 {
+            p,
+            img,
+            .eventItem-title {
               @include grid-span(3, 1);
             }
 
-            h2 {
+            .eventItem-title {
               font-size: 26px;
               line-height: 28px;
             }
@@ -272,11 +284,13 @@
 
           // Target the first child in the list.
           // It's not the correct pseudo name... but it works somehow.
-          &:nth-child(2) {
+          &:nth-child(1) {
             @include grid-span(4, 1);
             @include add-grid(4);
 
-            img, p, h2 {
+            p,
+            img,
+            .eventItem-title {
               @include grid-span(4, 1);
             }
 

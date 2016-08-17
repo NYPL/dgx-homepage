@@ -38,13 +38,14 @@
       .book-cover {
         .itemOverlay {
           @include Kievit-Book;
-          font-weight: 400;
+          background-color: $PRIMARY_COLOR;
           bottom: -30px;
+          font-weight: 400;
           height: 130px;
 
-          h3 {
+          .title {
+            text-align: left;
             font-weight: 400;
-            font-size: 20px;
           }
 
           .details {
@@ -82,14 +83,14 @@
             bottom: 0px;
             height: 140px;
 
-            h3 {
+            .title {
               font-weight: 400;
-              font-size: 22px;
+              font-size: 18px;
             }
 
             .details {
               &-author {
-                font-size: 18px;
+                font-size: 16px;
               }
 
               &-audience,
@@ -130,6 +131,10 @@
         .book-cover {
           .itemOverlay {
             bottom: -50px;
+
+            .title {
+              font-size: 20px;
+            }
           }
         }
       }
@@ -165,6 +170,10 @@
         .book-cover {
           .itemOverlay {
             bottom: -60px;
+
+            .title {
+              font-size: 22px;
+            }
           }
         }
       }

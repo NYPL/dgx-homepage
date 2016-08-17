@@ -1,4 +1,4 @@
-.hpCarousel {
+.hpContentBanner {
   @extend %clearfix;
   position: relative;
   margin: 0 auto;
@@ -15,14 +15,6 @@
 
   a {
     text-decoration: none;
-  }
-
-  // Slides Wrapper
-  &-slides {
-    line-height: 0;
-    overflow: hidden;
-    position: relative;
-    white-space: nowrap;
   }
 
   // Each individual slide container holds an image and content
@@ -42,7 +34,7 @@
         transition: opacity .3s;
         opacity: 1;
       }
-      
+
       &.notLoaded {
         opacity: 0;
       }
@@ -65,7 +57,7 @@
     }
 
     @include min-screen($tablet-portrait) {
-      height: 280px;
+      height: 320px;
     }
 
     @include min-screen($desktop) {
@@ -99,7 +91,7 @@
       margin: 0;
       padding: 0;
       position: absolute;
-      left: 157px;
+      left: 18%;
       top: 65px;
       color: #FFF;
     }
@@ -118,28 +110,33 @@
     }
 
     a {
+      background-color: #FFF;
       display: block;
+      width: 62%;
+
+      @include min-screen($tablet-portrait) {
+        background-color: #333;
+        padding: 15px;
+        width: 55%;
+      }
+
+      @include min-screen($tablet-landscape + 1px) {
+        margin-left: 11.5%;
+        width: 40%;
+      }
     }
 
     &-tag {
       color: #070707;
       margin: 15px 0 0 0;
-
-      & > h3 {
-        @include Kievit-Medium;
-        font-size: 14px;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        margin: 0;
-      }
+      @include Kievit-Medium;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
 
       @include min-screen($tablet-portrait) {
         color: #FFF;
         margin: 0;
-      }
-
-      @include min-screen($tablet-landscape + 1px) {
-        margin-left: 145px;
       }
     }
 
@@ -147,15 +144,12 @@
       margin: 15px 0 0 0;
       color: #070707;
 
-      & > h2 {
-        @include Milo-Regular;
-        font-size: 27px;
-        font-weight: 400;
-        margin: 0;
+      @include Milo-Regular;
+      font-size: 27px;
+      font-weight: 400;
 
-        @include min-screen($desktop) {
-          font-size: 36px;
-        }
+      @include min-screen($desktop) {
+        font-size: 36px;
       }
 
       @include min-screen($tablet-portrait) {
@@ -163,13 +157,10 @@
         margin-top: 25px;
       }
 
-      @include min-screen($tablet-landscape + 1px) {
-        margin-left: 145px;
-      }
-
       @include min-screen($desktop) {
+        font-size: 36px;
         margin-top: 45px;
-        max-width: 400px;
+        max-width: 100%;
       }
     }
 
@@ -180,10 +171,6 @@
       @include min-screen($tablet-portrait) {
         color: #FFF;
         margin: 25px 20px 0 0;
-      }
-
-      @include min-screen($tablet-landscape + 1px) {
-        margin-left: 145px;
       }
     }
 
@@ -224,154 +211,16 @@
         @include displayVisuallyHidden;
         color: #FFF;
         width: auto; // Override displayVisuallyHidden width rule
-        margin: 25px 20px 0 0;
-        max-width: 55%;
+        margin: 25px 0 0;
       }
 
       @include min-screen($tablet-landscape + 1px) {
-        margin-left: 145px;
-        max-width: 40%;
+        max-width: 100%;
       }
 
       @include min-screen($desktop) {
         margin-top: 30px;
         max-width: 420px;
-      }
-    }
-  }
-
-  &-nav {
-    display: block;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 180px;
-    margin: 0 auto;
-    z-index: 100;
-    text-align: center;
-
-    @include min-screen(480px) {
-      top: 285px;
-    }
-
-    @include min-screen(560px) {
-      top: 350px;
-    }
-
-    @include min-screen($tablet-portrait) {
-      margin: 0;
-      width: auto;
-      right: inherit;
-      top: 50px;
-      bottom: inherit;
-      left: 8px;
-    }
-
-    @include min-screen($tablet-portrait + 1px) {
-      left: 15px;
-    }
-
-    @include min-screen($desktop) {
-      width: 100%;
-      max-width: 1313px;
-      padding: 0;
-      margin: 0 auto;
-      text-align: left;
-      left: 0;
-      right: 0;
-      top: inherit;
-      bottom: 25px;
-    }
-
-    &-list {
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
-    }
-
-    &-item {
-      display: inline-block;
-      margin: 0 40px 0 0;
-      padding: 0;
-
-      &:last-child {
-        margin-right: 0;
-      }
-
-      @include min-screen($tablet-portrait) {
-        margin: 0 0 20px 0;
-        display: block;
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-      }
-
-      @include min-screen($desktop) {
-        display: inline-block;
-        margin: 0 30px 0 0;
-        padding: 0;
-
-        &:last-child {
-          margin-right: 0;
-        }
-        &:first-child {
-          margin-left: 135px;
-        }
-      }
-    }
-
-    &-button {
-      @include Kievit-Book;
-      cursor: pointer;
-      outline : none;
-      padding: 0;
-      margin: 0;
-      background-color: transparent;
-      color: rgba(255,255,255,0.8);
-      font-size: 13px;
-      text-transform: uppercase;
-      line-height: 1.2em;
-      letter-spacing: .05em;
-      word-wrap: break-word;
-      border: none;
-
-      &.active {
-        @include min-screen($tablet-portrait) {
-          border-color: #FFF;
-          color: #FFF;
-        }
-      }
-
-      @include min-screen($tablet-portrait) {
-        border-style: solid;
-        border-color: transparent;
-        border-width: 2px;
-        width: auto;
-        max-width: 110px;
-        text-align: left;
-        padding: 9px 8px 7px;
-      }
-
-      @include min-screen($desktop) {
-        border-color: rgba(255,255,255,0.8) transparent transparent transparent;
-        max-width: 110px;
-      }
-
-      &-label {
-        @include visuallyHidden;
-
-        @include min-screen($tablet-portrait) {
-          @include displayVisuallyHidden;
-        }
-      }
-
-      &-icon {
-        display: inline-block;
-
-        @include min-screen($tablet-portrait) {
-          display: none;
-        }
       }
     }
   }

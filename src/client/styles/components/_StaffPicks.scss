@@ -21,6 +21,11 @@
    .leftColumn {
      border-top: 2px solid #FFF;
    }
+
+.seeMoreWrapper {
+  margin-top: 30px;
+  }
+
  }
 
 // Component specific mobile first rules
@@ -117,7 +122,7 @@
         margin: 12px 10px 0 0;
       }
 
-      h3 {
+      .name {
         margin: 0;
         font-size: 18px;
         padding-top: 20px;
@@ -126,7 +131,7 @@
         @include Kievit-Book;
       }
 
-      h5 {
+      .title {
         font-size: 15px;
         margin: 0;
         font-weight: 400;
@@ -170,7 +175,7 @@
     &-staff {
       margin-left: 15px;
 
-      h3 {
+      .name {
         padding-top: 20px;
         font-size: 16px;
       }
@@ -211,12 +216,12 @@
         margin: 22px 10px 0 0;
       }
 
-      h3 {
+      .name {
         padding-top: 34px;
         font-size: 20px;
       }
 
-      h5 {
+      .title {
         font-size: 15px;
       }
     }
