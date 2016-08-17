@@ -57,7 +57,7 @@ class SkinnyBanner extends React.Component {
 
           if(ga) {
             console.log(ga);
-            ga.set('dimension1', null);
+            ga('set', dimension1', null);
             console.log("test");
           }
 
