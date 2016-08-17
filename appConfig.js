@@ -1,5 +1,5 @@
 const config = {
-  appTitle: 'NYPL | Welcome to The New York Public Library',
+  appTitle: 'The New York Public Library',
   appName: 'Homepage',
   favIconPath: '//d2znry4lg8s0tq.cloudfront.net/images/favicon.ico',
   port: 3001,
