@@ -131,13 +131,13 @@ class SkinnyBanner extends React.Component {
         target="_blank"
         style={{ color: 'inherit' }}
       >
-        feedback
+        survey
       </a>
     );
     const content = (
       <div className="contentWrapper">
         <p className="skinnyBannerContent">
-          Thanks for previewing upcoming changes to our website. Give us your {surveyLink} or 
+          What do you think of the upcoming changes to our website? Take a {surveyLink} now or 
           return to the {ReturnLink}.
         </p>
       </div>

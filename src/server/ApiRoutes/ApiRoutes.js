@@ -36,6 +36,9 @@ function getHeaderData() {
 function HomepageApp(req, res, next) {
   const homepageApiUrl = parser.getCompleteApi(homepageOptions);
 
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header('Cache-Control', 'max-age=3600');
+
   axios.all([getHeaderData(), fetchApiData(homepageApiUrl)])
     .then(axios.spread((headerData, homepageData) => {
       const homepageParsed = parser.parse(homepageData.data, homepageOptions);
