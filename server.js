@@ -59,10 +59,10 @@ app.get('/', (req, res) => {
   const iso = new Iso();
   const hpApp = ReactDOMServer.renderToString(<Application />);
 
-  iso.add(hpApp, alt.flush());
-
   // Fire off the Feature Flag prior to render
   FeatureFlags.utils.activateFeature('shop-link');
+
+  iso.add(hpApp, alt.flush());
 
   // First parameter references the ejs filename
   res.render('index', {
