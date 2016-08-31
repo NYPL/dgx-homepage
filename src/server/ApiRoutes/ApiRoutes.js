@@ -1,33 +1,26 @@
 import express from 'express';
 import axios from 'axios';
 import parser from 'jsonapi-parserinator';
-
-import { navConfig } from 'dgx-header-component';
-
 import HomepageModel from '../../app/utils/Model.js';
 import config from '../../../appConfig.js';
 
 const { api, homepageApi } = config;
 const router = express.Router();
 const appEnvironment = process.env.APP_ENV || 'production';
-const apiRoot = api.root[appEnvironment];
-const homepageOptions = createOptions(homepageApi);
+const homepageApiRoot = api.root[appEnvironment];
 
-function createOptions(api) {
+function createOptions(root, apiOptions) {
   return {
-    endpoint: `${apiRoot}${api.endpoint}`,
-    includes: api.includes,
-    filters: api.filters,
+    endpoint: `${root}${apiOptions.endpoint}`,
+    includes: apiOptions.includes,
+    filters: apiOptions.filters,
   };
 }
 
-function fetchApiData(url) {
-  return axios.get(url);
-}
+const homepageOptions = createOptions(homepageApiRoot, homepageApi);
 
 function HomepageApp(req, res, next) {
   const homepageApiUrl = parser.getCompleteApi(homepageOptions);
-
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   res.header('Cache-Control', 'max-age=3600');
 
@@ -65,7 +58,7 @@ function HomepageApp(req, res, next) {
 
       res.locals.data = {};
       next();
-    }); /* end Axios call */
+    });
 }
 
 router
