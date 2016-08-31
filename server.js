@@ -11,9 +11,6 @@ import DocMeta from 'react-doc-meta';
 import Iso from 'iso';
 import alt from 'dgx-alt-center';
 
-// Feature Flags Module
-import FeatureFlags from 'dgx-feature-flags';
-
 // Configuration
 import appConfig from './appConfig.js';
 import analytics from './analytics.js';
@@ -58,9 +55,6 @@ app.get('/', (req, res) => {
 
   const iso = new Iso();
   const hpApp = ReactDOMServer.renderToString(<Application />);
-
-  // Fire off the Feature Flag prior to render
-  FeatureFlags.utils.activateFeature('shop-link');
 
   iso.add(hpApp, alt.flush());
 
