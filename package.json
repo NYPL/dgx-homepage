@@ -84,7 +84,7 @@
     "dgx-homepage-staff-picks-component": "git+ssh://git@bitbucket.org/NYPL/dgx-homepage-staff-picks-component.git#master",
     "dgx-model-data": "git+ssh://bitbucket.org/NYPL/dgx-model-data.git#master",
     "dgx-react-footer": "git+ssh://git@bitbucket.org/NYPL/dgx-react-footer.git#master",
-    "dgx-react-ga": "git+ssh://git@bitbucket.org/NYPL/dgx-react-ga.git#master",
+    "dgx-react-ga": "git+ssh://git@bitbucket.org/NYPL/dgx-react-ga.git#WEb-3415-improved-ga",
     "dgx-tabbed-features-component": "git+ssh://git@bitbucket.org/NYPL/dgx-tabbed-features-component#master",
     "ejs": "2.3.3",
     "express": "4.13.1",
