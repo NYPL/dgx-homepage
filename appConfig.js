@@ -28,16 +28,6 @@ const config = {
         'recommended-recent-releases|from-our-blog|of-note',
     },
   },
-  headerApi: {
-    endpoint: '/api/nypl/ndo/v0.1/site-data/header-items',
-    includes: [
-      'children',
-      'related-container-slots.current-item.square-image',
-     ],
-    filters: {
-      'relationships': {'parent': 'null'}
-    }
-  },
 };
 
 export default config;

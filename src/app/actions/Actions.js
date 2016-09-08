@@ -1,4 +1,3 @@
-// ACTIONS
 import alt from 'dgx-alt-center';
 
 class Actions {
@@ -37,6 +36,6 @@ class Actions {
   updateFromOurBlogsData(data) {
     this.dispatch(data);
   }
-};
+}
 
 export default alt.createActions(Actions);
