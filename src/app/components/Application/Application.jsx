@@ -14,7 +14,6 @@ import FeatureRow from 'dgx-feature-row-component';
 import TabbedComponent from 'dgx-tabbed-features-component';
 import ContentBanner from 'dgx-homepage-content-banner';
 import Footer from 'dgx-react-footer';
-
 import SkinnyBanner from './../SkinnyBanner/SkinnyBanner.jsx';
 
 class App extends React.Component {
@@ -24,14 +23,14 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    HomepageStore.listen(this._onChange.bind(this));
+    HomepageStore.listen(this.onChange.bind(this));
   }
 
   componentWillUnmount() {
-    HomepageStore.unlisten(this._onChange.bind(this));
+    HomepageStore.unlisten(this.onChange.bind(this));
   }
 
-  _onChange() {
+  onChange() {
     this.setState({
       whatsHappeningIndexValue: HomepageStore.getState().whatsHappeningIndexValue,
     });
@@ -51,7 +50,7 @@ class App extends React.Component {
 
     return (
       <div className="nyplHomepageApp">
-        <Header navData={navConfig.current} skipNav={{ target: 'mainContent' }}/>
+        <Header navData={navConfig.current} skipNav={{ target: 'mainContent' }} />
 
         <div className="nyplHomepage" id="mainContent" tabIndex="-1">
           <SkinnyBanner />

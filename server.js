@@ -1,12 +1,10 @@
 import path from 'path';
 import express from 'express';
-import favicon from 'express-favicon';
 import compress from 'compression';
 import colors from 'colors';
 // React
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import DocMeta from 'react-doc-meta';
 // Flux Alt library
 import Iso from 'iso';
 import alt from 'dgx-alt-center';
@@ -28,9 +26,9 @@ const DIST_PATH = path.resolve(ROOT_PATH, 'dist');
 const VIEWS_PATH = path.resolve(ROOT_PATH, 'src/views');
 const WEBPACK_DEV_PORT = appConfig.webpackDevServerPort || 3000;
 const isProduction = process.env.NODE_ENV === 'production';
+
 // Assign API Routes
 const app = express();
-
 app.use(compress());
 
 // Disables the Server response from
