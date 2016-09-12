@@ -5,8 +5,7 @@ import Iso from 'iso';
 // Homepage App
 import App from '../app/components/Application/Application.jsx';
 // Analytics
-// import ga from 'react-ga';
-// import { config } from 'dgx-react-ga';
+import { ga, config } from 'dgx-react-ga';
 // Styles
 import './styles/main.scss';
 
