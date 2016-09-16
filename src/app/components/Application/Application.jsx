@@ -14,7 +14,6 @@ import FeatureRow from 'dgx-feature-row-component';
 import TabbedComponent from 'dgx-tabbed-features-component';
 import ContentBanner from 'dgx-homepage-content-banner';
 import Footer from 'dgx-react-footer';
-import SkinnyBanner from './../SkinnyBanner/SkinnyBanner.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -53,7 +52,6 @@ class App extends React.Component {
         <Header navData={navConfig.current} skipNav={{ target: 'mainContent' }} />
 
         <div className="nyplHomepage" id="mainContent" tabIndex="-1">
-          <SkinnyBanner />
           <ContentBanner
             ref={i => (this.ContentBanner = i)}
             items={carouselData.slots}
