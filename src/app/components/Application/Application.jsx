@@ -5,7 +5,7 @@ import Actions from '../../actions/Actions.js';
 // Utils
 import slickResponsiveSettings from '../../utils/slickSettings.js';
 // NYPL Components
-import { Header, navConfig } from 'dgx-header-component';
+import { Header, navConfig } from '@nypl/dgx-header-component';
 import HomepageRow from 'dgx-homepage-row-component';
 import BlogFeatures from 'dgx-blog-features-component';
 import HomepageStaffPicks from 'dgx-homepage-staff-picks-component';
@@ -13,7 +13,7 @@ import BooklistWidget from 'dgx-booklist-component';
 import FeatureRow from 'dgx-feature-row-component';
 import TabbedComponent from 'dgx-tabbed-features-component';
 import ContentBanner from 'dgx-homepage-content-banner';
-import Footer from 'dgx-react-footer';
+import Footer from '@nypl/dgx-react-footer';
 
 class App extends React.Component {
   constructor(props) {
