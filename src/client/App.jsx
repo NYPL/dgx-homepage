@@ -11,9 +11,8 @@ import './styles/main.scss';
 
 window.onload = () => {
   // if (!window.ga) {
-  //   const gaOpts = { debug: true };
-  //   // Passing in false for the dev GA code
-  //   ga.initialize(config.google.code(false), gaOpts);
+    // Passing in false for the dev GA code
+  ga.initialize(config.google.code(false), { debug: true });
   // }
 
   // Render Isomorphically
