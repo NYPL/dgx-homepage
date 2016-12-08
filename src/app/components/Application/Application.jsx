@@ -75,6 +75,8 @@ class App extends React.Component {
                 items={whatsHappeningData.children}
                 index={whatsHappeningIndexValue}
                 action={Actions.setWhatsHappeningIndexValue}
+                gaClickEvent={trackComponentEvent()}
+                gaActionText="What's Happening"
               />
             }
           />
