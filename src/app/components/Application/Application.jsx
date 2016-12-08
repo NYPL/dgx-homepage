@@ -59,6 +59,7 @@ class App extends React.Component {
           <ContentBanner
             ref={i => (this.ContentBanner = i)}
             items={carouselData.slots}
+            gaClickEvent={trackComponentEvent()}
           />
 
           <HomepageRow
@@ -90,6 +91,8 @@ class App extends React.Component {
                 className="hpLearn"
                 itemsToDisplay={4}
                 items={learnSomethingNewData.slots}
+                gaClickEvent={trackComponentEvent()}
+                gaActionText="Learn Something New"
               />
             }
           />
@@ -106,6 +109,7 @@ class App extends React.Component {
                   className="hpStaffPicks"
                   id="hpStaffPicks"
                   items={staffPicksData.slots}
+                  gaClickEvent={trackComponentEvent()}
                 />
               }
             />
@@ -124,6 +128,8 @@ class App extends React.Component {
                   className="hpBookList"
                   slickResponsiveSettings={slickResponsiveSettings}
                   bookLists={recommendedRecentReleasesData.slots}
+                  gaClickEvent={trackComponentEvent()}
+                  gaActionText="New and Noteworthy"
                 />
               }
             />
@@ -156,6 +162,8 @@ class App extends React.Component {
                 id="hpOfNote"
                 className="hpOfNote"
                 items={ofNoteData.slots}
+                gaClickEvent={trackComponentEvent()}
+                gaActionText="Updates"
               />
             }
           />
