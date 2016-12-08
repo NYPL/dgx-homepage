@@ -169,7 +169,6 @@ class App extends React.Component {
               />
             }
           />
-
         </div>
 
         <Footer id="footer" className="footer" />

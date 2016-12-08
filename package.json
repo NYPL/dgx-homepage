@@ -1,6 +1,6 @@
 {
   "name": "dgx-homepage",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "React NYPL Homepage Application",
   "main": "index.js",
   "scripts": {
@@ -77,13 +77,13 @@
     "compression": "1.5.2",
     "dgx-alt-center": "git+ssh://git@bitbucket.org/NYPL/dgx-alt-center.git#master",
     "dgx-blog-features-component": "git+ssh://git@bitbucket.org/NYPL/dgx-blog-features-component.git#master",
-    "dgx-booklist-component": "git+ssh://git@bitbucket.org/NYPL/dgx-booklist-component.git#add-ga-events-support",
+    "dgx-booklist-component": "git+ssh://git@bitbucket.org/NYPL/dgx-booklist-component.git#master",
     "dgx-feature-row-component": "git+ssh://git@bitbucket.org/NYPL/dgx-feature-row-component.git#master",
     "dgx-homepage-content-banner": "git+ssh://git@bitbucket.org/NYPL/dgx-homepage-content-banner#master",
     "dgx-homepage-row-component": "git+ssh://git@bitbucket.org/NYPL/dgx-homepage-row-component.git#master",
     "dgx-homepage-staff-picks-component": "git+ssh://git@bitbucket.org/NYPL/dgx-homepage-staff-picks-component.git#master",
     "dgx-react-ga": "git+ssh://git@bitbucket.org/NYPL/dgx-react-ga.git#master",
-    "dgx-tabbed-features-component": "git+ssh://git@bitbucket.org/NYPL/dgx-tabbed-features-component#add-ga-events-support",
+    "dgx-tabbed-features-component": "git+ssh://git@bitbucket.org/NYPL/dgx-tabbed-features-component#master",
     "ejs": "2.3.3",
     "express": "4.13.1",
     "extract-text-webpack-plugin": "1.0.1",
