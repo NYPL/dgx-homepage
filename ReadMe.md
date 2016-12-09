@@ -1,14 +1,14 @@
 # NYPL Homepage App
-### Version
-1.2.2
+## Version
+> 1.2.3
 
-### Installation
-Install all dependencies listed under package.json
+## Installation
+Install all dependencies listed under `package.json`
 ```sh
 $ npm install
 ```
 
-### Development Mode
+## Development Mode
 We use Webpack to fire off a hot-reloading development server. This allows for continuous code changes without the need to refresh your browser.
 
 ```sh
@@ -20,14 +20,22 @@ You can also set the APP_ENV variable which dictates what API environment to use
 $ APP_ENV=development|qa|production npm start // Starts localhost:3001 with set APP_ENV
 ```
 
-### Production Mode
-We use Webpack to fire off a hot-reloading development server. This allows for continous code changes without the need to refresh your browser.
+## Production Mode
+We use Webpack to fire off a hot-reloading development server. This allows for continuous code changes without the need to refresh your browser.
 
 ```sh
 $ npm run dist // Builds dist path & files
 $ APP_ENV=production NODE_ENV=production npm start // Starts localhost:3001 with set APP_ENV
 ```
+## Changelog
 
-Contributors
+### v1.2.3
+#### Added
+- Added support for Google Analytics click events using `utils/gaHpUtils.js`
+
+#### Changed
+- Updated README.md file to contain a CHANGELOG
+
+## Contributors
 ----
 NYPL Digital Experience
