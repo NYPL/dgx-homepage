@@ -1,6 +1,6 @@
 {
   "name": "dgx-homepage",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "React NYPL Homepage Application",
   "main": "index.js",
   "scripts": {
