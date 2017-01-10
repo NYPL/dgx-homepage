@@ -2,10 +2,14 @@ import React from 'react';
 // ALT & Flux
 import HomepageStore from '../../stores/HomepageStore.js';
 import Actions from '../../actions/Actions.js';
-// Utils
-import slickResponsiveSettings from '../../utils/slickSettings.js';
+// Google Analytics & Utils
+import {
+  trackHpRowEvent,
+  trackComponentEvent,
+} from '../../utils/gaHpUtils';
+import slickResponsiveSettings from '../../utils/slickSettings';
 // NYPL Components
-import { Header, navConfig } from 'dgx-header-component';
+import { Header, navConfig } from '@nypl/dgx-header-component';
 import HomepageRow from 'dgx-homepage-row-component';
 import BlogFeatures from 'dgx-blog-features-component';
 import HomepageStaffPicks from 'dgx-homepage-staff-picks-component';
@@ -13,9 +17,7 @@ import BooklistWidget from 'dgx-booklist-component';
 import FeatureRow from 'dgx-feature-row-component';
 import TabbedComponent from 'dgx-tabbed-features-component';
 import ContentBanner from 'dgx-homepage-content-banner';
-import Footer from 'dgx-react-footer';
-
-import SkinnyBanner from './../SkinnyBanner/SkinnyBanner.jsx';
+import Footer from '@nypl/dgx-react-footer';
 
 class App extends React.Component {
   constructor(props) {
@@ -24,14 +26,14 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    HomepageStore.listen(this._onChange.bind(this));
+    HomepageStore.listen(this.onChange.bind(this));
   }
 
   componentWillUnmount() {
-    HomepageStore.unlisten(this._onChange.bind(this));
+    HomepageStore.unlisten(this.onChange.bind(this));
   }
 
-  _onChange() {
+  onChange() {
     this.setState({
       whatsHappeningIndexValue: HomepageStore.getState().whatsHappeningIndexValue,
     });
@@ -51,13 +53,13 @@ class App extends React.Component {
 
     return (
       <div className="nyplHomepageApp">
-        <Header navData={navConfig.current} skipNav={{ target: 'mainContent' }}/>
+        <Header navData={navConfig.current} skipNav={{ target: 'mainContent' }} />
 
         <div className="nyplHomepage" id="mainContent" tabIndex="-1">
-          <SkinnyBanner />
           <ContentBanner
             ref={i => (this.ContentBanner = i)}
             items={carouselData.slots}
+            gaClickEvent={trackComponentEvent()}
           />
 
           <HomepageRow
@@ -65,6 +67,7 @@ class App extends React.Component {
             link={whatsHappeningData.link}
             className="whatsHappeningRow hpRow nyplGrid"
             seeMoreId="whatsHappening-seeMore"
+            gaClickEvent={trackHpRowEvent('What\'s Happening')}
             content={
               <TabbedComponent
                 id="hpWhatsHappening"
@@ -72,6 +75,8 @@ class App extends React.Component {
                 items={whatsHappeningData.children}
                 index={whatsHappeningIndexValue}
                 action={Actions.setWhatsHappeningIndexValue}
+                gaClickEvent={trackComponentEvent()}
+                gaActionText="What's Happening"
               />
             }
           />
@@ -81,12 +86,15 @@ class App extends React.Component {
             link={learnSomethingNewData.link}
             className="learnRow hpRow nyplGrid"
             seeMoreId="learn-seeMore"
+            gaClickEvent={trackHpRowEvent('Learn Something New')}
             content={
               <FeatureRow
                 id="hpLearn"
                 className="hpLearn"
                 itemsToDisplay={4}
                 items={learnSomethingNewData.slots}
+                gaClickEvent={trackComponentEvent()}
+                gaActionText="Learn Something New"
               />
             }
           />
@@ -97,11 +105,13 @@ class App extends React.Component {
               link={staffPicksData.link}
               className="hpRow nyplGrid-fullWidth"
               seeMoreId="staffPicks-SeeMore"
+              gaClickEvent={trackHpRowEvent('Staff Picks')}
               content={
                 <HomepageStaffPicks
                   className="hpStaffPicks"
                   id="hpStaffPicks"
                   items={staffPicksData.slots}
+                  gaClickEvent={trackComponentEvent()}
                 />
               }
             />
@@ -113,12 +123,15 @@ class App extends React.Component {
               link={recommendedRecentReleasesData.link}
               className="hpRow nyplGrid-fullWidth"
               seeMoreId="bookList-seeMore"
+              gaClickEvent={trackHpRowEvent('New and Noteworthy')}
               content={
                 <BooklistWidget
                   id="hpBookList"
                   className="hpBookList"
                   slickResponsiveSettings={slickResponsiveSettings}
                   bookLists={recommendedRecentReleasesData.slots}
+                  gaClickEvent={trackComponentEvent()}
+                  gaActionText="New and Noteworthy"
                 />
               }
             />
@@ -129,11 +142,13 @@ class App extends React.Component {
             link={fromOurBlogsData.link}
             className="blogsRow hpRow nyplGrid"
             seeMoreId="blogs-seeMore"
+            gaClickEvent={trackHpRowEvent('From Our Blog')}
             content={
               <BlogFeatures
                 className="hpBlogs"
                 id="hpBlogs"
                 items={fromOurBlogsData.slots}
+                gaClickEvent={trackComponentEvent()}
               />
             }
           />
@@ -143,15 +158,17 @@ class App extends React.Component {
             link={ofNoteData.link}
             className="ofNoteRow hpRow nyplGrid"
             seeMoreId="ofNote-seeMore"
+            gaClickEvent={trackHpRowEvent('Updates')}
             content={
               <FeatureRow
                 id="hpOfNote"
                 className="hpOfNote"
                 items={ofNoteData.slots}
+                gaClickEvent={trackComponentEvent()}
+                gaActionText="Updates"
               />
             }
           />
-
         </div>
 
         <Footer id="footer" className="footer" />

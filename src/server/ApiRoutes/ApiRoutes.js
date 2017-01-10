@@ -1,50 +1,33 @@
 import express from 'express';
 import axios from 'axios';
 import parser from 'jsonapi-parserinator';
-
-import { navConfig } from 'dgx-header-component';
-
-import Model from 'dgx-model-data';
 import HomepageModel from '../../app/utils/Model.js';
 import config from '../../../appConfig.js';
 
-const { HeaderItemModel } = Model;
-const { api, homepageApi, headerApi } = config;
+const { api, homepageApi } = config;
 const router = express.Router();
 const appEnvironment = process.env.APP_ENV || 'production';
-const apiRoot = api.root[appEnvironment];
-const headerOptions = createOptions(headerApi);
-const homepageOptions = createOptions(homepageApi);
+const homepageApiRoot = api.root[appEnvironment];
 
-function createOptions(api) {
+function createOptions(root, apiOptions) {
   return {
-    endpoint: `${apiRoot}${api.endpoint}`,
-    includes: api.includes,
-    filters: api.filters,
+    endpoint: `${root}${apiOptions.endpoint}`,
+    includes: apiOptions.includes,
+    filters: apiOptions.filters,
   };
 }
 
-function fetchApiData(url) {
-  return axios.get(url);
-}
-
-function getHeaderData() {
-  const headerApiUrl = parser.getCompleteApi(headerOptions);
-  return fetchApiData(headerApiUrl);
-}
+const homepageOptions = createOptions(homepageApiRoot, homepageApi);
 
 function HomepageApp(req, res, next) {
   const homepageApiUrl = parser.getCompleteApi(homepageOptions);
-
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  res.header('Cache-Control', 'max-age=3600');
 
-  axios.all([getHeaderData(), fetchApiData(homepageApiUrl)])
-    .then(axios.spread((headerData, homepageData) => {
+  axios
+    .get(homepageApiUrl)
+    .then(homepageData => {
       const homepageParsed = parser.parse(homepageData.data, homepageOptions);
       const homepageModelData = HomepageModel.build(homepageParsed);
-      const headerParsed = parser.parse(headerData.data, headerOptions);
-      const headerModelData = HeaderItemModel.build(headerParsed);
 
       res.locals.data = {
         HomepageStore: {
@@ -61,23 +44,20 @@ function HomepageApp(req, res, next) {
           carouselIndexValue: 0,
           whatsHappeningIndexValue: 0,
         },
-        HeaderStore: {
-          headerData: navConfig.current,
-        },
         // Set the API URL here so we can access it when we
         // render in the EJS file.
         completeApiUrl: '',
       };
 
       next();
-    }))
+    })
     .catch(error => {
       console.log(`error calling API : ${error}`);
       console.log(`Attempted to call : ${homepageApiUrl}`);
 
       res.locals.data = {};
       next();
-    }); /* end Axios call */
+    });
 }
 
 router
