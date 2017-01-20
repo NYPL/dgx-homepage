@@ -5,18 +5,18 @@ import React from 'react';
 import { render } from 'react-dom';
 import alt from 'dgx-alt-center';
 import Iso from 'iso';
+import FeatureFlags from 'dgx-feature-flags';
+
 // Homepage App
 import App from '../app/components/Application/Application.jsx';
-// Analytics (Used for local development. Analytics code is initialized in index.ejs)
-// import { ga, config } from 'dgx-react-ga';
+
 // Styles
 import './styles/main.scss';
 
 window.onload = () => {
-  // if (!window.ga) {
-  //   // Passing in false for the dev GA code
-  //   ga.initialize(config.google.code(false), { debug: true });
-  // }
+  if (!window.dgxFeatureFlags) {
+    window.dgxFeatureFlags = FeatureFlags.utils;
+  }
 
   // Render Isomorphically
   Iso.bootstrap((state, container) => {
