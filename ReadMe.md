@@ -1,6 +1,6 @@
 # NYPL Homepage App
 ## Version
-> 1.2.4
+> 1.2.5
 
 ## Installation
 Install all dependencies listed under `package.json`
@@ -49,6 +49,10 @@ All the repos above point to their respective `master` branch. Whenever an updat
 The `development` branch, or a feature branch, can be built in [Bamboo](http://bamboo.nypl.org/browse/NA-HWR), deployed to [QA](http://qa-homepage.nypl.org/), and then reviewed before production deployment.
 
 ## Changelog
+
+### v1.2.5
+#### Added
+- Enabled Feature Flags plugin on the client-side and added Optimizely script in the index.ejs file.
 
 ### v1.2.4
 #### Added
