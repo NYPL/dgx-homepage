@@ -51,8 +51,8 @@ The `development` branch, or a feature branch, can be built in [Bamboo](http://b
 ## Changelog
 
 ### v1.2.6
-#### Added
-- HTTPS fix and the JavaScript fallback for the log in button on the Header Component.
+#### Updated
+- the Header Component to v1.5.1. The update includes HTTPS fix and the JavaScript fallback for the log in button on the Header Component.
 
 ### v1.2.5
 #### Added
