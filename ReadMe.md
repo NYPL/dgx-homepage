@@ -54,6 +54,10 @@ The `development` branch, or a feature branch, can be built in [Bamboo](http://b
 #### Added
 - HTTPS fix and the JavaScript fallback for the log in button on the Header Component.
 
+### v1.2.5
+#### Added
+- Enabled Feature Flags plugin on the client-side and added Optimizely script in the index.ejs file.
+
 ### v1.2.4
 #### Added
 - More support for Google Analytics in the "What's Happening" section of the page.
