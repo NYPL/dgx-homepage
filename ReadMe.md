@@ -1,6 +1,6 @@
 # NYPL Homepage App
 ## Version
-> 1.2.4
+> 1.2.6
 
 ## Installation
 Install all dependencies listed under `package.json`
@@ -49,6 +49,10 @@ All the repos above point to their respective `master` branch. Whenever an updat
 The `development` branch, or a feature branch, can be built in [Bamboo](http://bamboo.nypl.org/browse/NA-HWR), deployed to [QA](http://qa-homepage.nypl.org/), and then reviewed before production deployment.
 
 ## Changelog
+
+### v1.2.6
+#### Added
+- HTTPS fix and the JavaScript fallback for the log in button on the Header Component.
 
 ### v1.2.4
 #### Added
