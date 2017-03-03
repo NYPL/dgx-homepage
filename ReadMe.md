@@ -52,6 +52,8 @@ The `development` branch, or a feature branch, can be built in [Bamboo](http://b
 
 ### v1.2.7
 #### Updated
+- Updated the Header Component to v1.5.5. The update is to integrate the log in related functions with login server.
+
 - Updated the Header Component to v1.5.4. The update is to integrate the log in related functions with beta-ouath server.
 
 - Updated the Header Component to v1.5.3. The update is to remove console loggings for patron token expiration.
