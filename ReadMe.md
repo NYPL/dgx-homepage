@@ -1,6 +1,6 @@
 # NYPL Homepage App
 ## Version
-> 1.2.6
+> 1.2.7
 
 ## Installation
 Install all dependencies listed under `package.json`
@@ -49,6 +49,10 @@ All the repos above point to their respective `master` branch. Whenever an updat
 The `development` branch, or a feature branch, can be built in [Bamboo](http://bamboo.nypl.org/browse/NA-HWR), deployed to [QA](http://qa-homepage.nypl.org/), and then reviewed before production deployment.
 
 ## Changelog
+
+### v1.2.7
+#### Updated
+- Updated the Header Component to v1.5.5. The updates include integrating the log in related functions with login server, removing console loggings for patron token expiration, and turning off the feature flag of OAuth Login and set it as default.
 
 ### v1.2.6
 #### Updated
