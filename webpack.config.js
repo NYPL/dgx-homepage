@@ -19,24 +19,26 @@ var commonSettings = {
   // React App that is to be rendered.
   entry: [
     'babel-polyfill',
-    path.resolve(ROOT_PATH, 'src/client/App.jsx')
+    path.resolve(ROOT_PATH, 'src/client/App.jsx'),
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx'],
   },
   output: {
     // Sets the output path to ROOT_PATH/dist
     path: path.resolve(ROOT_PATH, 'dist'),
     // Sets the name of the bundled application files
     // Additionally we can isolate vendor files as well
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    libraryTarget: 'umd',
+    library: 'dgxHomepage',
   },
   plugins: [
     // Cleans the Dist folder after every build.
     // Alternately, we can run rm -rf dist/ as
     // part of the package.json scripts.
     new cleanBuild(['dist']),
-    new ExtractTextPlugin('styles.css')
+    new ExtractTextPlugin('styles.css'),
   ]
 };
 
@@ -127,7 +129,12 @@ if (ENV === 'production') {
         compress: {
           warnings: false
         }
-      })
+      }),
+      new webpack.DefinePlugin({
+        'process.env': {
+          NODE_ENV: JSON.stringify('production'),
+        },
+      }),
     ]
   });
 }
