@@ -1,6 +1,6 @@
 ## Changelog
 
-### v2.0.0
+### v1.3.0
 - Upgrading to React 15.
 
 ### v1.2.7
