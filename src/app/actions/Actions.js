@@ -2,39 +2,39 @@ import alt from 'dgx-alt-center';
 
 class Actions {
   updateCarouselData(data) {
-    this.dispatch(data);
+    return data;
   }
 
   updateLearnSomethingNewData(data) {
-    this.dispatch(data);
+    return data;
   }
 
   updateOfNoteData(data) {
-    this.dispatch(data);
+    return data;
   }
 
   setCarouselIndexValue(value) {
-    this.dispatch(value);
+    return value;
   }
 
   updateStaffPicksData(data) {
-    this.dispatch(data);
+    return data;
   }
 
   updateRecommendedRecentReleasesData(data) {
-    this.dispatch(data);
+    return data;
   }
 
   updateWhatsHappeningData(data) {
-    this.dispatch(data);
+    return data;
   }
 
   setWhatsHappeningIndexValue(value) {
-    this.dispatch(value);
+    return value;
   }
 
   updateFromOurBlogsData(data) {
-    this.dispatch(data);
+    return data;
   }
 }
 
