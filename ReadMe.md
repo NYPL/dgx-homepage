@@ -1,6 +1,6 @@
 # NYPL Homepage App
 ## Version
-> 1.3.2
+> 1.3.4
 
 ## Installation
 Install all dependencies listed under `package.json`
