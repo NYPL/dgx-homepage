@@ -6,7 +6,7 @@ import { render } from 'react-dom';
 import alt from 'dgx-alt-center';
 import Iso from 'iso';
 import FeatureFlags from 'dgx-feature-flags';
-import { gaUtils } from 'dgx-react-ga';
+import { config, gaUtils } from 'dgx-react-ga';
 
 // Homepage App
 import App from '../app/components/Application/Application.jsx';
@@ -20,9 +20,10 @@ window.onload = () => {
   }
 
   if (!window.ga) {
-    const gaOpts = { debug: false, titleCase: false };
+    const isProd = process.env.NODE_ENV === 'production';
+    const gaOpts = { debug: !isProd, titleCase: false };
 
-    gaUtils.initialize('UA-1420324-3', gaOpts);
+    gaUtils.initialize(config.google.code(isProd), gaOpts);
   }
 
   // Render Isomorphically
