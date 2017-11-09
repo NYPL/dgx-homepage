@@ -30,4 +30,6 @@ window.onload = () => {
     alt.bootstrap(state);
     render(<App />, container);
   });
+
+  gaUtils.trackPageview('send', 'pageview', window.location.pathname);
 };
