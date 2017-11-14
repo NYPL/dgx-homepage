@@ -1,5 +1,8 @@
 ## Changelog
 
+### v1.3.4
+- Updating the Header version to 2.2.0.
+
 ### v1.3.3
 - Updating styles for the See More button, paragraph text, and font weight.
 
