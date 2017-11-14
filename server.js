@@ -11,7 +11,6 @@ import alt from 'dgx-alt-center';
 
 // Configuration
 import appConfig from './appConfig.js';
-import analytics from './analytics.js';
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
 import webpackConfig from './webpack.config.js';
@@ -62,7 +61,6 @@ app.get('/', (req, res) => {
     appTitle: appConfig.appTitle,
     favicon: appConfig.favIconPath,
     isProduction,
-    gaCode: analytics.google.code(isProduction),
     webpackPort: WEBPACK_DEV_PORT,
     appEnv: process.env.APP_ENV || 'no APP_ENV available - using production',
     apiUrl: res.locals.data.completeApiUrl,
