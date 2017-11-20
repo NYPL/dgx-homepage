@@ -1,5 +1,8 @@
 ## Changelog
 
+### v1.3.5
+- Updating the parameters for gaUtils.trackPageview() in App.jsx. It removed unnecessary parameters.
+
 ### v1.3.4
 - Updating the Header version to 2.2.0.
 - Updating GA initialization configurations.
