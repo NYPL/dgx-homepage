@@ -1,5 +1,8 @@
 ## Changelog
 
+### v1.3.6
+- Updating the header component version to 2.4.0.
+
 ### v1.3.5
 - Updating the parameters for gaUtils.trackPageview() in App.jsx. It removed unnecessary parameters.
 
