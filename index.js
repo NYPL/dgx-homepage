@@ -1,4 +1,4 @@
 require('rootpath')();
 require('babel-core/register');
 
-module.exports = require('server');
+module.exports = require('./server');
