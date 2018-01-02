@@ -7,15 +7,12 @@
     "start": "node index",
     "dist": "NODE_ENV=production webpack --config webpack.config.js",
     "build-start": "npm run dist && NODE_ENV=production npm start",
-    "unit-tests": "node_modules/.bin/mocha --compilers js:babel-core/register"
+    "unit-tests": "node_modules/.bin/mocha --compilers js:babel-core/register",
+    "eb-start": "npm run dist && npm run start"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/NYPL/dgx-homepage"
-  },
-  "engines": {
-    "node": "0.10",
-    "npm": "2.12"
   },
   "keywords": [
     "react",
@@ -28,7 +25,7 @@
     "hot",
     "reload"
   ],
-  "author": "NYPL Digital Experience",
+  "author": "NYPL Digital",
   "contributors": [
     {
       "name": "Edwin Guzman",
