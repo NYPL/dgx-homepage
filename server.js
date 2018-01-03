@@ -104,7 +104,7 @@ process.on('SIGINT', gracefulShutdown);
  * - Using Webpack Dev Server
 */
 if (!isProduction) {
-  import WebpackDevServer from 'webpack-dev-server';
+  const WebpackDevServer = require('webpack-dev-server');
 
   new WebpackDevServer(webpack(webpackConfig), {
     publicPath: webpackConfig.output.publicPath,
