@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/NYPL/dgx-homepage"
+    "url": "https://github.com/NYPL/dgx-homepage"
   },
   "engines": {
     "node": "0.10",
@@ -49,7 +49,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/issues"
+    "url": "https://github.com/NYPL/dgx-homepage/issues"
   },
   "devDependencies": {
     "babel-core": "6.9.1",
@@ -77,16 +77,16 @@
     "colors": "1.1.2",
     "compression": "1.5.2",
     "create-react-class": "15.5.3",
-    "dgx-alt-center": "git+ssh://git@bitbucket.org/NYPL/dgx-alt-center.git#master",
-    "dgx-blog-features-component": "git+ssh://git@bitbucket.org/NYPL/dgx-blog-features-component.git#master",
-    "dgx-booklist-component": "git+ssh://git@bitbucket.org/NYPL/dgx-booklist-component.git#master",
+    "dgx-alt-center": "git+https://git@bitbucket.org/NYPL/dgx-alt-center.git#master",
+    "dgx-blog-features-component": "git+https://git@bitbucket.org/NYPL/dgx-blog-features-component.git#master",
+    "dgx-booklist-component": "git+https://git@bitbucket.org/NYPL/dgx-booklist-component.git#master",
     "dgx-feature-flags": "git+https://git@bitbucket.org/NYPL/dgx-feature-flags.git#master",
-    "dgx-feature-row-component": "git+ssh://git@bitbucket.org/NYPL/dgx-feature-row-component.git#master",
-    "dgx-homepage-content-banner": "git+ssh://git@bitbucket.org/NYPL/dgx-homepage-content-banner#master",
-    "dgx-homepage-row-component": "git+ssh://git@bitbucket.org/NYPL/dgx-homepage-row-component.git#master",
-    "dgx-homepage-staff-picks-component": "git+ssh://git@bitbucket.org/NYPL/dgx-homepage-staff-picks-component.git#master",
-    "dgx-react-ga": "git+ssh://git@bitbucket.org/NYPL/dgx-react-ga.git#master",
-    "dgx-tabbed-features-component": "git+ssh://git@bitbucket.org/NYPL/dgx-tabbed-features-component#master",
+    "dgx-feature-row-component": "git+https://git@bitbucket.org/NYPL/dgx-feature-row-component.git#master",
+    "dgx-homepage-content-banner": "git+https://git@bitbucket.org/NYPL/dgx-homepage-content-banner#master",
+    "dgx-homepage-row-component": "git+https://git@bitbucket.org/NYPL/dgx-homepage-row-component.git#master",
+    "dgx-homepage-staff-picks-component": "git+https://git@bitbucket.org/NYPL/dgx-homepage-staff-picks-component.git#master",
+    "dgx-react-ga": "git+https://git@bitbucket.org/NYPL/dgx-react-ga.git#master",
+    "dgx-tabbed-features-component": "git+https://git@bitbucket.org/NYPL/dgx-tabbed-features-component#master",
     "ejs": "2.3.3",
     "express": "4.13.1",
     "extract-text-webpack-plugin": "1.0.1",
