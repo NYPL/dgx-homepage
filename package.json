@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node index",
+    "start:production": "npm run dist && NODE_ENV=production npm start",
     "dist": "NODE_ENV=production webpack --config webpack.config.js",
-    "build-start": "npm run dist && NODE_ENV=production npm start",
-    "unit-tests": "node_modules/.bin/mocha --compilers js:babel-core/register",
+    "test": "./node_modules/.bin/mocha --compilers js:babel-core/register",
     "eb-start": "npm run dist && npm run start"
   },
   "repository": {
