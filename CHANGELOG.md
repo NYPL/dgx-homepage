@@ -1,5 +1,11 @@
 ## Changelog
 
+### v1.3.9
+- Updating the header component version to 2.4.2 and footer component to 0.4.1.
+
+## v1.3.7, v1.3.8
+- SEO updates to the ejs file.
+
 ### v1.3.6
 - Updating the header component version to 2.4.0.
 
