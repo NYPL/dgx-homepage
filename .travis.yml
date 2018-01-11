@@ -7,7 +7,7 @@ cache:
 install: npm install
 before_script: npm run dist
 script: npm test
-before_deploy: "echo 'All unit tests passed; Preparing to deploy Homepage App to AWS'"
+before_deploy: "echo 'All unit tests passed; Successfully built distribution assets; Preparing to deploy Homepage App to AWS'"
 deploy:
   skip_cleanup: true
   provider: elasticbeanstalk
