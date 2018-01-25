@@ -1,5 +1,8 @@
 ## Changelog
 
+### v1.3.10
+- Updating the header component version to 2.4.5.
+
 ### v1.3.9
 - Updating the header component version to 2.4.2 and footer component to 0.4.1.
 
