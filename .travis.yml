@@ -21,7 +21,7 @@ deploy:
   bucket_path: nypl-homepage-production
   on:
     repo: NYPL/dgx-homepage
-    branch: master
+    branch: setup-travis-ci-aws
 - provider: elasticbeanstalk
   skip_cleanup: true
   access_key_id: "$AWS_ACCESS_KEY_ID_PRODUCTION"
@@ -33,7 +33,7 @@ deploy:
   bucket_path: nypl-homepage-qa
   on:
     repo: NYPL/dgx-homepage
-    branch: setup-travis-ci-aws
+    branch: qa
 - provider: elasticbeanstalk
   skip_cleanup: true
   access_key_id: "$AWS_ACCESS_KEY_ID_DEVELOPMENT"
