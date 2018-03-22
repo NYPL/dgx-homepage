@@ -1,9 +1,9 @@
 language: node_js
 node_js:
-- '8'
+  - '8'
 cache:
   directories:
-  - node_modules
+    - node_modules
 install: npm install
 before_script: npm run dist
 script: npm test
@@ -21,7 +21,7 @@ deploy:
   bucket_path: nypl-homepage-production
   on:
     repo: NYPL/dgx-homepage
-    branch: setup-travis-ci-aws
+    branch: master
 - provider: elasticbeanstalk
   skip_cleanup: true
   access_key_id: "$AWS_ACCESS_KEY_ID_PRODUCTION"
@@ -45,7 +45,7 @@ deploy:
   bucket_path: nypl-homepage-dev
   on:
     repo: NYPL/dgx-homepage
-    branch: development
+    branch: setup-travis-ci-aws
 after_deploy: echo 'Successfully executed deploy trigger for Homepage App on AWS'
 env:
   global:
