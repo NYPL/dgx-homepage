@@ -4,7 +4,7 @@
 
 | Branch         | Status|  
 |:---------------|:---------------------------------------------------------------------------------------------------------------------------|  
-| `production`   | [![Build Status](https://travis-ci.org/NYPL/dgx-homepage.svg?branch=master)](https://travis-ci.org/NYPL/dgx-homepage)      |  
+| `master`   | [![Build Status](https://travis-ci.org/NYPL/dgx-homepage.svg?branch=master)](https://travis-ci.org/NYPL/dgx-homepage)      |  
 | `qa`           | [![Build Status](https://travis-ci.org/NYPL/dgx-homepage.svg?branch=qa)](https://travis-ci.org/NYPL/dgx-homepage) |  
 | `development`  | [![Build Status](https://travis-ci.org/NYPL/dgx-homepage.svg?branch=development)](https://travis-ci.org/NYPL/dgx-homepage)      |
 
