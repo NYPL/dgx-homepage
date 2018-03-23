@@ -9,7 +9,7 @@
 | `development`  | [![Build Status](https://travis-ci.org/NYPL/dgx-homepage.svg?branch=development)](https://travis-ci.org/NYPL/dgx-homepage)      |
 
 ## Installation
-Install all NPM dependencies listed under `package.json`
+Install all npm dependencies listed under `package.json`
 ```sh
 $ npm install
 ```
