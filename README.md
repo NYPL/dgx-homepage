@@ -57,13 +57,13 @@ Going from the top to the bottom of the page, we have the following list of comp
 
 | Component | Repo |
 |---|---|
-| Content Banner | [dgx-homepage-content-banner](git+ssh://git@bitbucket.org/NYPL/dgx-homepage-content-banner) |
-| What's Happening | [dgx-tabbed-features-component](git+ssh://git@bitbucket.org/NYPL/dgx-tabbed-features-component) |
-| Learn Something New | [dgx-feature-row-component](git+ssh://git@bitbucket.org/NYPL/dgx-feature-row-component) |
-| Staff Picks | [dgx-homepage-staff-picks-component](git+ssh://git@bitbucket.org/NYPL/dgx-homepage-staff-picks-component) |
-| New & Noteworthy | [dgx-booklist-component](git+ssh://git@bitbucket.org/NYPL/dgx-booklist-component) |
-| From Our Blog | [dgx-blog-features-component](git+ssh://git@bitbucket.org/NYPL/dgx-blog-features-component) |
-| Updates | [dgx-feature-row-component](git+ssh://git@bitbucket.org/NYPL/dgx-feature-row-component) |
+| Content Banner | [dgx-homepage-content-banner](https://bitbucket.org/NYPL/dgx-homepage-content-banner) |
+| What's Happening | [dgx-tabbed-features-component](https://bitbucket.org/NYPL/dgx-tabbed-features-component) |
+| Learn Something New | [dgx-feature-row-component](https://bitbucket.org/NYPL/dgx-feature-row-component) |
+| Staff Picks | [dgx-homepage-staff-picks-component](https://bitbucket.org/NYPL/dgx-homepage-staff-picks-component) |
+| New & Noteworthy | [dgx-booklist-component](https://bitbucket.org/NYPL/dgx-booklist-component) |
+| From Our Blog | [dgx-blog-features-component](https://bitbucket.org/NYPL/dgx-blog-features-component) |
+| Updates | [dgx-feature-row-component](https://bitbucket.org/NYPL/dgx-feature-row-component) |
 
 All the repos above point to their respective `master` branch. Whenever an update is made, the homepage needs to be built again to get that component's update. Since the reference to the components already point to `master`, all that needs to be done for the homepage to perform a clean installation of dependencies.
 

@@ -45,7 +45,7 @@ deploy:
   bucket_path: nypl-homepage-dev
   on:
     repo: NYPL/dgx-homepage
-    branch: setup-travis-ci-aws
+    branch: development
 after_deploy: echo 'Successfully executed deploy trigger for Homepage App on AWS'
 env:
   global:
