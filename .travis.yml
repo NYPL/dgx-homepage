@@ -1,24 +1,52 @@
 language: node_js
 node_js:
-  - "8"
+  - '8'
 cache:
   directories:
     - node_modules
 install: npm install
 before_script: npm run dist
 script: npm test
-before_deploy: "echo 'All unit tests passed; Preparing to deploy Homepage App to AWS'"
+before_deploy: echo 'All unit tests passed; Successfully built distribution assets;
+  Preparing to deploy Homepage App to AWS'
 deploy:
+- provider: elasticbeanstalk
   skip_cleanup: true
-  provider: elasticbeanstalk
-  access_key_id: $AWS_PRODUCTION_ACCESS_KEY_ID
-  secret_access_key: "$AWS_PRODUCTION_ACCESS_SECRET"
+  access_key_id: "$AWS_ACCESS_KEY_ID_PRODUCTION"
+  secret_access_key: "$AWS_SECRET_ACCESS_KEY_PRODUCTION"
   region: us-east-1
-  app: $AWS_APP_NAME
-  env: $AWS_ENVIRONMENT_NAME
+  app: nypl-homepage-app
+  env: nypl-homepage-production
   bucket_name: elasticbeanstalk-us-east-1-946183545209
-  bucket_path: $AWS_APP_NAME
+  bucket_path: nypl-homepage-production
   on:
     repo: NYPL/dgx-homepage
     branch: master
-after_deploy: "echo 'Successfully executed deploy trigger for Homepage App on AWS'"
+- provider: elasticbeanstalk
+  skip_cleanup: true
+  access_key_id: "$AWS_ACCESS_KEY_ID_PRODUCTION"
+  secret_access_key: "$AWS_SECRET_ACCESS_KEY_PRODUCTION"
+  region: us-east-1
+  app: nypl-homepage-app
+  env: nypl-homepage-qa
+  bucket_name: elasticbeanstalk-us-east-1-946183545209
+  bucket_path: nypl-homepage-qa
+  on:
+    repo: NYPL/dgx-homepage
+    branch: qa
+- provider: elasticbeanstalk
+  skip_cleanup: true
+  access_key_id: "$AWS_ACCESS_KEY_ID_DEVELOPMENT"
+  secret_access_key: "$AWS_SECRET_ACCESS_KEY_DEVELOPMENT"
+  region: us-east-1
+  app: nypl-homepage-app
+  env: nypl-homepage-dev
+  bucket_name: elasticbeanstalk-us-east-1-224280085904
+  bucket_path: nypl-homepage-dev
+  on:
+    repo: NYPL/dgx-homepage
+    branch: development
+after_deploy: echo 'Successfully executed deploy trigger for Homepage App on AWS'
+env:
+  global:
+    secure: BSg0WvyWA/AA5VZWWqHWT02P2lk+33IMFm5Vy6q0xYoTtAih2RMTPtNa7ogvEwDx84vZHENPCTA+c/OUoCkrcfCSirjG90hC+RlHWO1b8c3UC6aMGmsb03AnvAmv7kgz9U4eFs3WX4qbz2ISfJQZR8L8d/nF6v4p++Z5FxdCa6inV5FvBDiJfdxbJkkGq/TY4+YufuxFSNadULSd+W6PCw2brp1h40CcVv3P6jozskTtfiEb2hJLAgrj4DJCazHOt3JIF4seM+pw7SG3RfS3zK3VK5r33zhoL9zCm5kEDcPMwYgChqqxNuAeVC2xQEVgdnI8kVtRQcyDq9gfiFdrotUAxE36XWcG5+elJz+GeGzMMymAAMWNIdE/mKDH+fqKiAv9lxDQlbqFj2z446JY201KV9fmSTkX3MP/AuKbRXjNBeFKU7q4jfI7h5e7KehmuhfJd16g4Stek3b9C+jwrvbyrSSiXX83+GFQz5KzkD7/i7iHK6wp/K2nh1orHrdMBiIBUJuDK8yUh5vOXyo7+Honr+wTtAa0XFiflUuoTf3uNvLRh8Ytg3I56kE1kbMBsz5RXXnIOSfsRH/2osIcWlb5fsUR/JjyWpmlQN5SbcMWpVoL7CYTE5KAEFUNRPGhP0MWg1xZtIhpHxPwSGiUWys151B4fVDqEqQ2FN4L5P8=
