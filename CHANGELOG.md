@@ -1,5 +1,8 @@
 ## Changelog
 
+### v1.4.0
+- Updating the header component to 2.4.7 and adding OptinMonster script.
+
 ### v1.3.10
 - Updating the header component version to 2.4.5.
 
