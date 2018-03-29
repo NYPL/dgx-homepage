@@ -4,6 +4,13 @@ dist
 npm-debug.log
 .bower
 bower_components
-coverage
+coverage/
 esdoc
-.elasticbeanstalk/config.yml
+.idea/
+assets.json
+.nyc_output
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

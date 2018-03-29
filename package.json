@@ -1,13 +1,13 @@
 {
   "name": "dgx-homepage",
-  "version": "1.3.10",
+  "version": "1.4.0",
   "description": "React NYPL Homepage Application",
   "main": "index.js",
   "scripts": {
     "start": "node index",
+    "start:production": "npm run dist && NODE_ENV=production npm start",
     "dist": "NODE_ENV=production webpack --config webpack.config.js",
-    "build-start": "npm run dist && NODE_ENV=production npm start",
-    "unit-tests": "node_modules/.bin/mocha --compilers js:babel-core/register",
+    "test": "./node_modules/.bin/mocha --compilers js:babel-core/register",
     "eb-start": "npm run dist && npm run start"
   },
   "repository": {
@@ -56,7 +56,7 @@
     "webpack-dev-server": "1.14.1"
   },
   "dependencies": {
-    "@nypl/dgx-header-component": "2.4.5",
+    "@nypl/dgx-header-component": "2.4.7",
     "@nypl/dgx-react-footer": "0.4.1",
     "axios": "0.12.0",
     "babel-core": "6.26.0",
