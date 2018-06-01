@@ -1,5 +1,8 @@
 ## Changelog
 
+### v1.4.1
+- Updating @nypl/dgx-react-footer version to 0.5.0 and @nypl/dgx-header-component to 2.4.8.
+
 ### v1.4.0
 - Updating the header component to 2.4.7 and adding OptinMonster script.
 
