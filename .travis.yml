@@ -40,9 +40,9 @@ deploy:
   secret_access_key: "$AWS_SECRET_ACCESS_KEY_DEVELOPMENT"
   region: us-east-1
   app: nypl-homepage-app
-  env: nypl-homepage-dev
+  env: nypl-homepage-development
   bucket_name: elasticbeanstalk-us-east-1-224280085904
-  bucket_path: nypl-homepage-dev
+  bucket_path: nypl-homepage-development
   on:
     repo: NYPL/dgx-homepage
     branch: development
