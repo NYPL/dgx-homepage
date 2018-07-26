@@ -1,6 +1,6 @@
 {
   "name": "dgx-homepage",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "React NYPL Homepage Application",
   "main": "index.js",
   "scripts": {
@@ -56,8 +56,8 @@
     "webpack-dev-server": "1.14.1"
   },
   "dependencies": {
-    "@nypl/dgx-header-component": "2.4.8",
-    "@nypl/dgx-react-footer": "0.5.0",
+    "@nypl/dgx-header-component": "2.4.11",
+    "@nypl/dgx-react-footer": "0.5.1",
     "axios": "0.12.0",
     "babel-core": "6.26.0",
     "babel-loader": "6.4.1",
