@@ -17,17 +17,7 @@
     text-decoration: none;
   }
 
-  // Each individual slide container holds an image and content
-  &-slide {
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-
-    &.center {
-      position: relative;
-    }
-
+  &-wrapper {
     img {
       &.loaded {
         -webkit-transition: opacity .3s;
