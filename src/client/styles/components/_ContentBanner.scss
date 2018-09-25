@@ -144,7 +144,7 @@
 
       @include min-screen($tablet-portrait) {
         color: #FFF;
-        margin-top: 25px;
+        margin-top: 15px;
       }
 
       @include min-screen($desktop) {
@@ -222,7 +222,7 @@
     }
 
     .seeMoreLink {
-      top: 84%;
+      top: 83%;
       right: 15px;
 
       @include Kievit-Medium;
@@ -238,10 +238,21 @@
       text-align: center;
       vertical-align: middle;
 
+      @include min-screen(528px) {
+        top: 86%;
+      }
       @include min-screen($tablet-portrait) {
-        top: 170px;
-        margin-left: 40%;
+        top: 205px;
+        margin-left: 39%;
         right: auto;
+      }
+      @include min-screen($tablet-landscape) {
+        top: 185px;
+        margin-left: 40%;
+      }
+      @include min-screen($desktop) {
+        top: 220px;
+        margin-left: 43%;
       }
 
       &:hover {
