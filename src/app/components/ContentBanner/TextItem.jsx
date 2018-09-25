@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { RightArrowIcon } from '@nypl/dgx-svg-icons';
 
 /**
   * @desc Verifies that the property value exists and returns it.
@@ -52,7 +53,7 @@ const TextItem = ({
         href={content.url}
         onClick={gaClickEvent ? () => gaClickEvent('Hero', content.url) : null}
       >
-        <span className={`${className}-tag`} aria-hidden="true">{content.tag}</span>
+        <span className={`${className}-tag`}>{content.tag}</span>
         <h1 className={`${className}-title`}>{content.title}</h1>
         {
           (content.date || content.location) ?
@@ -67,6 +68,10 @@ const TextItem = ({
               {content.desc ? <p>{content.desc}</p> : null}
             </div>
         }
+      </a>
+      <a href="#" className="seeMoreLink">
+        Donate
+        <RightArrowIcon ariaHidden />
       </a>
     </div>
   );

@@ -82,7 +82,7 @@
       padding: 0;
       position: absolute;
       left: 18%;
-      top: 65px;
+      top: 15px;
       color: #FFF;
     }
 
@@ -202,15 +202,63 @@
         color: #FFF;
         width: auto; // Override displayVisuallyHidden width rule
         margin: 25px 0 0;
+
+        p {
+          width: 65%;
+        }
       }
 
       @include min-screen($tablet-landscape + 1px) {
-        max-width: 100%;
+        max-width: 60%;
+        p {
+          width: 100%;
+        }
       }
 
       @include min-screen($desktop) {
         margin-top: 30px;
-        max-width: 420px;
+        max-width: 300px;
+      }
+    }
+
+    .seeMoreLink {
+      top: 84%;
+      right: 15px;
+
+      @include Kievit-Medium;
+      border: 2px solid $PRIMARY_COLOR;
+      border-radius: 22px;
+      color: $PRIMARY_COLOR;
+      background: $WHITE;
+      text-decoration: none;
+      width: 85px;
+      position: absolute;
+      height: 30px;
+      padding: 3px 15px 13px;
+      text-align: center;
+      vertical-align: middle;
+
+      @include min-screen($tablet-portrait) {
+        top: 170px;
+        margin-left: 40%;
+        right: auto;
+      }
+
+      &:hover {
+        border: 2px solid $TERTIARY_BLUE_COLOR;
+        color: $TERTIARY_BLUE_COLOR;
+
+        svg {
+          fill: $TERTIARY_BLUE_COLOR;
+        }
+      }
+
+      svg {
+        fill: $PRIMARY_COLOR;
+        height: 25px;
+        position: relative;
+        top: 8px;
+        width: 25px;
       }
     }
   }
