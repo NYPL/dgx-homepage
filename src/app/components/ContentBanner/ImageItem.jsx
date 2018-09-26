@@ -21,6 +21,8 @@ class ImageItem extends React.Component {
   /**
    * @desc Calculates whether a large or small image should be rendered.
    * @param {object} obj - An image object with uri values.
+   * @param {number} viewportWidth - The width of the image viewport.
+   * @param {number} breakpoint - The current media query breakpoint.
    * @return {object} Returns a string uri of the image to be rendered.
    */
   getImageSrcByViewport(obj, viewportWidth, breakpoint) {
