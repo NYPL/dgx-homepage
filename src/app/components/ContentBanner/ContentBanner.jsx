@@ -19,6 +19,7 @@ class ContentBanner extends React.Component {
 
     this.handleResize = this.handleResize.bind(this);
     this.renderContentBanner = this.renderContentBanner.bind(this);
+    this.handleGAClickEvent = this.handleGAClickEvent.bind(this);
   }
 
   componentDidMount() {
@@ -53,12 +54,22 @@ class ContentBanner extends React.Component {
           description={item.description}
           date={item.date}
           location={item.location}
-          gaClickEvent={this.props.gaClickEvent}
+          gaClickEvent={this.handleGAClickEvent}
+          buttonText={item.buttonText}
         />
       </div>
     );
 
     return content;
+  }
+
+  handleGAClickEvent(action, label, event) {
+    if (event) {
+      event.stopPropagation();
+    }
+    if (action && label) {
+      this.props.gaClickEvent(action, label);
+    }
   }
 
   /**

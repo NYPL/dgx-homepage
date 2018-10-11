@@ -37,6 +37,7 @@ const TextItem = ({
   date,
   lang,
   gaClickEvent,
+  buttonText,
 }) => {
   const content = {
     url: getString(target, '#'),
@@ -45,7 +46,12 @@ const TextItem = ({
     desc: getProperty(description, lang),
     date: getProperty(date, lang),
     location: getString(location),
+    buttonText: getProperty(buttonText, lang),
   };
+  let buttonTextElm = null;
+  if (content.buttonText) {
+    buttonTextElm = (<span className="btn-text">{content.buttonText}</span>);
+  }
 
   return (
     <div className={className}>
@@ -68,10 +74,15 @@ const TextItem = ({
               {content.desc ? <p>{content.desc}</p> : null}
             </div>
         }
-      </a>
-      <a href="#" className="seeMoreLink">
-        Donate
-        <RightArrowIcon ariaHidden />
+        <button
+          href="#"
+          className="seeMoreLink"
+          tabIndex="-1"
+          onClick={gaClickEvent ? (e) => gaClickEvent('Hero button', content.url, e) : null}
+        >
+          {buttonTextElm}
+          <RightArrowIcon ariaHidden />
+        </button>
       </a>
     </div>
   );
@@ -87,6 +98,7 @@ TextItem.propTypes = {
   date: PropTypes.object,
   description: PropTypes.object,
   gaClickEvent: PropTypes.func,
+  buttonText: PropTypes.object,
 };
 
 TextItem.defaultProps = {

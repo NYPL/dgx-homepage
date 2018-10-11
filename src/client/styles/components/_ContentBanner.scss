@@ -82,7 +82,7 @@
       padding: 0;
       position: absolute;
       left: 18%;
-      top: 15px;
+      top: 30px;
       color: #FFF;
     }
 
@@ -101,13 +101,37 @@
 
     a {
       background-color: #FFF;
+      color: $WHITE;
       display: block;
       width: 62%;
+
+      &:hover {
+        h1 {
+          text-decoration: underline;
+        }
+
+        .seeMoreLink {
+          border: 2px solid #000;
+
+          svg {
+            fill: #000;
+          }
+        }
+      }
 
       @include min-screen($tablet-portrait) {
         background-color: #333;
         padding: 15px;
         width: 55%;
+        &:hover {
+          .seeMoreLink {
+            border: 2px solid $WHITE;
+
+            svg {
+              fill: $WHITE;
+            }
+          }
+        }
       }
 
       @include min-screen($tablet-landscape + 1px) {
@@ -201,7 +225,7 @@
         @include displayVisuallyHidden;
         color: #FFF;
         width: auto; // Override displayVisuallyHidden width rule
-        margin: 25px 0 0;
+        margin: 5px 0 0;
 
         p {
           width: 65%;
@@ -222,54 +246,62 @@
     }
 
     .seeMoreLink {
-      top: 83%;
+      top: 75%;
       right: 15px;
 
       @include Kievit-Medium;
-      border: 2px solid $PRIMARY_COLOR;
+      border: 2px solid $WHITE;
       border-radius: 22px;
-      color: $PRIMARY_COLOR;
+      color: #000;
       background: $WHITE;
       text-decoration: none;
-      width: 85px;
       position: absolute;
-      height: 30px;
-      padding: 3px 15px 13px;
+      height: 35px;
+      padding: 0 4px;
       text-align: center;
       vertical-align: middle;
+      font-size: 0.8rem;
 
-      @include min-screen(528px) {
-        top: 86%;
+      @include min-screen(380px) {
+        top: 80%;
       }
+
+      @include min-screen(480px) {
+        top: 85%;
+      }
+
+      @include min-screen(600px) {
+        top: 90%;
+      }
+
       @include min-screen($tablet-portrait) {
-        top: 205px;
-        margin-left: 39%;
-        right: auto;
+        border: 2px solid #333;
+        background: #333;
+        border-radius: 22px;
+        color: $WHITE;
+        top: 75%;
+        right: 45%;
       }
       @include min-screen($tablet-landscape) {
-        top: 185px;
-        margin-left: 40%;
-      }
-      @include min-screen($desktop) {
-        top: 220px;
-        margin-left: 43%;
+        right: 48%;
       }
 
-      &:hover {
-        border: 2px solid $TERTIARY_BLUE_COLOR;
-        color: $TERTIARY_BLUE_COLOR;
-
-        svg {
-          fill: $TERTIARY_BLUE_COLOR;
-        }
+      span {
+        top: -7px;
+        position: relative;
+        padding: 0 5px;
       }
 
       svg {
-        fill: $PRIMARY_COLOR;
+        fill: #000;
         height: 25px;
         position: relative;
-        top: 8px;
+        top: 1px;
         width: 25px;
+
+        @include min-screen($tablet-portrait) {
+          fill: $WHITE;
+        }
       }
     }
   }
