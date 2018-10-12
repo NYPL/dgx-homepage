@@ -250,17 +250,17 @@
       right: 15px;
 
       @include Kievit-Medium;
-      border: 2px solid $WHITE;
-      border-radius: 22px;
+      border: 2px solid #000;
+      border-radius: 37px;
       color: #000;
       background: $WHITE;
       text-decoration: none;
       position: absolute;
-      height: 35px;
+      height: 37px;
       padding: 0 4px;
       text-align: center;
       vertical-align: middle;
-      font-size: 0.8rem;
+      font-size: 1rem;
 
       @include min-screen(380px) {
         top: 80%;
@@ -277,7 +277,7 @@
       @include min-screen($tablet-portrait) {
         border: 2px solid #333;
         background: #333;
-        border-radius: 22px;
+        border-radius: 37px;
         color: $WHITE;
         top: 75%;
         right: 45%;
@@ -287,9 +287,13 @@
       }
 
       span {
-        top: -7px;
-        position: relative;
         padding: 0 5px;
+        @include visuallyHidden;
+
+        @include min-screen($tablet-portrait) {
+          top: -7px;
+          @include displayVisuallyHidden;
+        }
       }
 
       svg {
