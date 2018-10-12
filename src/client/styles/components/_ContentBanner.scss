@@ -105,33 +105,30 @@
       display: block;
       width: 62%;
 
+      &:focus,
       &:hover {
         h1 {
           text-decoration: underline;
         }
 
-        .seeMoreLink {
-          border: 2px solid #000;
-
-          svg {
-            fill: #000;
+        @include min-screen($tablet-portrait) {
+          .seeMoreLink {
+            border: 2px solid $WHITE;
           }
         }
+      }
+
+      &:hover {
+        outline: -webkit-focus-ring-color auto 5px;
+        outline: -moz-focus-ring-color auto 5px;
+        outline: -o-focus-ring-color auto 5px;
+        outline: -ms-focus-ring-color auto 5px;
       }
 
       @include min-screen($tablet-portrait) {
         background-color: #333;
         padding: 15px;
         width: 55%;
-        &:hover {
-          .seeMoreLink {
-            border: 2px solid $WHITE;
-
-            svg {
-              fill: $WHITE;
-            }
-          }
-        }
       }
 
       @include min-screen($tablet-landscape + 1px) {
@@ -250,7 +247,7 @@
       right: 15px;
 
       @include Kievit-Medium;
-      border: 2px solid #000;
+      border: 2px solid $PRIMARY_COLOR;
       border-radius: 37px;
       color: #000;
       background: $WHITE;
@@ -297,7 +294,7 @@
       }
 
       svg {
-        fill: #000;
+        fill: $PRIMARY_COLOR;
         height: 25px;
         position: relative;
         top: 1px;
