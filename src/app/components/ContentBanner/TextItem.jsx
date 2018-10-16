@@ -77,7 +77,6 @@ const TextItem = ({
         <div className="seeMoreLink-container">
           <div
             className="seeMoreLink"
-            onClick={gaClickEvent ? (e) => gaClickEvent('Hero button', content.url, e) : null}
           >
             {buttonTextElm}
             <RightArrowIcon ariaHidden />
