@@ -74,15 +74,15 @@ const TextItem = ({
               {content.desc ? <p>{content.desc}</p> : null}
             </div>
         }
-        <button
-          href="#"
-          className="seeMoreLink"
-          tabIndex="-1"
-          onClick={gaClickEvent ? (e) => gaClickEvent('Hero button', content.url, e) : null}
-        >
-          {buttonTextElm}
-          <RightArrowIcon ariaHidden />
-        </button>
+        <div className="seeMoreLink-container">
+          <div
+            className="seeMoreLink"
+            onClick={gaClickEvent ? (e) => gaClickEvent('Hero button', content.url, e) : null}
+          >
+            {buttonTextElm}
+            <RightArrowIcon ariaHidden />
+          </div>
+        </div>
       </a>
     </div>
   );

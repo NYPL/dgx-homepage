@@ -244,45 +244,53 @@
       }
     }
 
+    .seeMoreLink-container {
+      position: relative;
+      height: 40px;
+    }
+
     .seeMoreLink {
-      top: 75%;
-      right: 15px;
+      top: -5.5rem;
+      right: -5.5rem;
 
       @include Kievit-Medium;
       border: 2px solid $PRIMARY_COLOR;
-      border-radius: 37px;
+      border-radius: 27px;
       color: #000;
       background: $WHITE;
       text-decoration: none;
       position: absolute;
-      height: 37px;
-      padding: 0 4px;
+      height: 27px;
+      padding: 3px 4px;
       text-align: center;
       vertical-align: middle;
       font-size: 1rem;
 
       @include min-screen(380px) {
-        top: 80%;
+        top: -3rem;
+        right: -8rem;
       }
-
       @include min-screen(480px) {
-        top: 85%;
+        top: -4rem;
+        right: -10rem;
       }
-
       @include min-screen(600px) {
-        top: 90%;
+        right: -12rem;
+      }
+      @include min-screen(800px) {
+        top: -3rem;
+        right: -15.5rem;
       }
 
       @include min-screen($tablet-portrait) {
         border: 2px solid #333;
         background: #333;
-        border-radius: 37px;
+        border-radius: 27px;
         color: $WHITE;
-        top: 75%;
-        right: 45%;
-      }
-      @include min-screen($tablet-landscape) {
-        right: 48%;
+        float: right;
+        right: auto;
+        position: relative;
+        top: auto;
       }
 
       span {
