@@ -57,7 +57,7 @@ class App extends React.Component {
       <div className="nyplHomepageApp">
         <Header navData={navConfig.current} skipNav={{ target: 'mainContent' }} />
 
-        <main className="nyplHomepage" id="mainContent" tabIndex="-1">
+        <main className="nyplHomepage" id="mainContent">
           <ContentBanner
             ref={i => (this.ContentBanner = i)}
             items={bannerData.slots}

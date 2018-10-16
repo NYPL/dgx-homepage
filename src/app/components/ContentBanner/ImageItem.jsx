@@ -116,7 +116,6 @@ class ImageItem extends React.Component {
         alt={alt}
         onLoad={this.handleOnLoad}
         onError={this.handleOnError}
-        tabIndex="0"
       />
     );
   }
