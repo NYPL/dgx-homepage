@@ -55,7 +55,6 @@ Going from the top to the bottom of the page, we have the following list of comp
 
 | Component | Repo |
 |---|---|
-| Content Banner | [dgx-homepage-content-banner](https://bitbucket.org/NYPL/dgx-homepage-content-banner) |
 | What's Happening | [dgx-tabbed-features-component](https://bitbucket.org/NYPL/dgx-tabbed-features-component) |
 | Learn Something New | [dgx-feature-row-component](https://bitbucket.org/NYPL/dgx-feature-row-component) |
 | Staff Picks | [dgx-homepage-staff-picks-component](https://bitbucket.org/NYPL/dgx-homepage-staff-picks-component) |

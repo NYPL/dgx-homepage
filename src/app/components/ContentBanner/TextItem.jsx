@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { RightArrowIcon } from '@nypl/dgx-svg-icons';
 
 /**
   * @desc Verifies that the property value exists and returns it.
@@ -36,6 +37,7 @@ const TextItem = ({
   date,
   lang,
   gaClickEvent,
+  buttonText,
 }) => {
   const content = {
     url: getString(target, '#'),
@@ -44,7 +46,12 @@ const TextItem = ({
     desc: getProperty(description, lang),
     date: getProperty(date, lang),
     location: getString(location),
+    buttonText: getProperty(buttonText, lang),
   };
+  let buttonTextElm = null;
+  if (content.buttonText) {
+    buttonTextElm = (<span className="btn-text">{content.buttonText}</span>);
+  }
 
   return (
     <div className={className}>
@@ -52,7 +59,7 @@ const TextItem = ({
         href={content.url}
         onClick={gaClickEvent ? () => gaClickEvent('Hero', content.url) : null}
       >
-        <span className={`${className}-tag`} aria-hidden="true">{content.tag}</span>
+        <span className={`${className}-tag`}>{content.tag}</span>
         <h1 className={`${className}-title`}>{content.title}</h1>
         {
           (content.date || content.location) ?
@@ -67,6 +74,15 @@ const TextItem = ({
               {content.desc ? <p>{content.desc}</p> : null}
             </div>
         }
+        <div className="seeMoreLink-container">
+          <div
+            className="seeMoreLink"
+            onClick={gaClickEvent ? (e) => gaClickEvent('Hero button', content.url, e) : null}
+          >
+            {buttonTextElm}
+            <RightArrowIcon ariaHidden />
+          </div>
+        </div>
       </a>
     </div>
   );
@@ -82,6 +98,7 @@ TextItem.propTypes = {
   date: PropTypes.object,
   description: PropTypes.object,
   gaClickEvent: PropTypes.func,
+  buttonText: PropTypes.object,
 };
 
 TextItem.defaultProps = {
