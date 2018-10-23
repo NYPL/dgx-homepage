@@ -25,6 +25,11 @@
       font-weight: 400;
       margin: 10px 0;
       letter-spacing: 0.05em;
+
+      &:focus {
+        outline: $focus-color solid 3px;
+        box-shadow: 1px 1px 2px 2px $nypl-focus-box-shadow;
+      }
     }
 
     ul {
@@ -34,8 +39,14 @@
     }
 
     .eventItem {
+      display: inline-block;
       @include Kievit-Medium;
       @include add-grid(3);
+
+      &:focus {
+        outline: $focus-color solid 3px;
+        box-shadow: 1px 1px 2px 2px $nypl-focus-box-shadow;
+      }
 
       img {
         @include grid-span(1, 1);
@@ -64,6 +75,11 @@
 
       .eventItem-location {
         margin-top: 0;
+      }
+
+      a:focus {
+        outline: $focus-color solid 3px;
+        box-shadow: 1px 1px 2px 2px $nypl-focus-box-shadow;
       }
     }
   }
@@ -130,6 +146,10 @@
           border-bottom: none;
           color: $PRIMARY_COLOR;
         }
+        &:focus {
+          outline: $focus-color solid 3px;
+          box-shadow: 1px 1px 2px 2px $nypl-focus-box-shadow;
+        }
       }
     }
 
@@ -175,6 +195,10 @@
           }
           &:nth-child(even) {
             @include float-span(3, 'last');
+          }
+          &:focus {
+            outline: $focus-color solid 3px;
+            box-shadow: 1px 1px 2px 2px $nypl-focus-box-shadow;
           }
         }
       }
