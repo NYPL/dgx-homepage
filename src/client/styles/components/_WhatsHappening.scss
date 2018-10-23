@@ -25,6 +25,10 @@
       font-weight: 400;
       margin: 10px 0;
       letter-spacing: 0.05em;
+
+      &:focus {
+        outline: $focus-color solid 3px;
+      }
     }
 
     ul {
@@ -34,8 +38,13 @@
     }
 
     .eventItem {
+      display: inline-block;
       @include Kievit-Medium;
       @include add-grid(3);
+
+      &:focus {
+        outline: $focus-color solid 3px;
+      }
 
       img {
         @include grid-span(1, 1);
@@ -64,6 +73,10 @@
 
       .eventItem-location {
         margin-top: 0;
+      }
+
+      a:focus {
+        outline: $focus-color solid 3px;
       }
     }
   }
@@ -130,6 +143,9 @@
           border-bottom: none;
           color: $PRIMARY_COLOR;
         }
+        &:focus {
+          outline: $focus-color solid 3px;
+        }
       }
     }
 
@@ -175,6 +191,9 @@
           }
           &:nth-child(even) {
             @include float-span(3, 'last');
+          }
+          &:focus {
+            outline: $focus-color solid 3px;
           }
         }
       }

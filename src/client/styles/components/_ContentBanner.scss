@@ -109,6 +109,8 @@
 
       &:focus,
       &:hover {
+        outline: $focus-color solid 5px;
+
         h1 {
           text-decoration: underline;
         }
@@ -118,13 +120,6 @@
             border: 2px solid $WHITE;
           }
         }
-      }
-
-      &:hover {
-        outline: -webkit-focus-ring-color auto 5px;
-        outline: -moz-focus-ring-color auto 5px;
-        outline: -o-focus-ring-color auto 5px;
-        outline: -ms-focus-ring-color auto 5px;
       }
 
       @include min-screen($tablet-portrait) {

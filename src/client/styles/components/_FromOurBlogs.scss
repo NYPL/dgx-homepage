@@ -72,6 +72,10 @@
     }
 	}
 
+  a:focus {
+    outline: $focus-color solid 3px;
+  }
+
 	// Tablet View (Portrait)
   @include layout-at(6, $tablet-portrait) {
   	&-item {

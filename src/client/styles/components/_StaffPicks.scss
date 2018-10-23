@@ -101,6 +101,9 @@
           border: 0;
           float: left;
         }
+        &:focus {
+          outline: $focus-color solid 3px;
+        }
       }
     }
 

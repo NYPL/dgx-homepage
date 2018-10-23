@@ -63,6 +63,9 @@
             }
           }
         }
+        &:focus {
+          outline: $focus-color solid 3px;
+        }
       }
     }
 

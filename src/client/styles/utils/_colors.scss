@@ -15,6 +15,11 @@ $TERTIARY_BLUE_COLOR: #1B7FA7;
 /* Coolgray*/
 $COOLGRAY_COLOR: #A3A19E !default;
 
+$nypl-blue-dark: #135772;
+
+// Accessible, high contrast dark blue for focus rings
+$focus-color: $nypl-blue-dark;
+
 /* Reusable Utility Color Classes for Fonts/Background Color */
 
 // Background Color Classes

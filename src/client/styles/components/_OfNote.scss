@@ -18,6 +18,9 @@
 
   a {
     text-decoration: none;
+    &:focus {
+      outline: $focus-color solid 3px;
+    }
   }
 
   img {

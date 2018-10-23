@@ -16,11 +16,15 @@
 
       a {
         color: $PRIMARY_COLOR;
+        display: block;
         text-decoration: none;
       }
 
       :hover {
         color: $TERTIARY_BLUE_COLOR;
+      }
+      :focus {
+        outline: $focus-color solid 3px;
       }
     }
   }
@@ -48,6 +52,9 @@
         svg {
           fill: $TERTIARY_BLUE_COLOR;
         }
+      }
+      &:focus {
+        outline: $focus-color solid 3px;
       }
 
       svg {
