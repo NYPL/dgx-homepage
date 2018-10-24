@@ -72,6 +72,11 @@
     }
 	}
 
+  a:focus {
+    outline: $focus-color solid 3px;
+    box-shadow: 1px 1px 2px 2px $nypl-focus-box-shadow;
+  }
+
 	// Tablet View (Portrait)
   @include layout-at(6, $tablet-portrait) {
   	&-item {

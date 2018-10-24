@@ -360,6 +360,37 @@ function Model() {
     return result;
   };
 
+  this.getButtonText = obj => {
+    let result;
+    if (!obj && _isEmpty(obj)) {
+      return undefined;
+    }
+
+    try {
+      const {
+        attributes: {
+          "button-text": {
+            en: {
+              text: text = '',
+              type: type = '',
+            },
+          },
+        },
+      } = obj;
+
+      result = {
+        en: {
+          type,
+          text,
+        },
+      };
+    } catch (e) {
+      result = undefined;
+    }
+
+    return result;
+  };
+
   this.getImageAlt = image => {
     if (!image && _isEmpty(image)) {
       return '';
@@ -439,6 +470,7 @@ function Model() {
       const authorImage = this.getAuthorImage(currentItem);
       const fullName = this.getAuthorFullName(currentItem);
       const bookItem = this.getBookItem(currentItem);
+      const buttonText = this.getButtonText(currentItem);
 
       return {
         title: (currentItem.attributes.title) ?
@@ -466,6 +498,7 @@ function Model() {
         },
         location,
         bookItem,
+        buttonText,
       };
     });
   };

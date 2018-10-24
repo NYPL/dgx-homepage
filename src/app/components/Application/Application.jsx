@@ -1,13 +1,4 @@
 import React from 'react';
-// ALT & Flux
-import HomepageStore from '../../stores/HomepageStore.js';
-import Actions from '../../actions/Actions.js';
-// Google Analytics & Utils
-import {
-  trackHpRowEvent,
-  trackComponentEvent,
-} from '../../utils/gaHpUtils';
-import slickResponsiveSettings from '../../utils/slickSettings';
 // NYPL Components
 import { Header, navConfig } from '@nypl/dgx-header-component';
 import HomepageRow from 'dgx-homepage-row-component';
@@ -16,8 +7,18 @@ import HomepageStaffPicks from 'dgx-homepage-staff-picks-component';
 import BooklistWidget from 'dgx-booklist-component';
 import FeatureRow from 'dgx-feature-row-component';
 import TabbedComponent from 'dgx-tabbed-features-component';
-import ContentBanner from 'dgx-homepage-content-banner';
 import Footer from '@nypl/dgx-react-footer';
+// ALT & Flux
+import HomepageStore from '../../stores/HomepageStore';
+import Actions from '../../actions/Actions';
+// Google Analytics & Utils
+import {
+  trackHpRowEvent,
+  trackComponentEvent,
+} from '../../utils/gaHpUtils';
+import slickResponsiveSettings from '../../utils/slickSettings';
+
+import ContentBanner from '../ContentBanner/ContentBanner';
 
 class App extends React.Component {
   constructor(props) {
@@ -50,15 +51,16 @@ class App extends React.Component {
       staffPicksData,
       recommendedRecentReleasesData,
     } = this.state;
+    const bannerData = carouselData;
 
     return (
       <div className="nyplHomepageApp">
         <Header navData={navConfig.current} skipNav={{ target: 'mainContent' }} />
 
-        <div className="nyplHomepage" id="mainContent" tabIndex="-1">
+        <main className="nyplHomepage" id="mainContent">
           <ContentBanner
             ref={i => (this.ContentBanner = i)}
-            items={carouselData.slots}
+            items={bannerData.slots}
             gaClickEvent={trackComponentEvent()}
           />
 
@@ -169,7 +171,7 @@ class App extends React.Component {
               />
             }
           />
-        </div>
+        </main>
 
         <Footer id="footer" className="footer" />
       </div>

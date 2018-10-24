@@ -4,6 +4,8 @@
  * and set up the Ethyl Style Guide application.
 */
 
+$WHITE: #FFF;
+
 /* NYPL Primary Red */
 $PRIMARY_COLOR: #E32B31 !default;
 /* Secondry Red Color */
@@ -12,6 +14,12 @@ $SECONDARY_RED_COLOR: #B80F15 !default;
 $TERTIARY_BLUE_COLOR: #1B7FA7;
 /* Coolgray*/
 $COOLGRAY_COLOR: #A3A19E !default;
+
+$nypl-blue-dark: #135772;
+$nypl-focus-box-shadow: #0f465c;
+
+// Accessible, high contrast dark blue for focus rings
+$focus-color: $nypl-blue-dark;
 
 /* Reusable Utility Color Classes for Fonts/Background Color */
 

@@ -4,9 +4,11 @@
   margin: 0 auto;
   overflow: hidden;
   width: 100%;
+  padding-bottom: 10px;
 
   @include min-screen($tablet-portrait) {
     margin-bottom: 15px;
+    padding-bottom: 0px;
   }
 
   @include min-screen($desktop) {
@@ -17,17 +19,7 @@
     text-decoration: none;
   }
 
-  // Each individual slide container holds an image and content
-  &-slide {
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-
-    &.center {
-      position: relative;
-    }
-
+  &-wrapper {
     img {
       &.loaded {
         -webkit-transition: opacity .3s;
@@ -92,7 +84,7 @@
       padding: 0;
       position: absolute;
       left: 18%;
-      top: 65px;
+      top: 30px;
       color: #FFF;
     }
 
@@ -111,8 +103,25 @@
 
     a {
       background-color: #FFF;
+      color: $WHITE;
       display: block;
       width: 62%;
+
+      &:focus,
+      &:hover {
+        outline: $focus-color solid 3px;
+        box-shadow: 1px 1px 2px 2px $nypl-focus-box-shadow;
+
+        h1 {
+          text-decoration: underline;
+        }
+
+        @include min-screen($tablet-portrait) {
+          .seeMoreLink {
+            border: 2px solid $WHITE;
+          }
+        }
+      }
 
       @include min-screen($tablet-portrait) {
         background-color: #333;
@@ -154,7 +163,7 @@
 
       @include min-screen($tablet-portrait) {
         color: #FFF;
-        margin-top: 25px;
+        margin-top: 15px;
       }
 
       @include min-screen($desktop) {
@@ -211,16 +220,98 @@
         @include displayVisuallyHidden;
         color: #FFF;
         width: auto; // Override displayVisuallyHidden width rule
-        margin: 25px 0 0;
+        margin: 5px 0 0;
+
+        p {
+          width: 65%;
+        }
       }
 
       @include min-screen($tablet-landscape + 1px) {
-        max-width: 100%;
+        max-width: 60%;
+        p {
+          width: 100%;
+        }
       }
 
       @include min-screen($desktop) {
         margin-top: 30px;
-        max-width: 420px;
+        max-width: 300px;
+      }
+    }
+
+    .seeMoreLink-container {
+      position: relative;
+      height: 0;
+
+      @include min-screen($tablet-portrait) {
+        height: 40px;
+      }
+    }
+
+    .seeMoreLink {
+      top: -4.5rem;
+      right: -5.5rem;
+
+      @include Kievit-Medium;
+      border: 2px solid $PRIMARY_COLOR;
+      border-radius: 27px;
+      color: #000;
+      background: $WHITE;
+      text-decoration: none;
+      position: absolute;
+      height: 27px;
+      padding: 3px 4px;
+      text-align: center;
+      vertical-align: middle;
+      font-size: 1rem;
+
+      @include min-screen(380px) {
+        top: -3rem;
+        right: -8rem;
+      }
+      @include min-screen(480px) {
+        right: -10rem;
+      }
+      @include min-screen(600px) {
+        right: -12rem;
+      }
+      @include min-screen(800px) {
+        top: -3rem;
+        right: -15.5rem;
+      }
+
+      @include min-screen($tablet-portrait) {
+        border: 2px solid #333;
+        background: #333;
+        border-radius: 27px;
+        color: $WHITE;
+        float: right;
+        right: auto;
+        position: relative;
+        top: auto;
+      }
+
+      span {
+        padding: 0 5px;
+        @include visuallyHidden;
+
+        @include min-screen($tablet-portrait) {
+          top: -7px;
+          @include displayVisuallyHidden;
+        }
+      }
+
+      svg {
+        fill: $PRIMARY_COLOR;
+        height: 25px;
+        position: relative;
+        top: 1px;
+        width: 25px;
+
+        @include min-screen($tablet-portrait) {
+          fill: $WHITE;
+        }
       }
     }
   }
