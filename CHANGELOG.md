@@ -1,5 +1,8 @@
 ## Changelog
 
+### v1.5.1
+- Small bug fix to the mobile banner arrow button.
+
 ### v1.5.0
 - Removed the `dgx-homepage-content-banner` component import and moved all the files into this repo to better and more easily update the hero banner.
 - Added a button in the homepage banner content area that will always be displayed. If text for the button is found in the server response, it will be displayed but only on desktop. The button _looks_ like a button but is actually a div. If the button is clicked it will only trigger a GA event but the button and content area both go to the same URL.

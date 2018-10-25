@@ -250,8 +250,8 @@
     }
 
     .seeMoreLink {
-      top: -4.5rem;
-      right: -5.5rem;
+      top: -3rem;
+      right: -8rem;
 
       @include Kievit-Medium;
       border: 2px solid $PRIMARY_COLOR;
@@ -266,10 +266,6 @@
       vertical-align: middle;
       font-size: 1rem;
 
-      @include min-screen(380px) {
-        top: -3rem;
-        right: -8rem;
-      }
       @include min-screen(480px) {
         right: -10rem;
       }
