@@ -1,5 +1,8 @@
 ## Changelog
 
+### v1.5.2
+- Small fix to fix tall content banner text size.
+
 ### v1.5.1
 - Small bug fix to the mobile banner arrow button.
 

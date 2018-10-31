@@ -163,12 +163,11 @@
 
       @include min-screen($tablet-portrait) {
         color: #FFF;
-        margin-top: 15px;
+        margin-top: 10px;
       }
 
       @include min-screen($desktop) {
         font-size: 36px;
-        margin-top: 45px;
         max-width: 100%;
       }
     }
@@ -214,28 +213,30 @@
         font-weight: 300;
         letter-spacing: .03em;
         line-height: 24px;
+        margin-bottom: 0;
+        margin-top: 10px;
       }
 
       @include min-screen($tablet-portrait) {
         @include displayVisuallyHidden;
         color: #FFF;
         width: auto; // Override displayVisuallyHidden width rule
-        margin: 5px 0 0;
+        margin: 0;
 
         p {
-          width: 65%;
+          width: 90%;
         }
       }
 
       @include min-screen($tablet-landscape + 1px) {
-        max-width: 60%;
+        max-width: 80%;
         p {
           width: 100%;
         }
       }
 
       @include min-screen($desktop) {
-        margin-top: 30px;
+        margin-top: 0;
         max-width: 300px;
       }
     }
@@ -250,8 +251,8 @@
     }
 
     .seeMoreLink {
-      top: -3rem;
-      right: -8rem;
+      top: -4rem;
+      right: -7rem;
 
       @include Kievit-Medium;
       border: 2px solid $PRIMARY_COLOR;
@@ -266,6 +267,9 @@
       vertical-align: middle;
       font-size: 1rem;
 
+      @include min-screen(370px) {
+        right: -8rem;
+      }
       @include min-screen(480px) {
         right: -10rem;
       }
