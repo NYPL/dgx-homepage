@@ -1,3 +1,6 @@
+### Version
+> v1.5.3
+
 # Tests
 
 For better performance and efficient developing, we integrate unit test with Karma. Karma.config.js will call tes.webpack.js to run all the js files that end with 'Spec', such as ModelSpec.js, which is the convention we name our test files. Karma will run tests on Chrome.

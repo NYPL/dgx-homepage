@@ -62,7 +62,7 @@
     "webpack-dev-server": "1.14.1"
   },
   "dependencies": {
-    "@nypl/dgx-header-component": "2.4.11",
+    "@nypl/dgx-header-component": "2.4.12",
     "@nypl/dgx-react-footer": "0.5.1",
     "axios": "0.12.0",
     "babel-core": "6.26.0",
