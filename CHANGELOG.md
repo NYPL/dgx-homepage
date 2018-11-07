@@ -1,5 +1,8 @@
 ## Changelog
 
+### v1.5.3
+- Updating @nypl/dgx-header-component to 2.4.12.
+
 ### v1.5.2
 - Small fix to fix tall content banner text size.
 
