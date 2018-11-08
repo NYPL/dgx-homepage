@@ -1,5 +1,8 @@
 # NYPL Homepage App
 
+## Version
+> v1.5.5
+
 | Branch         | Status|  
 |:---------------|:---------------------------------------------------------------------------------------------------------------------------|  
 | `master`   | [![Build Status](https://travis-ci.org/NYPL/dgx-homepage.svg?branch=master)](https://travis-ci.org/NYPL/dgx-homepage)      |  
