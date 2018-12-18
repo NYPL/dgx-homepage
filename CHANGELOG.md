@@ -1,5 +1,17 @@
 ## Changelog
 
+### v1.5.6
+- Updating @nypl/dgx-header-component to 2.4.15 and checking for QA in APP_ENV.
+
+### v1.5.5
+- Updating @nypl/dgx-header-component to 2.4.14 and setting APP_ENV.
+
+### v1.5.4
+- Updating @nypl/dgx-header-component to 2.4.13.
+
+### v1.5.3
+- Updating @nypl/dgx-header-component to 2.4.12.
+
 ### v1.5.2
 - Small fix to fix tall content banner text size.
 
