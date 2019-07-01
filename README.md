@@ -46,9 +46,9 @@ We follow a [feature-branch](https://www.atlassian.com/git/tutorials/comparing-w
 
 * Create a new branch off the `development` branch
 * Send a PR pointing to the `development` branch upon completion
-* Once the PR is approved, it should be merged into the `development` branch
+* Once the PR is approved, it should be merged into the `development` branch (Note: CD for development is currently disabled)
 * If there are several PRs in process, a release should be scheduled by merging all completed PRs into the `development` branch
-* When a release is to be deployed, the `development` branch will be merged into `master`
+* When a release is to be deployed, the `development` branch will be merged into `qa`, and then `qa` into `master`
 * All releases merged into `master` `MUST` be tagged and pushed to Github with their corresponding `version`
 
 ## Components

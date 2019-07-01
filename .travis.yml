@@ -1,9 +1,9 @@
 language: node_js
 node_js:
-- '6.11.5'
+- 6.11.5
 cache:
   directories:
-    - node_modules
+  - node_modules
 install: npm install
 before_script: npm run dist
 script: npm test
@@ -24,8 +24,8 @@ deploy:
     branch: master
 - provider: elasticbeanstalk
   skip_cleanup: true
-  access_key_id: "$AWS_ACCESS_KEY_ID_PRODUCTION"
-  secret_access_key: "$AWS_SECRET_ACCESS_KEY_PRODUCTION"
+  access_key_id: "$AWS_ACCESS_KEY_ID_QA"
+  secret_access_key: "$AWS_SECRET_ACCESS_KEY_QA"
   region: us-east-1
   app: nypl-homepage-app
   env: nypl-homepage-qa
@@ -46,7 +46,9 @@ deploy:
   on:
     repo: NYPL/dgx-homepage
     branch: development
+    # We've removed development EB, so skip deploy:
+    condition: 1 == 0
 after_deploy: echo 'Successfully executed deploy trigger for Homepage App on AWS'
 env:
   global:
-    secure: BSg0WvyWA/AA5VZWWqHWT02P2lk+33IMFm5Vy6q0xYoTtAih2RMTPtNa7ogvEwDx84vZHENPCTA+c/OUoCkrcfCSirjG90hC+RlHWO1b8c3UC6aMGmsb03AnvAmv7kgz9U4eFs3WX4qbz2ISfJQZR8L8d/nF6v4p++Z5FxdCa6inV5FvBDiJfdxbJkkGq/TY4+YufuxFSNadULSd+W6PCw2brp1h40CcVv3P6jozskTtfiEb2hJLAgrj4DJCazHOt3JIF4seM+pw7SG3RfS3zK3VK5r33zhoL9zCm5kEDcPMwYgChqqxNuAeVC2xQEVgdnI8kVtRQcyDq9gfiFdrotUAxE36XWcG5+elJz+GeGzMMymAAMWNIdE/mKDH+fqKiAv9lxDQlbqFj2z446JY201KV9fmSTkX3MP/AuKbRXjNBeFKU7q4jfI7h5e7KehmuhfJd16g4Stek3b9C+jwrvbyrSSiXX83+GFQz5KzkD7/i7iHK6wp/K2nh1orHrdMBiIBUJuDK8yUh5vOXyo7+Honr+wTtAa0XFiflUuoTf3uNvLRh8Ytg3I56kE1kbMBsz5RXXnIOSfsRH/2osIcWlb5fsUR/JjyWpmlQN5SbcMWpVoL7CYTE5KAEFUNRPGhP0MWg1xZtIhpHxPwSGiUWys151B4fVDqEqQ2FN4L5P8=
+    secure: ICLkMiLrexqm9ZhlhqcwAlgwYwniGzQ+6hcRw8JApPKNM7aiOQcJ5t2o1RomYt8IILCGrruipkDot2TOrKi4Rz6teQo4QyHuaCLQC8Ya7+QLRKIeLvHD385Dnn+sxTDA9trdqioMhZ46DKFNTSt5HKpkZt1i1crxGnTClaDjJSlQB/fxH7L1Jfz0h7O6TPHcmaX43hOw7wSb6okD0hDMHS28JAeGfyMr42eXq0BhPz8VuvRmGJnh/7rN7CgkOxsd498sl3sRdR9HoAYizvCDw/oOmLNqv++1xoHidVIKMzGk1UXLAappJbGXMJ5DRvFmUdEHLZJ0Xq1FtaEmGhealByUU/R882avNmsNumDX35UkrXeUD0SKExdUR4GLm2yOcsETcQE49o9Gwn1iYpRddQb8mv3RCkU38/0ow5rpv1jNuXRsbi2mMrU+Z9TL+Yb6J+OPtNUDxhy7Mw9fhwsVfFus4MDu0yDBX27ll3of/vVqJvf2JrWnssqkNbHy3kfQnVN7ykG0J3hBeFZnZamPXvwDPwcKjhE8qJ2BqGLpC9Ijg1exLrFOMAtsQ7WDuEJYyS/iJs+31VgIyY/eqpgQCe8OcfFEzgwuFyr1lynj9bIn2+Ne9PWs3q6ahbIC+RUTuB7eoHIfZnztdqBO1wB1fvOOeAT3YtI9RYNG/6+2cLU=
