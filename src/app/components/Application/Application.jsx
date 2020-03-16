@@ -64,7 +64,8 @@ class App extends React.Component {
             gaClickEvent={trackComponentEvent()}
           />
 
-          {/* <HomepageRow
+          {/* TODO: Uncomment when library re-opens after COVID-19 closure
+          <HomepageRow
             title={whatsHappeningData.name}
             link={whatsHappeningData.link}
             className="whatsHappeningRow hpRow nyplGrid"
