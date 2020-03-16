@@ -1,6 +1,7 @@
 ## Changelog
 
-### v1.5.14
+###v1.5.14
+- Hides the "What's Happening" section.
 - Changed "Learn Something New" to "Featured Resources"
 
 ### v1.5.13
