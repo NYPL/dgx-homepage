@@ -64,7 +64,7 @@ class App extends React.Component {
             gaClickEvent={trackComponentEvent()}
           />
 
-          <HomepageRow
+          {/* <HomepageRow
             title={whatsHappeningData.name}
             link={whatsHappeningData.link}
             className="whatsHappeningRow hpRow nyplGrid"
@@ -81,7 +81,7 @@ class App extends React.Component {
                 gaActionText="What's Happening"
               />
             }
-          />
+          /> */}
 
           <HomepageRow
             title={learnSomethingNewData.name}
