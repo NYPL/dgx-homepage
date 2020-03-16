@@ -53,6 +53,9 @@ class App extends React.Component {
     } = this.state;
     const bannerData = carouselData;
 
+    /** TODO: Revert when Library reopens after COVID-19 closure */
+    learnSomethingNewData.name = { type: 'text-group', en: { text: "Featured Resources", type: "text-single" } };
+    
     return (
       <div className="nyplHomepageApp">
         <Header navData={navConfig.current} skipNav={{ target: 'mainContent' }} />
@@ -64,6 +67,7 @@ class App extends React.Component {
             gaClickEvent={trackComponentEvent()}
           />
 
+          {/* TODO: Uncomment when library re-opens after COVID-19 closure
           <HomepageRow
             title={whatsHappeningData.name}
             link={whatsHappeningData.link}
@@ -81,7 +85,7 @@ class App extends React.Component {
                 gaActionText="What's Happening"
               />
             }
-          />
+          /> */}
 
           <HomepageRow
             title={learnSomethingNewData.name}
