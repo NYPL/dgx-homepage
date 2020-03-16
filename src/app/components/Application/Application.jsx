@@ -53,6 +53,9 @@ class App extends React.Component {
     } = this.state;
     const bannerData = carouselData;
 
+    /** TODO: Revert when Library reopens after COVID-19 closure */
+    learnSomethingNewData.name = { type: 'text-group', en: { text: "Featured Resources", type: "text-single" } };
+    
     return (
       <div className="nyplHomepageApp">
         <Header navData={navConfig.current} skipNav={{ target: 'mainContent' }} />
