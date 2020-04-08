@@ -1,6 +1,9 @@
 ## Changelog
 
-###v1.5.14
+### v1.5.15
+- Updating @nypl/dgx-react-footer to 0.5.4.
+
+### v1.5.14
 - Hides the "What's Happening" section.
 - Changed "Learn Something New" to "Featured Resources"
 
