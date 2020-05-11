@@ -148,11 +148,11 @@ const NYPLfromHomeData = {
           type: "uri",
         }
       },
-      link: 'https://www.nypl.org/get-help',
+      link: 'https://www.nypl.org/nyplconnect',
     }
   ],
-  slug: 'learn-something-new',
-  link: '/education'
+  slug: 'nypl-at-home',
+  link: '/about/remote-resources'
 }
 
 module.exports = NYPLfromHomeData;
