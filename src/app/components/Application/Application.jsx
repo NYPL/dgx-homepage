@@ -20,6 +20,9 @@ import slickResponsiveSettings from '../../utils/slickSettings';
 
 import ContentBanner from '../ContentBanner/ContentBanner';
 
+// Temporary NYPL from Home section Data
+import NYPLfromHomeData from '../../stores/NYPLfromHomeStore';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -54,8 +57,8 @@ class App extends React.Component {
     const bannerData = carouselData;
 
     /** TODO: Revert when Library reopens after COVID-19 closure */
-    learnSomethingNewData.name = { type: 'text-group', en: { text: "Featured Resources", type: "text-single" } };
-    
+    learnSomethingNewData.name = { type: 'text-group', en: { text: "Spotlight", type: "text-single" } };
+
     return (
       <div className="nyplHomepageApp">
         <Header navData={navConfig.current} skipNav={{ target: 'mainContent' }} />
@@ -101,6 +104,25 @@ class App extends React.Component {
                 items={learnSomethingNewData.slots}
                 gaClickEvent={trackComponentEvent()}
                 gaActionText="Learn Something New"
+              />
+            }
+          />
+
+          {/* Temporary NYPL from Home Section */}
+          <HomepageRow
+            title={NYPLfromHomeData.name}
+            link={NYPLfromHomeData.link}
+            className="learnRow hpRow nyplGrid"
+            seeMoreId="fromHome-seeMore"
+            gaClickEvent={trackHpRowEvent('NYPL from Home')}
+            content={
+              <FeatureRow
+                id="hpLearn"
+                className="hpLearn"
+                itemsToDisplay={12}
+                items={NYPLfromHomeData.slots}
+                gaClickEvent={trackComponentEvent()}
+                gaActionText="NYPL from Home"
               />
             }
           />

@@ -1,6 +1,19 @@
 ## Changelog
 
-###v1.5.14
+### v1.5.17
+- Changed "Learn Something New" to "Spotlight"
+- Adds new "NYPL at Home" section.
+- Removed Optimizely script
+- Adds a Google Optimize script 
+
+### v1.5.16
+- Updating @nypl/dgx-react-footer to 0.5.5.
+- Updating Falcon Crowdstrike to 5.29.
+
+### v1.5.15
+- Updating @nypl/dgx-react-footer to 0.5.4.
+
+### v1.5.14
 - Hides the "What's Happening" section.
 - Changed "Learn Something New" to "Featured Resources"
 
