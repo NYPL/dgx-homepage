@@ -1,5 +1,8 @@
 ## Changelog
 
+### v1.5.18
+- Updating @nypl/dgx-react-footer to 0.5.6.
+
 ### v1.5.17
 - Changed "Learn Something New" to "Spotlight"
 - Adds new "NYPL at Home" section.
