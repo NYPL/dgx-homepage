@@ -1,4 +1,7 @@
-## Changelog
+## CHANGELOG
+
+### v1.5.19
+- Updating @nypl/dgx-header-component to 2.7.0
 
 ### v1.5.18
 - Updating @nypl/dgx-react-footer to 0.5.6.
@@ -7,7 +10,7 @@
 - Changed "Learn Something New" to "Spotlight"
 - Adds new "NYPL at Home" section.
 - Removed Optimizely script
-- Adds a Google Optimize script 
+- Adds a Google Optimize script
 
 ### v1.5.16
 - Updating @nypl/dgx-react-footer to 0.5.5.
