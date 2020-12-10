@@ -1,4 +1,4 @@
-## Changelog
+## CHANGELOG
 
 ### v1.5.19
 - Updating @nypl/dgx-header-component to 2.7.1.
