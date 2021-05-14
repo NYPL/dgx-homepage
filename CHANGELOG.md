@@ -1,5 +1,8 @@
 ## CHANGELOG
 
+### v1.5.20
+- Update social media icon URLs.
+
 ### v1.5.19
 - Updating @nypl/dgx-header-component to 2.7.1.
 
