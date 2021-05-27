@@ -1,5 +1,9 @@
 ## CHANGELOG
 
+### v1.5.20
+- Brings back "What's On" section.
+- Removes jQuery dependency no longer needed by advocacy.js.
+
 ### v1.5.19
 - Updating @nypl/dgx-header-component to 2.7.1.
 
