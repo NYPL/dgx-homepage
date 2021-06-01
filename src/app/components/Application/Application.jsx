@@ -70,7 +70,6 @@ class App extends React.Component {
             gaClickEvent={trackComponentEvent()}
           />
 
-          {/* TODO: Uncomment when library re-opens after COVID-19 closure
           <HomepageRow
             title={whatsHappeningData.name}
             link={whatsHappeningData.link}
@@ -88,7 +87,7 @@ class App extends React.Component {
                 gaActionText="What's Happening"
               />
             }
-          /> */}
+          />
 
           <HomepageRow
             title={learnSomethingNewData.name}
