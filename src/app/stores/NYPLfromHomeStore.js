@@ -2,7 +2,7 @@ const NYPLfromHomeData = {
   name:
   {
     type: 'text-group',
-    en: { text: 'NYPL from Home', type: 'text-single' }
+    en: { text: 'Discover', type: 'text-single' }
   },
   children: [],
   slots: [
