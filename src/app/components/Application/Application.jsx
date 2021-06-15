@@ -70,7 +70,24 @@ class App extends React.Component {
             gaClickEvent={trackComponentEvent()}
           />
 
-          {/* TODO: Uncomment when library re-opens after COVID-19 closure
+        <HomepageRow
+            title={learnSomethingNewData.name}
+            link={learnSomethingNewData.link}
+            className="learnRow hpRow nyplGrid"
+            seeMoreId="learn-seeMore"
+            gaClickEvent={trackHpRowEvent('Learn Something New')}
+            content={
+              <FeatureRow
+                id="hpLearn"
+                className="hpLearn"
+                itemsToDisplay={4}
+                items={learnSomethingNewData.slots}
+                gaClickEvent={trackComponentEvent()}
+                gaActionText="Learn Something New"
+              />
+            }
+          />
+          
           <HomepageRow
             title={whatsHappeningData.name}
             link={whatsHappeningData.link}
@@ -86,24 +103,6 @@ class App extends React.Component {
                 action={Actions.setWhatsHappeningIndexValue}
                 gaClickEvent={trackComponentEvent()}
                 gaActionText="What's Happening"
-              />
-            }
-          /> */}
-
-          <HomepageRow
-            title={learnSomethingNewData.name}
-            link={learnSomethingNewData.link}
-            className="learnRow hpRow nyplGrid"
-            seeMoreId="learn-seeMore"
-            gaClickEvent={trackHpRowEvent('Learn Something New')}
-            content={
-              <FeatureRow
-                id="hpLearn"
-                className="hpLearn"
-                itemsToDisplay={4}
-                items={learnSomethingNewData.slots}
-                gaClickEvent={trackComponentEvent()}
-                gaActionText="Learn Something New"
               />
             }
           />
