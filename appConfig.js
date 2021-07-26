@@ -1,7 +1,7 @@
 const config = {
   appTitle: 'The New York Public Library',
   appName: 'Homepage',
-  favIconPath: '//d2znry4lg8s0tq.cloudfront.net/images/favicon.ico',
+  favIconPath: 'https://ux-static.nypl.org/images/favicon.ico',
   port: 3001,
   webpackDevServerPort: 3000,
   api: {
