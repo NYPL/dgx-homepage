@@ -1,5 +1,9 @@
 ## CHANGELOG
 
+### v1.5.21
+- Upgrading Elasticbeanstalk Platform version to 4.16.0.
+- Changing deployment paths to new environment for production and qa.
+
 ### v1.5.20
 - Brings back "What's On" section.
 - Removes jQuery dependency no longer needed by advocacy.js.
@@ -15,7 +19,7 @@
 - Changed "Learn Something New" to "Spotlight"
 - Adds new "NYPL at Home" section.
 - Removed Optimizely script
-- Adds a Google Optimize script 
+- Adds a Google Optimize script
 
 ### v1.5.16
 - Updating @nypl/dgx-react-footer to 0.5.5.
