@@ -16,7 +16,7 @@ deploy:
   secret_access_key: "$AWS_SECRET_ACCESS_KEY_PRODUCTION"
   region: us-east-1
   app: nypl-homepage-app
-  env: nypl-homepage-production
+  env: nypl-homepage-production-1
   bucket_name: elasticbeanstalk-us-east-1-946183545209
   bucket_path: nypl-homepage-production
   on:
