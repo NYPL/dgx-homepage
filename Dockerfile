@@ -1,5 +1,9 @@
 FROM node:6.15.1
 
+RUN apt-get update && apt-get install nginx
+
+COPY etc/nginx/conf.d/00-proxy.conf /etc/nginx/conf.d
+
 # Create app directory
 WORKDIR /usr/src/app
 
@@ -19,6 +23,7 @@ RUN npm install
 # Bundle app source
 COPY . .
 
+CMD nginx -c /etc/nginx/nginx.conf & \
+cd /usr/src/app & npm run dist && npm run start
 
-
-CMD cd /usr/src/app && npm run dist && npm run start
+EXPOSE 80
