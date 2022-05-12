@@ -9,10 +9,15 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 RUN npm install
+RUN npm run dist
+
 # If you are building your code for production
 # RUN npm ci --only=production
 
 # Bundle app source
 COPY . .
 
-CMD [ "node", "server.js" ]
+ENV NODE_ENV=production
+ENV APP_ENV=production
+
+CMD [ "node", "server" ]
