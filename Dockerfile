@@ -21,4 +21,4 @@ COPY . .
 
 
 
-CMD [ "npm run dist && npm run start" ]
+CMD /usr/src/app && npm run dist && npm run start
