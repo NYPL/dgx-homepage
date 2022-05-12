@@ -1,7 +1,8 @@
 FROM node:6.15.1
 
 RUN apt-get update && apt-get install nginx -y \
-apt-get update && apt-get upgrade -y
+apt-get update \
+apt-get upgrade -y
 
 # Create app directory
 WORKDIR /usr/src/app
