@@ -1,0 +1,39 @@
+dist: xenial
+sudo: false
+
+services:
+- docker
+
+branches:
+  only:
+  - development
+  - qa
+  - production
+
+env:
+  global:
+  - REMOTE_IMAGE_URL_HOMEPAGE_DEV=491147561046.dkr.ecr.us-east-1.amazonaws.com/homepage
+  - REMOTE_IMAGE_URL_HOMEPAGE_PRODUCTION=463786892988.dkr.ecr.us-east-1.amazonaws.com/homepage
+  - secure:
+  - secure:
+
+script:
+- cd $TRAVIS_BUILD_DIR
+- "./var_sub.sh $TRAVIS_BRANCH"
+
+after_success:
+- cd $TRAVIS_BUILD_DIR
+- provisioning/travis/build_for_aws.sh
+- provisioning/travis/deploy_on_aws.sh
+
+after_failure:
+- if [ -f $HOME/server.log ] ; then echo "Server log:" && cat $HOME/server.log ; fi
+
+after_script:
+- rm -f $HOME/server.log
+
+notifications:
+  email:
+    recipients: sysadmin@nypl.org
+    on_success: always
+    on_failure: always
