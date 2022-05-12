@@ -7,6 +7,8 @@ WORKDIR /usr/src/app
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
 COPY package*.json ./
+ENV NODE_ENV=production
+ENV APP_ENV=production
 
 RUN npm install
 RUN npm run dist
@@ -17,7 +19,6 @@ RUN npm run dist
 # Bundle app source
 COPY . .
 
-ENV NODE_ENV=production
-ENV APP_ENV=production
+
 
 CMD [ "node", "server" ]
