@@ -1,6 +1,6 @@
 FROM node:6.15.1
 
-RUN apt-get update && apt-get install nginx
+RUN apt-get update && apt-get install nginx -y
 
 COPY etc/nginx/conf.d/00-proxy.conf /etc/nginx/conf.d
 
