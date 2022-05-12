@@ -2,9 +2,6 @@ FROM node:6.15.1
 
 RUN apt-get update && apt-get install nginx -y
 
-COPY etc/nginx/conf.d/00-proxy.conf /etc/nginx/conf.d
-RUN rm /etc/nginx/sites-enabled/default
-
 # Create app directory
 WORKDIR /usr/src/app
 
@@ -16,13 +13,15 @@ ENV NODE_ENV=production
 ENV APP_ENV=production
 
 RUN npm install
-#RUN npm run dist
 
 # If you are building your code for production
 # RUN npm ci --only=production
 
 # Bundle app source
 COPY . .
+
+COPY etc/nginx/conf.d/00-proxy.conf /etc/nginx/conf.d
+RUN rm /etc/nginx/sites-enabled/default
 
 CMD nginx -c /etc/nginx/nginx.conf & \
 cd /usr/src/app & npm run dist && npm run start
