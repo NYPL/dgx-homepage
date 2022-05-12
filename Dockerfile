@@ -3,6 +3,7 @@ FROM node:6.15.1
 RUN apt-get update && apt-get install nginx -y
 
 COPY etc/nginx/conf.d/00-proxy.conf /etc/nginx/conf.d
+RUN rm /etc/nginx/conf.d/default.conf
 
 # Create app directory
 WORKDIR /usr/src/app
