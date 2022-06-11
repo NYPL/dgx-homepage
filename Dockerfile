@@ -1,4 +1,4 @@
-FROM node:6.15.1
+FROM node:6.11.5
 
 RUN apt-get update && apt-get install nginx -y
 RUN apt-get update
@@ -10,10 +10,14 @@ WORKDIR /usr/src/app
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
-COPY package*.json ./
+COPY package.json ./
+COPY package-lock.json ./
 ENV NODE_ENV=production
 ENV APP_ENV=production
 
+RUN npm cache clean
+#RUN npm cache verify
+#RUN npm update
 RUN npm install
 
 # If you are building your code for production
