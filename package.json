@@ -98,7 +98,6 @@
     "react-dom": "15.5.4",
     "rootpath": "0.1.2",
     "sass-loader": "5.0.0",
-    "sassy-maps": "at-import/Sassy-Maps#v0.4.0",
     "singularitygs": "1.7.0",
     "style-loader": "0.19.1",
     "underscore": "1.8.3",
