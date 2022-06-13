@@ -1,6 +1,5 @@
 FROM node:6.11.5
 
-RUN apt-get update && apt-get install nginx -y
 RUN apt-get update
 RUN apt-get upgrade -y
 
@@ -24,10 +23,10 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-COPY etc/nginx/conf.d/00-proxy.conf /etc/nginx/conf.d
-RUN rm /etc/nginx/sites-enabled/default
+RUN npm run dist
 
-CMD nginx -c /etc/nginx/nginx.conf & \
-cd /usr/src/app & npm run dist && npm run start
+# Explicitly set port 3001 as open to requests.
+EXPOSE 3001
+EXPOSE 3000
 
-EXPOSE 80
+CMD [ "npm", "start" ]
