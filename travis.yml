@@ -1,5 +1,6 @@
-dist: xenial
-sudo: false
+language: node_js
+node_js:
+  - 6.17.1
 
 services:
 - docker
@@ -12,19 +13,18 @@ branches:
 
 env:
   global:
-  - REMOTE_IMAGE_URL_HOMEPAGE_DEV=491147561046.dkr.ecr.us-east-1.amazonaws.com/homepage
-  - REMOTE_IMAGE_URL_HOMEPAGE_PRODUCTION=463786892988.dkr.ecr.us-east-1.amazonaws.com/homepage
-  - secure:
-  - secure:
+  - REMOTE_IMAGE_URL_HOMEPAGE_DEV=491147561046.dkr.ecr.us-east-1.amazonaws.com/nypldxphomepage
+  - REMOTE_IMAGE_URL_HOMEPAGE_PRODUCTION=463786892988.dkr.ecr.us-east-1.amazonaws.com/nypldxphomepage
+    # AWS dev
+  - secure: LcXE0JX4Jmp6AcnS6ki/plXFBygKfS7PwkT0JQPWoRuAk5jgCAAfPGiAQArvOqHKkt34o5mVG+EYUUOaf+B5GdetGXp35hj5LYrxrZJSyGaEteOeuoswmd/rylpiPWrSa4K6EV/070ioihoyrzfQwrGeVmU0dCvNci23s46qZJJ0rN4tqC5q4L71ryGgT9mNISwGOKd7X8kmUrRlFt0UqcUEDCd3LzIObquxhtviUHadxzDfdI7dZ4rPdH5xDKFzas1bnV4bsfsu6vIN5E8CoP8dM4r8tfuLCeYRfd0cmGu7BR5HiLYf2HW4sDkHu/jHlO+aJS1bQWzK5QN520Wc0TePMinB/M4FYSch1jB0LPdC+c/Hy6qB3wZhoISUQzyvA5BfvHCLIyN9UOQCxXHHiQvasM+qwyucRA/pIFL4hX6bACoB9v5zxGVDlx3mxANFbC3XyW2/lnN5A2S5+u+44oxR27WFCEx3c5A9+M7zQCuXPmHXMe0YWNqkV5b6c8CkvYDtJqhSKe60E9ZaWXJBcXvgm09k8TxbnMCAjQYIlSSIgujesrDCGF2TvjwElbOEH0XF7exSswe4tZ1f3Tn1wfB5fWcc557SEK1Qc39z85NmkJ17etPJz8D864M41LcZjZ191ARuChnq/XLivKuNTU3Ex7CRqzJsjI903KDE2uY=
+    # AWS prod
+  - secure: Pjmy0XMzt4DMD4JBTsG73LGx6r5MwkVGbB6ALMoXTjke8+dS2w/McP57AMpflhiMSx/EbhqisbEM7ePpGu0rlh+s8JbDPe/magEzHQJKwGQU3/b/JIEzoHzNM9Wj/g8PoCSu9CFLaAGO6C3M0DH+yAFX80IEx4UROWfrKN5ym6cFzeWfY2H314GPfI/lqy4ozXP2+H6VE68zeXWLmx7MOH516gPxxHEboKb74IBZOBZa01MK+T5HndaOeT2yz5OzW1SRxhZRgw0mzl6FV7WWlklWP0MRLnEFKbS2OPz8ju4WN4+/D0MPLYm1nC1LisYXeya4lwDSxhu0KryZ1ljPnKjrMc0YJgcnLT1vuheWBN30ro/7bNj/2Mny25d4/LzmHnsmmXCe+TTRfOt11RFZ6khxtTPi+Xi8PISipamvygp47DjcYbolGRZmlbKZnosKvJ9q+uHoGz6Esu/P8PTXmxddXnyXZAGAvvje9GyhsXzD+S1zdZjoeis1fVmKQfGoxo71Dt/FtlEvL1TFBLvfFMdHjW64RnCnV3qiWSZwHOqD97SfmTQwnVBAFOnxF/qO82uDOnyzu3xw/J881EEDYRwgxpfSLjHcof7EE6efRtVOQ5BD57OeI6H2/OAqfV3MJ7NRH+g8TpbwtataZpDWQ/I41Y5n7D14vGn5BsolKcE=
 
-script:
-- cd $TRAVIS_BUILD_DIR
-- "./var_sub.sh $TRAVIS_BRANCH"
+install: npm install
 
 after_success:
 - cd $TRAVIS_BUILD_DIR
-- provisioning/travis/build_for_aws.sh
-- provisioning/travis/deploy_on_aws.sh
+- provisioning/deploy.sh
 
 after_failure:
 - if [ -f $HOME/server.log ] ; then echo "Server log:" && cat $HOME/server.log ; fi

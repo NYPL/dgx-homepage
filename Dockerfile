@@ -1,4 +1,4 @@
-FROM node:6.11.5
+FROM node:6.17.1
 
 RUN apt-get update
 RUN apt-get upgrade -y
@@ -10,7 +10,6 @@ WORKDIR /usr/src/app
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
 COPY package.json ./
-COPY package-lock.json ./
 ENV NODE_ENV=production
 ENV APP_ENV=production
 
@@ -27,6 +26,5 @@ RUN npm run dist
 
 # Explicitly set port 3001 as open to requests.
 EXPOSE 3001
-EXPOSE 3000
 
 CMD [ "npm", "start" ]
