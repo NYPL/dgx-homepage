@@ -24,7 +24,7 @@ install: npm install
 
 after_success:
 - cd $TRAVIS_BUILD_DIR
-- provisioning/deploy.sh
+- provisioning/deploy
 
 after_failure:
 - if [ -f $HOME/server.log ] ; then echo "Server log:" && cat $HOME/server.log ; fi
