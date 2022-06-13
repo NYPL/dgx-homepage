@@ -12,12 +12,10 @@ WORKDIR /usr/src/app
 # where available (npm@5+)
 COPY package.json ./
 COPY package-lock.json ./
-ENV NODE_ENV=production
-ENV APP_ENV=production
+#ENV NODE_ENV=production
+#ENV APP_ENV=production
 
 RUN npm cache clean
-#RUN npm cache verify
-#RUN npm update
 RUN npm install
 
 # If you are building your code for production
