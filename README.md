@@ -1,5 +1,7 @@
 # NYPL Homepage App
 
+## Currently changing to a Docker container version
+
 ## Version
 > v1.5.21
 

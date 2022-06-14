@@ -1,54 +1,39 @@
 language: node_js
 node_js:
-- 6.15.1
-cache:
-  directories:
-  - node_modules
-install: npm install
-before_script: npm run dist
-script: npm test
-before_deploy: echo 'All unit tests passed; Successfully built distribution assets;
-  Preparing to deploy Homepage App to AWS'
-deploy:
-- provider: elasticbeanstalk
-  skip_cleanup: true
-  access_key_id: "$AWS_ACCESS_KEY_ID_PRODUCTION"
-  secret_access_key: "$AWS_SECRET_ACCESS_KEY_PRODUCTION"
-  region: us-east-1
-  app: nypl-homepage-app
-  env: nypl-homepage-production-1
-  bucket_name: elasticbeanstalk-us-east-1-946183545209
-  bucket_path: nypl-homepage-production
-  on:
-    repo: NYPL/dgx-homepage
-    branch: master
-- provider: elasticbeanstalk
-  skip_cleanup: true
-  access_key_id: "$AWS_ACCESS_KEY_ID_QA"
-  secret_access_key: "$AWS_SECRET_ACCESS_KEY_QA"
-  region: us-east-1
-  app: nypl-homepage-app
-  env: nypl-homepage-qa-1
-  bucket_name: elasticbeanstalk-us-east-1-946183545209
-  bucket_path: nypl-homepage-qa
-  on:
-    repo: NYPL/dgx-homepage
-    branch: qa
-- provider: elasticbeanstalk
-  skip_cleanup: true
-  access_key_id: "$AWS_ACCESS_KEY_ID_DEVELOPMENT"
-  secret_access_key: "$AWS_SECRET_ACCESS_KEY_DEVELOPMENT"
-  region: us-east-1
-  app: nypl-homepage-app
-  env: nypl-homepage-development
-  bucket_name: elasticbeanstalk-us-east-1-224280085904
-  bucket_path: nypl-homepage-development
-  on:
-    repo: NYPL/dgx-homepage
-    branch: development
-    # We've removed development EB, so skip deploy:
-    condition: 1 == 0
-after_deploy: echo 'Successfully executed deploy trigger for Homepage App on AWS'
+  - 6.17.1
+
+services:
+- docker
+
+branches:
+  only:
+  - development
+  - qa
+  - production
+
 env:
   global:
-    secure: ICLkMiLrexqm9ZhlhqcwAlgwYwniGzQ+6hcRw8JApPKNM7aiOQcJ5t2o1RomYt8IILCGrruipkDot2TOrKi4Rz6teQo4QyHuaCLQC8Ya7+QLRKIeLvHD385Dnn+sxTDA9trdqioMhZ46DKFNTSt5HKpkZt1i1crxGnTClaDjJSlQB/fxH7L1Jfz0h7O6TPHcmaX43hOw7wSb6okD0hDMHS28JAeGfyMr42eXq0BhPz8VuvRmGJnh/7rN7CgkOxsd498sl3sRdR9HoAYizvCDw/oOmLNqv++1xoHidVIKMzGk1UXLAappJbGXMJ5DRvFmUdEHLZJ0Xq1FtaEmGhealByUU/R882avNmsNumDX35UkrXeUD0SKExdUR4GLm2yOcsETcQE49o9Gwn1iYpRddQb8mv3RCkU38/0ow5rpv1jNuXRsbi2mMrU+Z9TL+Yb6J+OPtNUDxhy7Mw9fhwsVfFus4MDu0yDBX27ll3of/vVqJvf2JrWnssqkNbHy3kfQnVN7ykG0J3hBeFZnZamPXvwDPwcKjhE8qJ2BqGLpC9Ijg1exLrFOMAtsQ7WDuEJYyS/iJs+31VgIyY/eqpgQCe8OcfFEzgwuFyr1lynj9bIn2+Ne9PWs3q6ahbIC+RUTuB7eoHIfZnztdqBO1wB1fvOOeAT3YtI9RYNG/6+2cLU=
+  - REMOTE_IMAGE_URL_HOMEPAGE_DEV=491147561046.dkr.ecr.us-east-1.amazonaws.com/nypldxphomepage
+  - REMOTE_IMAGE_URL_HOMEPAGE_PRODUCTION=463786892988.dkr.ecr.us-east-1.amazonaws.com/nypldxphomepage
+    # AWS dev
+  - secure: LcXE0JX4Jmp6AcnS6ki/plXFBygKfS7PwkT0JQPWoRuAk5jgCAAfPGiAQArvOqHKkt34o5mVG+EYUUOaf+B5GdetGXp35hj5LYrxrZJSyGaEteOeuoswmd/rylpiPWrSa4K6EV/070ioihoyrzfQwrGeVmU0dCvNci23s46qZJJ0rN4tqC5q4L71ryGgT9mNISwGOKd7X8kmUrRlFt0UqcUEDCd3LzIObquxhtviUHadxzDfdI7dZ4rPdH5xDKFzas1bnV4bsfsu6vIN5E8CoP8dM4r8tfuLCeYRfd0cmGu7BR5HiLYf2HW4sDkHu/jHlO+aJS1bQWzK5QN520Wc0TePMinB/M4FYSch1jB0LPdC+c/Hy6qB3wZhoISUQzyvA5BfvHCLIyN9UOQCxXHHiQvasM+qwyucRA/pIFL4hX6bACoB9v5zxGVDlx3mxANFbC3XyW2/lnN5A2S5+u+44oxR27WFCEx3c5A9+M7zQCuXPmHXMe0YWNqkV5b6c8CkvYDtJqhSKe60E9ZaWXJBcXvgm09k8TxbnMCAjQYIlSSIgujesrDCGF2TvjwElbOEH0XF7exSswe4tZ1f3Tn1wfB5fWcc557SEK1Qc39z85NmkJ17etPJz8D864M41LcZjZ191ARuChnq/XLivKuNTU3Ex7CRqzJsjI903KDE2uY=
+    # AWS prod
+  - secure: Pjmy0XMzt4DMD4JBTsG73LGx6r5MwkVGbB6ALMoXTjke8+dS2w/McP57AMpflhiMSx/EbhqisbEM7ePpGu0rlh+s8JbDPe/magEzHQJKwGQU3/b/JIEzoHzNM9Wj/g8PoCSu9CFLaAGO6C3M0DH+yAFX80IEx4UROWfrKN5ym6cFzeWfY2H314GPfI/lqy4ozXP2+H6VE68zeXWLmx7MOH516gPxxHEboKb74IBZOBZa01MK+T5HndaOeT2yz5OzW1SRxhZRgw0mzl6FV7WWlklWP0MRLnEFKbS2OPz8ju4WN4+/D0MPLYm1nC1LisYXeya4lwDSxhu0KryZ1ljPnKjrMc0YJgcnLT1vuheWBN30ro/7bNj/2Mny25d4/LzmHnsmmXCe+TTRfOt11RFZ6khxtTPi+Xi8PISipamvygp47DjcYbolGRZmlbKZnosKvJ9q+uHoGz6Esu/P8PTXmxddXnyXZAGAvvje9GyhsXzD+S1zdZjoeis1fVmKQfGoxo71Dt/FtlEvL1TFBLvfFMdHjW64RnCnV3qiWSZwHOqD97SfmTQwnVBAFOnxF/qO82uDOnyzu3xw/J881EEDYRwgxpfSLjHcof7EE6efRtVOQ5BD57OeI6H2/OAqfV3MJ7NRH+g8TpbwtataZpDWQ/I41Y5n7D14vGn5BsolKcE=
+
+install: npm install
+
+after_success:
+- cd $TRAVIS_BUILD_DIR
+- provisioning/deploy
+
+after_failure:
+- if [ -f $HOME/server.log ] ; then echo "Server log:" && cat $HOME/server.log ; fi
+
+after_script:
+- rm -f $HOME/server.log
+
+notifications:
+  email:
+    recipients: sysadmin@nypl.org
+    on_success: always
+    on_failure: always
