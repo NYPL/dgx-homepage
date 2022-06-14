@@ -1,13 +1,14 @@
 # NYPL Homepage App
 
-## Currently changing to a Docker container version
+## Currently a Docker container service hosted application
 
 ## Version
-> v1.5.21
+> v1.6.0
 
 | Branch         | Status|  
 |:---------------|:---------------------------------------------------------------------------------------------------------------------------|  
 | `master`   | [![Build Status](https://travis-ci.org/NYPL/dgx-homepage.svg?branch=master)](https://travis-ci.org/NYPL/dgx-homepage)      |  
+| `production`   | [![Build Status](https://travis-ci.org/NYPL/dgx-homepage.svg?branch=production)](https://travis-ci.org/NYPL/dgx-homepage)      |  
 | `qa`           | [![Build Status](https://travis-ci.org/NYPL/dgx-homepage.svg?branch=qa)](https://travis-ci.org/NYPL/dgx-homepage) |  
 | `development`  | [![Build Status](https://travis-ci.org/NYPL/dgx-homepage.svg?branch=development)](https://travis-ci.org/NYPL/dgx-homepage)      |
 
@@ -50,7 +51,7 @@ We follow a [feature-branch](https://www.atlassian.com/git/tutorials/comparing-w
 * Send a PR pointing to the `development` branch upon completion
 * Once the PR is approved, it should be merged into the `development` branch (Note: CD for development is currently disabled)
 * If there are several PRs in process, a release should be scheduled by merging all completed PRs into the `development` branch
-* When a release is to be deployed, the `development` branch will be merged into `qa`, and then `qa` into `master`
+* When a release is to be deployed, the `development` branch will be merged into `qa`, and then `qa` into `production`, and then `production` into `master`
 * All releases merged into `master` `MUST` be tagged and pushed to Github with their corresponding `version`
 
 ## Components
@@ -69,13 +70,13 @@ Going from the top to the bottom of the page, we have the following list of comp
 
 All the repos above point to their respective `master` branch. Whenever an update is made, the homepage needs to be built again to get that component's update. Since the reference to the components already point to `master`, all that needs to be done for the homepage to perform a clean installation of dependencies.
 
-## AWS Elastic Beanstalk Application Settings
+## AWS Elastic Container Service Application Settings
 By using the `aws-cli`, developers can deploy the Homepage App to the desired AWS application environments listed below:
 
 | AWS Profile | Application Name | Environment |
 |---|---|---|
-| `nypl-digital-dev` | `nypl-homepage-app` | **QA**: `nypl-homepage-qa` <br><br> **Production**: `nypl-homepage-production` |
-| `nypl-sandbox` | `nypl-homepage-app` | **Development**: `nypl-homepage-development` |
+| `nypl` | `cluster` |**Production**: `nyplorg-homepage-production` |
+| `nypl-dev` | `cluster` |  **QA**: `nyplorg-homepage-qa` |
 
 > Note: All QA and Development servers should be configured with only 1 instance. Production servers are typically setup with auto-scaling supporting 2 or more instances.
 
@@ -88,5 +89,5 @@ Developers `SHOULD` target the proper environment when deploying the application
 In our AWS production environment, we have defined a CI/CD pipeline via Travis CI to automatically:
 * Run unit test coverage
 * Run the npm task to build the distribution assets
-* Execute the `deploy` hook only for `production` for AWS Elastic Beanstalk to deploy the new updates merged into `master`. This occurs only if a both `test` and `build` phases are successful
+* Execute the `deploy` hook only for `qa` and `production` for AWS Elastic Container Service to deploy the new updates merged into `master`. This occurs only if a both `test` and `build` phases are successful
 * Developers do not need to manually deploy the application unless an error occurred via Travis

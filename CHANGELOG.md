@@ -1,4 +1,8 @@
 ## CHANGELOG
+### v1.6.0
+- Changing deployment to AWS ECS for production and qa.
+- Removed Elastic Beanstalk configurations.
+- Removed Sassy-Maps package due to build errors.
 
 ### v1.5.21
 - Upgrading Elasticbeanstalk Platform version to 4.16.0.
